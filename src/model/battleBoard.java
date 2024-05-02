@@ -4,10 +4,6 @@ import boardifier.control.Logger;
 import boardifier.model.GameStageModel;
 import boardifier.model.ContainerElement;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.awt.*;
-
 public class battleBoard extends ContainerElement{
 
     public battleBoard(int x, int y, GameStageModel gameStageModel) {
