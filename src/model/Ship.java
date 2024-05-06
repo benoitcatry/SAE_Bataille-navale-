@@ -10,12 +10,15 @@ public class Ship extends ContainerElement {
     private int shipID;
     private static int nbShip = 1;
     private int playerID;
+    private boolean couler = false;
+
 
     public Ship(int x, int y, int taille, GameStageModel gameStageModel) {
         super("ship", x, y, 1, taille , gameStageModel);
         this.taille =taille;
         this.shipID = nbShip;
         nbShip++;
+        setShipParts(gameStageModel);
     }
 
 
@@ -45,6 +48,31 @@ public class Ship extends ContainerElement {
             }
         }
     }
+
+    public void verifcouler(){
+        int verif = 0;
+        for (int i = 0; i < taille; i++) {
+            if( shipParts[i].esttoucher() == true){
+                verif++;
+            }
+        }
+        if(verif==taille){
+            couler = true;
+        }
+    }
+
+    public int nbdepartcouler(){
+        int nb = 0;
+        for (int i = 0; i < taille; i++) {
+            if( shipParts[i].esttoucher() == true){
+                nb++;
+            }
+        }
+    return nb;
+    }
+
+
+
 
     public void setidplayer(int id){
         playerID =id;

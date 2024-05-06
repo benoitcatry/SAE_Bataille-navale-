@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Ship.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/shipPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/shipPart.java" afterDir="false" />
     </list>
@@ -67,6 +68,9 @@
       <workItem from="1714657141468" duration="1103000" />
       <workItem from="1714940634428" duration="5621000" />
       <workItem from="1714979536527" duration="2472000" />
+      <workItem from="1714985650652" duration="2382000" />
+      <workItem from="1714995785437" duration="4342000" />
+      <workItem from="1715003632064" duration="1427000" />
     </task>
     <servers />
   </component>

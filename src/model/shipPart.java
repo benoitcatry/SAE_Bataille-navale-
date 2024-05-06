@@ -10,6 +10,7 @@ public class shipPart extends GameElement {
     private int colors;
     private int X;
     private int Y;
+    private boolean toucher = false;
 
     public shipPart(int number, int color, GameStageModel gameStageModel ) {
         super(gameStageModel);
@@ -33,6 +34,8 @@ public class shipPart extends GameElement {
         Y = y;
     }
 
-
-
+    public void setToucher(boolean toucher) {
+        this.toucher = toucher;
+    }
+    public boolean esttoucher(){return toucher;}
 }
