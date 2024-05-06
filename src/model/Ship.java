@@ -9,6 +9,7 @@ public class Ship extends ContainerElement {
     private shipPart[] shipParts;
     private int shipID;
     private static int nbShip = 1;
+    private int playerID;
 
     public Ship(int x, int y, int taille, GameStageModel gameStageModel) {
         super("ship", x, y, 1, taille , gameStageModel);
@@ -45,4 +46,11 @@ public class Ship extends ContainerElement {
         }
     }
 
+    public void setidplayer(int id){
+        playerID =id;
+    }
+
+    public int getPlayerID() {
+        return playerID;
+    }
 }

@@ -1,8 +1,6 @@
 package model;
 
-import boardifier.model.GameStageModel;
-import boardifier.model.Model;
-import boardifier.model.TextElement;
+import boardifier.model.*;
 
 public class BattleShipStageModel extends GameStageModel {
 
@@ -22,9 +20,29 @@ public class BattleShipStageModel extends GameStageModel {
         Player2toplay = 50;
 
     }
+
+    public int getPlayer1toplay() {
+        return player1toplay;
+    }
+
+
     
+    public int getPlayer2toplay() {
+        return Player2toplay;
+    }
 
 
-    private void
+
+    private void setupCallbacks(){
+
+    }
+
+    //regarde qui gagne
+    private void computePartyResult(){
+
+    }
+
+
+
 
 }

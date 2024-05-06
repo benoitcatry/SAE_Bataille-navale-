@@ -1,9 +1,8 @@
 package model;
 
+import boardifier.model.ElementTypes;
 import boardifier.model.GameElement;
 import boardifier.model.GameStageModel;
-
-import java.lang.annotation.ElementType;
 
 public class shipPart extends GameElement {
 
@@ -15,8 +14,8 @@ public class shipPart extends GameElement {
     public shipPart(int number, int color, GameStageModel gameStageModel ) {
         super(gameStageModel);
         // name = "ship" id = 50
-        ElementType.register("shippart",50);
-        type = ElementType.getType("shippart");
+        ElementTypes.register("shippart",50);
+        type = ElementTypes.getType("shippart");
         this.number = number;
         this.colors = color;
     }
@@ -33,4 +32,7 @@ public class shipPart extends GameElement {
         X = x;
         Y = y;
     }
+
+
+
 }
