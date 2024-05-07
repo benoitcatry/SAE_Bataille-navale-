@@ -9,6 +9,7 @@ public class Missile extends GameElement {
     private int number;
     private int color;
     private int idPlayer;
+    private int[][] cordonnervisiter;
 
 
     public Missile(int number, int color,int idPlayer, GameStageModel gameStageModel) {
@@ -19,6 +20,7 @@ public class Missile extends GameElement {
         this.number = number;
         this.color = color;
         this.idPlayer = idPlayer;
+        this.cordonnervisiter = new int[50][2];
     }
 
     public int getNumber() {
@@ -29,11 +31,29 @@ public class Missile extends GameElement {
     public int getColor() {
         return color;
     }
-    pu
+    public void setColor(int color) {this.color = color;}
 
+    public int getIdPlayer() {return idPlayer;}
+    public void setIdPlayer(int idPlayer) {this.idPlayer = idPlayer;}
 
-    public void setColor(int color) {
-        this.color = color;
+    public int[][] getCordonnervisiter() {return cordonnervisiter;}
+    public void setCordonnervisiter(int[][] cordonnervisiter) {this.cordonnervisiter = cordonnervisiter;}
+    public void afficheListeCordonner(){
+        for(int i = 0; i < 50; i++){
+                System.out.println(cordonnervisiter[i][0] + ' ' +cordonnervisiter[i][1] );
+        }
     }
+
+
+    public boolean estVisiter(int x, int y){
+        for(int i = 0; i < 50; i++){
+            if(cordonnervisiter[i][0] == x && cordonnervisiter[i][1] == y){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }
 

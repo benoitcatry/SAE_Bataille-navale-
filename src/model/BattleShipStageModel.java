@@ -13,6 +13,8 @@ public class BattleShipStageModel extends GameStageModel {
     private Ship[] ShipPlayer2;
     private TextElement player1Name;
     private TextElement player2Name;
+    private Missile missilejoueur1;
+    private Missile missilejoueur2;
 
     public BattleShipStageModel(String name, Model model) {
         super(name, model);
@@ -47,6 +49,11 @@ public class BattleShipStageModel extends GameStageModel {
     public void setPlayer2Name(TextElement player1Name) {this.player2Name = player1Name;}
     public TextElement getPlayer2Name() {return player2Name;}
 
+
+    public Missile getMissilejoueur1() {return missilejoueur1;}
+    public void setMissilejoueur1(Missile m){missilejoueur1 = m;}
+    public Missile getMissilejoueur2() {return missilejoueur2;}
+    public void setMissilejoueur2(Missile m){missilejoueur2 = m;}
 
     //verif que les cordonnée des ship ne se colle pas : sur les coter et les coin
     //elle est a vomir
