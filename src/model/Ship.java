@@ -33,6 +33,10 @@ public class Ship extends ContainerElement {
 
     }
 
+    public int getTaille() {return taille;}
+
+    public boolean getSens() {return sens;}
+
     public void setCordonnerShip(int y , int x, char sens){
         if(y+taille>10||x+taille>10){
             System.out.println("imposible de placer le bateau");
@@ -71,7 +75,13 @@ public class Ship extends ContainerElement {
     return nb;
     }
 
+    public int getPartCordonneX(int numeroDeLaPart){
+        return shipParts[numeroDeLaPart].getcordonneX();
+    }
 
+    public int getPartCordonneY(int numeroDeLaPart){
+        return shipParts[numeroDeLaPart].getcordonneY();
+    }
 
 
     public void setidplayer(int id){

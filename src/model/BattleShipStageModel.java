@@ -48,16 +48,50 @@ public class BattleShipStageModel extends GameStageModel {
     public TextElement getPlayer2Name() {return player2Name;}
 
 
+    //verif que les cordonnée des ship ne se colle pas : sur les coter et les coin
+    //elle est a vomir
+
+    public boolean VerifPasColer(Ship[] ships, int xNewship, int yNewShip, int tailleNewShip){
+        int verif = 0;
+        for(int i =0; i<tailleNewShip; i++){
+            for (Ship ship : ships) {
+                //true =  V et false = H
+                if (ship.getSens() == true) {
+                    for(int g = 0; g < ship.getTaille(); g++){
+                        for(int j =-1; j<=ship.getTaille()+1; j++) {
+                            for(int k =-1; k<1; k++) {
+                                if (ship.getPartCordonneY(g)+j ==yNewShip && ship.getPartCordonneX(g)+k ==xNewship ){
+                                    return false;
+                                }else{verif++;}
+                            }
+                        }
+                    }
+                } else if (ship.getSens() == false) {
+                    for(int g = 0; g < ship.getTaille(); g++){
+                        for(int j =-1; j<=ship.getTaille()+1; j++) {
+                            for(int k =-1; k<1; k++) {
+                                if (ship.getPartCordonneY(g)+k ==yNewShip && ship.getPartCordonneX(g)+j ==xNewship ){
+                                    return false;
+                                }else{verif++;}
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+        return true;
+    }
 
 
 
 
     //doit gerer la partie pas fini dsl
     private void setupCallbacks(){
-
+ 
         onPutInContainer( (element, gridDest, rowDest, colDest) -> {
             // just check when pawns are put in 3x3 board
-                /* if (gridDest != board) return;
+                 if (gridDest != board) return;
                 Pawn p = (Pawn) element;
                 if (p.getColor() == 0) {
                     player1toplay--;
@@ -67,7 +101,7 @@ public class BattleShipStageModel extends GameStageModel {
                 }
                 if ((player1toplay == 0) && (Player2toplay == 0)) {
                     computePartyResult();
-                }*/
+                }
             });
 
 
