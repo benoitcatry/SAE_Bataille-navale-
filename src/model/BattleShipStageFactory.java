@@ -111,6 +111,10 @@ public class BattleShipStageFactory extends StageElementsFactory {
         shipplayer1[9] = new Ship(1,1,1,stageModel);
         stageModel.setShipsPlayer2(shipplayer2);
 
+        Missile missile1 = new Missile(0,0,1,stageModel);
+        stageModel.setMissilejoueur1(missile1);
+        Missile missile2 = new Missile(0,0,2,stageModel);
+        stageModel.setMissilejoueur2(missile2);
     }
 
 

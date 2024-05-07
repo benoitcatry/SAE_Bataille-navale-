@@ -98,15 +98,15 @@ public class BattleShipStageModel extends GameStageModel {
  
         onPutInContainer( (element, gridDest, rowDest, colDest) -> {
             // just check when pawns are put in 3x3 board
-                 if (gridDest != board) return;
-                Pawn p = (Pawn) element;
-                if (p.getColor() == 0) {
+                 if (gridDest != Boardplayer1 || gridDest!= Boardplayer2) return;
+                Missile m = (Missile) element;
+                if (m.getIdPlayer() == 1) {
                     player1toplay--;
                 }
                 else {
                     Player2toplay--;
                 }
-                if ((player1toplay == 0) && (Player2toplay == 0)) {
+                if ((player1toplay == 0) && (Player2toplay == 0 ) ||(toutShipCouler(ShipPlayer1)|| toutShipCouler(ShipPlayer2))) {
                     computePartyResult();
                 }
             });
@@ -115,7 +115,15 @@ public class BattleShipStageModel extends GameStageModel {
     }
 
 
+    public boolean toutShipCouler(Ship[] ships){
 
+        for (Ship ship : ships) {
+            if (ship.getcouler() ==false) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 
 

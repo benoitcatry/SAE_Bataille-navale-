@@ -10,6 +10,7 @@ public class Missile extends GameElement {
     private int color;
     private int idPlayer;
     private int[][] cordonnervisiter;
+    private int nbdetire = 0;
 
 
     public Missile(int number, int color,int idPlayer, GameStageModel gameStageModel) {
@@ -52,6 +53,11 @@ public class Missile extends GameElement {
             }
         }
         return false;
+    }
+
+    public void addcordonne(int x, int y){
+        cordonnervisiter[nbdetire][0] = x;
+        cordonnervisiter[nbdetire][1] = y;
     }
 
 

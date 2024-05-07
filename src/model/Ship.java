@@ -22,6 +22,9 @@ public class Ship extends ContainerElement {
     }
 
 
+    public void setSens(boolean sens) {
+        this.sens = sens;
+    }
 
     public void setShipParts(GameStageModel gameStageModel){
         shipParts = new shipPart[taille];
@@ -82,6 +85,8 @@ public class Ship extends ContainerElement {
     public int getPartCordonneY(int numeroDeLaPart){
         return shipParts[numeroDeLaPart].getcordonneY();
     }
+
+    public boolean getcouler() {return couler;}
 
 
     public void setidplayer(int id){
