@@ -3,7 +3,7 @@ import boardifier.model.GameException;
 import boardifier.view.View;
 import boardifier.control.StageFactory;
 import boardifier.model.Model;
-
+import java.lang.*;
 public class ShipConsole {
 
     public static void main(String[] args) {
@@ -36,7 +36,7 @@ public class ShipConsole {
 
         StageFactory.registerModelAndView("hole", "model.HoleStageModel", "view.HoleStageView");
         View holeView = new View(model);
-        HoleController control = new HoleController(model,holeView);
+        control.Controler control = new control.Controler(model,holeView);
         control.setFirstStageName("hole");
         try {
             control.startGame();
@@ -46,4 +46,5 @@ public class ShipConsole {
             System.out.println("Cannot start the game. Abort");
         }
     }
+
 }
