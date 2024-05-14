@@ -59,7 +59,14 @@ public class BattleShipStageFactory extends StageElementsFactory {
         shipplayer2[4] = new Ship(1,1,2,stageModel);
         stageModel.setShipsPlayer2(shipplayer2);
 
-
+        Cell[]cellPlayer1 = new Cell[100];
+        for (int i = 0; i < cellPlayer1.length; i++) {
+            cellPlayer1[i]= new Cell(i,1,stageModel);
+            }
+        Cell[]cellPlayer2 = new Cell[100];
+        for (int i = 0; i < cellPlayer2.length; i++) {
+            cellPlayer2[i]= new Cell(i,1,stageModel);
+        }
 
     }
 
@@ -102,13 +109,25 @@ public class BattleShipStageFactory extends StageElementsFactory {
         shipplayer2[2] = new Ship(1,1,3,stageModel);
         shipplayer2[3] = new Ship(1,1,2,stageModel);
         shipplayer2[4] = new Ship(1,1,2,stageModel);
-        shipplayer1[5] = new Ship(1,1,2,stageModel);
-        shipplayer1[6] = new Ship(1,1,1,stageModel);
-        shipplayer1[7] = new Ship(1,1,1,stageModel);
-        shipplayer1[8] = new Ship(1,1,1,stageModel);
-        shipplayer1[9] = new Ship(1,1,1,stageModel);
+        shipplayer2[5] = new Ship(1,1,2,stageModel);
+        shipplayer2[6] = new Ship(1,1,1,stageModel);
+        shipplayer2[7] = new Ship(1,1,1,stageModel);
+        shipplayer2[8] = new Ship(1,1,1,stageModel);
+        shipplayer2[9] = new Ship(1,1,1,stageModel);
         stageModel.setShipsPlayer2(shipplayer2);
 
+        Cell[]cellPlayer1 = new Cell[100];
+        for (int i = 0; i < cellPlayer1.length; i++) {
+            cellPlayer1[i]= new Cell(i,1,stageModel);
+            }
+        Cell[]cellPlayer2 = new Cell[100];
+        for (int i = 0; i < cellPlayer2.length; i++) {
+            cellPlayer2[i]= new Cell(i,1,stageModel);
+        }
+        }
+
+
+}
 
     }
 
