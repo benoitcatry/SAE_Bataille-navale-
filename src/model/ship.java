@@ -22,6 +22,9 @@ public class Ship extends ContainerElement {
     }
 
 
+    public void setSens(boolean sens) {
+        this.sens = sens;
+    }
 
     public void setShipParts(GameStageModel gameStageModel){
         shipParts = new shipPart[taille];
@@ -32,6 +35,10 @@ public class Ship extends ContainerElement {
         }
 
     }
+
+    public int getTaille() {return taille;}
+
+    public boolean getSens() {return sens;}
 
     public void setCordonnerShip(int y , int x, char sens){
         if(y+taille>10||x+taille>10){
@@ -71,7 +78,15 @@ public class Ship extends ContainerElement {
     return nb;
     }
 
+    public int getPartCordonneX(int numeroDeLaPart){
+        return shipParts[numeroDeLaPart].getcordonneX();
+    }
 
+    public int getPartCordonneY(int numeroDeLaPart){
+        return shipParts[numeroDeLaPart].getcordonneY();
+    }
+
+    public boolean getcouler() {return couler;}
 
 
     public void setidplayer(int id){

@@ -4,6 +4,8 @@ import boardifier.view.View;
 import boardifier.control.StageFactory;
 import boardifier.model.Model;
 import java.lang.*;
+import control.BattleShipControler;
+import control.BattleShipDecider;
 public class ShipConsole {
 
     public static void main(String[] args) {
@@ -34,9 +36,9 @@ public class ShipConsole {
             model.addComputerPlayer("computer2");
         }
 
-        StageFactory.registerModelAndView("hole", "model.HoleStageModel", "view.HoleStageView");
+        StageFactory.registerModelAndView("ship", "model.BattleShipStageModel", "view.ShipStageView");
         View holeView = new View(model);
-        control.Controler control = new control.Controler(model,holeView);
+        control.BattleShipControler control = new control.BattleShipControler(model,holeView);
         control.setFirstStageName("hole");
         try {
             control.startGame();

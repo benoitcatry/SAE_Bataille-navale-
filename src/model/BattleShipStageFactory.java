@@ -59,6 +59,10 @@ public class BattleShipStageFactory extends StageElementsFactory {
         shipplayer2[4] = new Ship(1,1,2,stageModel);
         stageModel.setShipsPlayer2(shipplayer2);
 
+        Cell missile1 = new Cell(0,0,stageModel);
+        stageModel.setMissilejoueur1(missile1);
+        Cell missile2 = new Cell(0,0,stageModel);
+        stageModel.setMissilejoueur2(missile2);
     }
 
     private void setupMode2(){
@@ -107,6 +111,10 @@ public class BattleShipStageFactory extends StageElementsFactory {
         shipplayer1[9] = new Ship(1,1,1,stageModel);
         stageModel.setShipsPlayer2(shipplayer2);
 
+        Cell missile1 = new Cell(0,0,stageModel);
+        stageModel.setMissilejoueur1(missile1);
+        Cell missile2 = new Cell(0,0,stageModel);
+        stageModel.setMissilejoueur2(missile2);
     }
 
 
@@ -114,7 +122,7 @@ public class BattleShipStageFactory extends StageElementsFactory {
     public void setup() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("mode de jeux 1 ou 2");
-        int mode = scanner.nextInt();
+        int mode = 1;
         if(mode == 1){
             setupMode1();
         } else if (mode == 2) {

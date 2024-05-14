@@ -14,5 +14,7 @@ public class BattleBoard extends ContainerElement{
 
 
 
-
+    public BattleBoard getGet() {
+        return this;
     }
+}

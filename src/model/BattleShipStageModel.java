@@ -9,10 +9,12 @@ public class BattleShipStageModel extends GameStageModel {
 
     private BattleBoard Boardplayer1;
     private BattleBoard Boardplayer2;
-    private Ship[] ShipPlayer1;
-    private Ship[] ShipPlayer2;
+    public Ship[] ShipPlayer1;
+    public Ship[] ShipPlayer2;
     private TextElement player1Name;
     private TextElement player2Name;
+    private Cell missilejoueur1;
+    private Cell missilejoueur2;
 
     public BattleShipStageModel(String name, Model model) {
         super(name, model);
@@ -48,33 +50,82 @@ public class BattleShipStageModel extends GameStageModel {
     public TextElement getPlayer2Name() {return player2Name;}
 
 
+    public Cell getMissilejoueur1() {return missilejoueur1;}
+    public void setMissilejoueur1(Cell m){missilejoueur1 = m;}
+    public Cell getMissilejoueur2() {return missilejoueur2;}
+    public void setMissilejoueur2(Cell m){missilejoueur2 = m;}
+
+    //verif que les cordonnée des ship ne se colle pas : sur les coter et les coin
+    //elle est a vomir
+
+    public boolean VerifPasColer(Ship[] ships, int xNewship, int yNewShip, int tailleNewShip, char sens){
+        int verif = 0;
+        for(int i =0; i<tailleNewShip; i++){
+            for (Ship ship : ships) {
+                //true =  V et false = H
+                if ( sens == 'V') {
+                    for(int g = 0; g < ship.getTaille(); g++){
+                        for(int j =-1; j<=ship.getTaille()+1; j++) {
+                            for(int k =-1; k<1; k++) {
+                                if (ship.getPartCordonneY(g)+j ==yNewShip && ship.getPartCordonneX(g)+k ==xNewship ){
+                                    return false;
+                                }else{verif++;}
+                            }
+                        }
+                    }
+                } else if (sens == 'H') {
+                    for(int g = 0; g < ship.getTaille(); g++){
+                        for(int j =-1; j<=ship.getTaille()+1; j++) {
+                            for(int k =-1; k<1; k++) {
+                                if (ship.getPartCordonneY(g)+k ==yNewShip && ship.getPartCordonneX(g)+j ==xNewship ){
+                                    return false;
+                                }else{verif++;}
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+        return true;
+    }
 
 
 
 
     //doit gerer la partie pas fini dsl
     private void setupCallbacks(){
-
+ 
         onPutInContainer( (element, gridDest, rowDest, colDest) -> {
             // just check when pawns are put in 3x3 board
-                /* if (gridDest != board) return;
-                Pawn p = (Pawn) element;
-                if (p.getColor() == 0) {
+                 if (gridDest != Boardplayer1 || gridDest!= Boardplayer2) return;
+                Cell m = (Cell) element;
+                /*if (m.getIdPlayer() == 1) {
                     player1toplay--;
                 }
                 else {
                     Player2toplay--;
                 }
-                if ((player1toplay == 0) && (Player2toplay == 0)) {
+
+                 */
+                if ((player1toplay == 0) && (Player2toplay == 0 ) ||(toutShipCouler(ShipPlayer1)|| toutShipCouler(ShipPlayer2))) {
                     computePartyResult();
-                }*/
+                }
             });
 
 
     }
 
 
+    public boolean toutShipCouler(Ship[] ships){
 
+        for (Ship ship : ships) {
+            if (ship.getcouler() ==false) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 
 

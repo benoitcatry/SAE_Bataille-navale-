@@ -12,14 +12,14 @@ public class ShipLook extends ElementLook {
         super(element, 1, 1);
     }
 
-    public protected render(){
+    public void render(){
         Ship ship = (Ship)element;
-        if (ship.getOwner() == "Player1"){
-            shape[0][0] = ConsoleColor.WHITE + ConsoleColor.GREEN_BACKGROUND+ship.getSize()+ConsoleColor.RESET,
+        if (ship.getPlayerID() == 1){
+            shape[0][0] = ConsoleColor.WHITE + ConsoleColor.GREEN_BACKGROUND+ship.getTaille()+ConsoleColor.RESET;
         }
 
         else {
-            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.RED_BACKGROUND+ship.getSize()+ConsoleColor.RESET,
+            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.RED_BACKGROUND+ship.getTaille()+ConsoleColor.RESET;
         }
     }
 }
