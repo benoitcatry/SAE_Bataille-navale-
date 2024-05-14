@@ -9,8 +9,8 @@ public class BattleShipStageModel extends GameStageModel {
 
     private BattleBoard Boardplayer1;
     private BattleBoard Boardplayer2;
-    private Ship[] ShipPlayer1;
-    private Ship[] ShipPlayer2;
+    public Ship[] ShipPlayer1;
+    public Ship[] ShipPlayer2;
     private TextElement player1Name;
     private TextElement player2Name;
     private Missile missilejoueur1;
@@ -58,12 +58,12 @@ public class BattleShipStageModel extends GameStageModel {
     //verif que les cordonnée des ship ne se colle pas : sur les coter et les coin
     //elle est a vomir
 
-    public boolean VerifPasColer(Ship[] ships, int xNewship, int yNewShip, int tailleNewShip){
+    public boolean VerifPasColer(Ship[] ships, int xNewship, int yNewShip, int tailleNewShip, char sens){
         int verif = 0;
         for(int i =0; i<tailleNewShip; i++){
             for (Ship ship : ships) {
                 //true =  V et false = H
-                if (ship.getSens() == true) {
+                if ( sens == 'V') {
                     for(int g = 0; g < ship.getTaille(); g++){
                         for(int j =-1; j<=ship.getTaille()+1; j++) {
                             for(int k =-1; k<1; k++) {
@@ -73,7 +73,7 @@ public class BattleShipStageModel extends GameStageModel {
                             }
                         }
                     }
-                } else if (ship.getSens() == false) {
+                } else if (sens == 'H') {
                     for(int g = 0; g < ship.getTaille(); g++){
                         for(int j =-1; j<=ship.getTaille()+1; j++) {
                             for(int k =-1; k<1; k++) {
