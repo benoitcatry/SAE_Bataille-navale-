@@ -8,6 +8,7 @@ public class Cell extends GameElement {
 
     private int number;
     private int color;
+    private int idjoueur;
 
     public Cell(int number, int color, GameStageModel gameStageModel) {
         super(gameStageModel);
@@ -17,6 +18,16 @@ public class Cell extends GameElement {
         this.number = number;
         this.color = color;
     }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public int getColor() {
+        return color;
+    }
+
+    public int getIdjoueur() {return idjoueur;}
 
 
 
