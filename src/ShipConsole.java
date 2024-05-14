@@ -39,12 +39,13 @@ public class ShipConsole {
         StageFactory.registerModelAndView("ship", "model.BattleShipStageModel", "view.ShipStageView");
         View holeView = new View(model);
         control.BattleShipControler control = new control.BattleShipControler(model,holeView);
-        control.setFirstStageName("hole");
+        control.setFirstStageName("ship");
         try {
             control.startGame();
             control.stageLoop();
         }
         catch(GameException e) {
+            System.out.println(e);
             System.out.println("Cannot start the game. Abort");
         }
     }

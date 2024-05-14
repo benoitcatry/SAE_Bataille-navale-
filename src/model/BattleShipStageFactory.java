@@ -43,7 +43,7 @@ public class BattleShipStageFactory extends StageElementsFactory {
         //création des ship et de leur partie
         //ship pour player 1
         Ship[] shipplayer1 = new Ship[5];
-        shipplayer1[0] = new Ship(1,1,5,stageModel);
+        shipplayer1[0] = new Ship(19,19,5,stageModel);
         shipplayer1[1] = new Ship(1,1,4,stageModel);
         shipplayer1[2] = new Ship(1,1,3,stageModel);
         shipplayer1[3] = new Ship(1,1,3,stageModel);
@@ -59,10 +59,8 @@ public class BattleShipStageFactory extends StageElementsFactory {
         shipplayer2[4] = new Ship(1,1,2,stageModel);
         stageModel.setShipsPlayer2(shipplayer2);
 
-        Cell missile1 = new Cell(0,0,stageModel);
-        stageModel.setMissilejoueur1(missile1);
-        Cell missile2 = new Cell(0,0,stageModel);
-        stageModel.setMissilejoueur2(missile2);
+
+
     }
 
     private void setupMode2(){
@@ -104,25 +102,21 @@ public class BattleShipStageFactory extends StageElementsFactory {
         shipplayer2[2] = new Ship(1,1,3,stageModel);
         shipplayer2[3] = new Ship(1,1,2,stageModel);
         shipplayer2[4] = new Ship(1,1,2,stageModel);
-        shipplayer1[5] = new Ship(1,1,2,stageModel);
-        shipplayer1[6] = new Ship(1,1,1,stageModel);
-        shipplayer1[7] = new Ship(1,1,1,stageModel);
-        shipplayer1[8] = new Ship(1,1,1,stageModel);
-        shipplayer1[9] = new Ship(1,1,1,stageModel);
+        shipplayer2[5] = new Ship(1,1,2,stageModel);
+        shipplayer2[6] = new Ship(1,1,1,stageModel);
+        shipplayer2[7] = new Ship(1,1,1,stageModel);
+        shipplayer2[8] = new Ship(1,1,1,stageModel);
+        shipplayer2[9] = new Ship(1,1,1,stageModel);
         stageModel.setShipsPlayer2(shipplayer2);
 
-        Cell missile1 = new Cell(0,0,stageModel);
-        stageModel.setMissilejoueur1(missile1);
-        Cell missile2 = new Cell(0,0,stageModel);
-        stageModel.setMissilejoueur2(missile2);
+
     }
 
 
     @Override
     public void setup() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("mode de jeux 1 ou 2");
-        int mode = 1;
+
+        int mode = 2;
         if(mode == 1){
             setupMode1();
         } else if (mode == 2) {

@@ -5,21 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="430f0373-63ed-417c-a239-933f07a3b6d7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/control/BattleShipControler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/control/BattleShipDecider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/ShotView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/StatsJoueurs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ShipConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShipConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/Controler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/BattleBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/BattleShipControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/BattleShipControler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/shipPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/shipPart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ShipLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ShipLook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ShipStageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ShipStageView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +80,7 @@
       <workItem from="1715067838295" duration="26000" />
       <workItem from="1715067874580" duration="3228000" />
       <workItem from="1715083929567" duration="2507000" />
-      <workItem from="1715671234902" duration="2019000" />
+      <workItem from="1715671234902" duration="3651000" />
     </task>
     <servers />
   </component>

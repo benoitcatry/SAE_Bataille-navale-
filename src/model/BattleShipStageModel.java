@@ -13,13 +13,14 @@ public class BattleShipStageModel extends GameStageModel {
     public Ship[] ShipPlayer2;
     private TextElement player1Name;
     private TextElement player2Name;
-    private Cell missilejoueur1;
-    private Cell missilejoueur2;
+    private Cell[] Cellboardjoueur1;
+    private Cell[] Cellboardjoueur2;
 
     public BattleShipStageModel(String name, Model model) {
         super(name, model);
         player1toplay = 50;
         Player2toplay = 50;
+        setupCallbacks();
 
     }
 
@@ -30,30 +31,34 @@ public class BattleShipStageModel extends GameStageModel {
     public int getPlayer2ToPlay() {return Player2toplay;}
 
     //set et get de board pour chaque joueur
-    public void setBoardPlayer1(BattleBoard boardPlayer1) {this.Boardplayer1 = boardPlayer1;}
+    public void setBoardPlayer1(BattleBoard boardPlayer1) {this.Boardplayer1 = boardPlayer1; addContainer(boardPlayer1);}
     public BattleBoard getBoardPlayer1() {return Boardplayer1;}
-    public void setBoardPlayer2(BattleBoard boardPlayer1) {this.Boardplayer2 = boardPlayer1;}
+    public void setBoardPlayer2(BattleBoard boardPlayer2) {this.Boardplayer2 = boardPlayer2; addContainer(boardPlayer2);}
     public BattleBoard getBoardPlayer2() {return Boardplayer2;}
 
 
     //set et get du tableau des bateau de chaque joueur
-    public void setShipsPlayer1(Ship[] shipsPlayer1) {this.ShipPlayer1 = shipsPlayer1;}
+    public void setShipsPlayer1(Ship[] shipsPlayer1) {this.ShipPlayer1 = shipsPlayer1;
+        for(int i = 0; i < shipsPlayer1.length ; i++){addContainer(shipsPlayer1[i]);}}
     public Ship[] getShipsPlayer1() {return ShipPlayer1;}
-    public void setShipsPlayer2(Ship[] shipsPlayer1) {this.ShipPlayer2 = shipsPlayer1;}
+    public void setShipsPlayer2(Ship[] shipsPlayer2) {this.ShipPlayer2 = shipsPlayer2;
+        for(int i = 0; i < shipsPlayer2.length ; i++){addContainer(shipsPlayer2[i]);}}
     public Ship[] getShipsPlayer2() {return ShipPlayer2;}
 
 
     //set et get du nom de chaque joueur
-    public void setPlayer1Name(TextElement player1Name) {this.player1Name = player1Name;}
+    public void setPlayer1Name(TextElement player1Name) {this.player1Name = player1Name; addElement(player1Name);}
     public TextElement getPlayer1Name() {return player1Name;}
-    public void setPlayer2Name(TextElement player1Name) {this.player2Name = player1Name;}
+    public void setPlayer2Name(TextElement player1Name) {this.player2Name = player1Name; addElement(player2Name);}
     public TextElement getPlayer2Name() {return player2Name;}
 
-
-    public Cell getMissilejoueur1() {return missilejoueur1;}
-    public void setMissilejoueur1(Cell m){missilejoueur1 = m;}
-    public Cell getMissilejoueur2() {return missilejoueur2;}
-    public void setMissilejoueur2(Cell m){missilejoueur2 = m;}
+    //Set et get des cellule pour les board
+    public Cell[] getCellboardjoueur1() {return Cellboardjoueur1;}
+    public void setCellboardjoueur1(Cell[] m){Cellboardjoueur2 = m;
+        for(int i = 0; i < Cellboardjoueur1.length ; i++){addElement(Cellboardjoueur1[i]);}}
+    public Cell[] getCellboardjoueur2() {return Cellboardjoueur2;}
+    public void setCellboardjoueur2(Cell[] m){Cellboardjoueur2 = m;
+        for(int i = 0; i < Cellboardjoueur2.length ; i++){addElement(Cellboardjoueur2[i]);}}
 
     //verif que les cordonnée des ship ne se colle pas : sur les coter et les coin
     //elle est a vomir
@@ -100,14 +105,12 @@ public class BattleShipStageModel extends GameStageModel {
             // just check when pawns are put in 3x3 board
                  if (gridDest != Boardplayer1 || gridDest!= Boardplayer2) return;
                 Cell m = (Cell) element;
-                /*if (m.getIdPlayer() == 1) {
+                if (m.getIdjoueur() == 1) {
                     player1toplay--;
                 }
                 else {
                     Player2toplay--;
                 }
-
-                 */
                 if ((player1toplay == 0) && (Player2toplay == 0 ) ||(toutShipCouler(ShipPlayer1)|| toutShipCouler(ShipPlayer2))) {
                     computePartyResult();
                 }
@@ -157,7 +160,7 @@ public class BattleShipStageModel extends GameStageModel {
     //truc obligatoir c'est pas a quoi il sert mais il est la
     @Override
     public StageElementsFactory getDefaultElementFactory() {
-        return null;
+        return new BattleShipStageFactory(this);
     }
 
 

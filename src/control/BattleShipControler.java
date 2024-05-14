@@ -40,7 +40,7 @@ public class BattleShipControler extends Controller {
         while(! model.isEndStage()) {
             playTurn();
             endOfTurn();
-            update();
+            //update();
         }
         endGame();
     }
