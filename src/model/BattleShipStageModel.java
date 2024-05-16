@@ -110,6 +110,20 @@ public class BattleShipStageModel extends GameStageModel {
         return true;
     }
 
+    public boolean toucheroupas(Ship[] ships, int x , int y){
+        for(int i = 0; i < ships.length; i++){
+            for(int j= 0; j < ships[i].shipParts.length; j++ ){
+                if (ships[i].shipParts[j].esttoucher() == false){
+                    if(ships[i].shipParts[j].getcordonneX() == x && ships[i].shipParts[j].getcordonneY() == y){
+                        ships[i].shipParts[j].setToucher(true);
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
 
 
 

@@ -6,7 +6,7 @@ import boardifier.model.GameStageModel;
 public class Ship extends ContainerElement {
     private int taille;
     private boolean sens ; // true = V et false = H
-    private shipPart[] shipParts;
+    public shipPart[] shipParts;
     private int shipID;
     private static int nbShip = 1;
     private int playerID;
@@ -26,6 +26,7 @@ public class Ship extends ContainerElement {
         this.sens = sens;
     }
 
+
     public void setShipParts(GameStageModel gameStageModel){
         shipParts = new shipPart[taille];
         int idparts;
@@ -35,6 +36,10 @@ public class Ship extends ContainerElement {
             addElement(shipParts[i],1,i);
         }
 
+    }
+
+    public shipPart[] getshippart(){
+        return shipParts;
     }
 
     public int getTaille() {return taille;}
@@ -68,6 +73,8 @@ public class Ship extends ContainerElement {
             couler = true;
         }
     }
+
+
 
     public int nbdepartcouler(){
         int nb = 0;
