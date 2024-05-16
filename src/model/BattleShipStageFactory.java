@@ -1,5 +1,4 @@
 package model;
-import boardifier.model.ContainerElement;
 import boardifier.model.GameStageModel;
 import boardifier.model.StageElementsFactory;
 import boardifier.model.TextElement;
@@ -59,16 +58,25 @@ public class BattleShipStageFactory extends StageElementsFactory {
         shipplayer2[4] = new Ship(1,1,2,stageModel);
         stageModel.setShipsPlayer2(shipplayer2);
 
-        Cell[]cellPlayer1 = new Cell[100];
-        for (int i = 0; i < cellPlayer1.length; i++) {
-            cellPlayer1[i]= new Cell(i,1,stageModel);
+        Misille[] misillePlayer1 = new Misille[50];
+        for (int i = 0; i < misillePlayer1.length; i++) {
+            misillePlayer1[i]= new Misille(i,1,stageModel);
             }
-        Cell[]cellPlayer2 = new Cell[100];
-        for (int i = 0; i < cellPlayer2.length; i++) {
-            cellPlayer2[i]= new Cell(i,1,stageModel);
+        stageModel.setMissileJoueur1(misillePlayer1);
+        Misille[] misillePlayer2 = new Misille[50];
+        for (int i = 0; i < misillePlayer2.length; i++) {
+            misillePlayer2[i]= new Misille(i,1,stageModel);
         }
+        stageModel.setMissileJoueur2(misillePlayer2);
 
     }
+
+
+    //setup mode de jeux 2 :
+    //                      -1 cuirassé de 4 cases,
+    //                      -2 croiseurs de 3 cases,
+    //                      -3 torpilleurs de 2 cases,
+    //                      -4 sous-marins de 1 case
 
     private void setupMode2(){
         TextElement textplayer1 = new TextElement(stageModel.getCurrentPlayerName(), stageModel);
@@ -116,27 +124,49 @@ public class BattleShipStageFactory extends StageElementsFactory {
         shipplayer2[9] = new Ship(1,1,1,stageModel);
         stageModel.setShipsPlayer2(shipplayer2);
 
-        Cell[]cellPlayer1 = new Cell[100];
-        for (int i = 0; i < cellPlayer1.length; i++) {
-            cellPlayer1[i]= new Cell(i,1,stageModel);
+        Misille[] misillePlayer1 = new Misille[50];
+        for (int i = 0; i < misillePlayer1.length; i++) {
+            misillePlayer1[i]= new Misille(i,1,stageModel);
             }
-        Cell[]cellPlayer2 = new Cell[100];
-        for (int i = 0; i < cellPlayer2.length; i++) {
-            cellPlayer2[i]= new Cell(i,1,stageModel);
+        stageModel.setMissileJoueur1(misillePlayer1);
+        Misille[] misillePlayer2 = new Misille[50];
+        for (int i = 0; i < misillePlayer2.length; i++) {
+            misillePlayer2[i]= new Misille(i,1,stageModel);
         }
+        stageModel.setMissileJoueur2(misillePlayer2);
         }
 
 
-}
-
+        //permet de selecte le mode de jeux
+    private int quelleModeDeJeux(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("mode de jeux 1: - 1 porte-avion de 5 cases,\n" +
+                "                - 1 croiseur de 4 cases,\n" +
+                "                - 2 contre-torpilleurs de 3 cases,\n" +
+                "                - 1 torpilleur de 2 cases. \n" + "\n"+
+                "mode de jeux 2: - 1 cuirassé de 4 cases,\n" +
+                "                - 2 croiseurs de 3 cases,\n" +
+                "                - 3 torpilleurs de 2 cases,\n" +
+                "                - 4 sous-marins de 1 case " +
+                "\n" + "1 ou 2 : ");
+        while (true){
+            int mode = scanner.nextInt();
+            if(mode == 1 ||mode ==2){
+                return mode;
+            }else{
+                System.out.println("doit etre 1 ou 2 : ");
+            }
+        }
     }
+
+
+
+
 
 
     @Override
     public void setup() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("mode de jeux 1 ou 2");
-        int mode = scanner.nextInt();
+        int mode = quelleModeDeJeux();
         if(mode == 1){
             setupMode1();
         } else if (mode == 2) {
@@ -145,8 +175,8 @@ public class BattleShipStageFactory extends StageElementsFactory {
     }
 
 
-
-
-
-
 }
+
+
+
+

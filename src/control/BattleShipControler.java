@@ -108,8 +108,8 @@ public class BattleShipControler extends Controller {
         if (sens != 'H' && sens != 'V') {return false;}
         int col = (int) Character.toUpperCase((line.charAt(1) - 'A'));
         int row = (int) (line.charAt(2) - '1');
-        if ((row<0)||(row>9)) return false;
-        if ((col<0)||(col>9)) return false;
+        if ((row<0)||(row>10)) return false;
+        if ((col<0)||(col>10)) return false;
         if (model.getIdPlayer() == 0) {
             if (!(gameStage.VerifPasColer(gameStage.getShipsPlayer1(),row,col,gameStage.ShipPlayer1[m].getTaille(), sens))){return false;}
             else {
@@ -142,12 +142,12 @@ public class BattleShipControler extends Controller {
             int col = (int) (line.charAt(1) - 'A');
             int row = (int) (line.charAt(2) - '1');
             // check coords validity
-            if ((row<0)||(row>9)) return false;
-            if ((col<0)||(col>9)) return false;
+            if ((row<0)||(row>10)) return false;
+            if ((col<0)||(col>10)) return false;
             // check if the pawn is still in its pot
             GameElement tire = null;
             if (model.getIdPlayer() == 0) {
-                tire = gameStage.getMissilejoueur1();
+                tire = game.getMissileJoueur1();
             }
             else {
                 tire = gameStage.getMissilejoueur2();

@@ -13,8 +13,8 @@ public class BattleShipStageModel extends GameStageModel {
     public Ship[] ShipPlayer2;
     private TextElement player1Name;
     private TextElement player2Name;
-    private Cell[] Cellboardjoueur1;
-    private Cell[] Cellboardjoueur2;
+    private Misille[] MissileJoueur1;
+    private Misille[] MissileJoueur2;
 
     public BattleShipStageModel(String name, Model model) {
         super(name, model);
@@ -53,12 +53,14 @@ public class BattleShipStageModel extends GameStageModel {
     public TextElement getPlayer2Name() {return player2Name;}
 
     //Set et get des cellule pour les board
-    public Cell[] getCellboardjoueur1() {return Cellboardjoueur1;}
-    public void setCellboardjoueur1(Cell[] m){Cellboardjoueur2 = m;
-        for(int i = 0; i < Cellboardjoueur1.length ; i++){addElement(Cellboardjoueur1[i]);}}
-    public Cell[] getCellboardjoueur2() {return Cellboardjoueur2;}
-    public void setCellboardjoueur2(Cell[] m){Cellboardjoueur2 = m;
-        for(int i = 0; i < Cellboardjoueur2.length ; i++){addElement(Cellboardjoueur2[i]);}}
+    public Misille[] getMissileJoueur1() {return MissileJoueur1;}
+    public void setMissileJoueur1(Misille[] m){
+        MissileJoueur1 = m;
+        for(int i = 0; i < MissileJoueur1.length ; i++){addElement(MissileJoueur1[i]);}}
+    public Misille[] getMissileJoueur2() {return MissileJoueur2;}
+    public void setMissileJoueur2(Misille[] m){
+        MissileJoueur2 = m;
+        for(int i = 0; i < MissileJoueur2.length ; i++){addElement(MissileJoueur2[i]);}}
 
     //verif que les cordonnée des ship ne se colle pas : sur les coter et les coin
     //elle est a vomir
@@ -104,7 +106,7 @@ public class BattleShipStageModel extends GameStageModel {
         onPutInContainer( (element, gridDest, rowDest, colDest) -> {
             // just check when pawns are put in 3x3 board
                  if (gridDest != Boardplayer1 || gridDest!= Boardplayer2) return;
-                Cell m = (Cell) element;
+                Misille m = (Misille) element;
                 if (m.getIdjoueur() == 1) {
                     player1toplay--;
                 }
@@ -160,7 +162,7 @@ public class BattleShipStageModel extends GameStageModel {
     //truc obligatoir c'est pas a quoi il sert mais il est la
     @Override
     public StageElementsFactory getDefaultElementFactory() {
-        return null;
+        return new BattleShipStageFactory(this);
     }
 
 

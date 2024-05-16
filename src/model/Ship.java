@@ -32,6 +32,7 @@ public class Ship extends ContainerElement {
         for (int i = 0; i < taille; i++) {
             idparts = shipID*10+(i+1);
             shipParts[i] = new shipPart(idparts, 1,gameStageModel);
+            addElement(shipParts[i],1,i);
         }
 
     }
