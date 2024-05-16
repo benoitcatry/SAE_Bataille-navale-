@@ -18,7 +18,7 @@ public class Ship extends ContainerElement {
         this.taille =taille;
         this.shipID = nbShip;
         nbShip++;
-        setShipParts(gameStageModel);
+
     }
 
 

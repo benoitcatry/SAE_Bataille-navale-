@@ -147,12 +147,12 @@ public class BattleShipControler extends Controller {
             // check if the pawn is still in its pot
             GameElement tire = null;
             if (model.getIdPlayer() == 0) {
-                tire = game.getMissileJoueur1();
+                tire = gameStage.getBoardPlayer1();
             }
             else {
-                tire = gameStage.getMissilejoueur2();
+                tire = gameStage.getBoardPlayer2();
             }
-            if (pot.isEmptyAt(pawnIndex,0)) return false;
+            if (tire.isEmptyAt(0)) return false;
             GameElement pawn = pot.getElement(pawnIndex,0);
             // compute valid cells for the chosen pawn
             gameStage.getBoard().setValidCells(pawnIndex+1);
