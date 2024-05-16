@@ -5,9 +5,6 @@ import boardifier.view.ConsoleColor;
 import boardifier.view.ElementLook;
 
 public class ShotView {
-    /*public void afficheShots(int[][] coordonnees){
-        for (int i=0; )
+    public void afficheShots(int[][] coordonnees){
     }
-
-     */
 }

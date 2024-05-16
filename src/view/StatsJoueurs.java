@@ -1,6 +1,7 @@
 package view;
 
 import boardifier.model.ContainerElement;
+import boardifier.model.GameElement;
 import boardifier.model.TextElement;
 import boardifier.view.ContainerLook;
 import model.BattleShipStageModel;
@@ -43,11 +44,8 @@ public class StatsJoueurs {
         return results;
     }
 
-    public static void showStats(int[] stats){
-        System.out.println("j1 : ");
-        System.out.println("parties restantes : " + stats[1] + "/" + stats[0]);
-        System.out.println("j2 : ");
-        System.out.println("parties restantes : " + stats[3] + "/" + stats[2]);
+    public static String showStats(int[] stats, TextElement j1, TextElement j2){
+        return j1 + " : "+ stats[1]+"/"+stats[0]+"   |   "+j2+" : "+stats[3]+"/"+stats[2];
         }
     }
 

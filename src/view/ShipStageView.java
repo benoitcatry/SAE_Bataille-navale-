@@ -1,15 +1,14 @@
 package view;
 
 import boardifier.control.Logger;
+import boardifier.model.GameElement;
 import boardifier.model.GameException;
 import boardifier.model.GameStageModel;
-import boardifier.view.ClassicBoardLook;
-import boardifier.view.ContainerLook;
-import boardifier.view.GameStageView;
+import boardifier.model.TextElement;
+import boardifier.view.*;
 
-import boardifier.view.TextLook;
 import model.BattleShipStageModel;
-
+import model.Ship;
 
 
 public class ShipStageView extends GameStageView {
@@ -31,8 +30,23 @@ public class ShipStageView extends GameStageView {
 
         addLook(new ClassicBoardLook(2,4,model.getBoardPlayer2(),1,1,true));
 
-        int[] stats = new int[4];
+        Ship[] shipsj1 = model.getShipsPlayer1();
+        Ship[] shipsj2 = model.getShipsPlayer2();
+        for (int i=0; i<shipsj1.length; i++){
+
+            System.out.println(i + "bateau");
+            addLook(new ContainerLook(shipsj1[i], 0));
+        }
+
+
+        addLook(new TextLook(model.getInfoPartie()));
+
+        int[] stats;
+        TextElement j1 = model.getPlayer1Name();
+        TextElement j2 = model.getPlayer2Name();
         stats = StatsJoueurs.findStats(model);
-        StatsJoueurs.showStats(stats);
+        StatsJoueurs.showStats(stats,j1,j2);
+
+
     }
 }
