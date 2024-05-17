@@ -78,6 +78,8 @@ public class BattleShipStageFactory extends StageElementsFactory {
         }
         stageModel.setMissileJoueur2(misillePlayer2);
 
+        TextElement infopartie = new TextElement("d", stageModel);
+        stageModel.setInfoPartie(infopartie);
 
 
 

@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1ae606cc-c7ee-4439-bac4-d266b9487482" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ShipConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShipConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Misille.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Misille.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/battleboardview.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +36,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/benoit/Documents/hhh/HoleConsole",
+    "last_opened_file_path": "/home/benoit/Documents/SAE_Bataille-navale--xavier",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -79,7 +75,7 @@
       <workItem from="1715670533089" duration="5721000" />
       <workItem from="1715753268731" duration="3380000" />
       <workItem from="1715859428731" duration="13206000" />
-      <workItem from="1715926269190" duration="1740000" />
+      <workItem from="1715926269190" duration="3727000" />
     </task>
     <servers />
   </component>
