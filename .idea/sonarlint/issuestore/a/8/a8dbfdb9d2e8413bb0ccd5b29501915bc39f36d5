@@ -1,0 +1,9 @@
+
+œ	java:S135ˆ"YReduce the total number of break and continue statements in this loop to use at most one.(º••²8éˆËŽø1J$3c98bd40-03c5-4ccd-b7a4-1261a613b4a3
+–
+java:S3776{"SRefactor this method to reduce its Cognitive Complexity from 100 to the 15 allowed.(Ñ™ž›8îˆËŽø1J$7658a56b-2153-46a6-8f29-0f130cd6c379
+_
+java:S3626¿"Remove this redundant jump.(ÉŠ©ƒ8îˆËŽø1J$40dac08a-992f-4c8b-aceb-2f7dc8f11332
+}	java:S125"<This block of commented-out lines of code should be removed.(¥Ö“v8ïˆËŽø1J$ac664339-0847-4af7-aef7-1bc67e90dafe
+ˆ
+java:S6541{"ÄA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 75 to 64, Complexity from 31 to 14, Nesting Level from 6 to 2, Number of Variables from 7 to 6.(Ñ™ž›8òˆËŽø1J$ec141cc3-0338-46f8-ae9f-8ae3baca023f

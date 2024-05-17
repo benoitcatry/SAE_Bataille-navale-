@@ -1,0 +1,19 @@
+
+„
+java:S1192T"HDefine a constant instead of duplicating this literal " called" 3 times.(³ƒ°J$cef1fc16-e669-4c38-ab78-1acfa8c1fe60
+˜	java:S127]"XRefactor the code in order to not assign to this loop counter from within the loop body.(ãŠŒüÿÿÿÿJ$7e9deff9-10de-4492-935c-a4e7a00a405c
+˜	java:S127c"XRefactor the code in order to not assign to this loop counter from within the loop body.(ãŠŒüÿÿÿÿJ$75be2515-f7e2-4a3c-a43d-7eb8921c554c
+˜	java:S127i"XRefactor the code in order to not assign to this loop counter from within the loop body.(ãŠŒüÿÿÿÿJ$89775b56-f346-414c-ba11-43c2448f15da
+™	java:S127‰"XRefactor the code in order to not assign to this loop counter from within the loop body.(ãŠŒüÿÿÿÿJ$71a411ba-9a25-4d3b-b95e-de448e103c5e
+™	java:S127"XRefactor the code in order to not assign to this loop counter from within the loop body.(ãŠŒüÿÿÿÿJ$2d8382c0-7641-4df9-8f1a-f3cbf4afaf70
+™	java:S127‘"XRefactor the code in order to not assign to this loop counter from within the loop body.(ãŠŒüÿÿÿÿJ$c6ea94dc-eaee-41a6-af78-eaec964aaaa9
+™	java:S127•"XRefactor the code in order to not assign to this loop counter from within the loop body.(ãŠŒüÿÿÿÿJ$547d6701-5b1f-4b39-9086-1ffdbe1c8c54
+z
+java:S5993"9Change the visibility of this constructor to "protected".(ğ“êúÿÿÿÿJ$7f88f70b-21a6-42f6-b21e-efd25f4f2a5b
+m
+java:S1602x",Remove useless curly braces around statement(Ô¨â¶ÿÿÿÿÿJ$b744d6d0-c51d-4b5c-a75d-dd88ebdce738
+}	java:S125¯"<This block of commented-out lines of code should be removed.(Ğ§”ºÿÿÿÿÿJ$2780d86d-cf38-4946-b677-6042687d2392
+l	java:S106±"+Replace this use of System.out by a logger.(ïÚµ€ÿÿÿÿÿJ$73dfc5bb-a89f-437f-83e7-d46a2447938e
+l	java:S106³"+Replace this use of System.out by a logger.(†¥á±øÿÿÿÿJ$a2f6d6a0-c3de-4ed7-ae1c-a145c6ef1942
+q
+java:S1068"5Remove this unused "stopProcessEvents" private field.(¼á¬ïJ$53ca4e29-c37a-4a8c-b052-844e3f804467

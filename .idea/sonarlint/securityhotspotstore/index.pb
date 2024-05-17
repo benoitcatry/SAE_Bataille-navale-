@@ -1,0 +1,37 @@
+
+C
+src/model/Ship.java,6\c\6cf0f5eef1089aacbc2f2148c9fab646ae58e483
+J
+src/model/BattleBoard.java,a\8\a8dbfdb9d2e8413bb0ccd5b29501915bc39f36d5
+U
+%src/model/BattleShipStageFactory.java,6\a\6a780315a1ee1213e665562f5e72038f5e36cd9f
+S
+#src/boardifier/control/Decider.java,b\3\b3a978cd78594ac0e19426c02863a8896864323f
+X
+(src/boardifier/control/ActionPlayer.java,f\c\fce8a4e22633828919dd9275ee1b81ef6e09bc5c
+[
++src/boardifier/model/action/ActionList.java,0\c\0c1f5ee14a2f00c2905031cf0675f4b62461ac1b
+Y
+)src/boardifier/control/ActionFactory.java,f\b\fbf24b57677ceb6bf8d1bcfa9264a5ecb0e7010c
+D
+src/ShipConsole.java,b\7\b7ffe244e3be4a26f0ae2c8f2043f54747ff883e
+O
+src/boardifier/model/Model.java,9\f\9ff9d7a65e6707f80a1d2e07f370c13e3ade7c3f
+P
+ src/boardifier/model/Player.java,f\8\f8924b7426e7caf0a6e5e5c992e98d292e0d9e54
+V
+&src/boardifier/control/Controller.java,b\2\b2023946c0c3429fd9ba29e26e203ade83c34dca
+W
+'src/boardifier/control/HoleDecider.java,7\b\7bb6833b1ee63d408864b19bfebf6d37071f808e
+G
+src/model/shipPart.java,a\d\adf4f5f2225f9166bd25353731980b8aaf6ca468
+_
+/src/boardifier/model/action/DrawDiceAction.java,9\a\9a9fa545e58c31e14f36d875cd1f203e470a259e
+F
+src/model/Misille.java,c\4\c4f37e6fcaa285dd1b902d5fe3d0808a71892e7b
+R
+"src/control/BattleShipDecider.java,e\9\e9f1ec06984788d515116fc453bfb68a1d5726bd
+T
+$src/control/BattleShipControler.java,2\8\2846636ac645ac64f69a9061148f2f287967a43a
+S
+#src/model/BattleShipStageModel.java,a\3\a3628298faa6ead6633afa4f5aa29cb664903f27

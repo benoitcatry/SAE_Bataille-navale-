@@ -1,0 +1,30 @@
+
+L
+java:S1066u"/Merge this if statement with the enclosing one.(Á«Ûº8Ø»«ø1
+“
+java:S1104"WMake ShipPlayer1 a static final constant or non-public and provide accessors if needed.(ß‡ğÖJ$96727f5d-401c-4dd4-a3d3-a8654343e384
+“
+java:S1104"WMake ShipPlayer2 a static final constant or non-public and provide accessors if needed.(Ş„¬ÁJ$1772584b-f77f-4f30-b52f-cb176f868415
+˜	java:S116"XRename this field "Player2toplay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï¯„ûÿÿÿÿJ$f59bec7d-5229-428d-b388-a92efa9b26b6
+—	java:S116
+"WRename this field "Boardplayer1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁàŒéüÿÿÿÿJ$25c83e8f-7903-4afd-8581-084ce0add670
+’	java:S116"WRename this field "Boardplayer2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çô«²J$774d197b-fa91-4bad-b6cd-38ca88740390
+‘	java:S116"VRename this field "ShipPlayer1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ß‡ğÖJ$9734f709-6741-4769-be01-cb764b00a4ae
+‘	java:S116"VRename this field "ShipPlayer2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş„¬ÁJ$30812dcc-e532-4f24-9506-838c5d518d06
+™	java:S116"YRename this field "MissileJoueur1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ş™ò‡ûÿÿÿÿJ$b865331e-8b6e-4fa2-9f31-e1672b2d9487
+™	java:S116"YRename this field "MissileJoueur2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷‰õƒøÿÿÿÿJ$aea13000-0a46-4c88-a36c-ea785914a367
+q	java:S116"URename this field "InfoPartie" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äĞ’8»Û»«ø1
+Y
+java:S1172%"7Remove this unused method parameter "conteneurjoueur2".(åÒì˜şÿÿÿÿ8ÆÛ»«ø1
+i	java:S100Q"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ü‘†y8ÑÛ»«ø1
+n
+java:S3776Q"RRefactor this method to reduce its Cognitive Complexity from 55 to the 15 allowed.(ü‘†y8ÒÛ»«ø1
+L
+java:S1481R"*Remove this unused "verif" local variable.(ÿø±Èúÿÿÿÿ8ÕÛ»«ø1
+c
+java:S1125t"'Remove the unnecessary boolean literal.(˜ÁìØJ$92b8329a-d129-46e7-b4f9-431859402466
+J
+java:S1125›"'Remove the unnecessary boolean literal.(¿‹îÒøÿÿÿÿ8ıÛ»«ø1
+g	java:S106°"+Replace this use of System.out by a logger.(İ¨’J$bdfe96ae-5d31-497d-8457-cad651a1b563
+g	java:S106´"+Replace this use of System.out by a logger.(Ÿã àJ$18de1674-8ced-4f3b-bf6f-f96b87759d9f
+g	java:S106¸"+Replace this use of System.out by a logger.(ÍŒºÃJ$17011ad1-6c03-48fc-8151-33ca7d180213

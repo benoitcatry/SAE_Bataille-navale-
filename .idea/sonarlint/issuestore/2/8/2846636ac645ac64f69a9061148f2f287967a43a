@@ -1,0 +1,21 @@
+
+š
+java:S37762"RRefactor this method to reduce its Cognitive Complexity from 45 to the 15 allowed.(ˆÓŒÅùÿÿÿÿ8Ë¼»«ø1J$f691b388-cd48-430f-bcda-e991bd9b78a5
+r	java:S1069"+Replace this use of System.out by a logger.(²ÊÈşÿÿÿÿ8Î¼»«ø1J$1089bad4-646d-4de4-a057-28fa0b4b15f2
+r	java:S106B"+Replace this use of System.out by a logger.(İÃøÿÿÿÿ8Ğ¼»«ø1J$52dd2ba3-5455-4e6b-97e7-1231f5b11eb4
+m	java:S106I"+Replace this use of System.out by a logger.(¹ö‘Ô8Ò¼»«ø1J$f16ba2fa-2dc1-44e6-99bc-72dc94686d86
+k	java:S108L")Either remove or fill this block of code.(á·¶ß8Ó¼»«ø1J$540f4c9c-e2e2-481c-a7fb-ef7beb758ea6
+r	java:S106S"+Replace this use of System.out by a logger.(²ÊÈşÿÿÿÿ8Ô¼»«ø1J$f1bba74f-a99f-45be-925e-b2134b5543f0
+r	java:S106["+Replace this use of System.out by a logger.(İÃøÿÿÿÿ8Õ¼»«ø1J$53aef593-2877-4880-bc0e-91c42788eb19
+m	java:S106b"+Replace this use of System.out by a logger.(¹ö‘Ô8Ö¼»«ø1J$346f8540-140f-4540-b9b4-d6453a3e709f
+k	java:S108e")Either remove or fill this block of code.(á·¶ß8Ö¼»«ø1J$d4156f7e-2d8d-403e-840c-b76f8724aaf0
+i
+java:S1905p"&Remove this unnecessary cast to "int".(œÌ‘8Ù¼»«ø1J$4920118c-461d-4e26-913c-c763ec55bd29
+i
+java:S1905q"&Remove this unnecessary cast to "int".(ª†¥£8Ú¼»«ø1J$41e35a62-3307-4eab-9a89-a5533a89a07d
+j
+java:S1905‘"&Remove this unnecessary cast to "int".(…Ğø®8İ¼»«ø1J$7f40353f-9415-4e5e-95da-0d2004a1c5d2
+j
+java:S1905’"&Remove this unnecessary cast to "int".(ª†¥£8Ş¼»«ø1J$af15c17f-083e-49ac-a0f8-91332bd6496b
+¤
+java:S3923Ÿ"[Remove this conditional structure or edit its code blocks so that they're not all the same.(´å©üÿÿÿÿ8á¼»«ø1J$808b9d20-77a8-4094-92af-f06485760d08

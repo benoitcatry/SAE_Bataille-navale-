@@ -19,8 +19,8 @@ public class BattleShipControler extends Controller {
 
     BufferedReader consoleIn;
     boolean firstPlayer;
-    int stadeDeLaPartie; // si 1 on pose le bateau Si 2 feu a vaulonté
-    int modedejeux ; // pour savoir qui joue le bot toujour quand 2
+    int stadeDeLaPartie; // si 1 on pose le bateau Si 2 feu a volonté
+    int modedejeux ; // pour savoir qui joue le bot toujours quand 2
     int count =0;
 
     public BattleShipControler(Model model, View view) {

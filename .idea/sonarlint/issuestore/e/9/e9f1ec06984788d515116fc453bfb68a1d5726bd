@@ -1,0 +1,12 @@
+
+£
+java:S1450#"[Remove the "shootingMode" field and declare it as a local variable in the relevant methods.(©•¼Æùÿÿÿÿ8Éà‚¬ø1J$94a44697-f9ca-4d83-8d4f-78c375ed5215
+¤
+java:S1450"\Remove the "tabMissTouche" field and declare it as a local variable in the relevant methods.(‹¥Ï„ıÿÿÿÿ8Êà‚¬ø1J$0913f27a-ff42-466a-b30e-121549f3ba2c
+•	java:S100P"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒÂŒ½úÿÿÿÿ8Öà‚¬ø1J$c3c73fef-8db1-4b41-b0c5-abd7565d2db8
+p
+java:S1068"(Remove this unused "loto" private field.(Ô’¡şÿÿÿÿ8Ùà‚¬ø1J$b7afa5b2-3a24-4b82-8e03-d3fbdbb115e9
+s
+java:S1068"0Remove this unused "listeMissile" private field.(ñ­§8Ûà‚¬ø1J$c7b5163b-1ca6-4db6-9441-865b15cf245f
+x
+java:S1068#"0Remove this unused "shootingMode" private field.(©•¼Æùÿÿÿÿ8Ûà‚¬ø1J$c5e90886-0440-46ed-b331-72fb6d1b0764
