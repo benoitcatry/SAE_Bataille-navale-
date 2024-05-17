@@ -29,14 +29,14 @@ public class BattleShipStageFactory extends StageElementsFactory {
         stageModel.setPlayer1Name(textplayer1);
 
         TextElement textplayer2 = new TextElement(stageModel.getCurrentPlayerName(), stageModel);
-        textplayer2.setLocation(0,0);
+        textplayer2.setLocation(100,0);
         stageModel.setPlayer2Name(textplayer2);
 
         BattleBoard boardplayer1 = new BattleBoard(0, 1, stageModel);
         // assign the board to the game stage model
         stageModel.setBoardPlayer1(boardplayer1);
 
-        BattleBoard boardplayer2 = new BattleBoard(0, 1, stageModel);
+        BattleBoard boardplayer2 = new BattleBoard(100, 1, stageModel);
         // assign the board to the game stage model
         stageModel.setBoardPlayer2(boardplayer2);
 
@@ -96,14 +96,14 @@ public class BattleShipStageFactory extends StageElementsFactory {
         stageModel.setPlayer1Name(textplayer1);
 
         TextElement textplayer2 = new TextElement(stageModel.getCurrentPlayerName(), stageModel);
-        textplayer2.setLocation(0,0);
+        textplayer2.setLocation(100,0);
         stageModel.setPlayer2Name(textplayer2);
 
         BattleBoard boardplayer1 = new BattleBoard(0, 1, stageModel);
         // assign the board to the game stage model
         stageModel.setBoardPlayer1(boardplayer1);
 
-        BattleBoard boardplayer2 = new BattleBoard(0, 1, stageModel);
+        BattleBoard boardplayer2 = new BattleBoard(100, 1, stageModel);
         // assign the board to the game stage model
         stageModel.setBoardPlayer2(boardplayer2);
 
