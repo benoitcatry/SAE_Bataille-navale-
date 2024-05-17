@@ -27,7 +27,7 @@ public class BattleBoard extends ContainerElement{
         }
     }
 
-    public List<Point> computeValidCells(int number) {
+    /*public List<Point> computeValidCells(int number) {
         List<Point> lst = new ArrayList<>();
         Misille m = null;
         // if the grid is empty, is it the first turn and thus, all cells are valid
@@ -119,7 +119,84 @@ public class BattleBoard extends ContainerElement{
             }
         }
         return lst;
+    } */
+    public List<Point> computeValidCells(int n) {
+        List<Point> lst = new ArrayList<>();
+        Misille m = null;
+        if (isEmpty()) {
+            for(int i = 0; i < 10; i++) {
+                for (int j = 0; j < 10; j++) {
+                    lst.add(new Point(j, i));
+                }
+            }
+            return lst;
+        }
+
+        for(int i = 0; i < 10; i++) {
+            for(int j = 0; j < 10; j++) {
+                if (isEmptyAt(i, j)) {
+                    if (i - 1 >= 0) {
+                        if (j - 1 >= 0) {
+                            m = (Misille) getElement(i - 1, j - 1);
+                            if (m != null && m.getColor() == n) {
+                                lst.add(new Point(j, i));
+                                continue;
+                            }
+                        }
+                        m = (Misille) getElement(i - 1, j);
+                        if (m != null && m.getColor() == n) {
+                            lst.add(new Point(j, i));
+                            continue;
+                        }
+                        if (j + 1 <= 2) {
+                            m = (Misille) getElement(i - 1, j + 1);
+                            if (m != null && m.getColor() == n) {
+                                lst.add(new Point(j, i));
+                                continue;
+                            }
+                        }
+                    }
+                    if (i + 1 <= 2) {
+                        if (j - 1 >= 0) {
+                            m = (Misille) getElement(i + 1, j - 1);
+                            if (m != null && m.getColor() == n) {
+                                lst.add(new Point(j, i));
+                                continue;
+                            }
+                        }
+                        m = (Misille) getElement(i + 1, j);
+                        if (m != null && m.getColor() == n) {
+                            lst.add(new Point(j, i));
+                            continue;
+                        }
+                        if (j + 1 <= 2) {
+                            m = (Misille) getElement(i + 1, j + 1);
+                            if (m != null && m.getColor() == n) {
+                                lst.add(new Point(j, i));
+                                continue;
+                            }
+                        }
+                    }
+                    if (j - 1 >= 0) {
+                        m = (Misille) getElement(i, j - 1);
+                        if (m != null && m.getColor() == n) {
+                            lst.add(new Point(j, i));
+                            continue;
+                        }
+                    }
+                    if (j + 1 <= 2) {
+                        m = (Misille) getElement(i, j + 1);
+                        if (m != null && m.getColor() == n) {
+                            lst.add(new Point(j, i));
+                            continue;
+                        }
+                    }
+                }
+            }
+        }
+        return lst;
     }
+
 
 
 
