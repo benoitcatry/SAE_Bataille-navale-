@@ -13,7 +13,9 @@ public class Misille extends GameElement {
     public Misille(int number, int color, GameStageModel gameStageModel) {
         super(gameStageModel);
         // registering element types defined especially for this game
-        ElementTypes.register("Cell",50);
+        System.out.println("arrive à register");
+        ElementTypes.register("Cell",60);
+        System.out.println("register ok");
         type = ElementTypes.getType("Cell");
         this.number = number;
         this.color = color;

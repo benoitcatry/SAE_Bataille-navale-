@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="430f0373-63ed-417c-a239-933f07a3b6d7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/model/MisileConteneur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Misille.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/ShowShip.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/BattleBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Cell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ShipStageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ShipStageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ShotView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ShotView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/StatsJoueurs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/StatsJoueurs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Misille.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Misille.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +90,7 @@
       <workItem from="1715671234902" duration="5585000" />
       <workItem from="1715859950629" duration="364000" />
       <workItem from="1715860342011" duration="1347000" />
-      <workItem from="1715861736794" duration="5517000" />
+      <workItem from="1715861736794" duration="7175000" />
     </task>
     <servers />
   </component>
