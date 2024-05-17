@@ -1,4 +1,5 @@
 package model;
+import boardifier.model.GameElement;
 import boardifier.model.GameStageModel;
 import boardifier.model.StageElementsFactory;
 import boardifier.model.TextElement;
@@ -28,14 +29,14 @@ public class BattleShipStageFactory extends StageElementsFactory {
         stageModel.setPlayer1Name(textplayer1);
 
         TextElement textplayer2 = new TextElement(stageModel.getCurrentPlayerName(), stageModel);
-        textplayer2.setLocation(0,0);
+        textplayer2.setLocation(100,0);
         stageModel.setPlayer2Name(textplayer2);
 
         BattleBoard boardplayer1 = new BattleBoard(0, 1, stageModel);
         // assign the board to the game stage model
         stageModel.setBoardPlayer1(boardplayer1);
 
-        BattleBoard boardplayer2 = new BattleBoard(0, 1, stageModel);
+        BattleBoard boardplayer2 = new BattleBoard(100, 1, stageModel);
         // assign the board to the game stage model
         stageModel.setBoardPlayer2(boardplayer2);
 
@@ -58,6 +59,14 @@ public class BattleShipStageFactory extends StageElementsFactory {
         shipplayer2[4] = new Ship(1,1,2,stageModel);
         stageModel.setShipsPlayer2(shipplayer2);
 
+        for (int i = 0; i < shipplayer1.length; i++) {
+            shipplayer1[i].setShipParts(stageModel);
+        }
+
+        for (int i = 0; i < shipplayer2.length; i++) {
+            shipplayer2[i].setShipParts(stageModel);
+        }
+
         Misille[] misillePlayer1 = new Misille[50];
         for (int i = 0; i < misillePlayer1.length; i++) {
             misillePlayer1[i]= new Misille(i,1,stageModel);
@@ -68,6 +77,9 @@ public class BattleShipStageFactory extends StageElementsFactory {
             misillePlayer2[i]= new Misille(i,1,stageModel);
         }
         stageModel.setMissileJoueur2(misillePlayer2);
+
+
+
 
     }
 
@@ -84,14 +96,14 @@ public class BattleShipStageFactory extends StageElementsFactory {
         stageModel.setPlayer1Name(textplayer1);
 
         TextElement textplayer2 = new TextElement(stageModel.getCurrentPlayerName(), stageModel);
-        textplayer2.setLocation(0,0);
+        textplayer2.setLocation(100,0);
         stageModel.setPlayer2Name(textplayer2);
 
         BattleBoard boardplayer1 = new BattleBoard(0, 1, stageModel);
         // assign the board to the game stage model
         stageModel.setBoardPlayer1(boardplayer1);
 
-        BattleBoard boardplayer2 = new BattleBoard(0, 1, stageModel);
+        BattleBoard boardplayer2 = new BattleBoard(100, 1, stageModel);
         // assign the board to the game stage model
         stageModel.setBoardPlayer2(boardplayer2);
 
@@ -124,6 +136,14 @@ public class BattleShipStageFactory extends StageElementsFactory {
         shipplayer2[9] = new Ship(1,1,1,stageModel);
         stageModel.setShipsPlayer2(shipplayer2);
 
+        for (int i = 0; i < shipplayer1.length; i++) {
+            shipplayer1[i].setShipParts(stageModel);
+        }
+
+        for (int i = 0; i < shipplayer2.length; i++) {
+            shipplayer2[i].setShipParts(stageModel);
+        }
+
         Misille[] misillePlayer1 = new Misille[50];
         for (int i = 0; i < misillePlayer1.length; i++) {
             misillePlayer1[i]= new Misille(i,1,stageModel);
@@ -134,7 +154,23 @@ public class BattleShipStageFactory extends StageElementsFactory {
             misillePlayer2[i]= new Misille(i,1,stageModel);
         }
         stageModel.setMissileJoueur2(misillePlayer2);
+
+
+        MisileConteneur conteneurjoueur1 = new MisileConteneur(0,0,stageModel);
+        MisileConteneur conteneurjoueur2 = new MisileConteneur(0,0,stageModel);
+
+        for(int i =0; i < misillePlayer1.length; i++){
+            conteneurjoueur1.addElement(misillePlayer1[i],1,i);
+            conteneurjoueur2.addElement(misillePlayer2[i],1,i);
         }
+
+        TextElement infopartie = new TextElement("d", stageModel);
+        stageModel.setInfoPartie(infopartie);
+
+
+
+
+    }
 
 
         //permet de selecte le mode de jeux

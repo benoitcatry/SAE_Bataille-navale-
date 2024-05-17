@@ -41,6 +41,7 @@ public class BattleShipControler extends Controller {
             playTurn();
             endOfTurn();
             update();
+
         }
         endGame();
     }
@@ -48,15 +49,17 @@ public class BattleShipControler extends Controller {
 
     private void playTurn() {
         Player p = model.getCurrentPlayer();
-        //verifie si c'est un bot qui joue
+        //il y a du stade a la partie ; la partie 1 ou on pose les bateau | la partie 2 ou on tire
         if(stadeDeLaPartie == 1) { //on pose les bateau
+            //verif si bot
             if (p.getType() == Player.COMPUTER) {
+                //a modif pour le bot
                 System.out.println("COMPUTER PLAYS");
                 BattleShipDecider decider = new BattleShipDecider(model,this);
                 ActionPlayer play = new ActionPlayer(model, this, decider, null);
                 play.start();
             }
-            else {
+            else { // si pas bot alors joueur
                 boolean ok = false;
                 for(int i = 0; i < modedejeux; i++) {
                     while (!ok) {
@@ -74,8 +77,9 @@ public class BattleShipControler extends Controller {
                 }}
 
             }   
-        } else if (count == 2) {
+        } else if (count == 2) {// partie de la partie 2 donc on tire
             if (p.getType() == Player.COMPUTER) {
+                //a modif avec le methode des bot
                 System.out.println("COMPUTER PLAYS");
                 BattleShipDecider decider = new BattleShipDecider(model,this);
                 ActionPlayer play = new ActionPlayer(model, this, decider, null);
@@ -87,7 +91,7 @@ public class BattleShipControler extends Controller {
                     System.out.print(p.getName()+ " > ");
                     try {
                         String line = consoleIn.readLine();
-                        if (line.length() == 3) {
+                        if (line.length() == 2) {
                             ok = analyseAndPlay(line);
                         }
                         if (!ok) {
@@ -98,7 +102,6 @@ public class BattleShipControler extends Controller {
                 }
             }
         }
-
     }
 
     //posse les bateau
@@ -122,7 +125,7 @@ public class BattleShipControler extends Controller {
                 gameStage.ShipPlayer2[m].setCordonnerShip(col, row, sens);
             }
         }
-        if(gameStage.ShipPlayer1.length == m){
+        if(gameStage.ShipPlayer1.length-1 == m){
             model.setNextPlayer();
             count ++;
             return true;
@@ -145,24 +148,39 @@ public class BattleShipControler extends Controller {
             if ((row<0)||(row>10)) return false;
             if ((col<0)||(col>10)) return false;
             // check if the pawn is still in its pot
-            GameElement tire = null;
+            ContainerElement tire = null;
             if (model.getIdPlayer() == 0) {
-                tire = game.getMissileJoueur1();
+                tire = gameStage.getBoardPlayer1();
             }
             else {
-                tire = gameStage.getMissilejoueur2();
+                tire = gameStage.getBoardPlayer2();
             }
-            if (pot.isEmptyAt(pawnIndex,0)) return false;
-            GameElement pawn = pot.getElement(pawnIndex,0);
-            // compute valid cells for the chosen pawn
-            gameStage.getBoard().setValidCells(pawnIndex+1);
-            if (!gameStage.getBoard().canReachCell(row,col)) return false;
+            if (tire.isEmptyAt(0,0)) return false;
+            if (model.getIdPlayer() == 0) {
+                GameElement misile = tire.getElement(gameStage.getPlayer1ToPlay()-1,0);
+                gameStage.getBoardPlayer1().computeValidCells(5);
+                if (!gameStage.getBoardPlayer1().canReachCell(row,col)) {return false;}
+                gameStage.toucheroupas(gameStage.getShipsPlayer2(), col,row);
+                ActionList actions = ActionFactory.generatePutInContainer(model, misile, "BattleBoardPlayer1", row, col);
+                actions.setDoEndOfTurn(true);
+                ActionPlayer play = new ActionPlayer(model, this, actions);
+                play.start();
+                return true;
+            }else {
+                GameElement misile = tire.getElement(gameStage.getPlayer1ToPlay()-1,0);
+                gameStage.getBoardPlayer1().computeValidCells(5);
+                if (!gameStage.getBoardPlayer1().canReachCell(row,col)) {return false;}
+                gameStage.toucheroupas(gameStage.getShipsPlayer2(), col,row);
+                ActionList actions = ActionFactory.generatePutInContainer(model, misile, "BattleBoardPlayer1", row, col);
+                actions.setDoEndOfTurn(true);
+                ActionPlayer play = new ActionPlayer(model, this, actions);
+                play.start();
+                return true;
+            }
 
-            ActionList actions = ActionFactory.generatePutInContainer(model, pawn, "holeboard", row, col);
-            actions.setDoEndOfTurn(true); // after playing this action list, it will be the end of turn for current player.
-            ActionPlayer play = new ActionPlayer(model, this, actions);
-            play.start();
-            return true;
+
+
+
 
 
         }

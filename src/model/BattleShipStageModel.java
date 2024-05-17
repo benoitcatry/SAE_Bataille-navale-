@@ -15,6 +15,9 @@ public class BattleShipStageModel extends GameStageModel {
     private TextElement player2Name;
     private Misille[] MissileJoueur1;
     private Misille[] MissileJoueur2;
+    private MisileConteneur conteneurjoueur1;
+    private MisileConteneur conteneurjoueur2;
+    private TextElement InfoPartie;
 
     public BattleShipStageModel(String name, Model model) {
         super(name, model);
@@ -23,6 +26,16 @@ public class BattleShipStageModel extends GameStageModel {
         setupCallbacks();
 
     }
+
+    public void setInfoPartie(TextElement infopartie){this.InfoPartie = infopartie;}
+    public TextElement getInfoPartie(){return this.InfoPartie;}
+
+
+    //conteneur de misile
+    public void setConteneurjoueur1(MisileConteneur conteneurjoueur1) {this.conteneurjoueur1 = conteneurjoueur1; addContainer(this.conteneurjoueur1);}
+    public MisileConteneur getConteneurjoueur1 () {return conteneurjoueur1;}
+    public void setConteneurjoueur2(MisileConteneur conteneurjoueur2) {this.conteneurjoueur2 = conteneurjoueur1; addContainer(this.conteneurjoueur1);}
+    public MisileConteneur getConteneurjoueur2(){return conteneurjoueur2;}
 
     // set et get pour playerXtoPlay utilisé pour nb de coup réstant
     public void setPlayer1ToPlay(int player1ToPlay) {this.player1toplay = player1ToPlay;}
@@ -95,6 +108,20 @@ public class BattleShipStageModel extends GameStageModel {
             }
         }
         return true;
+    }
+
+    public boolean toucheroupas(Ship[] ships, int x , int y){
+        for(int i = 0; i < ships.length; i++){
+            for(int j= 0; j < ships[i].shipParts.length; j++ ){
+                if (ships[i].shipParts[j].esttoucher() == false){
+                    if(ships[i].shipParts[j].getcordonneX() == x && ships[i].shipParts[j].getcordonneY() == y){
+                        ships[i].shipParts[j].setToucher(true);
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
 
