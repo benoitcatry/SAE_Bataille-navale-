@@ -122,7 +122,7 @@ public class BattleBoard extends ContainerElement{
     } */
     public List<Point> computeValidCells(int n) {
         List<Point> lst = new ArrayList<>();
-        Misille m = null;
+        Missille m = null;
         if (isEmpty()) {
             for(int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
@@ -137,19 +137,19 @@ public class BattleBoard extends ContainerElement{
                 if (isEmptyAt(i, j)) {
                     if (i - 1 >= 0) {
                         if (j - 1 >= 0) {
-                            m = (Misille) getElement(i - 1, j - 1);
+                            m = (Missille) getElement(i - 1, j - 1);
                             if (m != null && m.getColor() == n) {
                                 lst.add(new Point(j, i));
                                 continue;
                             }
                         }
-                        m = (Misille) getElement(i - 1, j);
+                        m = (Missille) getElement(i - 1, j);
                         if (m != null && m.getColor() == n) {
                             lst.add(new Point(j, i));
                             continue;
                         }
                         if (j + 1 <= 2) {
-                            m = (Misille) getElement(i - 1, j + 1);
+                            m = (Missille) getElement(i - 1, j + 1);
                             if (m != null && m.getColor() == n) {
                                 lst.add(new Point(j, i));
                                 continue;
@@ -158,19 +158,19 @@ public class BattleBoard extends ContainerElement{
                     }
                     if (i + 1 <= 2) {
                         if (j - 1 >= 0) {
-                            m = (Misille) getElement(i + 1, j - 1);
+                            m = (Missille) getElement(i + 1, j - 1);
                             if (m != null && m.getColor() == n) {
                                 lst.add(new Point(j, i));
                                 continue;
                             }
                         }
-                        m = (Misille) getElement(i + 1, j);
+                        m = (Missille) getElement(i + 1, j);
                         if (m != null && m.getColor() == n) {
                             lst.add(new Point(j, i));
                             continue;
                         }
                         if (j + 1 <= 2) {
-                            m = (Misille) getElement(i + 1, j + 1);
+                            m = (Missille) getElement(i + 1, j + 1);
                             if (m != null && m.getColor() == n) {
                                 lst.add(new Point(j, i));
                                 continue;
@@ -178,14 +178,14 @@ public class BattleBoard extends ContainerElement{
                         }
                     }
                     if (j - 1 >= 0) {
-                        m = (Misille) getElement(i, j - 1);
+                        m = (Missille) getElement(i, j - 1);
                         if (m != null && m.getColor() == n) {
                             lst.add(new Point(j, i));
                             continue;
                         }
                     }
                     if (j + 1 <= 2) {
-                        m = (Misille) getElement(i, j + 1);
+                        m = (Missille) getElement(i, j + 1);
                         if (m != null && m.getColor() == n) {
                             lst.add(new Point(j, i));
                             continue;

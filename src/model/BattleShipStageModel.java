@@ -13,10 +13,10 @@ public class BattleShipStageModel extends GameStageModel {
     public Ship[] ShipPlayer2;
     private TextElement player1Name;
     private TextElement player2Name;
-    private Misille[] MissileJoueur1;
-    private Misille[] MissileJoueur2;
-    private MisileConteneur conteneurjoueur1;
-    private MisileConteneur conteneurjoueur2;
+    private Missille[] MissileJoueur1;
+    private Missille[] MissileJoueur2;
+    private MissileConteneur conteneurjoueur1;
+    private MissileConteneur conteneurjoueur2;
     private TextElement InfoPartie;
 
     public BattleShipStageModel(String name, Model model) {
@@ -32,10 +32,10 @@ public class BattleShipStageModel extends GameStageModel {
 
 
     //conteneur de misile
-    public void setConteneurjoueur1(MisileConteneur conteneurjoueur1) {this.conteneurjoueur1 = conteneurjoueur1; addContainer(this.conteneurjoueur1);}
-    public MisileConteneur getConteneurjoueur1 () {return conteneurjoueur1;}
-    public void setConteneurjoueur2(MisileConteneur conteneurjoueur2) {this.conteneurjoueur2 = conteneurjoueur1; addContainer(this.conteneurjoueur1);}
-    public MisileConteneur getConteneurjoueur2(){return conteneurjoueur2;}
+    public void setConteneurjoueur1(MissileConteneur conteneurjoueur1) {this.conteneurjoueur1 = conteneurjoueur1; addContainer(this.conteneurjoueur1);}
+    public MissileConteneur getConteneurjoueur1 () {return conteneurjoueur1;}
+    public void setConteneurjoueur2(MissileConteneur conteneurjoueur2) {this.conteneurjoueur2 = conteneurjoueur1; addContainer(this.conteneurjoueur1);}
+    public MissileConteneur getConteneurjoueur2(){return conteneurjoueur2;}
 
     // set et get pour playerXtoPlay utilisé pour nb de coup réstant
     public void setPlayer1ToPlay(int player1ToPlay) {this.player1toplay = player1ToPlay;}
@@ -66,12 +66,12 @@ public class BattleShipStageModel extends GameStageModel {
     public TextElement getPlayer2Name() {return player2Name;}
 
     //Set et get des cellule pour les board
-    public Misille[] getMissileJoueur1() {return MissileJoueur1;}
-    public void setMissileJoueur1(Misille[] m){
+    public Missille[] getMissileJoueur1() {return MissileJoueur1;}
+    public void setMissileJoueur1(Missille[] m){
         MissileJoueur1 = m;
         for(int i = 0; i < MissileJoueur1.length ; i++){addElement(MissileJoueur1[i]);}}
-    public Misille[] getMissileJoueur2() {return MissileJoueur2;}
-    public void setMissileJoueur2(Misille[] m){
+    public Missille[] getMissileJoueur2() {return MissileJoueur2;}
+    public void setMissileJoueur2(Missille[] m){
         MissileJoueur2 = m;
         for(int i = 0; i < MissileJoueur2.length ; i++){addElement(MissileJoueur2[i]);}}
 
@@ -133,7 +133,7 @@ public class BattleShipStageModel extends GameStageModel {
         onPutInContainer( (element, gridDest, rowDest, colDest) -> {
             // just check when pawns are put in 3x3 board
                  if (gridDest != Boardplayer1 || gridDest!= Boardplayer2) return;
-                Misille m = (Misille) element;
+                Missille m = (Missille) element;
                 if (m.getIdjoueur() == 1) {
                     player1toplay--;
                 }

@@ -1,5 +1,4 @@
 package model;
-import boardifier.model.GameElement;
 import boardifier.model.GameStageModel;
 import boardifier.model.StageElementsFactory;
 import boardifier.model.TextElement;
@@ -67,16 +66,7 @@ public class BattleShipStageFactory extends StageElementsFactory {
             shipplayer2[i].setShipParts(stageModel);
         }
 
-        Misille[] misillePlayer1 = new Misille[50];
-        for (int i = 0; i < misillePlayer1.length; i++) {
-            misillePlayer1[i]= new Misille(i,1,stageModel);
-            }
-        stageModel.setMissileJoueur1(misillePlayer1);
-        Misille[] misillePlayer2 = new Misille[50];
-        for (int i = 0; i < misillePlayer2.length; i++) {
-            misillePlayer2[i]= new Misille(i,1,stageModel);
-        }
-        stageModel.setMissileJoueur2(misillePlayer2);
+
 
         TextElement infopartie = new TextElement("d", stageModel);
         stageModel.setInfoPartie(infopartie);
@@ -146,31 +136,58 @@ public class BattleShipStageFactory extends StageElementsFactory {
             shipplayer2[i].setShipParts(stageModel);
         }
 
-        Misille[] misillePlayer1 = new Misille[50];
-        for (int i = 0; i < misillePlayer1.length; i++) {
-            misillePlayer1[i]= new Misille(i,1,stageModel);
-            }
-        stageModel.setMissileJoueur1(misillePlayer1);
-        Misille[] misillePlayer2 = new Misille[50];
-        for (int i = 0; i < misillePlayer2.length; i++) {
-            misillePlayer2[i]= new Misille(i,1,stageModel);
-        }
-        stageModel.setMissileJoueur2(misillePlayer2);
 
-
-        MisileConteneur conteneurjoueur1 = new MisileConteneur(0,0,stageModel);
-        MisileConteneur conteneurjoueur2 = new MisileConteneur(0,0,stageModel);
-
-        for(int i =0; i < misillePlayer1.length; i++){
-            conteneurjoueur1.addElement(misillePlayer1[i],1,i);
-            conteneurjoueur2.addElement(misillePlayer2[i],1,i);
-        }
 
         TextElement infopartie = new TextElement("d", stageModel);
         stageModel.setInfoPartie(infopartie);
 
 
 
+
+    }
+
+
+    public int nbdeMissile(){
+        int nb;
+        System.out.println("Dans le mode 1 le nombre de Bombe a défaut est de 35 voulait vous changer le nombre ? (Y/N)");
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+            String rep = scanner.next();
+            char a = rep.charAt(0);
+            a = Character.toUpperCase(a);
+            if (a == 'Y') {
+                System.out.println("combien de bombe : ");
+                nb = scanner.nextInt();
+                return nb;
+            }
+            if (a == 'N') {
+                return 35;
+            } else {
+                System.out.println("erreur reponder par Y pour oui et N pour non");
+            }
+        }
+
+    }
+
+    public int nbdeMissile2(){
+        int nb;
+        System.out.println("Dans le mode 2 le nombre de Bombe a défaut est de 50 voulait vous changer le nombre ? (Y/N)");
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+            String rep = scanner.next();
+            char a = rep.charAt(0);
+            a = Character.toUpperCase(a);
+            if (a == 'Y') {
+                System.out.println("combien de bombe : ");
+                nb = scanner.nextInt();
+                return nb;
+            }
+            if (a == 'N') {
+                return 50;
+            } else {
+                System.out.println("erreur reponder par Y pour oui et N pour non");
+            }
+        }
 
     }
 
@@ -198,6 +215,31 @@ public class BattleShipStageFactory extends StageElementsFactory {
     }
 
 
+    private void setupmissile(int nb){
+        stageModel.setPlayer1ToPlay(nb);
+        stageModel.setPlayer2ToPlay(nb);
+        Missille[] missillePlayer1 = new Missille[nb];
+        for (int i = 0; i < missillePlayer1.length; i++) {
+            missillePlayer1[i]= new Missille(i,1,stageModel);
+        }
+        stageModel.setMissileJoueur1(missillePlayer1);
+        Missille[] missillePlayer2 = new Missille[nb];
+        for (int i = 0; i < missillePlayer2.length; i++) {
+            missillePlayer2[i]= new Missille(i,1,stageModel);
+        }
+        stageModel.setMissileJoueur2(missillePlayer2);
+
+
+        MissileConteneur conteneurjoueur1 = new MissileConteneur(0,0,stageModel);
+        MissileConteneur conteneurjoueur2 = new MissileConteneur(0,0,stageModel);
+
+        for(int i =0; i < missillePlayer1.length; i++){
+            conteneurjoueur1.addElement(missillePlayer1[i],1,i);
+            conteneurjoueur2.addElement(missillePlayer2[i],1,i);
+        }
+    }
+
+
 
 
 
@@ -206,9 +248,13 @@ public class BattleShipStageFactory extends StageElementsFactory {
     public void setup() {
         int mode = quelleModeDeJeux();
         if(mode == 1){
+            int nb = nbdeMissile();
             setupMode1();
+            setupmissile(nb);
         } else if (mode == 2) {
+            int nb = nbdeMissile2();
             setupMode2();
+            setupmissile(nb);
         }
     }
 

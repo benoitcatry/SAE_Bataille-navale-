@@ -4,13 +4,13 @@ import boardifier.model.ElementTypes;
 import boardifier.model.GameElement;
 import boardifier.model.GameStageModel;
 
-public class Misille extends GameElement {
+public class Missille extends GameElement {
 
     private int number;
     private int color;
     private int idjoueur;
 
-    public Misille(int number, int color, GameStageModel gameStageModel) {
+    public Missille(int number, int color, GameStageModel gameStageModel) {
         super(gameStageModel);
         // registering element types defined especially for this game
         System.out.println("arrive à register");
