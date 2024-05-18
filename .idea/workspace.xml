@@ -36,7 +36,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/benoit/Documents/SAE_Bataille-navale--xavier",
+    "last_opened_file_path": "/home/benoit/Vidéos/JeuDuMorpion",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -76,6 +76,7 @@
       <workItem from="1715753268731" duration="3380000" />
       <workItem from="1715859428731" duration="13206000" />
       <workItem from="1715926269190" duration="3727000" />
+      <workItem from="1715931078313" duration="747000" />
     </task>
     <servers />
   </component>
