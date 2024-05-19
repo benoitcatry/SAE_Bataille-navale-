@@ -202,17 +202,17 @@ public class BattleShipControler extends Controller {
     public void quiJoueEnPremier(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Qui joue en premier : 1 Joueur 1 \n  " + " 2 Joueur 2\n" + "3 Aleatoire");
-        String rep;
+        int rep;
         while (true){
-            rep = scanner.next();
-            if(rep == "1"){
+            rep = scanner.nextInt();
+            if(rep == 1){
                 return;
             }
-            if(rep == "2"){
+            if(rep == 2){
                 model.setNextPlayer();
                 return;
             }
-            if(rep == "3"){
+            if(rep == 3){
                 if(Math.random() > 0.5){ // si > 0.5 joueur 2 si <0.5 joueur 1
                     model.setNextPlayer();
                     return;

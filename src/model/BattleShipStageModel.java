@@ -15,9 +15,12 @@ public class BattleShipStageModel extends GameStageModel {
     private TextElement player2Name;
     private Missille[] MissileJoueur1;
     private Missille[] MissileJoueur2;
-    private MissileConteneur conteneurjoueur1;
-    private MissileConteneur conteneurjoueur2;
     private TextElement InfoPartie;
+    public shipPart[] shippartsj1;
+    public shipPart[] shippartsj2;
+    private StockMissile stockMissileJ1;
+    private StockMissile stockMissileJ2;
+
 
     public BattleShipStageModel(String name, Model model) {
         super(name, model);
@@ -27,15 +30,44 @@ public class BattleShipStageModel extends GameStageModel {
 
     }
 
+    public void setStockMissileJ1(StockMissile stockMissileJ1) {this.stockMissileJ1 = stockMissileJ1;
+        addContainer(stockMissileJ1);
+
+    }
+
+    public void setStockMissileJ2(StockMissile stockMissileJ2) {this.stockMissileJ2 = stockMissileJ2;
+        addContainer(stockMissileJ2);
+
+    }
+
+    public StockMissile getStockMissileJ1() {return stockMissileJ1;}
+    public StockMissile getStockMissileJ2() {return stockMissileJ2;}
+
+    public void setshippartplayer1(shipPart[] shipParts){
+        this.shippartsj1 = shipParts;
+        for(int j = 0; j < ShipPlayer1.length; j++) {
+            for (int i = 0; i < ShipPlayer1[j].shipParts.length; i++) {
+                addElement(shippartsj1[i]);
+                ShipPlayer1[j].addElement(shippartsj1[i], i, 0);
+                ShipPlayer1[j].shipParts[i] = shippartsj1[i];
+            }
+        }
+    }
+    public void setshippartplayer2(shipPart[] shipParts){
+        this.shippartsj2 = shipParts;
+        for(int j = 0; j < ShipPlayer1.length; j++) {
+            for (int i = 0; i < ShipPlayer2[j].shipParts.length; i++) {
+                ShipPlayer2[j].shipParts[i] = shippartsj2[i];
+                addElement(ShipPlayer2[j].shipParts[i]);
+                ShipPlayer2[j].addElement(ShipPlayer2[j].shipParts[i], i, 0);
+            }
+        }
+    }
+
+
     public void setInfoPartie(TextElement infopartie){this.InfoPartie = infopartie;}
     public TextElement getInfoPartie(){return this.InfoPartie;}
 
-
-    //conteneur de misile
-    public void setConteneurjoueur1(MissileConteneur conteneurjoueur1) {this.conteneurjoueur1 = conteneurjoueur1; addContainer(this.conteneurjoueur1);}
-    public MissileConteneur getConteneurjoueur1 () {return conteneurjoueur1;}
-    public void setConteneurjoueur2(MissileConteneur conteneurjoueur2) {this.conteneurjoueur2 = conteneurjoueur1; addContainer(this.conteneurjoueur1);}
-    public MissileConteneur getConteneurjoueur2(){return conteneurjoueur2;}
 
     // set et get pour playerXtoPlay utilisé pour nb de coup réstant
     public void setPlayer1ToPlay(int player1ToPlay) {this.player1toplay = player1ToPlay;}
@@ -183,6 +215,13 @@ public class BattleShipStageModel extends GameStageModel {
     }else{
         System.out.println("Match null");
     }
+    }
+    public int nbdepart(Ship[] ships){
+        int nbtotal = 0;
+        for (int i = 0 ; i <ships.length; i++){
+            nbtotal+= ships[i].getTaille();
+        }
+        return nbtotal;
     }
 
 
