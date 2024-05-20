@@ -3,26 +3,17 @@ package control;
 import boardifier.control.ActionFactory;
 import boardifier.control.Controller;
 import boardifier.control.Decider;
-import boardifier.model.GameElement;
 import boardifier.model.Model;
 import boardifier.model.action.ActionList;
 import model.BattleBoard;
 import model.BattleShipStageModel;
-
+import model.Missille;
 
 import java.awt.*;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
-public class BattleShipDecider extends Decider {
-
-    private static final Random loto = new Random(Calendar.getInstance().getTimeInMillis());
-
-    public BattleShipDecider(Model model, Controller control) {
-        super(model, control);
-    }
-
+public  class BattleShipDecider extends Decider {
     int n; //avancement dans le tableau target
     private int prevRow;
     private int prevCol;
@@ -33,7 +24,7 @@ public class BattleShipDecider extends Decider {
     private int[] targetCol;
     private Random random;
     private boolean shootingMode; // false = mode aleatoire ; true = mode si touché
-    public BattleShipDecider(Model model, BattleShipControler control) {
+    public BattleShipDecider(Model model, Controller control) {
         super(model, control);
     }
 
@@ -42,7 +33,7 @@ public class BattleShipDecider extends Decider {
         ActionList actions = null;
         BattleShipStageModel stage = (BattleShipStageModel) model.getGameStage();
         BattleBoard board = stage.getBoardPlayer2();
-        Missile missile = null;
+        Missille missile = null;
         int rowDest = 0;
         int colDest = 0;
         tabJeux = convertPointsToArray(board.computeValidCells(1));
@@ -118,4 +109,5 @@ public class BattleShipDecider extends Decider {
         }
         return true;
     }
+
 }

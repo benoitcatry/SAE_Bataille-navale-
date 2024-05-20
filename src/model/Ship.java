@@ -14,7 +14,7 @@ public class Ship extends ContainerElement {
 
 
     public Ship(int x, int y, int taille, GameStageModel gameStageModel) {
-        super("ship", x, y, 1, taille , gameStageModel);
+        super("ship", x, y, taille, 1 , gameStageModel);
         this.taille =taille;
         this.shipID = nbShip;
         nbShip++;
@@ -28,12 +28,14 @@ public class Ship extends ContainerElement {
 
 
     public void setShipParts(GameStageModel gameStageModel){
-        shipParts = new shipPart[taille];
+        this.shipParts = new shipPart[taille];
         int idparts;
         for (int i = 0; i < taille; i++) {
             idparts = shipID*10+(i+1);
             shipParts[i] = new shipPart(idparts, 1,gameStageModel);
-            addElement(shipParts[i],1,i);
+            //addElement(this.shipParts[i],1,i);
+            System.out.println("cree");
+
         }
 
     }
@@ -103,5 +105,9 @@ public class Ship extends ContainerElement {
 
     public int getPlayerID() {
         return playerID;
+    }
+
+    public int getShipID() {
+        return shipID;
     }
 }

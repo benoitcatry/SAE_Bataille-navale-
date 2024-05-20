@@ -9,6 +9,7 @@ import boardifier.view.*;
 
 import model.BattleShipStageModel;
 import model.Ship;
+import model.shipPart;
 
 
 public class ShipStageView extends GameStageView {
@@ -30,13 +31,36 @@ public class ShipStageView extends GameStageView {
 
         addLook(new ClassicBoardLook(2,4,model.getBoardPlayer2(),1,1,true));
 
-        Ship[] shipsj1 = model.getShipsPlayer1();
-        Ship[] shipsj2 = model.getShipsPlayer2();
-        for (int i=0; i<shipsj1.length; i++){
 
-            System.out.println(i + "bateau");
-            addLook(new ContainerLook(shipsj1[i], 0));
+        for (int i=0; i<model.getShipsPlayer1().length; i++){
+            //System.out.println(i + "bateau");
+            addLook(new Shiplook(2, 2,model.getShipsPlayer1()[i]));
+            addLook(new Shiplook(2, 2,model.getShipsPlayer2()[i]));
         }
+
+        //on ajoute les partie de bateau
+        for (int i=0; i<model.getShipsPlayer1().length; i++){
+            for (int j = 0; j < model.getShipsPlayer1()[i].shipParts.length; j++){
+                addLook(new ShipPartLook(model.getShipsPlayer1()[i].getshippart()[j]));
+                addLook(new ShipPartLook(model.getShipsPlayer2()[i].getshippart()[j]));
+            }
+        }
+
+        /*for(int i=0; i < model.getMissileJoueur1().length; i++){
+            addLook(new MissileLook(model.getMissileJoueur1()[i]));
+            addLook(new MissileLook(model.getMissileJoueur2()[i]));
+        }*/
+
+        addLook(new StockMissileLook(2,2,model.getStockMissileJ1()));
+        addLook(new StockMissileLook(2,2,model.getStockMissileJ2()));
+
+        for (int i=0; i<model.getMissileJoueur2().length; i++){
+            addLook(new MissileLook(model.getMissileJoueur2()[i]));
+            addLook(new MissileLook(model.getMissileJoueur1()[i]));
+
+        }
+
+
 
 
         addLook(new TextLook(model.getInfoPartie()));
@@ -46,7 +70,7 @@ public class ShipStageView extends GameStageView {
         TextElement j2 = model.getPlayer2Name();
         stats = StatsJoueurs.findStats(model);
         StatsJoueurs.showStats(stats,j1,j2);
-
+        System.out.println(getLooks());
 
     }
 }
