@@ -32,7 +32,7 @@ public class BattleShipStageFactory extends StageElementsFactory {
         textplayer2.setLocation(100,0);
         stageModel.setPlayer2Name(textplayer2);
 
-        BattleBoard boardplayer1 = new BattleBoard(0, 1, stageModel);
+        BattleBoard boardplayer1 = new BattleBoard(10, 1, stageModel);
         // assign the board to the game stage model
         stageModel.setBoardPlayer1(boardplayer1);
 
@@ -99,7 +99,7 @@ public class BattleShipStageFactory extends StageElementsFactory {
         textplayer2.setLocation(100,0);
         stageModel.setPlayer2Name(textplayer2);
 
-        BattleBoard boardplayer1 = new BattleBoard(0, 1, stageModel);
+        BattleBoard boardplayer1 = new BattleBoard(5, 1, stageModel);
         // assign the board to the game stage model
         stageModel.setBoardPlayer1(boardplayer1);
 
@@ -138,6 +138,21 @@ public class BattleShipStageFactory extends StageElementsFactory {
 
         for (int i = 0; i < shipplayer1.length; i++) {
             shipplayer1[i].setShipParts(stageModel);
+<<<<<<< Updated upstream
+=======
+        }stageModel.setShipsPlayer1(shipplayer1);
+
+
+        for(int i = 0; i < shipplayer2.length; i++) {
+            shipplayer2[i].setShipParts(stageModel);
+        }stageModel.setShipsPlayer2(shipplayer2);
+
+        shipPart[] partsj1 = new shipPart[stageModel.nbdepart(shipplayer1)];
+        shipPart[] partsj2 = new shipPart[stageModel.nbdepart(shipplayer2)];
+        for (int i = 0; i < partsj1.length; i++) {
+            partsj1[i] = new shipPart(i+1,1,0,stageModel);
+            partsj2[i] = new shipPart(i+1,1,1,stageModel);
+>>>>>>> Stashed changes
         }
 
         for (int i = 0; i < shipplayer2.length; i++) {
@@ -196,6 +211,35 @@ public class BattleShipStageFactory extends StageElementsFactory {
     }
 
 
+<<<<<<< Updated upstream
+=======
+    private void setupmissile(int nb){
+        StockMissile stkj1 = new StockMissile(54,1,stageModel);
+        StockMissile stkj2 = new StockMissile(144,1,stageModel);
+        stageModel.setStockMissileJ1(stkj1);
+        stageModel.setStockMissileJ2(stkj2);
+        stageModel.setPlayer1ToPlay(nb);
+        stageModel.setPlayer2ToPlay(nb);
+        Missille[] missillePlayer1 = new Missille[nb];
+        for (int i = 0; i < missillePlayer1.length; i++) {
+            missillePlayer1[i]= new Missille(i+1,1,stageModel);
+        }
+        stageModel.setMissileJoueur1(missillePlayer1);
+        Missille[] missillePlayer2 = new Missille[nb];
+        for (int i = 0; i < missillePlayer2.length; i++) {
+            missillePlayer2[i]= new Missille(i+1,1,stageModel);
+        }
+        stageModel.setMissileJoueur2(missillePlayer2);
+
+
+        for(int i =0; i < missillePlayer1.length; i++){
+            stkj1.addElement(missillePlayer1[i],0,0);
+            stkj2.addElement(missillePlayer2[i],0,0);
+        }
+    }
+
+
+>>>>>>> Stashed changes
 
 
 

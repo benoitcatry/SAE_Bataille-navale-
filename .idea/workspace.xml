@@ -4,10 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="430f0373-63ed-417c-a239-933f07a3b6d7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Misille.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Misille.java" afterDir="false" />
+=======
+    <list default="true" id="1ae606cc-c7ee-4439-bac4-d266b9487482" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/control/ReadFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Missille.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Missille.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Ship.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/shipPart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/shipPart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
