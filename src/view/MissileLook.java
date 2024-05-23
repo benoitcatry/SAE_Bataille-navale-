@@ -13,16 +13,16 @@ public class MissileLook extends ElementLook {
 
         Missille missille = (Missille) element;
         if (missille.getColor() == 1) {
-            shape[0][0] = ConsoleColor.WHITE + ConsoleColor.BLACK_BACKGROUND + missille.getNumber() + ConsoleColor.RESET;
+            shape[0][0] = ConsoleColor.WHITE + ConsoleColor.BLACK_BACKGROUND + "M" + ConsoleColor.RESET;
         }
         if (missille.getColor() == 2) {
-            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.RED_BACKGROUND + missille.getNumber() + ConsoleColor.RESET;
+            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.RED_BACKGROUND + "T" + ConsoleColor.RESET;
         }
         if (missille.getColor() == 3) {
-            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.RED_BACKGROUND + missille.getNumber() + ConsoleColor.RESET;
+            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.RED_BACKGROUND + "C" + ConsoleColor.RESET;
         }
         if (missille.getColor() == 4) {
-            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.RED_BACKGROUND + missille.getNumber() + ConsoleColor.RESET;
+            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.RED_BACKGROUND + "R" + ConsoleColor.RESET;
         }
     }
 }

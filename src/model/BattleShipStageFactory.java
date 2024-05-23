@@ -42,20 +42,20 @@ public class BattleShipStageFactory extends StageElementsFactory {
         //création des ship et de leur partie
         //ship pour player 1
         Ship[] shipplayer1 = new Ship[5];
-        shipplayer1[0] = new Ship(50,1,5,stageModel);
-        shipplayer1[1] = new Ship(55,1,4,stageModel);
-        shipplayer1[2] = new Ship(60,1,3,stageModel);
-        shipplayer1[3] = new Ship(65,1,3,stageModel);
-        shipplayer1[4] = new Ship(70,1,2,stageModel);
+        shipplayer1[0] = new Ship(55,3,5,stageModel);
+        shipplayer1[1] = new Ship(60,3,4,stageModel);
+        shipplayer1[2] = new Ship(65,3,3,stageModel);
+        shipplayer1[3] = new Ship(70,3,3,stageModel);
+        shipplayer1[4] = new Ship(75,3,2,stageModel);
 
 
         //ship pour player 2
         Ship[] shipplayer2 = new Ship[5];
-        shipplayer2[0] = new Ship(150,1,5,stageModel);
-        shipplayer2[1] = new Ship(155,1,4,stageModel);
-        shipplayer2[2] = new Ship(160,1,3,stageModel);
-        shipplayer2[3] = new Ship(165,1,3,stageModel);
-        shipplayer2[4] = new Ship(170,1,2,stageModel);
+        shipplayer2[0] = new Ship(155,3,5,stageModel);
+        shipplayer2[1] = new Ship(160,3,4,stageModel);
+        shipplayer2[2] = new Ship(165,3,3,stageModel);
+        shipplayer2[3] = new Ship(170,3,3,stageModel);
+        shipplayer2[4] = new Ship(175,3,2,stageModel);
 
 
         for (int i = 0; i < shipplayer1.length; i++) {
@@ -71,7 +71,7 @@ public class BattleShipStageFactory extends StageElementsFactory {
         System.out.println(stageModel.nbdepart(shipplayer2));
         shipPart[] partsj1 = new shipPart[stageModel.nbdepart(shipplayer1)];
         shipPart[] partsj2 = new shipPart[stageModel.nbdepart(shipplayer2)];
-        for (int i = 0; i < partsj1.length ; i++) {
+        for (int i = 0; i < 16 ; i++) {
             partsj1[i] = new shipPart(i+1,1,stageModel);
             partsj2[i] = new shipPart(i+1,1,stageModel);
             System.out.println(i);
@@ -121,30 +121,30 @@ public class BattleShipStageFactory extends StageElementsFactory {
         //création des ship et de leur partie
         //ship pour player 1
         Ship[] shipplayer1 = new Ship[10];
-        shipplayer1[0] = new Ship(50,1,4,stageModel);
-        shipplayer1[1] = new Ship(55,1,3,stageModel);
-        shipplayer1[2] = new Ship(60,1,3,stageModel);
-        shipplayer1[3] = new Ship(65,1,2,stageModel);
-        shipplayer1[4] = new Ship(70,1,2,stageModel);
-        shipplayer1[5] = new Ship(50,10,2,stageModel);
-        shipplayer1[6] = new Ship(55,10,1,stageModel);
-        shipplayer1[7] = new Ship(60,10,1,stageModel);
-        shipplayer1[8] = new Ship(65,10,1,stageModel);
-        shipplayer1[9] = new Ship(70,10,1,stageModel);
+        shipplayer1[0] = new Ship(55,3,4,stageModel);
+        shipplayer1[1] = new Ship(60,3,3,stageModel);
+        shipplayer1[2] = new Ship(65,3,3,stageModel);
+        shipplayer1[3] = new Ship(70,3,2,stageModel);
+        shipplayer1[4] = new Ship(75,3,2,stageModel);
+        shipplayer1[5] = new Ship(55,13,2,stageModel);
+        shipplayer1[6] = new Ship(60,13,1,stageModel);
+        shipplayer1[7] = new Ship(65,13,1,stageModel);
+        shipplayer1[8] = new Ship(70,13,1,stageModel);
+        shipplayer1[9] = new Ship(75,13,1,stageModel);
         stageModel.setShipsPlayer1(shipplayer1);
 
         //ship pour player 2
         Ship[] shipplayer2 = new Ship[10];
-        shipplayer2[0] = new Ship(150,1,4,stageModel);
-        shipplayer2[1] = new Ship(155,1,3,stageModel);
-        shipplayer2[2] = new Ship(160,1,3,stageModel);
-        shipplayer2[3] = new Ship(165,1,2,stageModel);
-        shipplayer2[4] = new Ship(170,1,2,stageModel);
-        shipplayer2[5] = new Ship(150,10,2,stageModel);
-        shipplayer2[6] = new Ship(155,10,1,stageModel);
-        shipplayer2[7] = new Ship(160,10,1,stageModel);
-        shipplayer2[8] = new Ship(165,10,1,stageModel);
-        shipplayer2[9] = new Ship(170,10,1,stageModel);
+        shipplayer2[0] = new Ship(155,2,4,stageModel);
+        shipplayer2[1] = new Ship(160,3,3,stageModel);
+        shipplayer2[2] = new Ship(165,3,3,stageModel);
+        shipplayer2[3] = new Ship(170,3,2,stageModel);
+        shipplayer2[4] = new Ship(175,3,2,stageModel);
+        shipplayer2[5] = new Ship(155,13,2,stageModel);
+        shipplayer2[6] = new Ship(160,13,1,stageModel);
+        shipplayer2[7] = new Ship(165,13,1,stageModel);
+        shipplayer2[8] = new Ship(170,13,1,stageModel);
+        shipplayer2[9] = new Ship(175,13,1,stageModel);
         stageModel.setShipsPlayer2(shipplayer2);
 
         for (int i = 0; i < shipplayer1.length; i++) {
@@ -244,8 +244,8 @@ public class BattleShipStageFactory extends StageElementsFactory {
 
 
     private void setupmissile(int nb){
-        StockMissile stkj1 = new StockMissile(52,1,stageModel);
-        StockMissile stkj2 = new StockMissile(152,1,stageModel);
+        StockMissile stkj1 = new StockMissile(44,1,stageModel);
+        StockMissile stkj2 = new StockMissile(144,1,stageModel);
         stageModel.setStockMissileJ1(stkj1);
         stageModel.setStockMissileJ2(stkj2);
         stageModel.setPlayer1ToPlay(nb);
@@ -263,8 +263,8 @@ public class BattleShipStageFactory extends StageElementsFactory {
 
 
         for(int i =0; i < missillePlayer1.length; i++){
-            stkj1.addElement(missillePlayer1[i],1,1);
-            stkj2.addElement(missillePlayer2[i],1,1);
+            stkj1.addElement(missillePlayer1[i],0,0);
+            stkj2.addElement(missillePlayer2[i],0,0);
         }
     }
 

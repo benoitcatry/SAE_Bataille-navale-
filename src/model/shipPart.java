@@ -12,6 +12,7 @@ public class shipPart extends GameElement {
     private int Y;
     private boolean toucher = false;
 
+
     public shipPart(int number, int color, GameStageModel gameStageModel ) {
         super(gameStageModel);
         // name = "ship" id = 50
@@ -19,6 +20,9 @@ public class shipPart extends GameElement {
         type = ElementTypes.getType("shippart");
         this.number = number;
         this.colors = color;
+        this.Y = -10;
+        this.X = -10;
+
     }
 
     //set et get NUmber et color

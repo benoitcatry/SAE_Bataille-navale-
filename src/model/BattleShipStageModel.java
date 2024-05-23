@@ -16,8 +16,6 @@ public class BattleShipStageModel extends GameStageModel {
     private Missille[] MissileJoueur1;
     private Missille[] MissileJoueur2;
     private TextElement InfoPartie;
-    public shipPart[] shippartsj1;
-    public shipPart[] shippartsj2;
     private StockMissile stockMissileJ1;
     private StockMissile stockMissileJ2;
 
@@ -44,24 +42,24 @@ public class BattleShipStageModel extends GameStageModel {
     public StockMissile getStockMissileJ2() {return stockMissileJ2;}
 
     public void setshippartplayer1(shipPart[] shipParts){
-        this.shippartsj1 = shipParts;
+
         for(int j = 0; j < ShipPlayer1.length; j++) {
             for (int i = 0; i < ShipPlayer1[j].shipParts.length; i++) {
-                addElement(shippartsj1[i]);
-                ShipPlayer1[j].addElement(shippartsj1[i], i, 0);
-                ShipPlayer1[j].shipParts[i] = shippartsj1[i];
+                addElement(shipParts[i]);
+                ShipPlayer1[j].addElement(shipParts[i], i, 0);
+                ShipPlayer1[j].shipParts[i] = shipParts[i];
             }
         }
     }
     public void setshippartplayer2(shipPart[] shipParts){
-        this.shippartsj2 = shipParts;
-        for(int j = 0; j < ShipPlayer1.length; j++) {
+
+       /* for(int j = 0; j < ShipPlayer1.length; j++) {
             for (int i = 0; i < ShipPlayer2[j].shipParts.length; i++) {
-                ShipPlayer2[j].shipParts[i] = shippartsj2[i];
+                ShipPlayer2[j].shipParts[i] = shipParts[i];
                 addElement(ShipPlayer2[j].shipParts[i]);
                 ShipPlayer2[j].addElement(ShipPlayer2[j].shipParts[i], i, 0);
             }
-        }
+        }*/
     }
 
 
@@ -100,47 +98,22 @@ public class BattleShipStageModel extends GameStageModel {
     //Set et get des cellule pour les board
     public Missille[] getMissileJoueur1() {return MissileJoueur1;}
     public void setMissileJoueur1(Missille[] m){
-        MissileJoueur1 = m;
+        this.MissileJoueur1 = m;
         for(int i = 0; i < MissileJoueur1.length ; i++){addElement(MissileJoueur1[i]);}}
     public Missille[] getMissileJoueur2() {return MissileJoueur2;}
     public void setMissileJoueur2(Missille[] m){
-        MissileJoueur2 = m;
+        this.MissileJoueur2 = m;
         for(int i = 0; i < MissileJoueur2.length ; i++){addElement(MissileJoueur2[i]);}}
 
     //verif que les cordonnée des ship ne se colle pas : sur les coter et les coin
-    //elle est a vomir
 
-    public boolean VerifPasColer(Ship[] ships, int xNewship, int yNewShip, int tailleNewShip, char sens){
-        int verif = 0;
-        for(int i =0; i<tailleNewShip; i++){
-            for (Ship ship : ships) {
-                //true =  V et false = H
-                if ( sens == 'V') {
-                    for(int g = 0; g < ship.getTaille(); g++){
-                        for(int j =-1; j<=ship.getTaille()+1; j++) {
-                            for(int k =-1; k<1; k++) {
-                                if (ship.getPartCordonneY(g)+j ==yNewShip && ship.getPartCordonneX(g)+k ==xNewship ){
-                                    return false;
-                                }else{verif++;}
-                            }
-                        }
-                    }
-                } else if (sens == 'H') {
-                    for(int g = 0; g < ship.getTaille(); g++){
-                        for(int j =-1; j<=ship.getTaille()+1; j++) {
-                            for(int k =-1; k<1; k++) {
-                                if (ship.getPartCordonneY(g)+k ==yNewShip && ship.getPartCordonneX(g)+j ==xNewship ){
-                                    return false;
-                                }else{verif++;}
-                            }
-                        }
-                    }
 
-                }
-            }
-        }
+    public boolean Verifpeutetreposer(Ship[] ships, int xNewship, int yNewShip, int tailleNewShip, char sens){
+
+
         return true;
     }
+
 
     public boolean toucheroupas(Ship[] ships, int x , int y){
         for(int i = 0; i < ships.length; i++){
@@ -148,6 +121,7 @@ public class BattleShipStageModel extends GameStageModel {
                 if (ships[i].shipParts[j].esttoucher() == false){
                     if(ships[i].shipParts[j].getcordonneX() == x && ships[i].shipParts[j].getcordonneY() == y){
                         ships[i].shipParts[j].setToucher(true);
+                        System.out.println("toucher");
                         return true;
                     }
                 }
@@ -160,7 +134,7 @@ public class BattleShipStageModel extends GameStageModel {
 
 
     //doit gerer la partie pas fini dsl
-    private void setupCallbacks(){
+    public void setupCallbacks(){
  
         onPutInContainer( (element, gridDest, rowDest, colDest) -> {
             // just check when pawns are put in 3x3 board
