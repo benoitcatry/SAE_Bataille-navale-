@@ -8,6 +8,34 @@ import control.BattleShipControler;
 import control.BattleShipDecider;
 public class ShipConsole {
 
+<<<<<<< Updated upstream
+=======
+    static boolean  f;
+
+
+
+
+    public static int selectionModeDeJeux(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("selectionner le mode de jeux : Mode 1 : Joueur contre joueur \n" +
+                "                               Mode 2 : joueur contre ordinateur\n" +
+                "                               Mode 3 : ordinateur contre ordinateur"  );
+        int mode;
+        while (true){
+            mode = scanner.nextInt();
+
+            if(mode == 1 || mode == 2 || mode ==3){
+                mode -= 1;
+                return mode;
+            }else {
+                System.out.println("Erreur: Uniquement 1 2 et 3 sont accepter");
+            }
+        }
+
+
+    }
+
+>>>>>>> Stashed changes
     public static void main(String[] args) {
 
         Logger.setLevel(Logger.LOGGER_TRACE);

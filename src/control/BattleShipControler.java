@@ -12,6 +12,7 @@ import boardifier.view.View;
 import model.BattleShipStageModel;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -101,6 +102,37 @@ public class BattleShipControler extends Controller {
 
     }
 
+<<<<<<< Updated upstream
+=======
+    private static Boolean lanceFichier(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("voulez vous lancer un fichier d'instruction ?\n"
+                + "Si oui, entrez 1\n");
+        int select = scanner.nextInt();
+        return (select==1);
+    }
+
+
+    private void playFile(String source){
+        try {
+            BufferedReader file = new BufferedReader(new FileReader(source));
+            String ligne;
+            int bateau=0;
+            while ((ligne= file.readLine())!="fin placement"){
+                analyseAndPlayPose(ligne,bateau);
+                bateau++;
+            }
+
+            while ((ligne=file.readLine())!=null){
+                analyseAndPlay(ligne);
+            }
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+//row = Y cal =X
+>>>>>>> Stashed changes
     //posse les bateau
     private boolean analyseAndPlayPose(String line, int m) {
         BattleShipStageModel gameStage = (BattleShipStageModel) model.getGameStage();

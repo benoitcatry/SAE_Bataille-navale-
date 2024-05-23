@@ -11,6 +11,7 @@
       <change beforePath="$PROJECT_DIR$/src/model/Misille.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Misille.java" afterDir="false" />
 =======
     <list default="true" id="1ae606cc-c7ee-4439-bac4-d266b9487482" name="Changes" comment="">
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/src/control/ReadFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -22,6 +23,12 @@
       <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" afterDir="false" />
+>>>>>>> Stashed changes
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ShipConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShipConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/BattleShipControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/BattleShipControler.java" afterDir="false" />
 >>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +60,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< Updated upstream
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
@@ -72,6 +80,52 @@
   }
 }</component>
   <component name="RunManager">
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ShipConsole.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.BattleShipStageModelUnitTest.executor": "Run",
+    "JUnit.BattleShipStageModelUnitTest.testToucherOuPas.executor": "Run",
+    "JUnit.BattleboardUnitTest (1).executor": "Run",
+    "JUnit.BattleboardUnitTest.executor": "Run",
+    "JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard.executor": "Run",
+    "JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard_invalide.executor": "Run",
+    "JUnit.MissilleUnitTest,testMissileInitialization and 1 more.executor": "Run",
+    "JUnit.MissilleUnitTest.executor": "Run",
+    "JUnit.ShipPartUnitTest.executor": "Run",
+    "JUnit.ShipUnitTest.executor": "Run",
+    "JUnit.ShipUnitTest.testGetShipID.executor": "Run",
+    "JUnit.ShipUnitTest.testSetAndGetCoordinatesVertical.executor": "Run",
+    "JUnit.ShipUnitTest.testSetAndGetCoordinatesvertical.executor": "Run",
+    "JUnit.ShipUnitTest.testSetCordonnerShipInvalidPlacement.executor": "Run",
+    "JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalideNégatif.executor": "Run",
+    "JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalidePossitif.executor": "Run",
+    "JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalidenauvaisselettre.executor": "Run",
+    "JUnit.ShipUnitTest.testestcouler.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/benoit/Vidéos/JeuDuMorpion",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.Unnamed">
+>>>>>>> Stashed changes
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ShipConsole" />
       <module name="SAE_Bataille-navale-" />
@@ -94,6 +148,7 @@
       <created>1714655039778</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< Updated upstream
       <updated>1714655039778</updated>
       <workItem from="1714655040884" duration="88000" />
       <workItem from="1714655137612" duration="182000" />
@@ -106,6 +161,36 @@
       <workItem from="1715859950629" duration="364000" />
       <workItem from="1715860342011" duration="1347000" />
       <workItem from="1715861736794" duration="7175000" />
+=======
+      <updated>1714657139962</updated>
+      <workItem from="1714657141468" duration="1103000" />
+      <workItem from="1714940634428" duration="5621000" />
+      <workItem from="1714979536527" duration="2472000" />
+      <workItem from="1714985650652" duration="2382000" />
+      <workItem from="1714995785437" duration="4342000" />
+      <workItem from="1715003632064" duration="2127000" />
+      <workItem from="1715067851817" duration="6793000" />
+      <workItem from="1715082201161" duration="10325000" />
+      <workItem from="1715439453596" duration="2684000" />
+      <workItem from="1715543453838" duration="2705000" />
+      <workItem from="1715663410574" duration="1881000" />
+      <workItem from="1715670533089" duration="5721000" />
+      <workItem from="1715753268731" duration="3380000" />
+      <workItem from="1715859428731" duration="13206000" />
+      <workItem from="1715926269190" duration="3727000" />
+      <workItem from="1715931078313" duration="747000" />
+      <workItem from="1716032784283" duration="19552000" />
+      <workItem from="1716124980368" duration="24885000" />
+      <workItem from="1716223270479" duration="4417000" />
+      <workItem from="1716227726361" duration="250000" />
+      <workItem from="1716227997273" duration="4366000" />
+      <workItem from="1716275211478" duration="6456000" />
+      <workItem from="1716358633689" duration="2603000" />
+      <workItem from="1716383459468" duration="11931000" />
+      <workItem from="1716448046508" duration="3189000" />
+      <workItem from="1716464434950" duration="6047000" />
+      <workItem from="1716478651085" duration="2326000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
