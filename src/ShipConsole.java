@@ -3,6 +3,8 @@ import boardifier.model.GameException;
 import boardifier.view.View;
 import boardifier.control.StageFactory;
 import boardifier.model.Model;
+
+import java.io.IOException;
 import java.lang.*;
 import java.util.Scanner;
 import control.BattleShipControler;
@@ -74,6 +76,8 @@ public class ShipConsole {
         catch(GameException e) {
             System.out.println(e);
             System.out.println("Cannot start the game. Abort");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

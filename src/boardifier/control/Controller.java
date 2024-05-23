@@ -3,6 +3,7 @@ package boardifier.control;
 import boardifier.model.*;
 import boardifier.view.*;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +35,7 @@ public abstract class Controller {
     /**
      * defines what must be done during a stage
      */
-    public abstract void stageLoop();
+    public abstract void stageLoop() throws IOException;
 
     /**
      * Start a stage of the game.

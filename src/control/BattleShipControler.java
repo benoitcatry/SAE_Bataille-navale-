@@ -11,13 +11,14 @@ import boardifier.model.action.ActionList;
 import boardifier.view.View;
 import model.BattleShipStageModel;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Scanner;
 
 public class BattleShipControler extends Controller {
+
+    Boolean file = lanceFichier();
+
+
 
     BufferedReader consoleIn;
     boolean firstPlayer;
@@ -36,11 +37,38 @@ public class BattleShipControler extends Controller {
 
 
     @Override
-    public void stageLoop() {
+    public void stageLoop() throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        BufferedReader source=null;
+        String fichier = scanner.nextLine();
+
+        if (file==true){
+            try {
+                source = new BufferedReader(new FileReader(fichier));
+            }
+            catch (Exception e){
+                System.out.println(e);
+            }
+
+        }
+        String ligne;
+        int boat=0;
+        boolean place=true;
         consoleIn = new BufferedReader(new InputStreamReader(System.in));
         update();
         while(! model.isEndStage()) {
-            playTurn();
+            if (file==false){
+                playTurn();
+            } else if (file==true) {
+                ligne = source.readLine();
+                if (ligne=="finPlacement"){
+                    place=false;
+                }
+                playFile(ligne,place,boat);
+                if (place==true){
+                    boat++;
+                }
+            }
             endOfTurn();
             //update();
         }
@@ -113,22 +141,12 @@ public class BattleShipControler extends Controller {
     }
 
 
-    private void playFile(String source){
-        try {
-            BufferedReader file = new BufferedReader(new FileReader(source));
-            String ligne;
-            int bateau=0;
-            while ((ligne= file.readLine())!="fin placement"){
-                analyseAndPlayPose(ligne,bateau);
-                bateau++;
-            }
-
-            while ((ligne=file.readLine())!=null){
-                analyseAndPlay(ligne);
-            }
+    private void playFile(String ligne,boolean place,int boat){
+        if (place==true){
+            analyseAndPlayPose(ligne,boat);
         }
-        catch (Exception e){
-            System.out.println(e);
+        else {
+            analyseAndPlay(ligne);
         }
     }
 //row = Y cal =X
