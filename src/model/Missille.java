@@ -24,12 +24,17 @@ public class Missille extends GameElement {
     public int getNumber() {
         return number;
     }
+    public void setNumber(int number) {
+        this.number = number;
+    }
 
     public int getColor() {
         return color;
     }
+    public void setColor(int color) {this.color = color;}
 
     public int getIdjoueur() {return idjoueur;}
+    public void setIdjoueur(int idjoueur) {this.idjoueur = idjoueur;}
 
 
 

@@ -11,6 +11,7 @@ import model.BattleShipStageModel;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 
@@ -50,10 +51,9 @@ public class BattleShipControler extends Controller {
 
     private void playTurn() {
         Player p = model.getCurrentPlayer();
-        if(quiJouePremier == false && firstPlayer == true){
+        if(quiJouePremier == false){
             quiJoueEnPremier();
         }
-
         //il y a du stade a la partie ; la partie 1 ou on pose les bateau | la partie 2 ou on tire
         if(count == 0 || count == 1) { //on pose les bateau
             //verif si bot
@@ -72,7 +72,8 @@ public class BattleShipControler extends Controller {
                     try {
                         String line = consoleIn.readLine();
                         if (line.length() == 3) {
-                            if (model.getIdPlayer() == 0){ok = analyseAndPlayPose(line, bateaunum);}
+                            if (model.getIdPlayer() == 0){
+                                ok = analyseAndPlayPose(line, bateaunum);}
                             else {ok = analyseAndPlayPose(line, bateaunum2);}
 
                         }
@@ -85,6 +86,7 @@ public class BattleShipControler extends Controller {
 
             }   
         } else if (count == 2) {// partie de la partie 2 donc on tire
+            System.out.println("lala");
             if (p.getType() == Player.COMPUTER) {
                 //a modif avec le methode des bot
                 System.out.println("COMPUTER PLAYS");
@@ -110,28 +112,33 @@ public class BattleShipControler extends Controller {
             }
         }
     }
-
+//row = Y cal =X
     //posse les bateau
     private boolean analyseAndPlayPose(String line, int m) {
         BattleShipStageModel gameStage = (BattleShipStageModel) model.getGameStage();
         char sens = Character.toUpperCase(line.charAt(0));
         if (sens != 'H' && sens != 'V') {return false;}
-        int col = (int) Character.toUpperCase((line.charAt(1) - 'A'));
-        int row = (int) (line.charAt(2) - '1');
-        if ((row<0)||(row>10)) return false;
-        if ((col<0)||(col>10)) return false;
-        if (model.getIdPlayer() == 0) {
-            if (!(gameStage.VerifPasColer(gameStage.getShipsPlayer1(),row,col,gameStage.ShipPlayer1[m].getTaille(), sens))){return false;}
 
+        int X = (int) Character.toUpperCase((line.charAt(1) - 'A'));
+        int Y = (int) (line.charAt(2) - '1');
+        if ((Y<0)||(Y>9)) {return false;}
+
+        if ((X<0)||(X>9)) {return false;}
+
+        if (model.getIdPlayer() == 0) {
+            if (!(gameStage.Verifpeutetreposer(gameStage.getShipsPlayer1(),X,Y,gameStage.ShipPlayer1[m].getTaille(), sens))){
+                System.out.println("la bateau est coller a une autre bateau");
+                return false;
+            }
             else {
-                gameStage.ShipPlayer1[m].setCordonnerShip(col, row, sens);
+                gameStage.ShipPlayer1[m].setCordonnerShip(Y, X,  sens);
                 bateaunum++;
             }
         }
         if (model.getIdPlayer() == 1) {
-            if (!(gameStage.VerifPasColer(gameStage.getShipsPlayer2(),row,col,gameStage.ShipPlayer2[m].getTaille(), sens))){return false;}
+            if (!(gameStage.Verifpeutetreposer(gameStage.getShipsPlayer2(),X,Y,gameStage.ShipPlayer2[m].getTaille(), sens))){return false;}
             else {
-                gameStage.ShipPlayer2[m].setCordonnerShip(col, row, sens);
+                gameStage.ShipPlayer2[m].setCordonnerShip(Y, X, sens);
                 bateaunum2++;
             }
         }
@@ -142,12 +149,9 @@ public class BattleShipControler extends Controller {
         }
         return true;
 
-
-
-
         }
 
-        //tire le bouler
+        //tire la bombe
         private boolean analyseAndPlay (String line){
             BattleShipStageModel gameStage = (BattleShipStageModel) model.getGameStage();            // get the pawn value from the first char
 
@@ -167,7 +171,7 @@ public class BattleShipControler extends Controller {
             }
             if (tire.isEmptyAt(0,0)) return false;
             if (model.getIdPlayer() == 0) {
-                GameElement misile = tire.getElement(gameStage.getPlayer1ToPlay()-1,0);
+                GameElement misile = tire.getElement(gameStage.getPlayer1ToPlay()-1,1);
                 gameStage.getBoardPlayer1().computeValidCells(5);
                 if (!gameStage.getBoardPlayer1().canReachCell(row,col)) {return false;}
                 gameStage.toucheroupas(gameStage.getShipsPlayer2(), col,row);
@@ -177,11 +181,11 @@ public class BattleShipControler extends Controller {
                 play.start();
                 return true;
             }else {
-                GameElement misile = tire.getElement(gameStage.getPlayer1ToPlay()-1,0);
+                GameElement misile = tire.getElement(gameStage.getPlayer1ToPlay()-1,1);
                 gameStage.getBoardPlayer1().computeValidCells(5);
                 if (!gameStage.getBoardPlayer1().canReachCell(row,col)) {return false;}
                 gameStage.toucheroupas(gameStage.getShipsPlayer2(), col,row);
-                ActionList actions = ActionFactory.generatePutInContainer(model, misile, "BattleBoardPlayer1", row, col);
+                ActionList actions = ActionFactory.generatePutInContainer(model, misile, "BattleBoardPlayer2", row, col);
                 actions.setDoEndOfTurn(true);
                 ActionPlayer play = new ActionPlayer(model, this, actions);
                 play.start();
@@ -206,17 +210,21 @@ public class BattleShipControler extends Controller {
         while (true){
             rep = scanner.nextInt();
             if(rep == 1){
+                quiJouePremier =true;
                 return;
             }
             if(rep == 2){
                 model.setNextPlayer();
+                quiJouePremier =true;
                 return;
             }
             if(rep == 3){
                 if(Math.random() > 0.5){ // si > 0.5 joueur 2 si <0.5 joueur 1
                     model.setNextPlayer();
+                    quiJouePremier =true;
                     return;
                 }else {
+                    quiJouePremier =true;
                     return; // car le joueur de basse est le 1
                 }
             }

@@ -18,7 +18,9 @@ public class ShipConsole {
         int mode;
         while (true){
             mode = scanner.nextInt();
+
             if(mode == 1 || mode == 2 || mode ==3){
+                mode -= 1;
                 return mode;
             }else {
                 System.out.println("Erreur: Uniquement 1 2 et 3 sont accepter");

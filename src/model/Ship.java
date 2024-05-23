@@ -29,14 +29,7 @@ public class Ship extends ContainerElement {
 
     public void setShipParts(GameStageModel gameStageModel){
         this.shipParts = new shipPart[taille];
-        int idparts;
-        for (int i = 0; i < taille; i++) {
-            idparts = shipID*10+(i+1);
-            shipParts[i] = new shipPart(idparts, 1,gameStageModel);
-            //addElement(this.shipParts[i],1,i);
-            System.out.println("cree");
 
-        }
 
     }
 
@@ -48,20 +41,25 @@ public class Ship extends ContainerElement {
 
     public boolean getSens() {return sens;}
 
-    public void setCordonnerShip(int y , int x, char sens){
-        if(y+taille>10||x+taille>10){
+    public boolean setCordonnerShip(int y , int x, char sens){
+        if(y+taille>10||x+taille>10 || 0>y|| 0>x){
             System.out.println("imposible de placer le bateau");
+            return false;
         }
         if(sens=='H'){
             for(int i = 0 ; i < taille ; i++){
                 shipParts[i].setCordoner(x+i, y);
             }
+            return true;
         }
         if(sens=='V'){
             for(int i = 0 ; i < taille ; i++){
                 shipParts[i].setCordoner(x, y+i);
             }
+            return true;
         }
+        return false;
+
     }
 
     public void verifcouler(){
