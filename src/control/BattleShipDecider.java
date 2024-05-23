@@ -3,6 +3,8 @@ package control;
 import boardifier.control.ActionFactory;
 import boardifier.control.Controller;
 import boardifier.control.Decider;
+import boardifier.model.ContainerElement;
+import boardifier.model.GameElement;
 import boardifier.model.Model;
 import boardifier.model.action.ActionList;
 import model.BattleBoard;
@@ -32,7 +34,7 @@ public  class BattleShipDecider extends Decider {
     private Random random;
     private BattleShipStageModel battleShipStageModel;
 
-    public BattleShipDecider(Model model, Controller control,int count,BattleShipStageModel battleShipStageModel) {
+    public BattleShipDecider(Model model, Controller control) {
         super(model, control);
         this.count=count;
         this.battleShipStageModel = battleShipStageModel;
@@ -42,13 +44,15 @@ public  class BattleShipDecider extends Decider {
     @Override
     public ActionList decide() {
         ActionList actions = null;
+        ContainerElement tire = null;
+        tire = battleShipStageModel.getBoardPlayer2();
         int rowDest = 0;
         int colDest = 0;
 
         BattleShipStageModel stage = (BattleShipStageModel) model.getGameStage();
         BattleBoard board = stage.getBoardPlayer2();
         tabJeux = convertPointsToArray(board.computeValidCells(1));
-        Missille missile = null;
+        //Missille missile = null;
 
         tabMissileTouche = convertPointsToArray(board.computeValidCells(2));//convertir pour avoir un tab des missile ayant touchés
         if (tabMissileTouche[prevCol][prevRow] == 1) { // a modif pour le nombre représentant les missiles
@@ -100,7 +104,7 @@ public  class BattleShipDecider extends Decider {
             }
 
         }
-        Missille m = new Missille();
+        GameElement missile = tire.getElement(battleShipStageModel.getPlayer2ToPlay()-1,0);
         prevRow = rowDest;
         prevCol = colDest;
         actions = ActionFactory.generatePutInContainer(model, missile, "Battleboard", rowDest, colDest);
