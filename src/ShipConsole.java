@@ -4,12 +4,12 @@ import boardifier.view.View;
 import boardifier.control.StageFactory;
 import boardifier.model.Model;
 import java.lang.*;
+import java.util.Scanner;
 import control.BattleShipControler;
 import control.BattleShipDecider;
 public class ShipConsole {
 
-<<<<<<< Updated upstream
-=======
+
     static boolean  f;
 
 
@@ -35,7 +35,6 @@ public class ShipConsole {
 
     }
 
->>>>>>> Stashed changes
     public static void main(String[] args) {
 
         Logger.setLevel(Logger.LOGGER_TRACE);

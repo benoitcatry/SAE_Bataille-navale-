@@ -15,6 +15,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class BattleShipControler extends Controller {
 
@@ -102,8 +103,7 @@ public class BattleShipControler extends Controller {
 
     }
 
-<<<<<<< Updated upstream
-=======
+
     private static Boolean lanceFichier(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("voulez vous lancer un fichier d'instruction ?\n"
@@ -132,7 +132,7 @@ public class BattleShipControler extends Controller {
         }
     }
 //row = Y cal =X
->>>>>>> Stashed changes
+
     //posse les bateau
     private boolean analyseAndPlayPose(String line, int m) {
         BattleShipStageModel gameStage = (BattleShipStageModel) model.getGameStage();
