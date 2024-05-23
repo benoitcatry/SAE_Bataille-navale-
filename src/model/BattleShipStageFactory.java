@@ -68,18 +68,20 @@ public class BattleShipStageFactory extends StageElementsFactory {
         }stageModel.setShipsPlayer2(shipplayer2);
 
 
-        System.out.println(stageModel.nbdepart(shipplayer2));
+
+
+
+        //System.out.println(stageModel.nbdepart(shipplayer2));
         shipPart[] partsj1 = new shipPart[stageModel.nbdepart(shipplayer1)];
         shipPart[] partsj2 = new shipPart[stageModel.nbdepart(shipplayer2)];
         for (int i = 0; i < 16 ; i++) {
-            partsj1[i] = new shipPart(i+1,1,stageModel);
-            partsj2[i] = new shipPart(i+1,1,stageModel);
-            System.out.println(i);
+            partsj1[i] = new shipPart(i+1,1,1,stageModel);
+            partsj2[i] = new shipPart(i+1,1,0,stageModel);
+            //System.out.println(i);
         }
 
         stageModel.setshippartplayer1(partsj1);
         stageModel.setshippartplayer2(partsj2);
-
 
 
 
@@ -159,8 +161,8 @@ public class BattleShipStageFactory extends StageElementsFactory {
         shipPart[] partsj1 = new shipPart[stageModel.nbdepart(shipplayer1)];
         shipPart[] partsj2 = new shipPart[stageModel.nbdepart(shipplayer2)];
         for (int i = 0; i < partsj1.length; i++) {
-            partsj1[i] = new shipPart(i+1,1,stageModel);
-            partsj2[i] = new shipPart(i+1,1,stageModel);
+            partsj1[i] = new shipPart(i+1,1,1,stageModel);
+            partsj2[i] = new shipPart(i+1,1,1,stageModel);
         }
 
         stageModel.setshippartplayer1(partsj1);

@@ -53,13 +53,13 @@ public class BattleShipStageModel extends GameStageModel {
     }
     public void setshippartplayer2(shipPart[] shipParts){
 
-       /* for(int j = 0; j < ShipPlayer1.length; j++) {
+        for(int j = 0; j < ShipPlayer1.length; j++) {
             for (int i = 0; i < ShipPlayer2[j].shipParts.length; i++) {
                 ShipPlayer2[j].shipParts[i] = shipParts[i];
                 addElement(ShipPlayer2[j].shipParts[i]);
                 ShipPlayer2[j].addElement(ShipPlayer2[j].shipParts[i], i, 0);
             }
-        }*/
+        }
     }
 
 
@@ -109,7 +109,33 @@ public class BattleShipStageModel extends GameStageModel {
 
 
     public boolean Verifpeutetreposer(Ship[] ships, int xNewship, int yNewShip, int tailleNewShip, char sens){
+    int a =0;
+        int nbtotal =(tailleNewShip+2)*3;
+        int tabcord [][]= new int[nbtotal][2];
+        for(int i =0; i< tailleNewShip +2; i++){
+            for(int j = -1; j<1;j++){
+                if(sens=='H'){
+                    tabcord[a][0]=xNewship+i;
+                    tabcord[a][1]=yNewShip+j;
+                    a++;
+                }
+                else if(sens=='V'){
+                    tabcord[i][0]=xNewship+j;
+                    tabcord[i][1]=yNewShip+i;
+                    a++;
+                }
+            }
+            for(int k =0; k< ships.length;k++){
+                for(int l = 0; l<ships[k].getTaille(); l++){
+                    for(int m = 0; m< tabcord.length; m++){
+                        if(tabcord[m][0]==ships[k].shipParts[l].getcordonneX() && tabcord[m][1] == ships[k].shipParts[l].getcordonneY()){ return false;}
+                    }
 
+                }
+
+            }
+
+        }
 
         return true;
     }
@@ -137,7 +163,6 @@ public class BattleShipStageModel extends GameStageModel {
     public void setupCallbacks(){
  
         onPutInContainer( (element, gridDest, rowDest, colDest) -> {
-            // just check when pawns are put in 3x3 board
                  if (gridDest != Boardplayer1 || gridDest!= Boardplayer2) return;
                 Missille m = (Missille) element;
                 if (m.getIdjoueur() == 1) {

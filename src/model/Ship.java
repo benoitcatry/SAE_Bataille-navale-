@@ -29,14 +29,7 @@ public class Ship extends ContainerElement {
 
     public void setShipParts(GameStageModel gameStageModel){
         this.shipParts = new shipPart[taille];
-        int idparts;
-        for (int i = 0; i < taille; i++) {
-            idparts = shipID*10+(i+1);
-            shipParts[i] = new shipPart(idparts, 1,gameStageModel);
-            //addElement(this.shipParts[i],1,i);
-            System.out.println("cree");
 
-        }
 
     }
 

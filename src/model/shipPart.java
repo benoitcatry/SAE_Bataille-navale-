@@ -11,9 +11,10 @@ public class shipPart extends GameElement {
     private int X;
     private int Y;
     private boolean toucher = false;
+    private int idplayer;
 
 
-    public shipPart(int number, int color, GameStageModel gameStageModel ) {
+    public shipPart(int number, int color,int idplayer, GameStageModel gameStageModel ) {
         super(gameStageModel);
         // name = "ship" id = 50
         ElementTypes.register("shippart",50);
@@ -22,6 +23,7 @@ public class shipPart extends GameElement {
         this.colors = color;
         this.Y = -10;
         this.X = -10;
+        this.idplayer= idplayer;
 
     }
 
@@ -55,4 +57,5 @@ public class shipPart extends GameElement {
 
     // savoir si toucher true = toucher false = pas toucher
     public boolean esttoucher(){return toucher;}
+    public int getIdplayer(){return idplayer;}
 }

@@ -3,7 +3,7 @@ package view;
 import boardifier.model.GameElement;
 import boardifier.view.ConsoleColor;
 import boardifier.view.ElementLook;
-import model.Ship;
+
 import model.shipPart;
 
 
@@ -15,17 +15,18 @@ public class ShipPartLook extends ElementLook {
 
     public void render(){
         shipPart shipPart = (shipPart)element;
-        if (shipPart.getColor() == 1){ // neutre
+        if (shipPart.getColor() == 1 && shipPart.getIdplayer() ==0){ // neutre
             shape[0][0] = ConsoleColor.BLACK + ConsoleColor.GREEN_BACKGROUND+ shipPart.getNumber()+ConsoleColor.RESET;
-        }
-        if (shipPart.getColor() == 2){ // toucher
-            shape[0][0] = ConsoleColor.RED + ConsoleColor.GREEN_BACKGROUND+shipPart.getNumber()+ConsoleColor.RESET;
-        }
-        if (shipPart.getColor() == 3){ // couler
-            shape[0][0] = ConsoleColor.YELLOW + ConsoleColor.GREEN_BACKGROUND+shipPart.getNumber()+ConsoleColor.RESET;
-        }
-        else {
+        } else if (shipPart.getColor() == 1 && shipPart.getIdplayer() ==1) {
+            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.BLUE_BACKGROUND+ shipPart.getNumber()+ConsoleColor.RESET;
+        } else if (shipPart.getColor() == 2){ // toucher
+            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.RED_BACKGROUND+shipPart.getNumber()+ConsoleColor.RESET;
+        }else if (shipPart.getColor() == 3){ // couler
+            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.GREY_BACKGROUND+shipPart.getNumber()+ConsoleColor.RESET;
+        } else {
             shape[0][0] = ConsoleColor.BLACK + ConsoleColor.BLUE_BACKGROUND+shipPart.getNumber()+ConsoleColor.RESET;
+            System.out.println(shipPart.getColor());
         }
+
     }
 }
