@@ -10,7 +10,7 @@ public class Missille extends GameElement {
     private int color;
     private int idjoueur;
 
-    public Missille(int number, int color, GameStageModel gameStageModel) {
+    public Missille(int number, int color, int idjoueur,GameStageModel gameStageModel) {
         super(gameStageModel);
         // registering element types defined especially for this game
         System.out.println("arrive à register");
@@ -19,6 +19,7 @@ public class Missille extends GameElement {
         type = ElementTypes.getType("Cell");
         this.number = number;
         this.color = color;
+        this.idjoueur = idjoueur;
     }
 
     public int getNumber() {

@@ -39,7 +39,7 @@ public class ShipStageView extends GameStageView {
         }
 
         //on ajoute les partie de bateau
-        for (int i=0; i<model.getShipsPlayer1().length-1; i++){
+        for (int i=0; i<model.getShipsPlayer1().length; i++){
             for (int j = 0; j < model.getShipsPlayer1()[i].shipParts.length; j++){
                 addLook(new ShipPartLook(model.getShipsPlayer1()[i].getshippart()[j]));
                 addLook(new ShipPartLook(model.getShipsPlayer2()[i].getshippart()[j]));

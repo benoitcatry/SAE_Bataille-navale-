@@ -2,6 +2,8 @@ package model;
 
 import boardifier.model.*;
 
+import java.sql.SQLOutput;
+
 public class BattleShipStageModel extends GameStageModel {
 
     private int player1toplay;
@@ -42,23 +44,27 @@ public class BattleShipStageModel extends GameStageModel {
     public StockMissile getStockMissileJ2() {return stockMissileJ2;}
 
     public void setshippartplayer1(shipPart[] shipParts){
-
+        int num =0;
         for(int j = 0; j < ShipPlayer1.length; j++) {
             for (int i = 0; i < ShipPlayer1[j].shipParts.length; i++) {
-                addElement(shipParts[i]);
-                ShipPlayer1[j].addElement(shipParts[i], i, 0);
-                ShipPlayer1[j].shipParts[i] = shipParts[i];
+                ShipPlayer1[j].shipParts[i] = shipParts[num];
+                addElement(ShipPlayer1[j].shipParts[i]);
+                ShipPlayer1[j].addElement(ShipPlayer1[j].shipParts[i], i, 0);
+                num++;
             }
+
         }
     }
     public void setshippartplayer2(shipPart[] shipParts){
-
+        int num =0;
         for(int j = 0; j < ShipPlayer1.length; j++) {
             for (int i = 0; i < ShipPlayer2[j].shipParts.length; i++) {
-                ShipPlayer2[j].shipParts[i] = shipParts[i];
+                ShipPlayer2[j].shipParts[i] = shipParts[num];
                 addElement(ShipPlayer2[j].shipParts[i]);
                 ShipPlayer2[j].addElement(ShipPlayer2[j].shipParts[i], i, 0);
+                num++;
             }
+
         }
     }
 
@@ -144,13 +150,16 @@ public class BattleShipStageModel extends GameStageModel {
     public boolean toucheroupas(Ship[] ships, int x , int y){
         for(int i = 0; i < ships.length; i++){
             for(int j= 0; j < ships[i].shipParts.length; j++ ){
-                if (ships[i].shipParts[j].esttoucher() == false){
+                System.out.println("test" + i);
+                System.out.println("X"+ ships[i].shipParts[j].getcordonneX() );
+                System.out.println("Y"+ ships[i].shipParts[j].getcordonneY() );
                     if(ships[i].shipParts[j].getcordonneX() == x && ships[i].shipParts[j].getcordonneY() == y){
                         ships[i].shipParts[j].setToucher(true);
-                        System.out.println("toucher");
+                        System.out.println("TOUCHER !!!");
+                        ships[i].verifcouler();
                         return true;
                     }
-                }
+
             }
         }
         return false;
@@ -159,19 +168,23 @@ public class BattleShipStageModel extends GameStageModel {
 
 
 
-    //doit gerer la partie pas fini dsl
+
     public void setupCallbacks(){
- 
         onPutInContainer( (element, gridDest, rowDest, colDest) -> {
-                 if (gridDest != Boardplayer1 || gridDest!= Boardplayer2) return;
+                 if (gridDest != Boardplayer1 && gridDest!= Boardplayer2) return;
                 Missille m = (Missille) element;
-                if (m.getIdjoueur() == 1) {
+                if (m.getIdjoueur() == 0) {
                     player1toplay--;
+                    System.out.println(player1toplay);
+                    System.out.println(Player2toplay);
+
                 }
                 else {
                     Player2toplay--;
+                    System.out.println(player1toplay);
+                    System.out.println(Player2toplay);
                 }
-                if ((player1toplay == 0) && (Player2toplay == 0 ) ||(toutShipCouler(ShipPlayer1)|| toutShipCouler(ShipPlayer2))) {
+                if ((player1toplay == 0 && Player2toplay == 0 ) || (toutShipCouler(ShipPlayer1)|| toutShipCouler(ShipPlayer2))) {
                     computePartyResult();
                 }
             });
@@ -197,11 +210,12 @@ public class BattleShipStageModel extends GameStageModel {
     private void computePartyResult(){
     int shippartcoulerplayer1 =0;
     int shippartcoulerplayer2 = 0;
-    for(Ship ship : ShipPlayer1){
-        shippartcoulerplayer1 += ship.nbdepartcouler();
+
+    for(int i =0; i<ShipPlayer1.length ; i++){
+        shippartcoulerplayer1 += ShipPlayer1[i].nbdepartcouler();
     }
-    for(Ship ship : ShipPlayer2){
-        shippartcoulerplayer2 += ship.nbdepartcouler();
+    for(int i =0; i<ShipPlayer2.length ; i++){
+        shippartcoulerplayer2 += ShipPlayer2[i].nbdepartcouler();
     }
     if(shippartcoulerplayer1 > shippartcoulerplayer2){
         System.out.println("le joueur :" + player1Name + " a gagner avec : "+ shippartcoulerplayer1 + "touche.");
@@ -213,8 +227,11 @@ public class BattleShipStageModel extends GameStageModel {
         model.stopStage();
     }else{
         System.out.println("Match null");
+        model.stopStage();
     }
     }
+
+
     public int nbdepart(Ship[] ships){
         int nbtotal = 0;
         for (int i = 0 ; i <ships.length; i++){

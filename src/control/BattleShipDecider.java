@@ -190,7 +190,7 @@ public  class BattleShipDecider extends Decider {
                 sens = 'V';
             else
                 sens = 'H';
-        }while (battleShipStageModel.VerifPasColer(ship,x,y,taille,sens));
+        }while (battleShipStageModel.Verifpeutetreposer(ship,x,y,taille,sens));
 
         bateau.setCordonnerShip(y,x,sens);
 

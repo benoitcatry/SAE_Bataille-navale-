@@ -42,21 +42,27 @@ public class Ship extends ContainerElement {
     public boolean getSens() {return sens;}
 
     public boolean setCordonnerShip(int y , int x, char sens){
-        if(y+taille>10||x+taille>10 || 0>y|| 0>x){
-            System.out.println("imposible de placer le bateau");
-            return false;
-        }
-        if(sens=='H'){
-            for(int i = 0 ; i < taille ; i++){
-                shipParts[i].setCordoner(x+i, y);
+        if(sens == 'V'){
+            if (x>9 || y+taille-1>9 || 0>y || 0>x){
+                System.out.println("imposible de placer le bateau");
+                return false;
+            }else{
+                for(int i = 0 ; i < taille ; i++){
+                    shipParts[i].setCordoner(x, y+i);
+                }
+                return true;
             }
-            return true;
-        }
-        if(sens=='V'){
-            for(int i = 0 ; i < taille ; i++){
-                shipParts[i].setCordoner(x, y+i);
+        } else if (sens=='H') {
+            if (x+taille-1>9 || y>9 || 0>y || 0>x){
+                System.out.println("imposible de placer le bateau");
+                return false;
+            }else {
+                for(int i = 0 ; i < taille ; i++){
+                    shipParts[i].setCordoner(x+i, y);
+                }
+                return true;
+
             }
-            return true;
         }
         return false;
 
@@ -70,6 +76,9 @@ public class Ship extends ContainerElement {
             }
         }
         if(verif==taille){
+            for(int i = 0 ; i < taille ; i++){
+                shipParts[i].setColors(2);
+            }
             couler = true;
         }
     }

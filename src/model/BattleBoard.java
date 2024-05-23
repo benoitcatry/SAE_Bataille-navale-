@@ -10,9 +10,8 @@ import java.util.List;
 
 public class BattleBoard extends ContainerElement{
 
-    public BattleBoard(int x, int y, GameStageModel gameStageModel) {
-            // call the super-constructor to create a 10x10 grid, named "holeboard", and in x,y in space
-            super("battelBoard", x, y, 10 , 10, gameStageModel);
+    public BattleBoard(int x, int y, GameStageModel gameStageModel, String name) {
+            super(name, x, y, 10 , 10, gameStageModel);
         }
 
 

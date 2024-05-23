@@ -3,6 +3,7 @@ import boardifier.model.GameStageModel;
 import boardifier.model.StageElementsFactory;
 import boardifier.model.TextElement;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class BattleShipStageFactory extends StageElementsFactory {
@@ -31,11 +32,11 @@ public class BattleShipStageFactory extends StageElementsFactory {
         textplayer2.setLocation(100,0);
         stageModel.setPlayer2Name(textplayer2);
 
-        BattleBoard boardplayer1 = new BattleBoard(0, 1, stageModel);
+        BattleBoard boardplayer1 = new BattleBoard(0, 1, stageModel, "boardplayer1");
         // assign the board to the game stage model
         stageModel.setBoardPlayer1(boardplayer1);
 
-        BattleBoard boardplayer2 = new BattleBoard(100, 1, stageModel);
+        BattleBoard boardplayer2 = new BattleBoard(100, 1, stageModel, "boardplayer2");
         // assign the board to the game stage model
         stageModel.setBoardPlayer2(boardplayer2);
 
@@ -74,7 +75,7 @@ public class BattleShipStageFactory extends StageElementsFactory {
         //System.out.println(stageModel.nbdepart(shipplayer2));
         shipPart[] partsj1 = new shipPart[stageModel.nbdepart(shipplayer1)];
         shipPart[] partsj2 = new shipPart[stageModel.nbdepart(shipplayer2)];
-        for (int i = 0; i < 16 ; i++) {
+        for (int i = 0; i < 17 ; i++) {
             partsj1[i] = new shipPart(i+1,1,1,stageModel);
             partsj2[i] = new shipPart(i+1,1,0,stageModel);
             //System.out.println(i);
@@ -112,11 +113,11 @@ public class BattleShipStageFactory extends StageElementsFactory {
         textplayer2.setLocation(100,0);
         stageModel.setPlayer2Name(textplayer2);
 
-        BattleBoard boardplayer1 = new BattleBoard(0, 1, stageModel);
+        BattleBoard boardplayer1 = new BattleBoard(0, 1, stageModel, "boardplayer1");
         // assign the board to the game stage model
         stageModel.setBoardPlayer1(boardplayer1);
 
-        BattleBoard boardplayer2 = new BattleBoard(100, 1, stageModel);
+        BattleBoard boardplayer2 = new BattleBoard(100, 1, stageModel, "boardplayer2");
         // assign the board to the game stage model
         stageModel.setBoardPlayer2(boardplayer2);
 
@@ -250,16 +251,17 @@ public class BattleShipStageFactory extends StageElementsFactory {
         StockMissile stkj2 = new StockMissile(144,1,stageModel);
         stageModel.setStockMissileJ1(stkj1);
         stageModel.setStockMissileJ2(stkj2);
-        stageModel.setPlayer1ToPlay(nb);
-        stageModel.setPlayer2ToPlay(nb);
+        stageModel.setPlayer1ToPlay(nb-1);
+        stageModel.setPlayer2ToPlay(nb-1);
         Missille[] missillePlayer1 = new Missille[nb];
         for (int i = 0; i < missillePlayer1.length; i++) {
-            missillePlayer1[i]= new Missille(i+1,1,stageModel);
+            missillePlayer1[i]= new Missille(i+1,1,0,stageModel);
+            System.out.println(i);
         }
         stageModel.setMissileJoueur1(missillePlayer1);
         Missille[] missillePlayer2 = new Missille[nb];
         for (int i = 0; i < missillePlayer2.length; i++) {
-            missillePlayer2[i]= new Missille(i+1,1,stageModel);
+            missillePlayer2[i]= new Missille(i+1,1,1,stageModel);
         }
         stageModel.setMissileJoueur2(missillePlayer2);
 

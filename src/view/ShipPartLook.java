@@ -16,16 +16,15 @@ public class ShipPartLook extends ElementLook {
     public void render(){
         shipPart shipPart = (shipPart)element;
         if (shipPart.getColor() == 1 && shipPart.getIdplayer() ==0){ // neutre
-            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.GREEN_BACKGROUND+ shipPart.getNumber()+ConsoleColor.RESET;
+            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.GREEN_BACKGROUND+ "S" +ConsoleColor.RESET;
         } else if (shipPart.getColor() == 1 && shipPart.getIdplayer() ==1) {
-            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.BLUE_BACKGROUND+ shipPart.getNumber()+ConsoleColor.RESET;
-        } else if (shipPart.getColor() == 2){ // toucher
-            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.RED_BACKGROUND+shipPart.getNumber()+ConsoleColor.RESET;
-        }else if (shipPart.getColor() == 3){ // couler
-            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.GREY_BACKGROUND+shipPart.getNumber()+ConsoleColor.RESET;
+            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.BLUE_BACKGROUND+ "S"+ConsoleColor.RESET;
+        } else if (shipPart.getColor() == 2){ // COULER
+            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.RED_BACKGROUND+ "S" +ConsoleColor.RESET;
+
         } else {
-            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.BLUE_BACKGROUND+shipPart.getNumber()+ConsoleColor.RESET;
-            System.out.println(shipPart.getColor());
+            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.BLUE_BACKGROUND+"S" +ConsoleColor.RESET;
+
         }
 
     }
