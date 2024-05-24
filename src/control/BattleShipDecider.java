@@ -67,7 +67,7 @@ public  class BattleShipDecider extends Decider {
             board = battleShipStageModel.getBoardPlayer2();
             System.out.println("boardP2");
         }
-
+        tabMissileTouche = convertPointsToArray(board.computeValidCells(2));
         tabJeux = convertPointsToArray(board.computeValidCells(1));
         if (set = false) {
             for (int i = 0; i < 10; i++) {
@@ -98,6 +98,19 @@ public  class BattleShipDecider extends Decider {
 
 
             } else {
+                if (tabMissileTouche[prevX][prevY] == 1) {
+                    if (!listeTarget.isEmpty()) {
+                        listeTarget.clear();
+                        modeCaseAdja = true;
+                        n = 0;
+                        listePointLigne = getLineFromAdjacentPoints(pointCentrale, new Point(prevY, prevX));
+                        pointCentrale = null;
+                    } else {
+                        listeTarget =  calculerCaseAdjacente2(prevY, prevX);
+                        modeCaseAdja = false;
+                        n = 0;
+                    }
+                }
                 if (listeTarget.isEmpty()) {
                     calculerGrilleProba(tabJeux);
                     Point meilleurCase = trouverLaMeilleurProba();
@@ -271,7 +284,7 @@ public  class BattleShipDecider extends Decider {
 
     private static final int[][] DIRECTIONS = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
-    public void calculerCaseAdjacente(int row, int col) {
+    public int[][] calculerCaseAdjacente(int row, int col) {
         modeCaseAdja = false;
         int newRow = 0;
         int newCol = 0;
@@ -315,6 +328,7 @@ public  class BattleShipDecider extends Decider {
                 }
             } while (!(posssitionvisité[newRow][newCol] == 0));
         }
+        return futurcible;
     }
 
     private static boolean isValidPosition(int row, int col) {
@@ -515,5 +529,24 @@ public  class BattleShipDecider extends Decider {
         }
 
         return linePoints;
+    }
+
+
+
+    public List<Point> calculerCaseAdjacente2(int row, int col) {
+        List<Point> caseAdjacente = new ArrayList<>();
+        pointCentrale = new Point(row,col);
+        modeCaseAdja = false;
+
+
+        for (int[] dir : DIRECTIONS) {
+            int newRow = row + dir[0];
+            int newCol = col + dir[1];
+            if (isValidPosition(newRow, newCol)) {
+                caseAdjacente.add(new Point(newCol, newRow));
+            }
+        }
+
+        return caseAdjacente;
     }
 }
