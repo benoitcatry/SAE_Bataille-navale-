@@ -7,6 +7,7 @@ import boardifier.model.*;
 import boardifier.model.action.ActionList;
 import boardifier.view.View;
 import model.BattleShipStageModel;
+import model.Ship;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -61,9 +62,16 @@ public class BattleShipControler extends Controller {
             if (p.getType() == Player.COMPUTER) {
                 //a modif pour le bot
                 System.out.println("COMPUTER PLAYS");
-                BattleShipDecider decider = new BattleShipDecider(model,this);
-                ActionPlayer play = new ActionPlayer(model, this, decider, null);
-                play.start();
+                if(model.getIdPlayer() == 0) {
+
+                    BattleShipDecider decider = new BattleShipDecider(model, this, 0);
+                    count+=decider.placeAllShips(numJ1);
+                    numJ1++;
+                }else {
+                    BattleShipDecider decider2 = new BattleShipDecider(model, this,1);
+                    count+=decider2.placeAllShips(numJ2);
+                    numJ2++;
+                }
             }
             else { // si pas bot alors joueur
                 boolean ok = false;
@@ -91,7 +99,7 @@ public class BattleShipControler extends Controller {
             if (p.getType() == Player.COMPUTER) {
                 //a modif avec le methode des bot
                 System.out.println("COMPUTER PLAYS");
-                BattleShipDecider decider = new BattleShipDecider(model,this);
+                BattleShipDecider decider = new BattleShipDecider(model,this,1);
                 ActionPlayer play = new ActionPlayer(model, this, decider, null);
                 play.start();
             }
@@ -113,6 +121,21 @@ public class BattleShipControler extends Controller {
             }
         }
     }
+
+
+    public Ship[] getbateauJ1(){
+        BattleShipStageModel gameStage = (BattleShipStageModel) model.getGameStage();
+        return gameStage.ShipPlayer1;
+
+    }
+    public Ship[] getbateauJ2(){
+        BattleShipStageModel gameStage = (BattleShipStageModel) model.getGameStage();
+        return gameStage.ShipPlayer2;
+
+    }
+
+
+
 //row = Y cal =X
     //posse les bateau
     private boolean analyseAndPlayPose(String line, int m) {

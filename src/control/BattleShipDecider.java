@@ -32,13 +32,16 @@ public  class BattleShipDecider extends Decider {
     private int[] targetRow;
     private int[] targetCol;
     private Random random;
+    private int id_Bot;
     private BattleShipStageModel battleShipStageModel;
 
-    public BattleShipDecider(Model model, Controller control) {
+
+    public BattleShipDecider(Model model, Controller control, int id) {
         super(model, control);
         this.count=count;
-        this.battleShipStageModel = battleShipStageModel;
-        num = battleShipStageModel.ShipPlayer2.length-1;
+        id_Bot = id;
+        this.battleShipStageModel = (BattleShipStageModel) model.getGameStage();
+
     }
 
     @Override
@@ -166,31 +169,62 @@ public  class BattleShipDecider extends Decider {
     int num;
 
 
-    public void placeAllShips() {
-        Ship[] ship = battleShipStageModel.ShipPlayer2;
-        Ship bateau = ship[num];
-        int taille = bateau.getTaille();
-        placeShip(bateau, taille, ship);
+    public int placeAllShips(int m) {
+        System.out.println("je suis dans placeallship");
+        if(id_Bot ==0){
+            int taille = battleShipStageModel.ShipPlayer1[m].getTaille();
+            placeShip(battleShipStageModel.ShipPlayer1[m], taille, battleShipStageModel.ShipPlayer1);
+            System.out.println("je suis sortie de placeship");
+            for(int j =0; j< battleShipStageModel.ShipPlayer1.length; j++){
+                for (int i = 0; i < battleShipStageModel.ShipPlayer1[j].getTaille(); i++) {
+                    System.out.println("bateau"+ j + "Y "+battleShipStageModel.ShipPlayer1[j].getPartCordonneY(i) + "X :"+battleShipStageModel.ShipPlayer1[j].getPartCordonneX(i));
+                }
+            }
+            if(battleShipStageModel.ShipPlayer1.length-1 == m){
+                return 1;
+            }
+            else {
+                return 0;
+            }
+        } else if (id_Bot==1) {
+            int taille = battleShipStageModel.ShipPlayer2[m].getTaille();
+            placeShip(battleShipStageModel.ShipPlayer2[m], taille, battleShipStageModel.ShipPlayer2);
+            System.out.println("je suis sortie de placeship");
+            for(int j =0; j< battleShipStageModel.ShipPlayer2.length; j++){
+                for (int i = 0; i < battleShipStageModel.ShipPlayer2[j].getTaille(); i++) {
+                    System.out.println("bateau"+ j + "Y "+battleShipStageModel.ShipPlayer2[j].getPartCordonneY(i) + "X :"+battleShipStageModel.ShipPlayer2[j].getPartCordonneX(i));
+                }
+            }
+            if(battleShipStageModel.ShipPlayer2.length-1 == m){
+                return 1;
+            }
+            else {
+                return 0;
+            }
 
-        num-=1;
+        }
 
+        return 0;
     }
 
     private void placeShip(Ship bateau, int taille, Ship[] ship) {
+        System.out.println("je suis dans place ship");
+
         boolean placed = false;
         random = new Random();
         int x;
         int y;
         char sens;
         do {
-            x = random.nextInt(10);
-            y = random.nextInt(10);
+
+            x = random.nextInt(9);
+            y = random.nextInt(9);
             boolean n = random.nextBoolean();
             if (n)
                 sens = 'V';
             else
                 sens = 'H';
-        }while (battleShipStageModel.Verifpeutetreposer(ship,x,y,taille,sens));
+        }while (!battleShipStageModel.Verifpeutetreposer(ship,x,y,taille,sens));
 
         bateau.setCordonnerShip(y,x,sens);
 
