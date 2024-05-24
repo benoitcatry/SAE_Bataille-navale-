@@ -69,9 +69,6 @@ public class BattleShipStageFactory extends StageElementsFactory {
         }stageModel.setShipsPlayer2(shipplayer2);
 
 
-
-
-
         //System.out.println(stageModel.nbdepart(shipplayer2));
         shipPart[] partsj1 = new shipPart[stageModel.nbdepart(shipplayer1)];
         shipPart[] partsj2 = new shipPart[stageModel.nbdepart(shipplayer2)];
@@ -83,12 +80,6 @@ public class BattleShipStageFactory extends StageElementsFactory {
 
         stageModel.setshippartplayer1(partsj1);
         stageModel.setshippartplayer2(partsj2);
-
-
-
-
-
-
 
         TextElement infopartie = new TextElement("d", stageModel);
         stageModel.setInfoPartie(infopartie);
@@ -159,11 +150,14 @@ public class BattleShipStageFactory extends StageElementsFactory {
             shipplayer2[i].setShipParts(stageModel);
         }stageModel.setShipsPlayer2(shipplayer2);
 
+
+        //System.out.println(stageModel.nbdepart(shipplayer2));
         shipPart[] partsj1 = new shipPart[stageModel.nbdepart(shipplayer1)];
         shipPart[] partsj2 = new shipPart[stageModel.nbdepart(shipplayer2)];
-        for (int i = 0; i < partsj1.length; i++) {
+        for (int i = 0; i < stageModel.nbdepart(shipplayer2) ; i++) {
             partsj1[i] = new shipPart(i+1,1,1,stageModel);
-            partsj2[i] = new shipPart(i+1,1,1,stageModel);
+            partsj2[i] = new shipPart(i+1,1,0,stageModel);
+            //System.out.println(i);
         }
 
         stageModel.setshippartplayer1(partsj1);
@@ -251,8 +245,8 @@ public class BattleShipStageFactory extends StageElementsFactory {
         StockMissile stkj2 = new StockMissile(144,1,stageModel);
         stageModel.setStockMissileJ1(stkj1);
         stageModel.setStockMissileJ2(stkj2);
-        stageModel.setPlayer1ToPlay(nb-1);
-        stageModel.setPlayer2ToPlay(nb-1);
+        stageModel.setPlayer1ToPlay(nb);
+        stageModel.setPlayer2ToPlay(nb);
         Missille[] missillePlayer1 = new Missille[nb];
         for (int i = 0; i < missillePlayer1.length; i++) {
             missillePlayer1[i]= new Missille(i+1,1,0,stageModel);

@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ae606cc-c7ee-4439-bac4-d266b9487482" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_09_22_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_09_22__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_09_41_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_09_41__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipControler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipDecider.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipDecider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/control/BattleShipControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/BattleShipControler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/BattleShipDecider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/BattleShipDecider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +233,8 @@
       <workItem from="1716448046508" duration="3189000" />
       <workItem from="1716464434950" duration="12695000" />
       <workItem from="1716483394299" duration="19698000" />
-      <workItem from="1716534541100" duration="3440000" />
+      <workItem from="1716534541100" duration="10426000" />
+      <workItem from="1716547177749" duration="23388000" />
     </task>
     <servers />
   </component>
@@ -242,6 +253,10 @@
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
