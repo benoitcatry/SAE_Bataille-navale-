@@ -5,26 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ae606cc-c7ee-4439-bac4-d266b9487482" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipControler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Missille.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Missille.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Ship.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/MissileLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/MissileLook.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/control/BattleShipControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/BattleShipControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/BattleShipDecider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/BattleShipDecider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/BattleBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Missille.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Missille.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Ship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MissileLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MissileLook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ShipPartLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ShipPartLook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ShipStageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ShipStageView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +222,8 @@
       <workItem from="1716383459468" duration="11931000" />
       <workItem from="1716448046508" duration="3189000" />
       <workItem from="1716464434950" duration="12695000" />
-      <workItem from="1716483394299" duration="19353000" />
+      <workItem from="1716483394299" duration="19698000" />
+      <workItem from="1716534541100" duration="3440000" />
     </task>
     <servers />
   </component>
