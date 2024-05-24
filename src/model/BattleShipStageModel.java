@@ -150,9 +150,6 @@ public class BattleShipStageModel extends GameStageModel {
     public boolean toucheroupas(Ship[] ships, int x , int y){
         for(int i = 0; i < ships.length; i++){
             for(int j= 0; j < ships[i].shipParts.length; j++ ){
-                System.out.println("test" + i);
-                System.out.println("X"+ ships[i].shipParts[j].getcordonneX() );
-                System.out.println("Y"+ ships[i].shipParts[j].getcordonneY() );
                     if(ships[i].shipParts[j].getcordonneX() == x && ships[i].shipParts[j].getcordonneY() == y){
                         ships[i].shipParts[j].setToucher(true);
                         System.out.println("TOUCHER !!!");
@@ -226,6 +223,7 @@ public class BattleShipStageModel extends GameStageModel {
         model.setIdWinner(2);
         model.stopStage();
     }else{
+        model.setIdWinner(-1);
         System.out.println("Match null");
         model.stopStage();
     }

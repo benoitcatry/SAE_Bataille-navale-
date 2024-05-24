@@ -25,11 +25,37 @@ public class BattleShipControler extends Controller {
     boolean quiJouePremier = false;
     int tabCordMissileJ1[][];
     int tabCordMissileJ2[][];
+    int levelbot1;
+    int levelbot2;
+    boolean difficulset1 = false ;
+    boolean difficulset2 = false ;
 
 
     public BattleShipControler(Model model, View view, boolean f) {
         super(model, view);
         firstPlayer = f;
+    }
+
+
+    public boolean setlevel1(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("quelle est le level du bot : 1 Normal \n" +
+                "2 difficile");
+        do{
+            this.levelbot1 = scan.nextInt();
+        }while (!((levelbot1==1) ||(levelbot1 == 2)));
+        return true;
+
+    }
+    public boolean setlevel2(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("quelle est le level du bot : 1 Normal \n" +
+                "2 difficile");
+        do{
+            this.levelbot2 = scan.nextInt();
+        }while (!((levelbot2==1) ||(levelbot2 == 2)));
+        return true;
+
     }
 
 
@@ -45,7 +71,6 @@ public class BattleShipControler extends Controller {
             playTurn();
             endOfTurn();
             update();
-
         }
         endGame();
     }
@@ -55,6 +80,7 @@ public class BattleShipControler extends Controller {
         Player p = model.getCurrentPlayer();
         if(quiJouePremier == false){
             quiJoueEnPremier();
+
         }
         //il y a du stade a la partie ; la partie 1 ou on pose les bateau | la partie 2 ou on tire
         if(count == 0 || count == 1) { //on pose les bateau
@@ -63,12 +89,18 @@ public class BattleShipControler extends Controller {
                 //a modif pour le bot
                 System.out.println("COMPUTER PLAYS");
                 if(model.getIdPlayer() == 0) {
+                    if(difficulset1 == false){
+                        difficulset1 = setlevel1();
+                    }
 
-                    BattleShipDecider decider = new BattleShipDecider(model, this, 0);
+                    BattleShipDecider decider = new BattleShipDecider(model, this, 0, levelbot1);
                     count+=decider.placeAllShips(numJ1);
                     numJ1++;
                 }else {
-                    BattleShipDecider decider2 = new BattleShipDecider(model, this,1);
+                    if(difficulset2 == false){
+                        difficulset2 = setlevel2();
+                    }
+                    BattleShipDecider decider2 = new BattleShipDecider(model, this,1,levelbot2);
                     count+=decider2.placeAllShips(numJ2);
                     System.out.println(numJ2);
                     numJ2++;
@@ -96,13 +128,17 @@ public class BattleShipControler extends Controller {
 
             }   
         } else if (count == 2) {// partie de la partie 2 donc on tire
-            System.out.println("lala");
+            System.out.println("Stade 2 : Feu à volonté ");
             if (p.getType() == Player.COMPUTER) {
-                //a modif avec le methode des bot
-                System.out.println("COMPUTER PLAYS");
-                BattleShipDecider decider = new BattleShipDecider(model,this,1);
-                ActionPlayer play = new ActionPlayer(model, this, decider, null);
-                play.start();
+                if(model.getIdPlayer() == 0) {
+                    BattleShipDecider decider = new BattleShipDecider(model, this, 0, levelbot1);
+                    ActionPlayer play = new ActionPlayer(model, this, decider, null);
+                    play.start();
+                }else {
+                    BattleShipDecider decider2 = new BattleShipDecider(model, this,1,levelbot2);
+                    ActionPlayer play = new ActionPlayer(model, this, decider2, null);
+                    play.start();
+                }
             }
             else {
                 boolean ok = false;
@@ -124,16 +160,6 @@ public class BattleShipControler extends Controller {
     }
 
 
-    public Ship[] getbateauJ1(){
-        BattleShipStageModel gameStage = (BattleShipStageModel) model.getGameStage();
-        return gameStage.ShipPlayer1;
-
-    }
-    public Ship[] getbateauJ2(){
-        BattleShipStageModel gameStage = (BattleShipStageModel) model.getGameStage();
-        return gameStage.ShipPlayer2;
-
-    }
 
 
 
@@ -163,12 +189,6 @@ public class BattleShipControler extends Controller {
             }
             else {
                 gameStage.ShipPlayer1[m].setCordonnerShip(Y, X,  sens);
-                for(int j =0; j< gameStage.ShipPlayer1.length; j++){
-                for (int i = 0; i < gameStage.ShipPlayer1[j].getTaille(); i++) {
-                    System.out.println("bateau"+ j + "Y "+gameStage.ShipPlayer1[j].getPartCordonneY(i) + "X :"+gameStage.ShipPlayer1[j].getPartCordonneX(i));
-
-                }}
-
                 numJ1++;
             }
         }
