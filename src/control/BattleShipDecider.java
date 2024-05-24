@@ -216,17 +216,17 @@ public  class BattleShipDecider extends Decider {
         int y;
         char sens;
         do {
+            do {
 
-            x = random.nextInt(9);
-            y = random.nextInt(9);
-            boolean n = random.nextBoolean();
-            if (n)
-                sens = 'V';
-            else
-                sens = 'H';
-        }while (!battleShipStageModel.Verifpeutetreposer(ship,x,y,taille,sens));
-
-        bateau.setCordonnerShip(y,x,sens);
+                x = random.nextInt(9);
+                y = random.nextInt(9);
+                boolean n = random.nextBoolean();
+                if (n)
+                    sens = 'V';
+                else
+                    sens = 'H';
+            } while (!battleShipStageModel.Verifpeutetreposer(ship, x, y, taille, sens));
+        }while (!bateau.setCordonnerShip(y,x,sens));
 
     }
     //niveau 2 tir

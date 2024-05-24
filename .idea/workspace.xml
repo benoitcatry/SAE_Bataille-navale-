@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ae606cc-c7ee-4439-bac4-d266b9487482" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_13_59_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_13_59__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/control/BattleShipControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/BattleShipControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/BattleShipDecider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/BattleShipDecider.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +223,7 @@
       <workItem from="1716448046508" duration="3189000" />
       <workItem from="1716464434950" duration="12695000" />
       <workItem from="1716483394299" duration="19698000" />
-      <workItem from="1716534541100" duration="2989000" />
+      <workItem from="1716534541100" duration="3440000" />
     </task>
     <servers />
   </component>

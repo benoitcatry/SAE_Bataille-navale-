@@ -70,6 +70,7 @@ public class BattleShipControler extends Controller {
                 }else {
                     BattleShipDecider decider2 = new BattleShipDecider(model, this,1);
                     count+=decider2.placeAllShips(numJ2);
+                    System.out.println(numJ2);
                     numJ2++;
                 }
             }
