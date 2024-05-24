@@ -11,15 +11,26 @@ import boardifier.model.action.ActionList;
 import boardifier.view.View;
 import model.BattleShipStageModel;
 
+<<<<<<< Updated upstream
 import java.io.*;
+=======
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+>>>>>>> Stashed changes
 import java.util.Scanner;
 
 public class BattleShipControler extends Controller {
+<<<<<<< Updated upstream
 
     Boolean file = lanceFichier();
 
 
 
+=======
+    BufferedReader source;
+>>>>>>> Stashed changes
     BufferedReader consoleIn;
     boolean firstPlayer;
     int stadeDeLaPartie; // si 1 on pose le bateau Si 2 feu a vaulonté
@@ -39,12 +50,23 @@ public class BattleShipControler extends Controller {
     @Override
     public void stageLoop() throws IOException {
         Scanner scanner = new Scanner(System.in);
+<<<<<<< Updated upstream
         BufferedReader source=null;
         String fichier = scanner.nextLine();
 
         if (file==true){
             try {
                 source = new BufferedReader(new FileReader(fichier));
+=======
+
+        boolean file = lanceFichier();
+        if (file==true){
+            System.out.println("entrez le nom du fichier");
+            String fichier = scanner.nextLine();
+            try {
+                source = new BufferedReader(new FileReader(fichier));
+                System.out.println(source);
+>>>>>>> Stashed changes
             }
             catch (Exception e){
                 System.out.println(e);
@@ -57,9 +79,15 @@ public class BattleShipControler extends Controller {
         consoleIn = new BufferedReader(new InputStreamReader(System.in));
         update();
         while(! model.isEndStage()) {
+<<<<<<< Updated upstream
             if (file==false){
                 playTurn();
             } else if (file==true) {
+=======
+            if (file==false||source==null){
+                playTurn();
+            } else if (file==true&&source!=null) {
+>>>>>>> Stashed changes
                 ligne = source.readLine();
                 if (ligne=="finPlacement"){
                     place=false;
@@ -73,6 +101,25 @@ public class BattleShipControler extends Controller {
             //update();
         }
         endGame();
+    }
+
+
+    private static Boolean lanceFichier(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("voulez vous lancer un fichier d'instruction ?\n"
+                + "Si oui, entrez 1\n");
+        int select = scanner.nextInt();
+        return (select==1);
+    }
+
+
+    private void playFile(String ligne,boolean place,int boat){
+        if (place==true){
+            analyseAndPlayPose(ligne,boat);
+        }
+        else {
+            analyseAndPlay(ligne);
+        }
     }
 
 

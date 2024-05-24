@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <list default="true" id="430f0373-63ed-417c-a239-933f07a3b6d7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" afterDir="false" />
@@ -15,10 +16,76 @@
       <change afterPath="$PROJECT_DIR$/src/control/ReadFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+    <list default="true" id="1ae606cc-c7ee-4439-bac4-d266b9487482" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_13_59__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_13_59__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_09_22__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_09_22__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_09_41__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_09_41__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/ShipConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/ShipConsole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/ActionFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/ActionFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/ActionPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/ActionPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Decider.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Decider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Logger.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Logger.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/StageFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/StageFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/BackgroundElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/BackgroundElement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/ContainerElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/ContainerElement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/ContainerOpCallback.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/ContainerOpCallback.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/Coord2D.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/Coord2D.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/DiceElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/DiceElement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/ElementTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/ElementTypes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/Event$EventType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/Event$EventType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/Event.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/EventQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/EventQueue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/GameElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/GameElement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/GameException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/GameException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/GameStageModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/GameStageModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/Model.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/SelectionCallback.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/SelectionCallback.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/SpriteElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/SpriteElement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/StageElementsFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/StageElementsFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/StaticElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/StaticElement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/TextElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/TextElement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/ActionCallback.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/ActionCallback.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/ActionList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/ActionList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/DrawDiceAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/DrawDiceAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/GameAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/GameAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/MoveWithinContainerAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/MoveWithinContainerAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/PutInContainerAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/PutInContainerAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/RemoveFromContainerAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/RemoveFromContainerAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/RemoveFromStageAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/RemoveFromStageAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/Animation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/Animation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/AnimationCallback.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/AnimationCallback.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/AnimationState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/AnimationState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/AnimationStep.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/AnimationStep.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/AnimationTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/AnimationTypes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/CyclicFaceAnimation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/CyclicFaceAnimation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/FaceAnimation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/FaceAnimation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/LinearMoveAnimation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/LinearMoveAnimation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/MoveAnimation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/MoveAnimation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/WaitAnimation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/WaitAnimation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/ClassicBoardLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/ClassicBoardLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/ConsoleColor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/ConsoleColor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/ContainerLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/ContainerLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/ElementLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/ElementLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/GameStageView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/GameStageView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/GridLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/GridLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/RootPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/RootPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/TableLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/TableLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/TextLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/TextLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/View.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipControler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipDecider.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipDecider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleBoard.class" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Missille.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Missille.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Ship.class" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/shipPart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/shipPart.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" afterDir="false" />
@@ -28,6 +95,20 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ShipConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShipConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/BattleShipControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/BattleShipControler.java" afterDir="false" />
+>>>>>>> Stashed changes
+=======
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/StockMissile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/StockMissile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/shipPart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/shipPart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/MissileLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/MissileLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/Shiplook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/Shiplook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShotView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShotView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/StatsJoueurs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/StatsJoueurs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/StockMissileLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/StockMissileLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ShipConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShipConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/control/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/control/BattleShipControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/BattleShipControler.java" afterDir="false" />
 >>>>>>> Stashed changes
     </list>
@@ -133,6 +214,118 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< Updated upstream
+=======
+    <configuration name="BattleShipStageModelUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SAE_Bataille-navale" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestModel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TestModel" />
+      <option name="MAIN_CLASS_NAME" value="TestModel.BattleShipStageModelUnitTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BattleShipStageModelUnitTest.testToucherOuPas" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SAE_Bataille-navale" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestModel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TestModel" />
+      <option name="MAIN_CLASS_NAME" value="TestModel.BattleShipStageModelUnitTest" />
+      <option name="METHOD_NAME" value="testToucherOuPas" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BattleboardUnitTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SAE_Bataille-navale" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestModel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TestModel" />
+      <option name="MAIN_CLASS_NAME" value="TestModel.BattleboardUnitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BattleboardUnitTest.testSetValidCells_EmptyBoard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SAE_Bataille-navale" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestModel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TestModel" />
+      <option name="MAIN_CLASS_NAME" value="TestModel.BattleboardUnitTest" />
+      <option name="METHOD_NAME" value="testSetValidCells_EmptyBoard" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BattleboardUnitTest.testSetValidCells_EmptyBoard_invalide" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SAE_Bataille-navale" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestModel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TestModel" />
+      <option name="MAIN_CLASS_NAME" value="TestModel.BattleboardUnitTest" />
+      <option name="METHOD_NAME" value="testSetValidCells_EmptyBoard_invalide" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="SAE_Bataille-navale" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="SAE_Bataille-navale" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="JUnit.BattleShipStageModelUnitTest.testToucherOuPas" />
+      <item itemvalue="JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard" />
+      <item itemvalue="JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard_invalide" />
+      <item itemvalue="JUnit.BattleboardUnitTest (1)" />
+      <item itemvalue="JUnit.BattleShipStageModelUnitTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.BattleShipStageModelUnitTest.testToucherOuPas" />
+        <item itemvalue="JUnit.BattleShipStageModelUnitTest" />
+        <item itemvalue="JUnit.BattleboardUnitTest (1)" />
+        <item itemvalue="JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard_invalide" />
+        <item itemvalue="JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard" />
+      </list>
+    </recent_temporary>
+>>>>>>> Stashed changes
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
