@@ -5,9 +5,85 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ae606cc-c7ee-4439-bac4-d266b9487482" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAE_Bataille-navale.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SAE_Bataille-navale.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/ShipConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/ShipConsole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Decider.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Decider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/ContainerElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/ContainerElement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/ContainerLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/ContainerLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipControler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipDecider.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipDecider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/BattleShipDecider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/BattleShipDecider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Missille.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Missille.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Ship.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/StockMissile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/StockMissile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/shipPart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/shipPart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/MissileLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/MissileLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/Shiplook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/Shiplook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/StockMissileLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/StockMissileLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/control/ActionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/control/ActionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/control/ActionPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/control/ActionPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/control/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/control/Decider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/control/Decider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/control/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/control/Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/control/StageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/control/StageFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/BackgroundElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/BackgroundElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/ContainerElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/ContainerElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/ContainerOpCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/ContainerOpCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/Coord2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/Coord2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/DiceElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/DiceElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/ElementTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/ElementTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/EventQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/EventQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/GameElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/GameElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/GameException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/GameException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/GameStageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/GameStageModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/SelectionCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/SelectionCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/SpriteElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/SpriteElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/StageElementsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/StageElementsFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/StaticElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/StaticElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/TextElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/TextElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/action/ActionCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/action/ActionCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/action/ActionList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/action/ActionList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/action/DrawDiceAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/action/DrawDiceAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/action/GameAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/action/GameAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/action/MoveWithinContainerAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/action/MoveWithinContainerAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/action/PutInContainerAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/action/PutInContainerAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/action/RemoveFromContainerAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/action/RemoveFromContainerAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/action/RemoveFromStageAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/action/RemoveFromStageAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/Animation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/Animation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/AnimationCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/AnimationCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/AnimationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/AnimationState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/AnimationStep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/AnimationStep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/AnimationTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/AnimationTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/CyclicFaceAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/CyclicFaceAnimation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/FaceAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/FaceAnimation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/LinearMoveAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/LinearMoveAnimation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/MoveAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/MoveAnimation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/WaitAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/WaitAnimation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/view/ClassicBoardLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/ClassicBoardLook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/view/ConsoleColor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/view/ContainerLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/ContainerLook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/view/ElementLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/ElementLook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/view/GameStageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/GameStageView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/view/GridLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/GridLook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/view/RootPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/RootPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/view/TableLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/TableLook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/view/TextLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/TextLook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/BattleShipControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/BattleShipControler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MissileLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MissileLook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ShipPartLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ShipPartLook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Shiplook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Shiplook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/StockMissileLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/StockMissileLook.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +100,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -38,7 +117,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.ShipConsole.executor": "Run",
-    "Application.Unnamed.executor": "Debug",
+    "Application.Unnamed.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.BattleShipStageModelUnitTest.executor": "Run",
     "JUnit.BattleShipStageModelUnitTest.testToucherOuPas.executor": "Run",
@@ -61,16 +140,17 @@
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "xavier__graphique",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/benoit/Vidéos/JeuDuMorpion",
+    "last_opened_file_path": "C:/javafx-sdk-22.0.1/lib",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager",
@@ -185,8 +265,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
       </set>
     </attachedChunks>
   </component>
@@ -227,6 +306,9 @@
       <workItem from="1716483394299" duration="19698000" />
       <workItem from="1716534541100" duration="10426000" />
       <workItem from="1716547177749" duration="28821000" />
+      <workItem from="1716580889485" duration="4636000" />
+      <workItem from="1717669066216" duration="52000" />
+      <workItem from="1717938750557" duration="1024000" />
     </task>
     <servers />
   </component>

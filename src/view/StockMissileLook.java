@@ -3,16 +3,17 @@ package view;
 import boardifier.control.Logger;
 import boardifier.model.ContainerElement;
 import boardifier.view.GridLook;
+import javafx.scene.paint.Color;
 
 public class StockMissileLook extends GridLook {
 
     public StockMissileLook(int rowHeight, int colWidth, ContainerElement containerElement) {
-        super(rowHeight, colWidth, containerElement, -1, 1);
+        super(rowHeight, colWidth, containerElement, -1, 1, Color.BLACK);
         setVerticalAlignment(ALIGN_MIDDLE);
         setHorizontalAlignment(ALIGN_CENTER);
     }
 
-    protected void renderBorders() {
+    /**protected void renderBorders() {
         Logger.debug("called", this);
         // start by drawing the border of each cell, which will be change after
         for (int i = 0; i < nbRows; i++) {
@@ -41,4 +42,6 @@ public class StockMissileLook extends GridLook {
             shape[i * rowHeight][colWidth] = "\u252B";
         }
     }
+
+     **/
 }

@@ -3,20 +3,30 @@ package view;
 import boardifier.model.GameElement;
 import boardifier.view.ConsoleColor;
 import boardifier.view.ElementLook;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.TriangleMesh;
 import model.Missille;
 
 public class MissileLook extends ElementLook {
 
-    public MissileLook(GameElement element) { super(element,1,1);}
+    Circle circle;
+
+    public MissileLook(GameElement element) {
+        super(element);
+        circle = new Circle();
+    }
 
     protected void render() {
 
         Missille missille = (Missille) element;
         if (missille.getColor() == 1) {
-            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.WHITE_BACKGROUND + "M" + ConsoleColor.RESET;
+            circle.setFill(Color.BLACK);
+            circle.setRadius(1.5);
         }
         if (missille.getColor() == 2) {
-            shape[0][0] = ConsoleColor.BLACK + ConsoleColor.RED_BACKGROUND + "T" + ConsoleColor.RESET;
+            circle.setFill(Color.RED);
+            circle.setRadius(1.5);
         }
 
     }
