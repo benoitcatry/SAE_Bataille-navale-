@@ -5,85 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ae606cc-c7ee-4439-bac4-d266b9487482" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SAE_Bataille-navale.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SAE_Bataille-navale.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/ShipConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/ShipConsole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Decider.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Decider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/ContainerElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/ContainerElement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/ContainerLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/ContainerLook.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipControler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipDecider.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipDecider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Missille.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Missille.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Ship.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/StockMissile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/StockMissile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/shipPart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/shipPart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/MissileLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/MissileLook.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/Shiplook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/Shiplook.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/StockMissileLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/StockMissileLook.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/control/ActionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/control/ActionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/control/ActionPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/control/ActionPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/control/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/control/Decider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/control/Decider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/control/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/control/Logger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/control/StageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/control/StageFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/BackgroundElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/BackgroundElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/ContainerElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/ContainerElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/ContainerOpCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/ContainerOpCallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/Coord2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/Coord2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/DiceElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/DiceElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/ElementTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/ElementTypes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/EventQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/EventQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/GameElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/GameElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/GameException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/GameException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/GameStageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/GameStageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/SelectionCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/SelectionCallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/SpriteElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/SpriteElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/StageElementsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/StageElementsFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/StaticElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/StaticElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/TextElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/TextElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/action/ActionCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/action/ActionCallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/action/ActionList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/action/ActionList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/action/DrawDiceAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/action/DrawDiceAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/action/GameAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/action/GameAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/action/MoveWithinContainerAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/action/MoveWithinContainerAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/action/PutInContainerAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/action/PutInContainerAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/action/RemoveFromContainerAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/action/RemoveFromContainerAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/action/RemoveFromStageAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/action/RemoveFromStageAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/Animation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/Animation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/AnimationCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/AnimationCallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/AnimationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/AnimationState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/AnimationStep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/AnimationStep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/AnimationTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/AnimationTypes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/CyclicFaceAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/CyclicFaceAnimation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/FaceAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/FaceAnimation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/LinearMoveAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/LinearMoveAnimation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/MoveAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/MoveAnimation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/model/animation/WaitAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/model/animation/WaitAnimation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/view/ClassicBoardLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/ClassicBoardLook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/view/ConsoleColor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/view/ContainerLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/ContainerLook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/view/ElementLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/ElementLook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/view/GameStageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/GameStageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/view/GridLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/GridLook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/view/RootPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/RootPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/view/TableLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/TableLook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/view/TextLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/TextLook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/BattleShipControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/BattleShipControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MissileLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MissileLook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ShipPartLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ShipPartLook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Shiplook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Shiplook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/StockMissileLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/StockMissileLook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ShotView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ShotView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,49 +38,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ShipConsole.executor": "Run",
-    "Application.Unnamed.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.BattleShipStageModelUnitTest.executor": "Run",
-    "JUnit.BattleShipStageModelUnitTest.testToucherOuPas.executor": "Run",
-    "JUnit.BattleboardUnitTest (1).executor": "Run",
-    "JUnit.BattleboardUnitTest.executor": "Run",
-    "JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard.executor": "Run",
-    "JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard_invalide.executor": "Run",
-    "JUnit.MissilleUnitTest,testMissileInitialization and 1 more.executor": "Run",
-    "JUnit.MissilleUnitTest.executor": "Run",
-    "JUnit.ShipPartUnitTest.executor": "Run",
-    "JUnit.ShipUnitTest.executor": "Run",
-    "JUnit.ShipUnitTest.testGetShipID.executor": "Run",
-    "JUnit.ShipUnitTest.testSetAndGetCoordinatesVertical.executor": "Run",
-    "JUnit.ShipUnitTest.testSetAndGetCoordinatesvertical.executor": "Run",
-    "JUnit.ShipUnitTest.testSetCordonnerShipInvalidPlacement.executor": "Run",
-    "JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalideNégatif.executor": "Run",
-    "JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalidePossitif.executor": "Run",
-    "JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalidenauvaisselettre.executor": "Run",
-    "JUnit.ShipUnitTest.testestcouler.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "xavier__graphique",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/javafx-sdk-22.0.1/lib",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ShipConsole.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.BattleShipStageModelUnitTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BattleShipStageModelUnitTest.testToucherOuPas.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BattleboardUnitTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BattleboardUnitTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard_invalide.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MissilleUnitTest,testMissileInitialization and 1 more.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MissilleUnitTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipPartUnitTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipUnitTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipUnitTest.testGetShipID.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipUnitTest.testSetAndGetCoordinatesVertical.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipUnitTest.testSetAndGetCoordinatesvertical.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipUnitTest.testSetCordonnerShipInvalidPlacement.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalideNégatif.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalidePossitif.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalidenauvaisselettre.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipUnitTest.testestcouler.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;xavier__graphique&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/javafx-sdk-22.0.1/lib&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ShipConsole" />
@@ -309,6 +233,7 @@
       <workItem from="1716580889485" duration="4636000" />
       <workItem from="1717669066216" duration="52000" />
       <workItem from="1717938750557" duration="1024000" />
+      <workItem from="1718003704808" duration="2465000" />
     </task>
     <servers />
   </component>
