@@ -1,7 +1,6 @@
 package view;
 
 import boardifier.model.GameElement;
-import boardifier.view.ConsoleColor;
 import boardifier.view.ElementLook;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;

@@ -7,6 +7,8 @@ import boardifier.model.GameStageModel;
 import boardifier.model.TextElement;
 import boardifier.view.*;
 
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import model.BattleShipStageModel;
 import model.Ship;
 import model.shipPart;
@@ -23,13 +25,11 @@ public class ShipStageView extends GameStageView {
     public void createLooks(){
         BattleShipStageModel model = (BattleShipStageModel) gameStageModel;
 
-        addLook(new TextLook(model.getPlayer1Name()));
 
-        addLook(new ClassicBoardLook(2,4,model.getBoardPlayer1(),1,1,true));
+        addLook(new ClassicBoardLook(2,model.getBoardPlayer1(),1,Color.WHEAT,Color.AQUA,5,Color.BLACK,5,Color.BLACK,true));
 
-        addLook(new TextLook(model.getPlayer2Name()));
 
-        addLook(new ClassicBoardLook(2,4,model.getBoardPlayer2(),1,1,true));
+        addLook(new ClassicBoardLook(2,model.getBoardPlayer2(),1,Color.WHEAT,Color.AQUA,5,Color.BLACK,5,Color.BLACK,true));
 
 
         for (int i=0; i<model.getShipsPlayer1().length; i++){
@@ -41,8 +41,8 @@ public class ShipStageView extends GameStageView {
         //on ajoute les partie de bateau
         for (int i=0; i<model.getShipsPlayer1().length; i++){
             for (int j = 0; j < model.getShipsPlayer1()[i].shipParts.length; j++){
-                addLook(new ShipPartLook(model.getShipsPlayer1()[i].getshippart()[j]));
-                addLook(new ShipPartLook(model.getShipsPlayer2()[i].getshippart()[j]));
+                addLook(new ShipPartLook(5,model.getShipsPlayer1()[i].getshippart()[j]));
+                addLook(new ShipPartLook(5,model.getShipsPlayer2()[i].getshippart()[j]));
             }
         }
 
@@ -63,7 +63,7 @@ public class ShipStageView extends GameStageView {
 
 
 
-        addLook(new TextLook(model.getInfoPartie()));
+        addLook(new ShipPartLook(5,(model.getInfoPartie())));
 
         int[] stats;
         TextElement j1 = model.getPlayer1Name();
