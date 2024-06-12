@@ -53,6 +53,12 @@ public  class BattleShipDecider extends Decider {
 
     }
 
+    @Override
+    public ActionList decide() {
+        return null;
+    }
+}
+    /*
 
     @Override
     public ActionList decide() {
@@ -549,4 +555,4 @@ public  class BattleShipDecider extends Decider {
 
         return caseAdjacente;
     }
-}
+}*/

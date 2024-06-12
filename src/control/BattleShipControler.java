@@ -36,7 +36,7 @@ public class BattleShipControler extends Controller {
         firstPlayer = f;
     }
 
-
+ /*
     public boolean setlevel1(){
         Scanner scan = new Scanner(System.in);
         System.out.println("quelle est le level du bot : 1 Normal \n" +
@@ -63,7 +63,7 @@ public class BattleShipControler extends Controller {
 
 
 
-    @Override
+    //@Override
     public void stageLoop() {
         consoleIn = new BufferedReader(new InputStreamReader(System.in));
         update();
@@ -196,7 +196,7 @@ public class BattleShipControler extends Controller {
                 numJ1++;
             }
 
-             */
+
         }
         if (model.getIdPlayer() == 1) {
             gameStage.ShipPlayer2[m].setCordonnerShip(Y, X, sens);
@@ -208,7 +208,7 @@ public class BattleShipControler extends Controller {
                 numJ2++;
             }
 
-             */
+
         }
 
         if(gameStage.ShipPlayer1.length-1 == m){
@@ -342,5 +342,5 @@ public class BattleShipControler extends Controller {
         Player p = model.getCurrentPlayer();
         BattleShipStageModel stageModel = (BattleShipStageModel) model.getGameStage();
         stageModel.getPlayer2Name().setText(p.getName());
+    } */
     }
-}
