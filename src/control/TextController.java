@@ -1,28 +1,36 @@
 package control;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import model.Ship;
 import view.SelectionPage;
 
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+public class TextController implements ChangeListener<String> {
 
-public class TextController implements ChangeListener {
-
-
-    private int missiles;
+    private static String missiles;
     private Ship model;
     private SelectionPage sp;
 
-    public TextController(Ship model, SelectionPage sp){
-        this.sp=sp;
-        this.model=model;
-        sp.setTextListener((javafx.beans.value.ChangeListener) this);
-
+    public TextController(Ship model, SelectionPage sp) {
+        this.sp = sp;
+        this.model = model;
+        sp.setTextListener(this);  // Set the text listener in the SelectionPage
     }
 
-
     @Override
-    public void stateChanged(ChangeEvent e) {
-        missiles=Integer.parseInt(sp.getMissiles().getText());
+    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+        try {
+            missiles = newValue;
+            System.out.println(missiles);
+            // Update the model with the new missile count if needed
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number format: " + newValue);
+            // Handle the invalid number format if needed
+        }
+    }
+
+    public static String getMissiles() {
+        System.out.println("missiles : "+missiles);
+        return missiles;
     }
 }

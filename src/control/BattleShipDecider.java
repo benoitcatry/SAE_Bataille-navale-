@@ -55,8 +55,8 @@ public  class BattleShipDecider extends Decider {
 
 
     @Override
-    public ActionList decide() {
-        int X = 0;
+    public ActionList decide() {return null;}
+        /*int X = 0;
         int Y = 0;
         BattleBoard board = null;
         if (id_Bot==0){
@@ -548,5 +548,5 @@ public  class BattleShipDecider extends Decider {
         }
 
         return caseAdjacente;
-    }
+    }*/
 }

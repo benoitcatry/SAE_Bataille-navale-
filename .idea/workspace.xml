@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ae606cc-c7ee-4439-bac4-d266b9487482" name="Changes" comment="" />
+    <list default="true" id="1ae606cc-c7ee-4439-bac4-d266b9487482" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/BattleShipDecider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/BattleShipDecider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/ButtonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/ButtonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/TextController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/TextController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/SelectionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SelectionPage.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,56 +42,57 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AudioController.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ShipConsole.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.BattleShipStageModelUnitTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BattleShipStageModelUnitTest.testToucherOuPas.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BattleboardUnitTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BattleboardUnitTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard_invalide.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MissilleUnitTest,testMissileInitialization and 1 more.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MissilleUnitTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipPartUnitTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.testGetShipID.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.testSetAndGetCoordinatesVertical.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.testSetAndGetCoordinatesvertical.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.testSetCordonnerShipInvalidPlacement.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalideNégatif.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalidePossitif.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalidenauvaisselettre.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.testestcouler.executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;benoitcontrol&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/javafx-sdk-22.0.1/lib&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AudioController.executor": "Run",
+    "Application.Ship.executor": "Run",
+    "Application.ShipConsole.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.BattleShipStageModelUnitTest.executor": "Run",
+    "JUnit.BattleShipStageModelUnitTest.testToucherOuPas.executor": "Run",
+    "JUnit.BattleboardUnitTest (1).executor": "Run",
+    "JUnit.BattleboardUnitTest.executor": "Run",
+    "JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard.executor": "Run",
+    "JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard_invalide.executor": "Run",
+    "JUnit.MissilleUnitTest,testMissileInitialization and 1 more.executor": "Run",
+    "JUnit.MissilleUnitTest.executor": "Run",
+    "JUnit.ShipPartUnitTest.executor": "Run",
+    "JUnit.ShipUnitTest.executor": "Run",
+    "JUnit.ShipUnitTest.testGetShipID.executor": "Run",
+    "JUnit.ShipUnitTest.testSetAndGetCoordinatesVertical.executor": "Run",
+    "JUnit.ShipUnitTest.testSetAndGetCoordinatesvertical.executor": "Run",
+    "JUnit.ShipUnitTest.testSetCordonnerShipInvalidPlacement.executor": "Run",
+    "JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalideNégatif.executor": "Run",
+    "JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalidePossitif.executor": "Run",
+    "JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalidenauvaisselettre.executor": "Run",
+    "JUnit.ShipUnitTest.testestcouler.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "final",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/javafx-sdk-22.0.1/lib",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\xavie\Documents\GitHub\SAE_Bataille-navale-\src\Elements\Audio" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Unnamed">
+  <component name="RunManager" selected="Application.Ship">
     <configuration name="AudioController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="control.AudioController" />
       <module name="SAE_Bataille-navale" />
@@ -97,9 +106,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ShipConsole" />
+    <configuration name="Ship" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Ship" />
       <module name="SAE_Bataille-navale" />
+      <option name="VM_PARAMETERS" value="--module-path C:\javafx-sdk-22.0.1\lib --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -168,7 +178,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Application.Ship" />
       <item itemvalue="Application.AudioController" />
       <item itemvalue="JUnit.BattleShipStageModelUnitTest.testToucherOuPas" />
       <item itemvalue="JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard_invalide" />
@@ -188,8 +198,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17890.1" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17890.1" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
       </set>
     </attachedChunks>
   </component>
@@ -241,6 +250,7 @@
       <workItem from="1718185851932" duration="10540000" />
       <workItem from="1718230593957" duration="3571000" />
       <workItem from="1718267271509" duration="600000" />
+      <workItem from="1718270091327" duration="13042000" />
     </task>
     <servers />
   </component>

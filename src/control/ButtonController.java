@@ -1,50 +1,77 @@
 package control;
 
+import boardifier.model.Model;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import model.Ship;
 import view.HomePage;
 import view.SelectionPage;
 
-public class ButtonController implements EventHandler<ActionEvent> {
+public class ButtonController {
     private SelectionPage sp;
     private HomePage hp;
-    private Ship model;
+    private Model model;
+    private PageControl pageControl;
 
-    public ButtonController(SelectionPage sp, HomePage hp , Ship model){
-        this.sp=sp;
-        this.model=model;
-        this.hp=hp;
-        sp.setButtonListener(this);
-        hp.setButtonListener(this);
-
+    public ButtonController(SelectionPage sp, HomePage hp, Model model, PageControl pageControl) {
+        this.sp = sp;
+        this.model = model;
+        this.hp = hp;
+        this.pageControl = pageControl;
+        attachEvent();
     }
 
+    static int startPlayer, p1, p2, mode,perso=0;
 
-    @Override
-    public void handle(ActionEvent actionEvent) {
-        int startPlayer;   //0 = j1, 1=j2, 2=aleatoire
-        if (sp.getSj1().isSelected()){
-            startPlayer=0;
-        } else if (sp.getSj2().isSelected()) {
-            startPlayer=1;
-        }
-        else {
-            startPlayer=2;
-        }
+    private void attachEvent() {
+        EventHandler<ActionEvent> buttonHandler = new EventHandler<>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (event.getSource() == hp.getStart()) {
+                    pageControl.sp(sp);
+                } else if (event.getSource() == hp.getQuit()) {
+                    pageControl.quit();
+                } else if (event.getSource() == hp.getOptions()) {
+                    System.out.println("Options button clicked");
+                    // Handle options logic
+                } else if (event.getSource() == sp.getValid()) {
+                    pageControl.play();
+                }
+                else if (event.getSource() == sp.getSj1()){
+                    startPlayer=0;
+                }
 
-        int playerj1;
-        int playerj2;
-        //0 = humain, 1 = ia facile, 2 = ia difficile
+                else if (event.getSource() == sp.getSj2()){
+                    startPlayer=1;
+                }
 
-        playerj1=sp.getJ1().getSelectionModel().getSelectedIndex();
-        playerj2=sp.getJ2().getSelectionModel().getSelectedIndex();
+                else if (event.getSource() == sp.getSrd()){
+                    startPlayer=2;
+                } else if (event.getSource()  == sp.getJ1()) {
+                    p1=sp.getJ1().getSelectionModel().getSelectedIndex();
+                }else if (event.getSource()  == sp.getJ2()) {
+                    p2=sp.getJ2().getSelectionModel().getSelectedIndex();
+                } else if (event.getSource()==sp.getMode()) {
+                    mode=sp.getMode().getSelectionModel().getSelectedIndex();
+                } else if (event.getSource()==sp.getModifier()) {
+                    if (perso==0){
+                        perso=1;
+                    }
+                    else {
+                        perso = 0;
+                    }
+                }
+                System.out.println(p1+" "+p2+" "+startPlayer+" "+mode+" "+perso);
+
+            }
+        };
 
 
-        int mode;
-        //0 = mode1, 1 = mode2
+        hp.setButtonListener(buttonHandler);
+        sp.setButtonListener(buttonHandler);
+    }
 
-        mode=SelectionPage.getMode().getSelectionModel().getSelectedIndex();
-
+    public static int[] returnValues(){
+        System.out.println("valeurs boutons");
+        return new int[]{p1, p2,startPlayer,mode,perso};
     }
 }
