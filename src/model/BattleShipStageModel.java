@@ -246,4 +246,24 @@ public class BattleShipStageModel extends GameStageModel {
     }
 
 
+    public void setinvisiblebateau(Ship[] ships){
+        for (int j = 0; j < ships.length; j++) {
+            for (int i = 0; i < ships[j].getTaille(); i++) {
+                ships[j].shipParts[i].setVisible(false);
+            }
+        }
+    }
+    public void setvisiblebateau(Ship[] ships){
+        for (int j = 0; j < ships.length; j++) {
+            for (int i = 0; i < ships[j].getTaille(); i++) {
+                ships[j].shipParts[i].setVisible(true);
+            }
+        }
+    }
+
+    public Ship getship(int numero, Ship[]ships){
+        if (ships.length < numero) {return null;}
+        return ships[numero];
+    }
+
 }

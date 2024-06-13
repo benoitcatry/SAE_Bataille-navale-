@@ -63,7 +63,7 @@ public class ShipConsole {
 
         StageFactory.registerModelAndView("ship", "model.BattleShipStageModel", "view.ShipStageView");
         View battleShipView = new View(model);
-        control.BattleShipControler control = new control.BattleShipControler(model,battleShipView, f);
+        control.BattleShipControler control = new control.BattleShipControler(model,battleShipView);
         control.setFirstStageName("ship");
         try {
             control.startGame();
