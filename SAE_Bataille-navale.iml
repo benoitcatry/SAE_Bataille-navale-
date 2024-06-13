@@ -36,6 +36,7 @@
     </orderEntry>
     <orderEntry type="library" scope="TEST" name="mockito.core" level="project" />
     <orderEntry type="library" name="lib" level="application" />
+    <orderEntry type="library" name="javafx" level="application" />
   </component>
   <component name="SonarLintModuleSettings">
     <option name="uniqueId" value="bfa166c4-4edb-41bc-b63a-540d43564eb8" />
