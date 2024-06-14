@@ -1,5 +1,6 @@
 package control;
 
+import boardifier.model.GameException;
 import boardifier.model.Model;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -34,7 +35,11 @@ public class ButtonController {
                     System.out.println("Options button clicked");
                     // Handle options logic
                 } else if (event.getSource() == sp.getValid()) {
-                    pageControl.play();
+                    try {
+                        pageControl.play();
+                    } catch (GameException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
                 else if (event.getSource() == sp.getSj1()){
                     startPlayer=0;

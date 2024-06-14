@@ -1,6 +1,9 @@
 package control;
 
 import boardifier.control.StageFactory;
+import boardifier.model.GameException;
+import model.BattleShipStageFactory;
+import model.BattleShipStageModel;
 import view.HomePage;
 import view.SelectionPage;
 import view.ShipRootPane;
@@ -8,7 +11,12 @@ import view.ShipRootPane;
 public class PageControl {
     ShipRootPane root;
     SelectionPage sp;
-    public PageControl(ShipRootPane root){
+
+    BattleShipControler control;
+
+    BattleShipStageModel stageModel;
+    public PageControl(ShipRootPane root,BattleShipControler control){
+        this.control=control;
 
         this.root=root;
 
@@ -26,13 +34,11 @@ public class PageControl {
         System.exit(0);
     }
 
-    public void play(){
+    public void play() throws GameException {
         ButtonController.returnValues();
         TextController.getMissiles();
         System.out.println("play");
-        StageFactory.registerModelAndView("ship", "model.BattleShipStageModel", "view.ShipStageView");
-
-
+        control.startGame();
         root.getChildren().clear();
 
 

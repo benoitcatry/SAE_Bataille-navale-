@@ -29,6 +29,8 @@ public class TextController implements ChangeListener<String> {
         }
     }
 
+
+
     // Static method to get the current missiles value
     public static String getMissiles() {
         System.out.println(missiles);
