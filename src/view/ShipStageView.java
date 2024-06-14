@@ -37,6 +37,7 @@ public class ShipStageView extends GameStageView {
             addLook(new Shiplook(2, 2,model.getShipsPlayer1()[i]));
             addLook(new Shiplook(2, 2,model.getShipsPlayer2()[i]));
         }
+        System.out.println("1");
 
         //on ajoute les partie de bateau
         for (int i=0; i<model.getShipsPlayer1().length; i++){
@@ -51,6 +52,8 @@ public class ShipStageView extends GameStageView {
             addLook(new MissileLook(model.getMissileJoueur2()[i]));
         }*/
 
+        System.out.println("2");
+
         addLook(new StockMissileLook(2,2,model.getStockMissileJ1()));
         addLook(new StockMissileLook(2,2,model.getStockMissileJ2()));
 
@@ -61,9 +64,13 @@ public class ShipStageView extends GameStageView {
         }
 
 
+        System.out.println("3");
 
 
-        addLook(new ShipPartLook(5,(model.getInfoPartie())));
+
+
+        //addLook(new ShipPartLook(5,(model.getInfoPartie())));
+        addLook(new TextLook(25,"0x000000",model.getPlayer1Name()));
 
         int[] stats;
         TextElement j1 = model.getPlayer1Name();
@@ -71,6 +78,9 @@ public class ShipStageView extends GameStageView {
         stats = StatsJoueurs.findStats(model);
         StatsJoueurs.showStats(stats,j1,j2);
         System.out.println(getLooks());
+
+
+        System.out.println("4");
 
     }
 }

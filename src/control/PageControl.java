@@ -2,6 +2,7 @@ package control;
 
 import boardifier.control.StageFactory;
 import boardifier.model.GameException;
+import boardifier.model.Model;
 import model.BattleShipStageFactory;
 import model.BattleShipStageModel;
 import view.HomePage;
@@ -14,11 +15,12 @@ public class PageControl {
 
     BattleShipControler control;
 
-    BattleShipStageModel stageModel;
-    public PageControl(ShipRootPane root,BattleShipControler control){
+    Model model;
+    public PageControl(ShipRootPane root,BattleShipControler control, Model model){
         this.control=control;
 
         this.root=root;
+        this.model=model;
 
     }
     public void hp(HomePage homePage){
@@ -35,9 +37,23 @@ public class PageControl {
     }
 
     public void play() throws GameException {
-        ButtonController.returnValues();
+        int[] buttons = ButtonController.returnValues();
         TextController.getMissiles();
-        System.out.println("play");
+        if (buttons[0]==0){
+            model.addHumanPlayer("Humain");
+        } else if (buttons[0]==1) {
+            model.addComputerPlayer("IA facile");
+        } else if (buttons[0]==2) {
+            model.addComputerPlayer("IA difficile");
+        }
+
+        if (buttons[1]==0){
+            model.addHumanPlayer("Humain");
+        } else if (buttons[1]==1) {
+            model.addComputerPlayer("IA facile");
+        } else if (buttons[1]==2) {
+            model.addComputerPlayer("IA difficile");
+        }
         control.startGame();
         root.getChildren().clear();
 

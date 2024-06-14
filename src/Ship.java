@@ -1,10 +1,7 @@
 import boardifier.control.Logger;
 import boardifier.control.StageFactory;
 import boardifier.model.Model;
-import control.AudioController;
-import control.BattleShipControler;
-import control.ButtonController;
-import control.PageControl;
+import control.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -31,8 +28,9 @@ public class Ship extends Application {
         ShipRootPane root = new ShipRootPane();
         ShipView battleShipView = new ShipView(model, stage, root);
         BattleShipControler control = new BattleShipControler(model,battleShipView);
+        control.setFirstStageName("ship");
 
-        PageControl pageControl = new PageControl(root,control);
+        PageControl pageControl = new PageControl(root,control,model);
         HomePage homePage = new HomePage();
         SelectionPage selectionPage = new SelectionPage();
 
@@ -45,6 +43,7 @@ public class Ship extends Application {
 
         // Créer et attacher le contrôleur de boutons
         new ButtonController(selectionPage, homePage, model, pageControl);
+        //new TextController(model,selectionPage);
 
         // Afficher la page d'accueil
         pageControl.hp(homePage);
