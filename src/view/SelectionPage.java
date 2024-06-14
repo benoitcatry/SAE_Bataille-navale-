@@ -7,6 +7,21 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.beans.value.ChangeListener;
+import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
+
+import java.awt.*;
 
 public class SelectionPage {
     private TextField missiles;
@@ -39,23 +54,78 @@ public class SelectionPage {
 
     public void placeWidgets(ShipRootPane root) {
         root.setStyle("-fx-alignment: center");
-        GridPane grid = new GridPane();
-        grid.setStyle("-fx-padding: 200px");
-        grid.add(new Label("Selectionnez les parametres de la partie"), 1, 0);
-        grid.add(new Label("sélectionner le mode des joueurs et \n le mode global de la partie"), 1, 1);
-        grid.add(j1, 0, 3);
-        grid.add(mode, 1, 3);
-        grid.add(j2, 2, 3);
-        grid.add(new Label("choisissez qui commence"), 1, 4);
-        grid.add(sj1, 0, 5);
-        grid.add(srd, 1, 5);
-        grid.add(sj2, 2, 5);
-        grid.add(new Label("voullez vous modifier le nombre de missiles ?"), 1, 6);
-        grid.add(modifier, 1, 7);
-        grid.add(missiles, 1, 8);
-        grid.setAlignment(Pos.CENTER);
-        grid.add(valid, 1, 9);
-        root.getChildren().add(grid);
+        Label l = new Label("");
+        //select mode de jeux:
+        HBox hboxmode = new HBox();
+        Label labelmode = new Label("Game Mode ");
+        hboxmode.getChildren().addAll(labelmode,mode);
+        mode.setStyle("-fx-text-fill: #F0FFF0;"+"-fx-font-size: 15 ;" + "-fx-background-color: lightgrey;" + "-fx-font-weight: bold;");
+        hboxmode.setSpacing(20);
+        labelmode.setStyle("-fx-font-size: 20;" + "-fx-font-weight: bold;"+ "-fx-text-fill: #F0FFF0;");
+
+        //bot ou humain
+        VBox vboxj1 = new VBox();
+        VBox vboxj2 = new VBox();
+        vboxj1.setSpacing(7);
+        vboxj2.setSpacing(7);
+        VBox vboxt = new VBox();
+        Label labelIAoujoueur = new Label("Player or AI");
+        Label labelj1 = new Label("Player 1");
+        Label labelj2 = new Label("Player 2");
+        labelIAoujoueur.setStyle("-fx-font-size: 20;" + "-fx-font-weight: bold;"+ "-fx-text-fill: #F0FFF0;");
+        labelj1.setStyle("-fx-font-size: 18;" + "-fx-font-weight: bold;"+ "-fx-text-fill: #F0FFF0;");
+        labelj2.setStyle("-fx-font-size: 18;" + "-fx-font-weight: bold;"+ "-fx-text-fill: #F0FFF0;");
+        vboxj1.getChildren().addAll(labelj1,j1);
+        vboxj2.getChildren().addAll(labelj2,j2);
+        j1.setPrefSize(150,33);
+        j2.setPrefSize(150,33);
+        j1.setStyle("-fx-text-fill: #F0FFF0;"+"-fx-font-size: 15 ;" + "-fx-background-color: lightgrey;" + "-fx-font-weight: bold;" + "-fx-text-fill: Black;");
+        j2.setStyle("-fx-text-fill: #F0FFF0;"+"-fx-font-size: 15 ;" + "-fx-background-color: lightgrey;" + "-fx-font-weight: bold;" +  "-fx-text-fill: Black;");
+        HBox hboxselect = new HBox();
+        hboxselect.getChildren().addAll(vboxj1,vboxj2);
+        vboxt.getChildren().addAll(labelIAoujoueur,hboxselect);
+        hboxselect.setSpacing(20);
+        vboxt.setSpacing(10);
+
+
+        //qui joue en premier
+        Label labelfirstplayer = new Label("first player");
+        labelfirstplayer.setStyle("-fx-font-size: 20;" + "-fx-font-weight: bold;"+ "-fx-text-fill: #F0FFF0;");
+        HBox hboxfirstplayer = new HBox();
+        VBox vselcter = new VBox();
+        vselcter.getChildren().addAll(sj1,sj2,srd);
+        hboxfirstplayer.getChildren().addAll(labelfirstplayer,vselcter);
+        sj1.setStyle("-fx-font-size: 16;" + "-fx-font-weight: bold;" + "-fx-text-fill: #F0FFF0");
+        sj2.setStyle("-fx-font-size: 16;" + "-fx-font-weight: bold;"+ "-fx-text-fill: #F0FFF0;");
+        srd.setStyle("-fx-font-size: 16;" + "-fx-font-weight: bold;"+ "-fx-text-fill: #F0FFF0;");
+        hboxfirstplayer.setSpacing(20);
+        vselcter.setSpacing(10);
+
+        //missile
+        Label missile = new Label("modify the number of missiles");
+        missile.setStyle("-fx-font-size: 20;" + "-fx-font-weight: bold;"+ "-fx-text-fill: #F0FFF0;");
+        missiles.setStyle("-fx-text-fill: #F0FFF0;"+"-fx-font-size: 15 ;" + "-fx-background-color: lightgrey;" + "-fx-font-weight: bold;" + "-fx-text-fill: Black;");
+        HBox hboxmissile = new HBox();
+        modifier.setStyle("-fx-font-size: 18;" + "-fx-font-weight: bold;"+ "-fx-text-fill: #F0FFF0;");
+        hboxmissile.getChildren().addAll(missile,modifier,missiles);
+        hboxmissile.setSpacing(20);
+
+        FlowPane flowpane = new FlowPane();
+        flowpane.getChildren().addAll(valid);
+        flowpane.setAlignment(Pos.CENTER);
+        valid.setStyle(
+                "-fx-font-size: 24;" +
+                        "-fx-background-color: lightgrey;" +
+                        "-fx-font-weight: bold;" + "-fx-text-fill: Black;"
+        );
+
+        VBox vboxtotal = new VBox();
+        vboxtotal.getChildren().addAll(l,hboxmode,vboxt,hboxfirstplayer,hboxmissile,flowpane);
+        vboxtotal.setMinSize(900,600);
+        vboxtotal.setSpacing(50);
+        vboxtotal.setStyle("-fx-background-image: url('/Images/background/test4.png');" + "-fx-padding: 0px 0px 0px 15px;" );
+
+        root.getChildren().add(vboxtotal);
     }
 
     public void setButtonListener(EventHandler<ActionEvent> handler) {
