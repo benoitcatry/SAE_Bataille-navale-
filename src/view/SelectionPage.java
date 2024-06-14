@@ -38,18 +38,24 @@ public class SelectionPage {
     private void initWidget() {
         fp = new ToggleGroup();
         missiles = new TextField();
-        modifier = new CheckBox("oui");
-        valid = new Button("valider les parametres et lancer la partie");
-        sj1 = new RadioButton("joueur 1 commence        ");
-        sj2 = new RadioButton("joueur 2 commence");
-        srd = new RadioButton("joueur aleatoire commence");
-        mode = new ComboBox<>(FXCollections.observableArrayList("mode 1", "mode 2"));
-        j1 = new ComboBox<>(FXCollections.observableArrayList("humain", "IA facile", "IA difficile"));
-        j2 = new ComboBox<>(FXCollections.observableArrayList("humain", "IA facile", "IA difficile"));
-        sj1.setToggleGroup(fp);
-        sj2.setToggleGroup(fp);
-        srd.setToggleGroup(fp);
+        modifier = new CheckBox("Yes");
+        modifier.setSelected(false);
+        valid = new Button("start");
+        sj1=new RadioButton("Player 1 ");
+        sj2=new RadioButton("Player 2 ");
+        srd=new RadioButton("Random ");
+        mode = new ComboBox(FXCollections.observableArrayList(new String[]{"mode 1","mode2"}));
+        mode.setValue("mode 1");
+        j1 = new ComboBox(FXCollections.observableArrayList(new String[]{"human", "easy AI", "difficult AI"}));
+        j1.setValue("human");
+        j2 = new ComboBox(FXCollections.observableArrayList(new String[]{"human", "easy AI", "difficult AI"}));
+        j2.setValue("human");
         sj1.setSelected(true);
+        ToggleGroup group = new ToggleGroup();
+        sj1.setToggleGroup(group);
+        sj2.setToggleGroup(group);
+        srd.setToggleGroup(group);
+
     }
 
     public void placeWidgets(ShipRootPane root) {
@@ -81,6 +87,7 @@ public class SelectionPage {
         j2.setPrefSize(150,33);
         j1.setStyle("-fx-text-fill: #F0FFF0;"+"-fx-font-size: 15 ;" + "-fx-background-color: lightgrey;" + "-fx-font-weight: bold;" + "-fx-text-fill: Black;");
         j2.setStyle("-fx-text-fill: #F0FFF0;"+"-fx-font-size: 15 ;" + "-fx-background-color: lightgrey;" + "-fx-font-weight: bold;" +  "-fx-text-fill: Black;");
+
         HBox hboxselect = new HBox();
         hboxselect.getChildren().addAll(vboxj1,vboxj2);
         vboxt.getChildren().addAll(labelIAoujoueur,hboxselect);
@@ -94,6 +101,7 @@ public class SelectionPage {
         HBox hboxfirstplayer = new HBox();
         VBox vselcter = new VBox();
         vselcter.getChildren().addAll(sj1,sj2,srd);
+
         hboxfirstplayer.getChildren().addAll(labelfirstplayer,vselcter);
         sj1.setStyle("-fx-font-size: 16;" + "-fx-font-weight: bold;" + "-fx-text-fill: #F0FFF0");
         sj2.setStyle("-fx-font-size: 16;" + "-fx-font-weight: bold;"+ "-fx-text-fill: #F0FFF0;");

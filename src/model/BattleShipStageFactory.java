@@ -5,6 +5,7 @@ import boardifier.model.TextElement;
 
 import java.sql.SQLOutput;
 import java.util.Scanner;
+import control.ButtonController;
 
 public class BattleShipStageFactory extends StageElementsFactory {
 
@@ -172,73 +173,6 @@ public class BattleShipStageFactory extends StageElementsFactory {
     }
 
 
-    public int nbdeMissile(){
-        int nb;
-        System.out.println("Dans le mode 1 le nombre de Bombe a défaut est de 35 voulait vous changer le nombre ? (Y/N)");
-        while (true) {
-            Scanner scanner = new Scanner(System.in);
-            String rep = scanner.next();
-            char a = rep.charAt(0);
-            a = Character.toUpperCase(a);
-            if (a == 'Y') {
-                System.out.println("combien de bombe : ");
-                nb = scanner.nextInt();
-                return nb;
-            }
-            if (a == 'N') {
-                return 35;
-            } else {
-                System.out.println("erreur reponder par Y pour oui et N pour non");
-            }
-        }
-
-    }
-
-    public int nbdeMissile2(){
-        int nb;
-        System.out.println("Dans le mode 2 le nombre de Bombe a défaut est de 50 voulait vous changer le nombre ? (Y/N)");
-        while (true) {
-            Scanner scanner = new Scanner(System.in);
-            String rep = scanner.next();
-            char a = rep.charAt(0);
-            a = Character.toUpperCase(a);
-            if (a == 'Y') {
-                System.out.println("combien de bombe : ");
-                nb = scanner.nextInt();
-                return nb;
-            }
-            if (a == 'N') {
-                return 50;
-            } else {
-                System.out.println("erreur reponder par Y pour oui et N pour non");
-            }
-        }
-
-    }
-
-
-        //permet de selecte le mode de jeux
-    private int quelleModeDeJeux(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("mode de jeux 1: - 1 porte-avion de 5 cases,\n" +
-                "                - 1 croiseur de 4 cases,\n" +
-                "                - 2 contre-torpilleurs de 3 cases,\n" +
-                "                - 1 torpilleur de 2 cases. \n" + "\n"+
-                "mode de jeux 2: - 1 cuirassé de 4 cases,\n" +
-                "                - 2 croiseurs de 3 cases,\n" +
-                "                - 3 torpilleurs de 2 cases,\n" +
-                "                - 4 sous-marins de 1 case " +
-                "\n" + "1 ou 2 : ");
-        while (true){
-            int mode = scanner.nextInt();
-            if(mode == 1 ||mode ==2){
-                return mode;
-            }else{
-                System.out.println("doit etre 1 ou 2 : ");
-            }
-        }
-    }
-
 
     private void setupmissile(int nb){
         StockMissile stkj1 = new StockMissile(44,1,stageModel);
@@ -273,13 +207,13 @@ public class BattleShipStageFactory extends StageElementsFactory {
 
     @Override
     public void setup() {
-        int mode = quelleModeDeJeux();
-        int nb=0;
-        if(mode == 1){
-            nb = nbdeMissile();
+        System.out.println("suis dans setup");
+        int tab[] =ButtonController.returnValues();
+        int nb=50;
+        int mode = tab[3];
+        if(mode == 0){
             setupMode1();
-        } else if (mode == 2) {
-            nb = nbdeMissile2();
+        } else if (mode == 1) {
             setupMode2();
 
         }

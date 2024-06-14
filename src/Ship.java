@@ -24,7 +24,8 @@ public class Ship extends Application {
         Logger.setLevel(Logger.LOGGER_DEBUG);
         Model model = new Model();
 
-        StageFactory.registerModelAndView("ship", "model.BattleShipStageModel", "view.ShipStageView");
+      //  StageFactory.registerModelAndView("ship", "model.BattleShipStageModel", "view.ShipStageView");
+
         ShipRootPane root = new ShipRootPane();
         ShipView battleShipView = new ShipView(model, stage, root);
 

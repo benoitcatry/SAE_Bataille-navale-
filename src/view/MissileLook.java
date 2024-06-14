@@ -11,9 +11,11 @@ public class MissileLook extends ElementLook {
 
     Circle circle;
 
+
     public MissileLook(GameElement element) {
         super(element);
         circle = new Circle();
+
     }
 
     protected void render() {

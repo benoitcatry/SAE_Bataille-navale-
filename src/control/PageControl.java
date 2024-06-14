@@ -1,5 +1,6 @@
 package control;
 
+import boardifier.control.StageFactory;
 import view.HomePage;
 import view.SelectionPage;
 import view.ShipRootPane;
@@ -29,6 +30,9 @@ public class PageControl {
         ButtonController.returnValues();
         TextController.getMissiles();
         System.out.println("play");
+        StageFactory.registerModelAndView("ship", "model.BattleShipStageModel", "view.ShipStageView");
+
+
         root.getChildren().clear();
 
 
