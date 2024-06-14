@@ -6,8 +6,11 @@ import view.ShipRootPane;
 
 public class PageControl {
     ShipRootPane root;
+    SelectionPage sp;
     public PageControl(ShipRootPane root){
+
         this.root=root;
+
     }
     public void hp(HomePage homePage){
         root.getChildren().clear();

@@ -7,13 +7,13 @@ import view.SelectionPage;
 
 public class TextController implements ChangeListener<String> {
 
-    private static String missiles;
     private Ship model;
     private SelectionPage sp;
+    private static String missiles;
 
     public TextController(Ship model, SelectionPage sp) {
-        this.sp = sp;
         this.model = model;
+        this.sp = sp;
         sp.setTextListener(this);  // Set the text listener in the SelectionPage
     }
 
@@ -29,8 +29,9 @@ public class TextController implements ChangeListener<String> {
         }
     }
 
+    // Static method to get the current missiles value
     public static String getMissiles() {
-        System.out.println("missiles : "+missiles);
+        System.out.println(missiles);
         return missiles;
     }
 }
