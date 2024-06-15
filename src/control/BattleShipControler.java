@@ -26,7 +26,7 @@ public class BattleShipControler extends Controller {
         super(model, view);
         setControlKey(new ControllerBattleShipkey(model, view, this));
         setControlMouse(new ControllerBatleShipMouse(model, view, this));
-        //setControlAction (new ControllerBattleShipAction(model, view, this));
+        setControlAction (new ControllerBattleShipAction(model, view, this));
         
     }
 

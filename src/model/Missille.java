@@ -13,9 +13,7 @@ public class Missille extends GameElement {
     public Missille(int number, int color, int idjoueur,GameStageModel gameStageModel) {
         super(gameStageModel);
         // registering element types defined especially for this game
-        System.out.println("arrive à register");
         ElementTypes.register("Missile",60);
-        System.out.println("register ok");
         type = ElementTypes.getType("Cell");
         this.number = number;
         this.color = color;

@@ -29,9 +29,6 @@ public class BattleShipStageFactory extends StageElementsFactory {
         textplayer1.setLocation(0,0);
         stageModel.setPlayer1Name(textplayer1);
 
-        TextElement textplayer2 = new TextElement(stageModel.getCurrentPlayerName(), stageModel);
-        textplayer2.setLocation(100,0);
-        stageModel.setPlayer2Name(textplayer2);
 
         BattleBoard boardplayer1 = new BattleBoard(0, 10, stageModel, "boardplayer1");
         // assign the board to the game stage model
@@ -184,7 +181,7 @@ public class BattleShipStageFactory extends StageElementsFactory {
         Missille[] missillePlayer1 = new Missille[nb];
         for (int i = 0; i < missillePlayer1.length; i++) {
             missillePlayer1[i]= new Missille(i+1,1,0,stageModel);
-            System.out.println(i);
+
         }
         stageModel.setMissileJoueur1(missillePlayer1);
         Missille[] missillePlayer2 = new Missille[nb];
@@ -207,10 +204,10 @@ public class BattleShipStageFactory extends StageElementsFactory {
 
     @Override
     public void setup() {
-        System.out.println("suis dans setup");
-        int tab[] =ButtonController.returnValues();
+       // int tab[] =ButtonController.returnValues();
         int nb=50;
-        int mode = tab[3];
+        int mode =0 ;
+                //tab[3];
         if(mode == 0){
             setupMode1();
         } else if (mode == 1) {

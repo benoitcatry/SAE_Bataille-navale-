@@ -38,7 +38,8 @@ public class PageControl {
 
     public void play() throws GameException {
         int[] buttons = ButtonController.returnValues();
-        TextController.getMissiles();
+        //System.out.println(TextController.getMissiles());
+        //TextController.getMissiles();
         if (buttons[0]==0){
             model.addHumanPlayer("Humain");
         } else if (buttons[0]==1) {
