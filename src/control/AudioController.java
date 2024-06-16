@@ -29,8 +29,20 @@ public class AudioController {
         }
     }
 
-    public void playMiss() {
-        play("miss.wav");
+    public void playRater() {
+        play("Rater.wav");
+    }
+
+    public void playTir() {
+        play("Tir.wav");
+    }
+
+    public void playToucher() {
+        play("Toucher.wav");
+    }
+
+    public void playDestruction() {
+        play("Destruction.wav");
     }
 
     public void stop() {
