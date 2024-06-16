@@ -7,12 +7,13 @@ import boardifier.model.*;
 import boardifier.model.action.ActionList;
 import boardifier.view.View;
 import model.BattleShipStageModel;
-import model.Ship;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.util.*;
+import java.util.List;
 
 
 public class BattleShipControler extends Controller {
@@ -22,18 +23,40 @@ public class BattleShipControler extends Controller {
     int numJ1 =0 ; // joueur bateau 1
     int numJ2 =0 ;// bateau du joueur 2
     int count =0;
-    boolean quiJouePremier = false;
+    public boolean quiJouePremier = false;
     int tabCordMissileJ1[][];
     int tabCordMissileJ2[][];
     int levelbot1;
     int levelbot2;
     boolean difficulset1 = false ;
     boolean difficulset2 = false ;
+    Set<Point> potentialTargetsJ1;
+    Set<Point> potentialTargetsJ2;
+    boolean targetModeJ1;
+    boolean targetModeJ2;
+    boolean lineModeJ1;
+    boolean lineModeJ2;
+    int[][] gridJ1 = new int[10][10];
+    int[][] gridJ2 = new int[10][10];
+    List<Point> lineTargetsJ1 = new ArrayList<>();
+    List<Point> lineTargetsJ2 = new ArrayList<>();
+    List<Point> hitJ1;
+    List<Point> hitJ2;
+    List<Point> shipPartJ1;
+    List<Point> shipPartJ2;
 
 
     public BattleShipControler(Model model, View view, boolean f) {
         super(model, view);
         firstPlayer = f;
+        potentialTargetsJ1 = new HashSet<>();
+        potentialTargetsJ2 = new HashSet<>();
+        targetModeJ1 = false;
+        targetModeJ2 = false;
+        hitJ1 = new ArrayList<>();
+        hitJ2 = new ArrayList<>();
+        shipPartJ1 = new ArrayList<>();
+        shipPartJ2 = new ArrayList<>();
     }
 
 
@@ -96,7 +119,7 @@ public class BattleShipControler extends Controller {
                     BattleShipDecider decider = new BattleShipDecider(model, this, 0, levelbot1);
                     count+=decider.placeAllShips(numJ1);
                     numJ1++;
-                }else {
+                } else {
                     if(difficulset2 == false){
                         difficulset2 = setlevel2();
                     }
@@ -109,7 +132,7 @@ public class BattleShipControler extends Controller {
             else { // si pas bot alors joueur
                 boolean ok = false;
 
-                    while (!ok) {
+                while (!ok) {
                     System.out.print(p.getName()+ " > ");
                     try {
                         String line = consoleIn.readLine();
@@ -126,13 +149,19 @@ public class BattleShipControler extends Controller {
                     catch(IOException e) {}
                 }
 
-            }   
-        } else if (count == 2) {// partie de la partie 2 donc on tire
+            }
+            BattleShipStageModel gameStage = (BattleShipStageModel) model.getGameStage();
+
+        } else if (count == 2) {
+
+
+
+            // partie de la partie 2 donc on tire
             System.out.println("Stade 2 : Feu à volonté ");
             if (p.getType() == Player.COMPUTER) {
                 if(model.getIdPlayer() == 0) {
-                    BattleShipDecider decider = new BattleShipDecider(model, this, 0, levelbot1);
-                    ActionPlayer play = new ActionPlayer(model, this, decider, null);
+                    BattleShipDecider decider = new BattleShipDecider(model,this,0,levelbot1);
+                    ActionPlayer play = new ActionPlayer(model,this,decider,null);
                     play.start();
                 }else {
                     BattleShipDecider decider2 = new BattleShipDecider(model, this,1,levelbot2);
@@ -163,9 +192,9 @@ public class BattleShipControler extends Controller {
 
 
 
-//row = Y cal =X
+    //row = Y cal =X
     //posse les bateau
-    private boolean analyseAndPlayPose(String line, int m) {
+    public boolean analyseAndPlayPose(String line, int m) {
         BattleShipStageModel gameStage = (BattleShipStageModel) model.getGameStage();
         char sens = Character.toUpperCase(line.charAt(0));
         if (sens != 'H' && sens != 'V') {return false;}
@@ -193,7 +222,9 @@ public class BattleShipControler extends Controller {
             }
         }
         if (model.getIdPlayer() == 1) {
-            if (!(gameStage.Verifpeutetreposer(gameStage.getShipsPlayer2(),X,Y,gameStage.ShipPlayer2[m].getTaille(), sens))){return false;}
+            if (!(gameStage.Verifpeutetreposer(gameStage.getShipsPlayer2(),X,Y,gameStage.ShipPlayer2[m].getTaille(), sens))){
+                System.out.println("la bateau est coller a une autre bateau");
+                return false;}
             else {
                 gameStage.ShipPlayer2[m].setCordonnerShip(Y, X, sens);
                 numJ2++;
@@ -207,87 +238,87 @@ public class BattleShipControler extends Controller {
         }
         return true;
 
+    }
+
+    //tire la bombe
+    public boolean analyseAndPlay(String line){
+        BattleShipStageModel gameStage = (BattleShipStageModel) model.getGameStage();            // get the pawn value from the first char
+        int X = (int) (Character.toUpperCase(line.charAt(0)) - 'A');
+        int Y = (int) ((line.charAt(1)) - '1');
+        if ((Y<0)||(Y>9)) return false;
+        if ((X<0)||(X>9)) return false;
+        if(line.length()==3){
+            if ((int) line.charAt(1)== 1 && (int) line.charAt(2)==0){
+                Y=9;
+            }else{return false;}
         }
+        ContainerElement tire = null;
+        if (model.getIdPlayer() == 0) {
+            tire = gameStage.getStockMissileJ1();
+        }
+        else {
+            tire = gameStage.getStockMissileJ2();;
+        }
+        if (tire.isEmptyAt(0,0)) {return false;}
 
-        //tire la bombe
-        private boolean analyseAndPlay (String line){
-            BattleShipStageModel gameStage = (BattleShipStageModel) model.getGameStage();            // get the pawn value from the first char
-            int X = (int) (Character.toUpperCase(line.charAt(0)) - 'A');
-            int Y = (int) ((line.charAt(1)) - '1');
-            if ((Y<0)||(Y>9)) return false;
-            if ((X<0)||(X>9)) return false;
-            if(line.length()==3){
-                if ((int) line.charAt(1)== 1 && (int) line.charAt(2)==0){
-                    Y=9;
-                }else{return false;}
+        if (model.getIdPlayer() == 0) {
+            GameElement misile = tire.getElement(0,0);
+            if (!gameStage.getBoardPlayer1().canReachCell(Y,X)) {return false;}
+            for(int k =0; k<tabCordMissileJ1.length; k++){
+                if(tabCordMissileJ1[k][0] == X && tabCordMissileJ1[k][1] == Y){
+                    System.out.println("vous avez déja tirée sur ces cordonnée ");
+                    return false;}
             }
-            ContainerElement tire = null;
-            if (model.getIdPlayer() == 0) {
-                tire = gameStage.getStockMissileJ1();
-            }
-            else {
-                tire = gameStage.getStockMissileJ2();;
-            }
-            if (tire.isEmptyAt(0,0)) {return false;}
-
-            if (model.getIdPlayer() == 0) {
-                GameElement misile = tire.getElement(0,0);
-                if (!gameStage.getBoardPlayer1().canReachCell(Y,X)) {return false;}
-                for(int k =0; k<tabCordMissileJ1.length; k++){
-                    if(tabCordMissileJ1[k][0] == X && tabCordMissileJ1[k][1] == Y){
-                        System.out.println("vous avez déja tirée sur ces cordonnée ");
-                        return false;}
-                }
-                if(gameStage.toucheroupas(gameStage.getShipsPlayer2(), X,Y)){
-                    for(int i = 0; i <gameStage.getMissileJoueur1().length; i++){
-                        if (gameStage.getMissileJoueur1()[i] == misile){
-                            gameStage.getMissileJoueur1()[i].setColor(2);
-                        }
+            if(gameStage.toucheroupas(gameStage.getShipsPlayer2(), X,Y)){
+                for(int i = 0; i <gameStage.getMissileJoueur1().length; i++){
+                    if (gameStage.getMissileJoueur1()[i] == misile){
+                        gameStage.getMissileJoueur1()[i].setColor(2);
                     }
-                    tabCordMissileJ1[numJ1][0]= X;
-                    tabCordMissileJ1[numJ1][1]= Y;
-                    numJ1++;
                 }
-                ActionList actions = ActionFactory.generatePutInContainer(model, misile, "boardplayer1", Y, X);
-                actions.setDoEndOfTurn(true);
-                ActionPlayer play = new ActionPlayer(model, this, actions);
-                play.start();
-                return true;
+                tabCordMissileJ1[numJ1][0]= X;
+                tabCordMissileJ1[numJ1][1]= Y;
+                numJ1++;
             }
-            else {
-                GameElement misile = tire.getElement(0,0);
-                if (!gameStage.getBoardPlayer2().canReachCell(Y,X)) {return false;}
-                for(int k =0; k<tabCordMissileJ2.length; k++){
-                    if(tabCordMissileJ2[k][0] == X && tabCordMissileJ2[k][1] == Y){
-                        System.out.println("vous avez déja tirée sur ces cordonnée ");
-                        return false;}
-                }
-                if(gameStage.toucheroupas(gameStage.getShipsPlayer1(), X,Y)){
-                    for(int i = 0; i <gameStage.getMissileJoueur2().length; i++){
-                        if (gameStage.getMissileJoueur2()[i] == misile){
-                            gameStage.getMissileJoueur2()[i].setColor(2);
-                        }
+            ActionList actions = ActionFactory.generatePutInContainer(model, misile, "boardplayer1", Y, X);
+            actions.setDoEndOfTurn(true);
+            ActionPlayer play = new ActionPlayer(model, this, actions);
+            play.start();
+            return true;
+        }
+        else {
+            GameElement misile = tire.getElement(0,0);
+            if (!gameStage.getBoardPlayer2().canReachCell(Y,X)) {return false;}
+            for(int k =0; k<tabCordMissileJ2.length; k++){
+                if(tabCordMissileJ2[k][0] == X && tabCordMissileJ2[k][1] == Y){
+                    System.out.println("vous avez déja tirée sur ces cordonnée ");
+                    return false;}
+            }
+            if(gameStage.toucheroupas(gameStage.getShipsPlayer1(), X,Y)){
+                for(int i = 0; i <gameStage.getMissileJoueur2().length; i++){
+                    if (gameStage.getMissileJoueur2()[i] == misile){
+                        gameStage.getMissileJoueur2()[i].setColor(2);
                     }
-                    tabCordMissileJ2[numJ2][0]= X;
-                    tabCordMissileJ2[numJ2][1]= Y;
-                    numJ2++;
                 }
-                ActionList actions = ActionFactory.generatePutInContainer(model, misile, "boardplayer2", Y, X);
-                actions.setDoEndOfTurn(true);
-                ActionPlayer play = new ActionPlayer(model, this, actions);
-                play.start();
-                return true;
+                tabCordMissileJ2[numJ2][0]= X;
+                tabCordMissileJ2[numJ2][1]= Y;
+                numJ2++;
             }
-
-
-
-
-
-
+            ActionList actions = ActionFactory.generatePutInContainer(model, misile, "boardplayer2", Y, X);
+            actions.setDoEndOfTurn(true);
+            ActionPlayer play = new ActionPlayer(model, this, actions);
+            play.start();
+            return true;
         }
 
 
-        //aide pour les méthode anlyseandplay
+
+
+
+
+    }
+
+
+    //aide pour les méthode anlyseandplay
 
 
     public void quiJoueEnPremier(){
@@ -332,5 +363,5 @@ public class BattleShipControler extends Controller {
         BattleShipStageModel stageModel = (BattleShipStageModel) model.getGameStage();
         stageModel.getPlayer2Name().setText(p.getName());
     }
-    }
+}
 
