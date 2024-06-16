@@ -113,6 +113,11 @@ public class SelectionPage {
         Label missile = new Label("modify the number of missiles");
         missile.setStyle("-fx-font-size: 20;" + "-fx-font-weight: bold;"+ "-fx-text-fill: #F0FFF0;");
         missiles.setStyle("-fx-text-fill: #F0FFF0;"+"-fx-font-size: 15 ;" + "-fx-background-color: lightgrey;" + "-fx-font-weight: bold;" + "-fx-text-fill: Black;");
+        missiles.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                missiles.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
         HBox hboxmissile = new HBox();
         modifier.setStyle("-fx-font-size: 18;" + "-fx-font-weight: bold;"+ "-fx-text-fill: #F0FFF0;");
         hboxmissile.getChildren().addAll(missile,modifier,missiles);

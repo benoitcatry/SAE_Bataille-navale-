@@ -25,6 +25,7 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
     int mode; // 0 si on posse les bateau, si 1 tire de bombe
     int clic1=0;
     int[] anciantclic;
+    boolean inisialise =false;
 
     public ControllerBatleShipMouse(Model model, View view, Controller control) {
         super(model, view, control);
@@ -37,13 +38,18 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
         BattleShipStageModel stageModel = (BattleShipStageModel) model.getGameStage();
         
         //si on posse la bateau
-        if(numJ1<stageModel.getShipsPlayer1().length && numJ2<stageModel.getShipsPlayer2().length) {
+        if(numJ1==stageModel.getShipsPlayer1().length && numJ2==stageModel.getShipsPlayer2().length) {
             mode=1;
             numJ2=0;
             numJ1=0;
         }
+        if(inisialise=false){
+            tabCordMissileJ1= new int[stageModel.getPlayer1ToPlay()][2];
+            tabCordMissileJ2= new int[stageModel.getPlayer2ToPlay()][2];
+            inisialise=true;
+        }
 
-
+        System.out.println(model.getIdPlayer());
         if(mode==0){
             //quelle joueur
             if(model.getIdPlayer()==0){
@@ -66,9 +72,10 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
                     int[] dest = lookBoard.getCellFromSceneLocation(clic);
                     char sens = sens(anciantclic[0],anciantclic[1],dest[0],dest[1] );
                     if(!(stageModel.Verifpeutetreposer(stageModel.ShipPlayer1, anciantclic[0],anciantclic[1],stageModel.ShipPlayer1[numJ1].getTaille(),sens))){
+                        clic1=0;
                         return;
                     }else{
-                        stageModel.ShipPlayer2[numJ1].setCordonnerShip(anciantclic[0],anciantclic[1], sens);
+                        stageModel.ShipPlayer1[numJ1].setCordonnerShip(anciantclic[0],anciantclic[1], sens);
                         placeToutPartShip(0,stageModel,anciantclic[0],anciantclic[1],sens);
                         numJ1++;
                         clic1=0;
@@ -76,9 +83,14 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
                     }
                     
                 }
-                if(numJ1<stageModel.getShipsPlayer1().length) {
+                System.out.println("numJ1: "+numJ1+ "stageModel.getShipsPlayer1().length " + stageModel.getShipsPlayer1().length);
+                if(numJ1==stageModel.getShipsPlayer1().length) {
+                    System.out.println("oui");
                     ActionList actions= new ActionList();
                     actions.setDoEndOfTurn(true);
+                    ActionPlayer play = new ActionPlayer(model, control, actions);
+                    play.start();
+
                 }
 
             }else{
@@ -101,6 +113,7 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
                     int[] dest = lookBoard.getCellFromSceneLocation(clic);
                     char sens = sens(anciantclic[0],anciantclic[1],dest[0],dest[1] );
                     if(!(stageModel.Verifpeutetreposer(stageModel.ShipPlayer2, anciantclic[0],anciantclic[1],stageModel.ShipPlayer2[numJ2].getTaille(),sens))){
+                        clic1=0;
                         return;
                     }else{
                         stageModel.ShipPlayer2[numJ2].setCordonnerShip(anciantclic[0],anciantclic[1], sens);
@@ -111,9 +124,11 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
                     }
 
                 }
-                if(numJ2<stageModel.getShipsPlayer2().length) {
+                if(numJ2==stageModel.getShipsPlayer2().length) {
                     ActionList actions= new ActionList();
                     actions.setDoEndOfTurn(true);
+                    ActionPlayer play = new ActionPlayer(model, control, actions);
+                    play.start();
                 }
                 
             }
@@ -146,7 +161,7 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
                         tabCordMissileJ1[numJ1][1]= anciantclic[1];
                         numJ1++;
                     }
-                    ActionList actions = ActionFactory.generatePutInContainer(control,model, misile, "boardplayer1", anciantclic[0],anciantclic[1]);
+                    ActionList actions = ActionFactory.generatePutInContainer(control,model, misile, "boardplayer1", anciantclic[1],anciantclic[0]);
                     actions.setDoEndOfTurn(true);
                     ActionPlayer play = new ActionPlayer(model, control, actions);
                     play.start();
@@ -179,7 +194,7 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
                         tabCordMissileJ2[numJ2][1]= anciantclic[1];
                             numJ2++;
                     }
-                    ActionList actions = ActionFactory.generatePutInContainer(control,model, misile, "boardplayer1", anciantclic[0],anciantclic[1]);
+                    ActionList actions = ActionFactory.generatePutInContainer(control,model, misile, "boardplayer2", anciantclic[1],anciantclic[0]);
                     actions.setDoEndOfTurn(true);
                     ActionPlayer play = new ActionPlayer(model, control, actions);
                     play.start();
@@ -201,11 +216,11 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
             for (int i = 0; i < bateau.getNbRows(); i++) {
                 GameElement shippart = bateau.getElement(i, 0);
                 if (sens == 'H') {
-                    ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer1", Y, X + i);
+                    ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer1", X+i, Y );
                     ActionPlayer play = new ActionPlayer(model, control, actions);
                     play.start();
                 } else if (sens == 'V') {
-                    ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer1", Y + i, X);
+                    ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer1", X , Y+i);
                     ActionPlayer play = new ActionPlayer(model, control, actions);
                     play.start();
 
@@ -220,11 +235,11 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
             for (int i = 0; i < bateau.getNbRows(); i++) {
                 GameElement shippart = bateau.getElement(i, 0);
                 if (sens == 'H') {
-                    ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer2", Y, X + i);
+                    ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer2",  X+i, Y );
                     ActionPlayer play = new ActionPlayer(model, control, actions);
                     play.start();
                 } else if (sens == 'V') {
-                    ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer2", Y + i, X);
+                    ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer2",  X , Y+i);
                     ActionPlayer play = new ActionPlayer(model, control, actions);
                     play.start();
                 } else {
@@ -241,8 +256,8 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
     * méthode permetant de conaitre le sens du bateau
     */
     public char sens(int Xclic1, int Yclic1, int Xclic2, int Yclic2) {
-        int deltaX = Math.abs(Xclic2 - Xclic1);
-        int deltaY = Math.abs(Yclic2 - Yclic1);
+        int deltaX = Math.abs(Xclic1 -Xclic2 );
+        int deltaY = Math.abs(Yclic1 - Yclic2);
 
         if (deltaX >= deltaY) {
             return 'H'; // Considérer horizontal si déplacement en X est > ou égal à Y

@@ -55,8 +55,9 @@ public class PageControl {
         } else if (buttons[1]==2) {
             model.addComputerPlayer("IA difficile");
         }
+
         control.startGame();
-        root.getChildren().clear();
+
 
 
     }

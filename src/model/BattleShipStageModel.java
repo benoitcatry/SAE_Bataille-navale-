@@ -126,8 +126,8 @@ public class BattleShipStageModel extends GameStageModel {
                     a++;
                 }
                 else if(sens=='V'){
-                    tabcord[i][0]=xNewship+j;
-                    tabcord[i][1]=yNewShip+i;
+                    tabcord[a][0]=xNewship+j;
+                    tabcord[a][1]=yNewShip+i;
                     a++;
                 }
             }
@@ -168,7 +168,8 @@ public class BattleShipStageModel extends GameStageModel {
 
     public void setupCallbacks(){
         onPutInContainer( (element, gridDest, rowDest, colDest) -> {
-                 if (gridDest != Boardplayer1 && gridDest!= Boardplayer2) return;
+                 if (gridDest != Boardplayer1 && gridDest!= Boardplayer2 || element.getType() ==50 ) return;
+
                 Missille m = (Missille) element;
                 if (m.getIdjoueur() == 0) {
                     player1toplay--;
@@ -266,4 +267,8 @@ public class BattleShipStageModel extends GameStageModel {
         return ships[numero];
     }
 
+    public void setjoueur1invisible(){
+        getBoardPlayer1().setVisible(false);
+        //pas fini
+    }
 }

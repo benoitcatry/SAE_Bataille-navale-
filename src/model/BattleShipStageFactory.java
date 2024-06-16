@@ -6,6 +6,7 @@ import boardifier.model.TextElement;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 import control.ButtonController;
+import control.TextController;
 
 public class BattleShipStageFactory extends StageElementsFactory {
 
@@ -98,9 +99,6 @@ public class BattleShipStageFactory extends StageElementsFactory {
         textplayer1.setLocation(0,0);
         stageModel.setPlayer1Name(textplayer1);
 
-        TextElement textplayer2 = new TextElement(stageModel.getCurrentPlayerName(), stageModel);
-        textplayer2.setLocation(1000,0);
-        stageModel.setPlayer2Name(textplayer2);
 
         BattleBoard boardplayer1 = new BattleBoard(0, 10, stageModel, "boardplayer1");
         // assign the board to the game stage model
@@ -204,15 +202,23 @@ public class BattleShipStageFactory extends StageElementsFactory {
 
     @Override
     public void setup() {
-       // int tab[] =ButtonController.returnValues();
-        int nb=50;
-        int mode =0 ;
-                //tab[3];
+       int tab[] =ButtonController.returnValues();
+        int nb= TextController.getMissiles();
+        System.out.println(nb);
+        int mode =tab[3];
         if(mode == 0){
             setupMode1();
         } else if (mode == 1) {
             setupMode2();
 
+        }
+        if(nb == -1){
+            if(mode == 0){
+                nb=35;
+            } else if (mode == 1) {
+                nb=50;
+
+            }
         }
         setupmissile(nb);
     }

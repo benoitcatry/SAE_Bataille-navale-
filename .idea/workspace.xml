@@ -6,176 +6,29 @@
   <component name="ChangeListManager">
     <list default="true" id="1ae606cc-c7ee-4439-bac4-d266b9487482" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SAE_Bataille-navale.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SAE_Bataille-navale.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/HoleConsole.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/control/ActionFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/control/ActionPlayer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/control/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/control/Decider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/control/Logger.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/control/StageFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/BackgroundElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/ContainerElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/ContainerOpCallback.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/Coord2D.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/DiceElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/ElementTypes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/Event$EventType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/Event.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/EventQueue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/GameElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/GameException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/GameStageModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/Model.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/SelectionCallback.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/SpriteElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/StageElementsFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/StaticElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/TextElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/action/ActionCallback.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/action/ActionList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/action/DrawDiceAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/action/GameAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/action/MoveWithinContainerAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/action/PutInContainerAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/action/RemoveFromContainerAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/action/RemoveFromStageAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/animation/Animation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/animation/AnimationCallback.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/animation/AnimationState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/animation/AnimationStep.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/animation/AnimationTypes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/animation/CyclicFaceAnimation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/animation/FaceAnimation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/animation/LinearMoveAnimation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/animation/MoveAnimation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/model/animation/WaitAnimation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/view/ClassicBoardLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/view/ConsoleColor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/view/ContainerLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/view/ElementLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/view/GameStageView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/view/GridLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/view/RootPane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/view/TableLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/view/TextLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/boardifier/view/View.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/control/HoleController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/control/HoleDecider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/model/HoleBoard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/model/HolePawnPot.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/model/HoleStageFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/model/HoleStageModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/model/Pawn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/view/BlackPawnPotLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/view/HoleStageView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/view/PawnLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HoleConsole/view/RedPawnPotLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/Elements/Audio/miss.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/Images/background/backgroudgameoptionmenu.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/Images/background/imageBattelShip.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/Images/background/imageoptionmenu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/Images/background/test4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/Ship.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/ActionFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/ActionPlayer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/ControllerAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/ControllerAnimation$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/ControllerAnimation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/ControllerKey.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/ControllerMouse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Decider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Logger.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/StageFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/BackgroundElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/ContainerElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/ContainerOpCallback.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/Coord2D.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/DiceElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/ElementTypes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/Event$EventType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/Event.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/EventQueue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/GameElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/GameException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/GameStageModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/Model.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/SelectionCallback.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/SpriteElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/StageElementsFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/StaticElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/TextElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/ActionCallback.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/ActionList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/DrawDiceAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/GameAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/MoveWithinContainerAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/PutInContainerAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/RemoveFromContainerAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/action/RemoveFromStageAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/Animation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/AnimationCallback.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/AnimationState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/AnimationStep.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/AnimationTypes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/CyclicFaceAnimation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/FaceAnimation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/LinearMoveAnimation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/MoveAnimation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/model/animation/WaitAnimation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/BackgroundLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/ClassicBoardLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/ContainerLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/Dice6Look.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/ElementLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/GameStageView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/GridLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/RootPane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/SpriteDrawnLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/SpriteImageLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/SpriteLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/TableLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/TextLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/view/View.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/AudioController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipControler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipDecider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/ButtonController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/ButtonController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/ControllerBatleShipMouse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/ControllerBattleShipAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/ControllerBattleShipkey.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/PageControl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/TextController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/tes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleBoard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Missille.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Ship.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/StockMissile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/shipPart.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/HomePage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/MissileLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/SelectionPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipRootPane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/Shiplook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShotView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/StatsJoueurs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/StockMissileLook.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/Ship.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/ControllerBatleShipMouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/ControllerBatleShipMouse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/PageControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/PageControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/TextController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/TextController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Missille.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Missille.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/shipPart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/shipPart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/MissileLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/MissileLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/SelectionPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/SelectionPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/boardifier/control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/control/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/BattleShipControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/BattleShipControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/ControllerBattleShipAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/ControllerBattleShipAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/ControllerBatleShipMouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/ControllerBatleShipMouse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/control/PageControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/PageControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/TextController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/TextController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Missille.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Missille.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/shipPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/shipPart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MissileLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MissileLook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/SelectionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SelectionPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ShipPartLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ShipPartLook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/ShipStageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ShipStageView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

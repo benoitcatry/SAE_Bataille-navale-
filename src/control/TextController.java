@@ -1,5 +1,6 @@
 package control;
 
+import boardifier.model.Model;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import model.Ship;
@@ -7,11 +8,11 @@ import view.SelectionPage;
 
 public class TextController implements ChangeListener<String> {
 
-    private Ship model;
+    private Model model;
     private SelectionPage sp;
     private static String missiles;
 
-    public TextController(Ship model, SelectionPage sp) {
+    public TextController(Model model, SelectionPage sp) {
         this.model = model;
         this.sp = sp;
         sp.setTextListener(this);  // Set the text listener in the SelectionPage
@@ -32,8 +33,12 @@ public class TextController implements ChangeListener<String> {
 
 
     // Static method to get the current missiles value
-    public static String getMissiles() {
-        System.out.println(missiles);
-        return missiles;
+    public static int getMissiles() {
+        if (missiles == null) {
+            return -1;
+        }
+
+            return Integer.parseInt(missiles);
+
     }
 }

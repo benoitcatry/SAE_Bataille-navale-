@@ -1,8 +1,11 @@
 package model;
 
+import boardifier.control.Logger;
 import boardifier.model.ElementTypes;
 import boardifier.model.GameElement;
 import boardifier.model.GameStageModel;
+import boardifier.model.animation.Animation;
+import boardifier.model.animation.AnimationStep;
 
 public class shipPart extends GameElement {
 
@@ -58,4 +61,22 @@ public class shipPart extends GameElement {
     // savoir si toucher true = toucher false = pas toucher
     public boolean esttoucher(){return toucher;}
     public int getIdplayer(){return idplayer;}
+
+
+    public void update() {
+        // if must be animated, move the pawn
+        if (animation != null) {
+            AnimationStep step = animation.next();
+            if (step == null) {
+                animation = null;
+            }
+            else if (step == Animation.NOPStep) {
+                Logger.debug("nothing to do", this);
+            }
+            else {
+                Logger.debug("move animation", this);
+                setLocation(step.getInt(0), step.getInt(1));
+            }
+        }
+    }
 }

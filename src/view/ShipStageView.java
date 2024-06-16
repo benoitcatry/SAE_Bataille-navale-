@@ -26,24 +26,24 @@ public class ShipStageView extends GameStageView {
         BattleShipStageModel model = (BattleShipStageModel) gameStageModel;
 
 
-        addLook(new ClassicBoardLook(2,model.getBoardPlayer1(),1,Color.WHEAT,Color.AQUA,5,Color.BLACK,5,Color.BLACK,true));
+        addLook(new ClassicBoardLook(50,model.getBoardPlayer1(),1,Color.WHEAT,Color.AQUA,5,Color.BLACK,5,Color.BLACK,true));
 
 
-        addLook(new ClassicBoardLook(2,model.getBoardPlayer2(),1,Color.WHEAT,Color.AQUA,5,Color.BLACK,5,Color.BLACK,true));
+        addLook(new ClassicBoardLook(50,model.getBoardPlayer2(),1,Color.WHEAT,Color.AQUA,5,Color.BLACK,5,Color.BLACK,true));
 
 
         for (int i=0; i<model.getShipsPlayer1().length; i++){
             //System.out.println(i + "bateau");
-            addLook(new Shiplook(2, 2,model.getShipsPlayer1()[i]));
-            addLook(new Shiplook(2, 2,model.getShipsPlayer2()[i]));
+            addLook(new Shiplook(50, 50,model.getShipsPlayer1()[i]));
+            addLook(new Shiplook(50, 50,model.getShipsPlayer2()[i]));
         }
 
 
         //on ajoute les partie de bateau
         for (int i=0; i<model.getShipsPlayer1().length; i++){
             for (int j = 0; j < model.getShipsPlayer1()[i].shipParts.length; j++){
-                addLook(new ShipPartLook(5,model.getShipsPlayer1()[i].getshippart()[j]));
-                addLook(new ShipPartLook(5,model.getShipsPlayer2()[i].getshippart()[j]));
+                addLook(new ShipPartLook(25,model.getShipsPlayer1()[i].getshippart()[j]));
+                addLook(new ShipPartLook(25,model.getShipsPlayer2()[i].getshippart()[j]));
             }
         }
 
@@ -54,12 +54,12 @@ public class ShipStageView extends GameStageView {
 
 
 
-        addLook(new StockMissileLook(2,2,model.getStockMissileJ1()));
-        addLook(new StockMissileLook(2,2,model.getStockMissileJ2()));
+        addLook(new StockMissileLook(40,40,model.getStockMissileJ1()));
+        addLook(new StockMissileLook(40,40,model.getStockMissileJ2()));
 
         for (int i=0; i<model.getMissileJoueur2().length; i++){
-            addLook(new MissileLook(model.getMissileJoueur2()[i]));
-            addLook(new MissileLook(model.getMissileJoueur1()[i]));
+            addLook(new MissileLook(25,model.getMissileJoueur2()[i]));
+            addLook(new MissileLook(25,model.getMissileJoueur1()[i]));
 
         }
 
