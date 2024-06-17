@@ -24,24 +24,19 @@ public class Ship extends Application {
     public void start(Stage stage) throws Exception {
         Logger.setLevel(Logger.LOGGER_DEBUG);
         Model model = new Model();
-        System.out.println("cc1");
+        HomePage homePage = new HomePage();
         StageFactory.registerModelAndView("ship", "model.BattleShipStageModel", "view.ShipStageView");
-        System.out.println("cc2");
         ShipRootPane root = new ShipRootPane();
         ShipView battleShipView = new ShipView(model, stage, root);
-        BattleShipControler control = new BattleShipControler(model,battleShipView);
+        BattleShipControler control = new BattleShipControler(model,battleShipView,root,homePage);
         control.setFirstStageName("ship");
 
         PageControl pageControl = new PageControl(root,control,model);
-        HomePage homePage = new HomePage();
         SelectionPage selectionPage = new SelectionPage();
 
         // Placer les widgets dans les pages
         homePage.placeWidgets(root);
         selectionPage.placeWidgets(root);
-        AudioController audio = new AudioController();
-        audio.listAudioFiles();
-        audio.playMiss();
 
         // Créer et attacher le contrôleur de boutons
         new ButtonController(selectionPage, homePage, model, pageControl);

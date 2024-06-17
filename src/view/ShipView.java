@@ -17,10 +17,10 @@ public class ShipView extends View {
     protected void createMenuBar() {
         menuBar = new javafx.scene.control.MenuBar();
         javafx.scene.control.Menu menu1 = new javafx.scene.control.Menu("Game");
-        menuStart = new javafx.scene.control.MenuItem("New game");
+        //menuStart = new javafx.scene.control.MenuItem("New game");
         menuIntro = new javafx.scene.control.MenuItem("Intro");
         menuQuit = new javafx.scene.control.MenuItem("Quit");
-        menu1.getItems().addAll(menuStart, menuIntro, menuQuit);
+        menu1.getItems().addAll(menuIntro, menuQuit);
         menuBar.getMenus().add(menu1);
     }
 

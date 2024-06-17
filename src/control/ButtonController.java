@@ -21,6 +21,7 @@ public class ButtonController {
         attachEvent();
     }
 
+
     static int startPlayer, p1, p2, mode,perso=0;
 
     private void attachEvent() {
@@ -76,7 +77,6 @@ public class ButtonController {
     }
 
     public static int[] returnValues(){
-        System.out.println("valeurs boutons");
         return new int[]{p1, p2,startPlayer,mode,perso};
     }
 }

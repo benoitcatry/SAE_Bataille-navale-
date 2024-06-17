@@ -30,7 +30,7 @@ public class MissileLook extends ElementLook {
             circle.setStrokeWidth(3);
             circle.setStrokeMiterLimit(10);
             circle.setStrokeType(StrokeType.CENTERED);
-            circle.setStroke(Color.valueOf("0x333333"));
+
         }
         else {
             circle.setStrokeWidth(0);
@@ -48,9 +48,8 @@ public class MissileLook extends ElementLook {
         circle.setRadius(radius);
         if (missille.getColor() == 1) {
             circle.setFill(Color.ORANGE);
-        }
-        if (missille.getColor() == 2) {
-            circle.setFill(Color.RED);
+        } else if (missille.getColor() == 2) {
+            circle.setFill(Color.BLACK);
         }
         addShape(circle);
 

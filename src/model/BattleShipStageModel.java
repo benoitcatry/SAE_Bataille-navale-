@@ -8,6 +8,7 @@ public class BattleShipStageModel extends GameStageModel {
 
     private int player1toplay;
     private int Player2toplay;
+    private TextElement start;
 
     private BattleBoard Boardplayer1;
     private BattleBoard Boardplayer2;
@@ -27,6 +28,18 @@ public class BattleShipStageModel extends GameStageModel {
         player1toplay = 50;
         Player2toplay = 50;
         setupCallbacks();
+
+    }
+    public void setStart(TextElement start) {
+        this.start = start;
+    }
+    public TextElement getStart() {
+        return start;
+    }
+    public void startinvisible(){
+        System.out.println("ccc" + start.isVisible());
+        start.setVisible(false);
+        System.out.println("ccc" + start.isVisible());
 
     }
 
@@ -240,7 +253,7 @@ public class BattleShipStageModel extends GameStageModel {
     }
 
 
-    //truc obligatoir c'est pas a quoi il sert mais il est la
+
     @Override
     public StageElementsFactory getDefaultElementFactory() {
         return new BattleShipStageFactory(this);
@@ -251,6 +264,7 @@ public class BattleShipStageModel extends GameStageModel {
         for (int j = 0; j < ships.length; j++) {
             for (int i = 0; i < ships[j].getTaille(); i++) {
                 ships[j].shipParts[i].setVisible(false);
+                ships[j].setVisible(false);
             }
         }
     }
@@ -258,6 +272,7 @@ public class BattleShipStageModel extends GameStageModel {
         for (int j = 0; j < ships.length; j++) {
             for (int i = 0; i < ships[j].getTaille(); i++) {
                 ships[j].shipParts[i].setVisible(true);
+                ships[j].setVisible(true);
             }
         }
     }
@@ -269,6 +284,33 @@ public class BattleShipStageModel extends GameStageModel {
 
     public void setjoueur1invisible(){
         getBoardPlayer1().setVisible(false);
-        //pas fini
+        getStockMissileJ1().setVisible(false);
+        for (int i = 0; i < MissileJoueur1.length ; i++){
+            MissileJoueur1[i].setVisible(false);
+        }
+
+    }
+    public void setjoueur2invisible(){
+        getBoardPlayer2().setVisible(false);
+        getStockMissileJ2().setVisible(false);
+        for (int i = 0; i < MissileJoueur2.length ; i++){
+            MissileJoueur2[i].setVisible(false);
+        }
+    }
+
+    public void setvisiblej1(){
+        getBoardPlayer1().setVisible(true);
+        getStockMissileJ1().setVisible(true);
+        for (int i = 0; i < MissileJoueur1.length ; i++){
+            MissileJoueur1[i].setVisible(true);
+        }
+    }
+
+    public void setvisiblej2(){
+        getBoardPlayer2().setVisible(true);
+        getStockMissileJ2().setVisible(true);
+        for (int i = 0; i < MissileJoueur2.length ; i++){
+            MissileJoueur2[i].setVisible(true);
+        }
     }
 }

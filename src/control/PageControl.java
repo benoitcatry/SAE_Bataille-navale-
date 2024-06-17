@@ -9,6 +9,8 @@ import view.HomePage;
 import view.SelectionPage;
 import view.ShipRootPane;
 
+import java.util.Random;
+
 public class PageControl {
     ShipRootPane root;
     SelectionPage sp;
@@ -55,6 +57,24 @@ public class PageControl {
         } else if (buttons[1]==2) {
             model.addComputerPlayer("IA difficile");
         }
+        /*
+        BattleShipStageModel stageModel = (BattleShipStageModel) model.getGameStage();
+        if (buttons[3]==0){
+            control.player1playmode0(stageModel);
+        }
+        else if(buttons[3]==1){
+            model.setNextPlayer();
+            control.player2playmode0(stageModel);
+        } else if (buttons[3]==2) {
+            Random random = new Random();
+            double randomValue = random.nextDouble(); // Génère un nombre aléatoire entre 0.0 et 1.0
+            if (randomValue < 0.5) {
+                control.player2playmode0(stageModel);
+                model.setNextPlayer();
+            }else {
+                control.player1playmode0(stageModel);
+            }
+        }*/
 
         control.startGame();
 

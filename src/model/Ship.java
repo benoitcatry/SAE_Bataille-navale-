@@ -8,13 +8,13 @@ public class Ship extends ContainerElement {
     private boolean sens ; // true = V et false = H
     public shipPart[] shipParts;
     private int shipID;
-    private static int nbShip = 1;
+    private static int nbShip = 0;
     private int playerID;
     private boolean couler = false;
 
 
     public Ship(int x, int y, int taille, GameStageModel gameStageModel) {
-        super("ship", x, y, taille, 1 , gameStageModel);
+        super("ship"+nbShip, x, y, taille, 1 , gameStageModel);
         this.taille =taille;
         this.shipID = nbShip;
         nbShip++;
@@ -80,6 +80,7 @@ public class Ship extends ContainerElement {
                 shipParts[i].setColors(2);
             }
             couler = true;
+            this.setVisible(true);
         }
     }
 
