@@ -60,6 +60,7 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
             mode=1;
             numJ2=0;
             numJ1=0;
+
         }
 
         System.out.println(model.getIdPlayer());
@@ -90,7 +91,10 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
                         clic1 = 0;
                         return;
                     } else {
-                        stageModel.ShipPlayer1[numJ1].setCordonnerShip(anciantclic[0], anciantclic[1], sens);
+                        if(!stageModel.ShipPlayer1[numJ1].setCordonnerShip(anciantclic[0], anciantclic[1], sens)){
+                            clic1 = 0;
+                            return;
+                        }
                         placeToutPartShip(0, stageModel, anciantclic[0], anciantclic[1], sens);
                         numJ1++;
                         clic1 = 0;
@@ -136,7 +140,10 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
                         clic1 = 0;
                         return;
                     } else {
-                        stageModel.ShipPlayer2[numJ2].setCordonnerShip(anciantclic[0], anciantclic[1], sens);
+                        if(!stageModel.ShipPlayer2[numJ2].setCordonnerShip(anciantclic[0], anciantclic[1], sens)){
+                            clic1 = 0;
+                            return;
+                        }
                         placeToutPartShip(1, stageModel, anciantclic[0], anciantclic[1], sens);
                         numJ2++;
                         clic1 = 0;
@@ -179,6 +186,15 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
                 GridLook lookBoard = (GridLook) control.getElementLook(board);
                 int[] dest = lookBoard.getCellFromSceneLocation(clic);
                 if (board.canReachCell(dest[0], dest[1])) {
+                    for(int k =0; k<tabCordMissileJ1.length; k++){
+                        if(tabCordMissileJ1[k][0] == dest[0] && tabCordMissileJ1[k][1] == dest[1]){
+                            return;
+                        }
+                    }
+                    tabCordMissileJ1[numJ1][0]= dest[0];
+                    tabCordMissileJ1[numJ1][1]= dest[1];
+                    numJ1++;
+
                     audio.playTir();
                     if(stageModel.toucheroupas(stageModel.getShipsPlayer2(),dest[0], dest[1])){
                         audio.playToucher();
@@ -188,9 +204,7 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
 
                             }
                         }
-                        tabCordMissileJ1[numJ1][0]= dest[0];
-                        tabCordMissileJ1[numJ1][1]= dest[1];
-                        numJ1++;
+
                     }else {audio.playRater();}
                     ActionList actions = ActionFactory.generatePutInContainer(control,model, misile, "boardplayer1", dest[0], dest[1], AnimationTypes.MOVE_TELEPORT, 10);
                     actions.setDoEndOfTurn(true);
@@ -201,6 +215,7 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
                 
             }
             else if (model.getIdPlayer()==1) {
+                System.out.println("j2 joue");
 
                 boolean boardClicked = false;
                 for (GameElement element : list) {
@@ -215,24 +230,31 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
                 GridLook lookBoard = (GridLook) control.getElementLook(board);
                 int[] dest = lookBoard.getCellFromSceneLocation(clic);
                 if (board.canReachCell(dest[0], dest[1])) {
+                    for(int k =0; k<tabCordMissileJ2.length; k++){
+                        if(tabCordMissileJ2[k][0] == dest[0] && tabCordMissileJ2[k][1] == dest[1]){
+                            System.out.println("cc");
+                            return;
+                        }
+                        tabCordMissileJ2[numJ2][0]= dest[0];
+                        tabCordMissileJ2[numJ2][1]= dest[1];
+                        numJ2++;
+                    }
                     if(stageModel.toucheroupas(stageModel.getShipsPlayer1(),dest[0],dest[1])){
                         for(int i = 0; i <stageModel.getMissileJoueur2().length; i++){
                             if (stageModel.getMissileJoueur1()[i] == misile){
                                 stageModel.getMissileJoueur1()[i].setColor(2);
                             }
                         }
-                        tabCordMissileJ2[numJ2][0]= dest[0];
-                        tabCordMissileJ2[numJ2][1]= dest[1];
-                            numJ2++;
+
                     }
                     ActionList actions = ActionFactory.generatePutInContainer(control,model, misile, "boardplayer2", dest[0], dest[1], AnimationTypes.MOVE_TELEPORT, 10);
                     actions.setDoEndOfTurn(true);
                     ActionPlayer play = new ActionPlayer(model, control, actions);
                     play.start();
 
-
                 }
             }
+
         }
     }
 
@@ -246,11 +268,11 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
             bateau = stageModel.getship(numJ1, stageModel.ShipPlayer1);
             for (int i = 0; i < bateau.getNbRows(); i++) {
                 GameElement shippart = bateau.getElement(i, 0);
-                if (sens == 'H') {
+                if (sens == 'V') {
                     ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer1", X+i, Y );
                     ActionPlayer play = new ActionPlayer(model, control, actions);
                     play.start();
-                } else if (sens == 'V') {
+                } else if (sens == 'H') {
                     ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer1", X , Y+i);
                     ActionPlayer play = new ActionPlayer(model, control, actions);
                     play.start();
@@ -265,11 +287,11 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
             bateau = stageModel.getship(numJ2, stageModel.ShipPlayer2);
             for (int i = 0; i < bateau.getNbRows(); i++) {
                 GameElement shippart = bateau.getElement(i, 0);
-                if (sens == 'H') {
+                if (sens == 'V') {
                     ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer2",  X+i, Y );
                     ActionPlayer play = new ActionPlayer(model, control, actions);
                     play.start();
-                } else if (sens == 'V') {
+                } else if (sens == 'H') {
                     ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer2",  X , Y+i);
                     ActionPlayer play = new ActionPlayer(model, control, actions);
                     play.start();
@@ -291,9 +313,9 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
         int deltaY = Math.abs(Yclic1 - Yclic2);
 
         if (deltaX >= deltaY) {
-            return 'H'; // Considérer horizontal si déplacement en X est > ou égal à Y
+            return 'V'; // Considérer horizontal si déplacement en X est > ou égal à Y
         } else {
-            return 'V'; // Considérer vertical si déplacement en Y est >
+            return 'H'; // Considérer vertical si déplacement en Y est >
         }
 
     }

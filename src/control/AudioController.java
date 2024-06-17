@@ -7,6 +7,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class AudioController {
+
+    private boolean playMusic = false;
     private Clip audioClip;
     private String audioPath = "src/Elements/Audio/";
 
@@ -51,6 +53,24 @@ public class AudioController {
             audioClip.close();
             System.out.println("Playback stopped.");
         }
+    }
+
+    public void toggleMusic(){
+        if (playMusic==true){
+            playMusic=false;
+            audioClip.stop();
+        }
+        else {
+            playMusic=true;
+            music();
+        }
+    }
+
+
+    private void music(){
+                play("music.wav");
+
+
     }
 
     public void listAudioFiles() {

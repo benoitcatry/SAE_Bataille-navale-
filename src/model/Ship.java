@@ -42,8 +42,9 @@ public class Ship extends ContainerElement {
     public boolean getSens() {return sens;}
 
     public boolean setCordonnerShip(int y , int x, char sens){
+        System.out.println(sens +" "+ y + " " + x + " " );
         if(sens == 'V'){
-            if (x>9 || y+taille-1>9 || 0>y || 0>x){
+            if (x>10 || y+taille>10 || 0>y || 0>x){
                 System.out.println("imposible de placer le bateau");
                 return false;
             }else{
@@ -53,7 +54,7 @@ public class Ship extends ContainerElement {
                 return true;
             }
         } else if (sens=='H') {
-            if (x+taille-1>9 || y>9 || 0>y || 0>x){
+            if (x+taille>10 || y>10 || 0>y || 0>x){
                 System.out.println("imposible de placer le bateau");
                 return false;
             }else {

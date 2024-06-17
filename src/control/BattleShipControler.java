@@ -57,6 +57,7 @@ public class BattleShipControler extends Controller {
                     player2playmode1(stageModel);
                 }
             }
+            update();
 
             if (p.getType() == Player.COMPUTER) {
                 if (levelbot == 1) {
@@ -72,7 +73,9 @@ public class BattleShipControler extends Controller {
                 }
 
             } else {
+                update();
                 Logger.debug("PLAYER PLAYS");
+
             }
         }
 

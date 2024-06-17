@@ -6,18 +6,22 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import view.HomePage;
 import view.SelectionPage;
+import view.OptionPage;
 
 public class ButtonController {
     private SelectionPage sp;
     private HomePage hp;
+
+    private OptionPage op;
     private Model model;
     private PageControl pageControl;
 
-    public ButtonController(SelectionPage sp, HomePage hp, Model model, PageControl pageControl) {
+    public ButtonController(SelectionPage sp, HomePage hp, Model model, PageControl pageControl, OptionPage op) {
         this.sp = sp;
         this.model = model;
         this.hp = hp;
         this.pageControl = pageControl;
+        this.op = op;
         attachEvent();
     }
 
@@ -33,7 +37,7 @@ public class ButtonController {
                 } else if (event.getSource() == hp.getQuit()) {
                     pageControl.quit();
                 } else if (event.getSource() == hp.getOptions()) {
-                    System.out.println("Options button clicked");
+                    pageControl.op(op);
                     // Handle options logic
                 } else if (event.getSource() == sp.getValid()) {
                     try {
@@ -65,6 +69,12 @@ public class ButtonController {
                     else {
                         perso = 0;
                     }
+                }
+
+                else if (event.getSource()==op.getToggleMusic()){
+                    pageControl.setMusic();
+                } else if (event.getSource()==op.getMainMenu()) {
+                    pageControl.hp(hp);
                 }
                 System.out.println(p1+" "+p2+" "+startPlayer+" "+mode+" "+perso);
 
