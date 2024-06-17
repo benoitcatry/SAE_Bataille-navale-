@@ -5,10 +5,7 @@ import control.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import view.HomePage;
-import view.SelectionPage;
-import view.ShipRootPane;
-import view.ShipView;
+import view.*;
 
 public class Ship extends Application {
     private static int mode;
@@ -30,8 +27,10 @@ public class Ship extends Application {
         ShipView battleShipView = new ShipView(model, stage, root);
         BattleShipControler control = new BattleShipControler(model,battleShipView,root,homePage);
         control.setFirstStageName("ship");
+        AudioController audio = new AudioController();
+        OptionPage op = new OptionPage();
 
-        PageControl pageControl = new PageControl(root,control,model);
+        PageControl pageControl = new PageControl(root,control,model,audio,op);
         SelectionPage selectionPage = new SelectionPage();
 
         // Placer les widgets dans les pages

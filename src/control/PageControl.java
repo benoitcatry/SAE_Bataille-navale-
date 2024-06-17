@@ -6,6 +6,7 @@ import boardifier.model.Model;
 import model.BattleShipStageFactory;
 import model.BattleShipStageModel;
 import view.HomePage;
+import view.OptionPage;
 import view.SelectionPage;
 import view.ShipRootPane;
 
@@ -16,18 +17,27 @@ public class PageControl {
     SelectionPage sp;
 
     BattleShipControler control;
+    AudioController audio;
+
+    OptionPage op;
 
     Model model;
-    public PageControl(ShipRootPane root,BattleShipControler control, Model model){
+    public PageControl(ShipRootPane root,BattleShipControler control, Model model,AudioController audio,OptionPage op){
         this.control=control;
 
         this.root=root;
         this.model=model;
+        this.op=op;
 
     }
     public void hp(HomePage homePage){
         root.getChildren().clear();
         homePage.placeWidgets(root);
+    }
+
+    public void op(OptionPage op){
+        root.getChildren().clear();
+        op.placeWidgets(root);
     }
     public void sp(SelectionPage selectionPage){
         root.getChildren().clear();
@@ -36,6 +46,10 @@ public class PageControl {
     public void quit(){
         root.getChildren().clear();
         System.exit(0);
+    }
+
+    public void setMusic(){
+        audio.toggleMusic();
     }
 
     public void play() throws GameException {
@@ -80,9 +94,5 @@ public class PageControl {
 
 
 
-    }
-
-    public void option(){
-        root.getChildren().clear();
     }
 }
