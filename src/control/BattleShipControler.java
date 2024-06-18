@@ -13,18 +13,44 @@ import view.HomePage;
 import view.ShipRootPane;
 import model.shipPart;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
+import java.util.List;
 
 
 public class BattleShipControler extends Controller {
 
+    int numJ1 =0 ; // joueur bateau 1
+    int numJ2 =0 ;// bateau du joueur 2
+    int count =0;
+    public boolean quiJouePremier = false;
+    int tabCordMissileJ1[][];
+    int tabCordMissileJ2[][];
+    int levelbot1;
+    int levelbot2;
+    boolean difficulset1 = false ;
+    boolean difficulset2 = false ;
+    public Set<Point> potentialTargetsJ1;
+    Set<Point> potentialTargetsJ2;
+    boolean targetModeJ1;
+    boolean targetModeJ2;
+    boolean lineModeJ1;
+    boolean lineModeJ2;
+    int[][] gridJ1 = new int[10][10];
+    int[][] gridJ2 = new int[10][10];
+    java.util.List<Point> lineTargetsJ1 = new ArrayList<>();
+    java.util.List<Point> lineTargetsJ2 = new ArrayList<>();
+    public java.util.List<Point> hitJ1;
+    java.util.List<Point> hitJ2;
+    java.util.List<Point> shipPartJ1;
+    List<Point> shipPartJ2;
+    public ControllerBatleShipMouse controllerBatleShipMouse;
     int levelbot;
-    private final ControllerBatleShipMouse controllerBatleShipMouse;
-
+    int modebot1=0;
+    int modebot2=0;
 
     public BattleShipControler(Model model, View view, ShipRootPane root, HomePage homePage, AudioController audio) {
         super(model, view);
@@ -32,7 +58,14 @@ public class BattleShipControler extends Controller {
         setControlAction(new ControllerBattleShipAction(model, view, this,root, homePage ));
         controllerBatleShipMouse = new ControllerBatleShipMouse(model, view, this, audio);
         setControlMouse(controllerBatleShipMouse);
-
+        potentialTargetsJ1 = new HashSet<>();
+        potentialTargetsJ2 = new HashSet<>();
+        targetModeJ1 = false;
+        targetModeJ2 = false;
+        hitJ1 = new ArrayList<>();
+        hitJ2 = new ArrayList<>();
+        shipPartJ1 = new ArrayList<>();
+        shipPartJ2 = new ArrayList<>();
 
     }
 
@@ -59,20 +92,50 @@ public class BattleShipControler extends Controller {
                     player2playmode1(stageModel);
                 }
             }
+            update();
 
 
-            if (p.getType() == Player.COMPUTER) {
-                if (levelbot == 1) {
-                    Logger.debug("COMPUTER PLAYS");
-                    BattleShipDecider decider = new BattleShipDecider(model, this, 1, 1);
-                    ActionPlayer play = new ActionPlayer(model, this, decider, null);
-                    play.start();
-                } else {
-                    Logger.debug("COMPUTER PLAYS");
-                    BattleShipDecider decider = new BattleShipDecider(model, this, 1, 2);
-                    ActionPlayer play = new ActionPlayer(model, this, decider, null);
-                    play.start();
-                }
+            if ((p.getType() == Player.COMPUTER)) {
+
+                    if (model.getIdPlayer() == 0) {
+                        if (modebot1==0){
+                            player1playmode0(stageModel);
+                            BattleShipDecider decider = new BattleShipDecider(model, this, 0, levelbot1);
+                            for(numJ1=0;numJ1<stageModel.ShipPlayer1.length;numJ1++){
+                                decider.placeAllShips(numJ1);
+                            }decider.end();
+                            ActionPlayer play = new ActionPlayer(model, this, decider, null);
+                            play.start();
+                            modebot1=1;
+                        }else{
+                            Logger.debug("COMPUTER PLAYS");
+                            BattleShipDecider decider = new BattleShipDecider(model, this, 1, levelbot1);
+                            decider.decide();
+                            ActionPlayer play = new ActionPlayer(model, this, decider, null);
+                            play.start();
+                        }
+
+
+                    } else {
+                        if (modebot2==0) {
+                            player2playmode0(stageModel);
+                            BattleShipDecider decider = new BattleShipDecider(model, this, 1, levelbot1);
+                            for (numJ2 = 0; numJ2 < stageModel.ShipPlayer2.length; numJ2++) {
+                                decider.placeAllShips(numJ2);
+                            }
+                            decider.end();
+                            modebot2=1;
+
+
+                        }else {
+                            Logger.debug("COMPUTER PLAYS");
+                            BattleShipDecider decider = new BattleShipDecider(model, this, 1, levelbot2);
+                            decider.decide();
+                            ActionPlayer play = new ActionPlayer(model, this, decider, null);
+                            play.start();
+
+                        }
+                    }
 
             } else {
 
@@ -142,7 +205,7 @@ public class BattleShipControler extends Controller {
                 stageModel.getMissileJoueur1()[i].addChangeFaceEvent();
                 stageModel.getMissileJoueur2()[i].addChangeFaceEvent();
             }
-
+return;
         }
 
         public void start(BattleShipStageModel stageModel){
@@ -152,6 +215,10 @@ public class BattleShipControler extends Controller {
             stageModel.setinvisiblebateau(stageModel.getShipsPlayer1());
         }
 
-
+        public void setLevelbot(){
+            int tab[] =ButtonController.returnValues();
+            levelbot1 = tab[0];
+            levelbot2=tab[1];
+        }
 
     }

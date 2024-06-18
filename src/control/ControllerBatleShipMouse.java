@@ -353,18 +353,11 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
 
     public void shipoutdesk(Ship[] ship){
         ContainerElement bateau = null;
-        Random random = new Random();
         for (int i = 0; i < ship.length; i++) {
             bateau = ship[i];
-            List<Integer> availablePositions = new ArrayList<>();
-            for (int x = 0; x < bateau.getNbRows(); x++) {
-                availablePositions.add(x);
-            }
-
             for(int j=0;j<ship[i].getTaille(); j++){
                 GameElement shippart =ship[i].shipParts[j];
-                int x = availablePositions.remove(0);
-                ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, bateau.getName(),  x, 0 );
+                ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, bateau.getName(),  j, 0 );
                 ActionPlayer play = new ActionPlayer(model, control, actions);
                 play.start();
 
