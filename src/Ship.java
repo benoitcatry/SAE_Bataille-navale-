@@ -72,6 +72,11 @@ public class Ship extends Application {
 
         StageFactory.registerModelAndView("ship", "model.BattleShipStageModel", "view.ShipStageView");
         ShipRootPane root = new ShipRootPane();
+<<<<<<< Updated upstream
+=======
+        AudioController audio = new AudioController();
+        audio.music();
+>>>>>>> Stashed changes
         ShipView battleShipView = new ShipView(model, stage, root);
         //control.BattleShipControler control = new control.BattleShipControler(model, battleShipView, f);
         //control.setFirstStageName("ship");

@@ -6,10 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="1ae606cc-c7ee-4439-bac4-d266b9487482" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/SAE_Bataille-navale.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SAE_Bataille-navale.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ShipConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ship.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/control/BattleShipControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/BattleShipControler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/control/BattleShipDecider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/BattleShipDecider.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/AudioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/AudioController.java" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,12 +247,27 @@
       <workItem from="1717938750557" duration="1024000" />
       <workItem from="1718003704808" duration="2468000" />
       <workItem from="1718091380090" duration="922000" />
+<<<<<<< Updated upstream
       <workItem from="1718092321927" duration="2003000" />
       <workItem from="1718094359602" duration="3618000" />
       <workItem from="1718110686036" duration="11000" />
       <workItem from="1718111561609" duration="508000" />
       <workItem from="1718112101199" duration="5531000" />
       <workItem from="1718179837905" duration="6059000" />
+=======
+      <workItem from="1718092321927" duration="726000" />
+      <workItem from="1718107157604" duration="5896000" />
+      <workItem from="1718179840400" duration="2975000" />
+      <workItem from="1718185851932" duration="10540000" />
+      <workItem from="1718230593957" duration="3571000" />
+      <workItem from="1718267271509" duration="600000" />
+      <workItem from="1718270091327" duration="13495000" />
+      <workItem from="1718350805769" duration="6146000" />
+      <workItem from="1718367397751" duration="3830000" />
+      <workItem from="1718539511406" duration="20000" />
+      <workItem from="1718632732622" duration="3204000" />
+      <workItem from="1718695691195" duration="277000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
