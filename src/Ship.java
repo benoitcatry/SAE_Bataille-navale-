@@ -24,10 +24,11 @@ public class Ship extends Application {
         HomePage homePage = new HomePage();
         StageFactory.registerModelAndView("ship", "model.BattleShipStageModel", "view.ShipStageView");
         ShipRootPane root = new ShipRootPane();
-        ShipView battleShipView = new ShipView(model, stage, root);
-        BattleShipControler control = new BattleShipControler(model,battleShipView,root,homePage);
-        control.setFirstStageName("ship");
         AudioController audio = new AudioController();
+        ShipView battleShipView = new ShipView(model, stage, root);
+        BattleShipControler control = new BattleShipControler(model,battleShipView,root,homePage, audio);
+        control.setFirstStageName("ship");
+
         OptionPage op = new OptionPage();
 
         PageControl pageControl = new PageControl(root,control,model,audio,op);
@@ -38,13 +39,14 @@ public class Ship extends Application {
         selectionPage.placeWidgets(root);
 
         // Créer et attacher le contrôleur de boutons
-        new ButtonController(selectionPage, homePage, model, pageControl);
+        new ButtonController(selectionPage, homePage, model, pageControl,op);
         new TextController(model,selectionPage);
 
         // Afficher la page d'accueil
         pageControl.hp(homePage);
         stage.setTitle("BattleShip");
         stage.show();
+        //audio.toggleMusic();
     }
 }
 
