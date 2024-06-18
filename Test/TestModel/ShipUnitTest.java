@@ -10,139 +10,125 @@ import model.Ship;
 
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 
 public class ShipUnitTest {
 
-    private GameStageModel gameStageModel;
     private Ship ship;
+    private GameStageModel gameStageModel;
+    private shipPart[] mockShipParts;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         gameStageModel = mock(GameStageModel.class);
         ship = new Ship(0, 0, 3, gameStageModel);
+        mockShipParts = new shipPart[3];
+        for (int i = 0; i < 3; i++) {
+            mockShipParts[i] = mock(shipPart.class);
+        }
+        ship.shipParts = mockShipParts;
     }
 
     @Test
-    public void testSetAndGetSenstrue() {
+    void testGetTaille() {
+        assertEquals(3, ship.getTaille());
+    }
+
+    @Test
+    void testSetSens() {
         ship.setSens(true);
         assertTrue(ship.getSens());
 
-
-    }
-    @Test
-    public void testgetsensfalse(){
         ship.setSens(false);
         assertFalse(ship.getSens());
     }
 
     @Test
-    public void testSetShipParts() {
+    void testSetShipParts() {
         ship.setShipParts(gameStageModel);
         assertNotNull(ship.getshippart());
         assertEquals(3, ship.getshippart().length);
     }
 
     @Test
-    public void testSetAndGetCoordinates() {
-        ship.setShipParts(gameStageModel);
-        ship.setCordonnerShip(1, 1, 'H');
+    void testSetCordonnerShipVertical() {
+        when(mockShipParts[0].getcordonneX()).thenReturn(0);
+        when(mockShipParts[0].getcordonneY()).thenReturn(0);
+        when(mockShipParts[1].getcordonneX()).thenReturn(0);
+        when(mockShipParts[1].getcordonneY()).thenReturn(1);
+        when(mockShipParts[2].getcordonneX()).thenReturn(0);
+        when(mockShipParts[2].getcordonneY()).thenReturn(2);
 
-        assertEquals(1, ship.getPartCordonneX(0));
-        assertEquals(1, ship.getPartCordonneY(0));
-        assertEquals(2, ship.getPartCordonneX(1));
-        assertEquals(1, ship.getPartCordonneY(1));
-        assertEquals(3, ship.getPartCordonneX(2));
-        assertEquals(1, ship.getPartCordonneY(2));
-    }
-
-
-    @Test
-    public void testSetAndGetCoordinatesVertical() {
-        ship.setShipParts(gameStageModel);
-        ship.setCordonnerShip(4, 1, 'V');
-
-        assertEquals(1, ship.getPartCordonneX(0));
-        assertEquals(4, ship.getPartCordonneY(0));
-        assertEquals(1, ship.getPartCordonneX(1));
-        assertEquals(5, ship.getPartCordonneY(1));
-        assertEquals(1, ship.getPartCordonneX(2));
-        assertEquals(6, ship.getPartCordonneY(2));
+        assertTrue(ship.setCordonnerShip(0, 0, 'V'));
+        verify(mockShipParts[0]).setCordoner(0, 0);
+        verify(mockShipParts[1]).setCordoner(0, 1);
+        verify(mockShipParts[2]).setCordoner(0, 2);
     }
 
     @Test
-    public void testVerifCouler() {
-        ship.setShipParts(gameStageModel);
-        ship.verifcouler();
-        assertFalse(ship.getcouler());
+    void testSetCordonnerShipHorizontal() {
+        when(mockShipParts[0].getcordonneX()).thenReturn(0);
+        when(mockShipParts[0].getcordonneY()).thenReturn(0);
+        when(mockShipParts[1].getcordonneX()).thenReturn(1);
+        when(mockShipParts[1].getcordonneY()).thenReturn(0);
+        when(mockShipParts[2].getcordonneX()).thenReturn(2);
+        when(mockShipParts[2].getcordonneY()).thenReturn(0);
 
-        for (shipPart part : ship.getshippart()) {
-            part.setToucher(true);
-        }
+        assertTrue(ship.setCordonnerShip(0, 0, 'H'));
+        verify(mockShipParts[0]).setCordoner(0, 0);
+        verify(mockShipParts[1]).setCordoner(1, 0);
+        verify(mockShipParts[2]).setCordoner(2, 0);
+    }
+
+    @Test
+    void testSetCordonnerShipInvalid() {
+        assertFalse(ship.setCordonnerShip(0, 8, 'V'));
+        assertFalse(ship.setCordonnerShip(8, 0, 'H'));
+    }
+
+    @Test
+    void testVerifCouler() {
+        when(mockShipParts[0].esttoucher()).thenReturn(true);
+        when(mockShipParts[1].esttoucher()).thenReturn(true);
+        when(mockShipParts[2].esttoucher()).thenReturn(true);
+
         ship.verifcouler();
         assertTrue(ship.getcouler());
+        for (shipPart part : mockShipParts) {
+            verify(part).setColors(2);
+        }
     }
 
     @Test
-    public void testNbDepartCouler() {
-        ship.setShipParts(gameStageModel);
+    void testNbDepartCouler() {
+        when(mockShipParts[0].esttoucher()).thenReturn(true);
+        when(mockShipParts[1].esttoucher()).thenReturn(false);
+        when(mockShipParts[2].esttoucher()).thenReturn(true);
 
-        ship.getshippart()[0].setToucher(true);
-        assertEquals(1, ship.nbdepartcouler());
-
-        ship.getshippart()[1].setToucher(true);
         assertEquals(2, ship.nbdepartcouler());
-
-        ship.getshippart()[2].setToucher(true);
-        assertEquals(3, ship.nbdepartcouler());
     }
 
     @Test
-    public void testestcouler() {
-        ship.setShipParts(gameStageModel);
-        assertFalse( ship.getcouler());
-        ship.verifcouler();
-        assertFalse( ship.getcouler());
-        ship.getshippart()[0].setToucher(true);
-        ship.verifcouler();
-        assertFalse( ship.getcouler());
-        ship.getshippart()[1].setToucher(true);
-        ship.verifcouler();
-        assertFalse( ship.getcouler());
-        ship.getshippart()[2].setToucher(true);
-        ship.verifcouler();
-        assertTrue( ship.getcouler());
-    }
-
-
-    @Test
-    public void testSetAndGetPlayerID() {
-        ship.setidplayer(10);
-        assertEquals(10, ship.getPlayerID());
+    void testGetPartCordonneX() {
+        when(mockShipParts[1].getcordonneX()).thenReturn(5);
+        assertEquals(5, ship.getPartCordonneX(1));
     }
 
     @Test
-    public void testGetShipID() {
-        assertEquals(1, ship.getShipID());
-        Ship anotherShip = new Ship(0, 0, 2, gameStageModel);
-        assertEquals(2, anotherShip.getShipID());
+    void testGetPartCordonneY() {
+        when(mockShipParts[1].getcordonneY()).thenReturn(5);
+        assertEquals(5, ship.getPartCordonneY(1));
     }
 
     @Test
-    public void testSetCordonnerShipPlaceinvalidePossitif() {
-        ship.setShipParts(gameStageModel);
-        assertFalse(ship.setCordonnerShip(8, 8, 'H'));
-    }
-    @Test
-    public void testSetCordonnerShipPlaceinvalideNégatif() {
-        ship.setShipParts(gameStageModel);
-        assertFalse(ship.setCordonnerShip(-8, -8, 'H'));
+    void testSetIdPlayer() {
+        ship.setidplayer(2);
+        assertEquals(2, ship.getPlayerID());
     }
 
     @Test
-    public void testSetCordonnerShipPlaceinvalidenauvaisselettre() {
-        ship.setShipParts(gameStageModel);
-        assertFalse(ship.setCordonnerShip(5, 5, 'c'));
+    void testGetShipID() {
+        assertEquals(0, ship.getShipID());
     }
 }

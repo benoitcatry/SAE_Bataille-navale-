@@ -46,7 +46,7 @@ public class Ship extends Application {
         pageControl.hp(homePage);
         stage.setTitle("BattleShip");
         stage.show();
-        //audio.toggleMusic();
+        audio.toggleMusic();
     }
 }
 

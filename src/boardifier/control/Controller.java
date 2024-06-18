@@ -80,9 +80,7 @@ public abstract class Controller {
         // create a map of GameElement <-> ElementLook, that helps the controller in its update() method
         mapElementLook = new HashMap<>();
         for(GameElement element : gameStageModel.getElements()) {
-            System.out.println("element "+element.getType() + " " + element.getX());
             ElementLook look = gameStageView.getElementLook(element);
-            System.out.println("look "+look);
             mapElementLook.put(element, look);
         }
         /* At this point, there may be elements that have been put in some containers.
@@ -160,7 +158,7 @@ public abstract class Controller {
     }
 
     private void processLookEvents() {
-
+        // a voir
         // for each element : process all event and then update
         mapElementLook.forEach((k,v) -> {
             // proceed events that are only manageable by the controller

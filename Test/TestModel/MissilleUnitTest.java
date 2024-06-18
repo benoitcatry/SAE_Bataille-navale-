@@ -6,38 +6,49 @@ import org.mockito.Mockito;
 import model.Missille;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+
 public class MissilleUnitTest {
+    private Missille missille;
     private GameStageModel gameStageModel;
-    private Missille missile;
 
     @BeforeEach
-    public void setUp() {
-        gameStageModel = Mockito.mock(GameStageModel.class);
-        missile = new Missille(1, 2, gameStageModel);
+    void setUp() {
+        gameStageModel = mock(GameStageModel.class);
+        missille = new Missille(5, 2, 1, gameStageModel);
     }
 
     @Test
-    public void testMissileInitialization() {
-        assertNotNull(missile);
-        assertEquals(1, missile.getNumber());
-        assertEquals(2, missile.getColor());
+    void testGetNumber() {
+        assertEquals(5, missille.getNumber());
     }
 
     @Test
-    public void testSetetGetColor() {
-        missile.setColor(5);
-        assertEquals(5, missile.getColor());
+    void testSetNumber() {
+        missille.setNumber(10);
+        assertEquals(10, missille.getNumber());
     }
 
     @Test
-    public void testSetetGetNumber() {
-        missile.setNumber(5);
-        assertEquals(5, missile.getNumber());
+    void testGetColor() {
+        assertEquals(2, missille.getColor());
     }
+
     @Test
-    public void testSetetGetidplayer() {
-        missile.setIdjoueur(5);
-        assertEquals(5, missile.getIdjoueur());
+    void testSetColor() {
+        missille.setColor(3);
+        assertEquals(3, missille.getColor());
+    }
+
+    @Test
+    void testGetIdjoueur() {
+        assertEquals(1, missille.getIdjoueur());
+    }
+
+    @Test
+    void testSetIdjoueur() {
+        missille.setIdjoueur(2);
+        assertEquals(2, missille.getIdjoueur());
     }
 
 

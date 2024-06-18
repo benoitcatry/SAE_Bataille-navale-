@@ -260,7 +260,7 @@ public class BattleShipStageModel extends GameStageModel {
 
 
     //méthode pour regarder qui gagne dans la partie
-    private void computePartyResult(){
+    public void computePartyResult(){
     int shippartcoulerplayer1 =0;
     int shippartcoulerplayer2 = 0;
 

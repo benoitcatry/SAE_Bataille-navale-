@@ -5,8 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ae606cc-c7ee-4439-bac4-d266b9487482" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Test/TestModel/BattleBoardTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAE_Bataille-navale.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SAE_Bataille-navale.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/TestModel/BattleShipStageModelUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/TestModel/BattleShipStageModelUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/TestModel/BattleboardUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/TestModel/MissilleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/TestModel/MissilleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/TestModel/ShipPartUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/TestModel/ShipPartUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/TestModel/ShipUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/TestModel/ShipUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/Ship.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/boardifier/control/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/AudioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/AudioController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipControler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipDecider.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/BattleShipDecider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/ButtonController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/ButtonController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/ButtonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/ButtonController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/ControllerBatleShipMouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/ControllerBatleShipMouse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/ControllerBattleShipAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/ControllerBattleShipAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/PageControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/control/PageControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/BattleShipStageModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Missille.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Missille.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/Ship.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/shipPart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/model/shipPart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/MissileLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/MissileLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipPartLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipRootPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipRootPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipStageView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShipView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/Shiplook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/Shiplook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/ShotView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/StockMissileLook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAE_Bataille-navale/view/StockMissileLook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/SAE_Bataille-navale/TestModel/BattleShipeStageFactoryUnitTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/SAE_Bataille-navale/TestModel/BattleShipeStageFactoryUnitTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/SAE_Bataille-navale/TestModel/BattleboardUnitTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/SAE_Bataille-navale/TestModel/MissilleUnitTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/SAE_Bataille-navale/TestModel/MissilleUnitTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/SAE_Bataille-navale/TestModel/ShipPartUnitTest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/SAE_Bataille-navale/TestModel/ShipPartUnitTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/SAE_Bataille-navale/TestModel/ShipUnitTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/SAE_Bataille-navale/TestModel/ShipUnitTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/SAE_Bataille-navale/TestModel/StockMissileUnitTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/SAE_Bataille-navale/TestModel/StockMissileUnitTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/boardifier/control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/boardifier/control/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/ControllerBatleShipMouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/ControllerBatleShipMouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/BattleShipStageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BattleShipStageModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,53 +82,56 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AudioController.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Ship.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ShipConsole.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.BattleShipStageModelUnitTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BattleShipStageModelUnitTest.testToucherOuPas.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BattleboardUnitTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BattleboardUnitTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard_invalide.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MissilleUnitTest,testMissileInitialization and 1 more.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MissilleUnitTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipPartUnitTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.testGetShipID.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.testSetAndGetCoordinatesVertical.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.testSetAndGetCoordinatesvertical.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.testSetCordonnerShipInvalidPlacement.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalideNégatif.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalidePossitif.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalidenauvaisselettre.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShipUnitTest.testestcouler.executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;final&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/benoit/Documents/1erannee/SAE_Bataille-navale/src&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AudioController.executor": "Run",
+    "Application.Ship.executor": "Run",
+    "Application.ShipConsole.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.BattleBoardTest.executor": "Run",
+    "JUnit.BattleBoardTest.testSetValidCells.executor": "Run",
+    "JUnit.BattleShipStageModelUnitTest.executor": "Run",
+    "JUnit.BattleShipStageModelUnitTest.testToucherOuPas.executor": "Run",
+    "JUnit.BattleboardUnitTest (1).executor": "Run",
+    "JUnit.BattleboardUnitTest.executor": "Run",
+    "JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard.executor": "Run",
+    "JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard_invalide.executor": "Run",
+    "JUnit.MissilleUnitTest,testMissileInitialization and 1 more.executor": "Run",
+    "JUnit.MissilleUnitTest.executor": "Run",
+    "JUnit.ShipPartUnitTest.executor": "Run",
+    "JUnit.ShipUnitTest.executor": "Run",
+    "JUnit.ShipUnitTest.testGetShipID.executor": "Run",
+    "JUnit.ShipUnitTest.testSetAndGetCoordinatesVertical.executor": "Run",
+    "JUnit.ShipUnitTest.testSetAndGetCoordinatesvertical.executor": "Run",
+    "JUnit.ShipUnitTest.testSetCordonnerShipInvalidPlacement.executor": "Run",
+    "JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalideNégatif.executor": "Run",
+    "JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalidePossitif.executor": "Run",
+    "JUnit.ShipUnitTest.testSetCordonnerShipPlaceinvalidenauvaisselettre.executor": "Run",
+    "JUnit.ShipUnitTest.testestcouler.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "final",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/benoit/Documents/1erannee/gg/SAE_Bataille-navale-/src/Elements/Audio",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Elements/Audio" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -96,25 +139,43 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Ship">
-    <configuration name="AudioController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="control.AudioController" />
-      <module name="SAE_Bataille-navale" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="control.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Ship" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-22" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Ship" />
       <module name="SAE_Bataille-navale" />
       <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../../../openjfx-17.0.10_linux-x64_bin-sdk/javafx-sdk-17.0.10/lib --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BattleBoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SAE_Bataille-navale" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.BattleBoardTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BattleBoardTest.testSetValidCells" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SAE_Bataille-navale" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.BattleBoardTest" />
+      <option name="METHOD_NAME" value="testSetValidCells" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -129,74 +190,57 @@
       </extension>
       <option name="PACKAGE_NAME" value="TestModel" />
       <option name="MAIN_CLASS_NAME" value="TestModel.BattleShipStageModelUnitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MissilleUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SAE_Bataille-navale" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestModel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TestModel" />
+      <option name="MAIN_CLASS_NAME" value="TestModel.MissilleUnitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShipPartUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SAE_Bataille-navale" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.ShipPartUnitTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BattleShipStageModelUnitTest.testToucherOuPas" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SAE_Bataille-navale" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="TestModel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="TestModel" />
-      <option name="MAIN_CLASS_NAME" value="TestModel.BattleShipStageModelUnitTest" />
-      <option name="METHOD_NAME" value="testToucherOuPas" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BattleboardUnitTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SAE_Bataille-navale" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="TestModel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="TestModel" />
-      <option name="MAIN_CLASS_NAME" value="TestModel.BattleboardUnitTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BattleboardUnitTest.testSetValidCells_EmptyBoard_invalide" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SAE_Bataille-navale" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="TestModel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="TestModel" />
-      <option name="MAIN_CLASS_NAME" value="TestModel.BattleboardUnitTest" />
-      <option name="METHOD_NAME" value="testSetValidCells_EmptyBoard_invalide" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Ship" />
-      <item itemvalue="Application.AudioController" />
-      <item itemvalue="JUnit.BattleShipStageModelUnitTest.testToucherOuPas" />
-      <item itemvalue="JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard_invalide" />
-      <item itemvalue="JUnit.BattleboardUnitTest (1)" />
+      <item itemvalue="JUnit.BattleBoardTest" />
+      <item itemvalue="JUnit.BattleBoardTest.testSetValidCells" />
+      <item itemvalue="JUnit.MissilleUnitTest" />
+      <item itemvalue="JUnit.ShipPartUnitTest" />
       <item itemvalue="JUnit.BattleShipStageModelUnitTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AudioController" />
-        <item itemvalue="JUnit.BattleShipStageModelUnitTest.testToucherOuPas" />
+        <item itemvalue="JUnit.ShipPartUnitTest" />
+        <item itemvalue="JUnit.MissilleUnitTest" />
         <item itemvalue="JUnit.BattleShipStageModelUnitTest" />
-        <item itemvalue="JUnit.BattleboardUnitTest (1)" />
-        <item itemvalue="JUnit.BattleboardUnitTest.testSetValidCells_EmptyBoard_invalide" />
+        <item itemvalue="JUnit.BattleBoardTest.testSetValidCells" />
+        <item itemvalue="JUnit.BattleBoardTest" />
       </list>
     </recent_temporary>
   </component>
@@ -261,6 +305,10 @@
       <workItem from="1718367397751" duration="3830000" />
       <workItem from="1718539511406" duration="20000" />
       <workItem from="1718632732622" duration="3204000" />
+      <workItem from="1718640460743" duration="38582000" />
+      <workItem from="1718683329665" duration="6733000" />
+      <workItem from="1718698105289" duration="4274000" />
+      <workItem from="1718709692260" duration="3867000" />
     </task>
     <servers />
   </component>
@@ -293,19 +341,15 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Test/TestModel/ShipUnitTest.java</url>
-          <line>101</line>
-          <properties class="TestModel.ShipUnitTest" method="testestcouler">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Test/TestModel/MissilleUnitTest.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

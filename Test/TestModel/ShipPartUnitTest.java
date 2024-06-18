@@ -1,72 +1,79 @@
-package TestModel;
+package model;
 
 import boardifier.model.GameStageModel;
-import boardifier.model.Model;
-import boardifier.model.StageElementsFactory;
-import model.shipPart;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
 public class ShipPartUnitTest {
-    private model.shipPart shipPart;
+    private shipPart shipPart;
     private GameStageModel gameStageModel;
 
     @BeforeEach
-    public void setUp() {
-        Model m = new Model();
-        gameStageModel = new GameStageModel("test", m) {
-            @Override
-            public StageElementsFactory getDefaultElementFactory() {
-                return null;
-            }
-        }; // Assuming you have a default constructor
-        shipPart = new shipPart(1, 2, gameStageModel);
+    void setUp() {
+        gameStageModel = mock(GameStageModel.class);
+        shipPart = new shipPart(5, 2, 1, gameStageModel);
     }
 
     @Test
-    public void testSetAndGetNumber() {
-        shipPart.setNumber(5);
-        Assertions.assertEquals(5, shipPart.getNumber());
+    void testGetNumber() {
+        assertEquals(5, shipPart.getNumber());
     }
 
     @Test
-    public void testSetAndGetColor() {
+    void testSetNumber() {
+        shipPart.setNumber(10);
+        assertEquals(10, shipPart.getNumber());
+    }
+
+    @Test
+    void testGetColor() {
+        assertEquals(2, shipPart.getColor());
+    }
+
+    @Test
+    void testSetColor() {
         shipPart.setColors(3);
-        Assertions.assertEquals(3, shipPart.getColor());
+        assertEquals(3, shipPart.getColor());
     }
 
     @Test
-    public void testSetAndGetCoordinates() {
-        shipPart.setCordoner(10, 15);
-        Assertions.assertEquals(10, shipPart.getcordonneX());
-        Assertions.assertEquals(15, shipPart.getcordonneY());
+    void testSetCordoner() {
+        shipPart.setCordoner(7, 8);
+        assertEquals(7, shipPart.getcordonneX());
+        assertEquals(8, shipPart.getcordonneY());
     }
 
     @Test
-    public void testSetetGetX() {
-        shipPart.setcordonneX(20);
-        Assertions.assertEquals(20, shipPart.getcordonneX());
+    void testSetcordonneX() {
+        shipPart.setcordonneX(9);
+        assertEquals(9, shipPart.getcordonneX());
     }
 
     @Test
-    public void testSetetGetY() {
-        shipPart.setcordonneY(25);
-        Assertions.assertEquals(25, shipPart.getcordonneY());
+    void testSetcordonneY() {
+        shipPart.setcordonneY(10);
+        assertEquals(10, shipPart.getcordonneY());
     }
 
     @Test
-    public void testSetetestTouchertrue() {
+    void testSetToucher() {
         shipPart.setToucher(true);
-        Assertions.assertTrue(shipPart.esttoucher());
+        assertTrue(shipPart.esttoucher());
     }
 
     @Test
-    public void testSetetestToucherfalse() {
+    void testEstToucher() {
         shipPart.setToucher(false);
-        Assertions.assertFalse(shipPart.esttoucher());
+        assertFalse(shipPart.esttoucher());
     }
 
+    @Test
+    void testGetIdplayer() {
+        assertEquals(1, shipPart.getIdplayer());
+    }
 
 
 }

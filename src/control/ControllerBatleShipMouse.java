@@ -207,7 +207,7 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
                                 stageModel.getMissileJoueur1()[i].setColor(2);
 
                             }
-                        }
+                        }misile.addChangeFaceEvent();
 
                     }else {audio.playRater();}
                     ActionList actions = ActionFactory.generatePutInContainer(control,model, misile, "boardplayer1", dest[0], dest[1]);
@@ -242,15 +242,16 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
                         tabCordMissileJ2[numJ2][0]= dest[0];
                         tabCordMissileJ2[numJ2][1]= dest[1];
                         numJ2++;
-
+                    audio.playTir();
                     if(stageModel.toucheroupas(stageModel.getShipsPlayer1(),dest[1],dest[0])){ // a verif
                         for(int i = 0; i <stageModel.getMissileJoueur2().length; i++){
                             if (stageModel.getMissileJoueur2()[i] == misile){
                                 stageModel.getMissileJoueur2()[i].setColor(2);
                             }
                         }
+                        audio.playToucher();
 
-                    }//misile.addChangeFaceEvent();
+                    }misile.addChangeFaceEvent();
                     ActionList actions = ActionFactory.generatePutInContainer(control,model, misile, "boardplayer2", dest[0], dest[1]);
                     actions.setDoEndOfTurn(true);
 

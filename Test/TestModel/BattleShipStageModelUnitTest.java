@@ -6,6 +6,8 @@ import boardifier.model.TextElement;
 import model.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -41,6 +43,7 @@ public class BattleShipStageModelUnitTest {
         battleShipStageModel.setShipsPlayer1(shipsPlayer1);
         battleShipStageModel.setShipsPlayer2(shipsPlayer2);
     }
+
 
 
     @Test
@@ -94,21 +97,6 @@ public class BattleShipStageModelUnitTest {
         assertFalse(result);
     }
 
-    //a fix
-    /*
-    @Test
-    public void testToucherOuPas() {
-        shipPart part = mock(shipPart.class);
-        when(shipsPlayer1[0].shipParts).thenReturn(mock(shipPart.class));
-        when(part.getcordonneX()).thenReturn(2);
-        when(part.getcordonneY()).thenReturn(3);
-        when(part.esttoucher()).thenReturn(false);
-
-        boolean result = battleShipStageModel.toucheroupas(shipsPlayer1, 2, 3);
-        assertTrue(result);
-        verify(part).setToucher(true);
-    }
-*/
     @Test
     public void testToutShipCouler() {
         when(shipsPlayer1[0].getcouler()).thenReturn(true);
@@ -131,62 +119,195 @@ public class BattleShipStageModelUnitTest {
 
         // Trigger the callback
         battleShipStageModel.setupCallbacks();
-        battleShipStageModel.onPutInContainer();
+
 
         assertEquals(49, battleShipStageModel.getPlayer1ToPlay());
         verify(missille, times(1)).getIdjoueur();
     }
 
+
+
+
+
+    @Mock
+    private Model mockModel;
+
+
+
+
     @Test
-    public void testSetupCallbacks_Player2Missille() {
-        when(missille.getIdjoueur()).thenReturn(2);
+    void testComputePartyResult() {
+        BattleShipStageModel model = new BattleShipStageModel("TestModel", mockModel);
+        TextElement mockTextElement = mock(TextElement.class);
+        model.setTextWiner(mockTextElement);
 
-        // Trigger the callback
-        battleShipStageModel.setupCallbacks();
-        battleShipStageModel.onPutInContainer(missille, boardPlayer2, 0, 0);
+        Ship mockShip1 = mock(Ship.class);
+        Ship mockShip2 = mock(Ship.class);
+        when(mockShip1.nbdepartcouler()).thenReturn(2);
+        when(mockShip2.nbdepartcouler()).thenReturn(3);
+        Ship[] ships1 = {mockShip1};
+        Ship[] ships2 = {mockShip2};
+        model.setShipsPlayer1(ships1);
+        model.setShipsPlayer2(ships2);
 
-        assertEquals(49, battleShipStageModel.getPlayer2ToPlay());
-        verify(missille, times(1)).getIdjoueur();
+        model.computePartyResult();
+        verify(mockTextElement).setText("The Winner is Player 2");
+        verify(mockTextElement).setVisible(true);
+
+        when(mockShip2.nbdepartcouler()).thenReturn(2);
+        model.computePartyResult();
+        verify(mockTextElement).setText("Equality");
     }
 
     @Test
-    public void testSetupCallbacks_ComputePartyResult() {
-        when(missille.getIdjoueur()).thenReturn(1);
-        battleShipStageModel.setPlayer1ToPlay(1);
-        battleShipStageModel.setPlayer2ToPlay(0);
+    void testToucheroupas() {
+        BattleShipStageModel model = new BattleShipStageModel("TestModel", mockModel);
+        Ship mockShip = mock(Ship.class);
+        shipPart mockShipPart = mock(shipPart.class);
+        when(mockShip.getshippart()).thenReturn(new shipPart[]{mockShipPart});
+        when(mockShipPart.getcordonneX()).thenReturn(1);
+        when(mockShipPart.getcordonneY()).thenReturn(2);
+        when(mockShipPart.esttoucher()).thenReturn(false);
 
-        // Mock toutShipCouler to return true
-        when(battleShipStageModel.toutShipCouler(any())).thenReturn(true);
+        Ship[] ships = {mockShip};
 
-        // Spy on the battleShipStageModel to verify computePartyResult call
-        BattleShipStageModel spyBattleShipStageModel = spy(battleShipStageModel);
-
-        // Trigger the callback
-        spyBattleShipStageModel.setupCallbacks();
-        spyBattleShipStageModel.onPutInContainer(missille, boardPlayer1, 0, 0);
-
-        assertEquals(0, spyBattleShipStageModel.getPlayer1ToPlay());
-        verify(spyBattleShipStageModel, times(1)).computePartyResult();
+        assertFalse(model.toucheroupas(ships, 1, 2));
     }
 
     @Test
-    public void testSetupCallbacks_NotComputePartyResult() {
-        when(missille.getIdjoueur()).thenReturn(1);
-        battleShipStageModel.setPlayer1ToPlay(1);
-        battleShipStageModel.setPlayer2ToPlay(1);
+    void testNbdepart() {
+        BattleShipStageModel model = new BattleShipStageModel("TestModel", mockModel);
+        Ship mockShip1 = mock(Ship.class);
+        Ship mockShip2 = mock(Ship.class);
+        when(mockShip1.getTaille()).thenReturn(3);
+        when(mockShip2.getTaille()).thenReturn(2);
+        Ship[] ships = {mockShip1, mockShip2};
 
-        // Mock toutShipCouler to return false
-        when(battleShipStageModel.toutShipCouler(any())).thenReturn(false);
-
-        // Spy on the battleShipStageModel to verify computePartyResult call
-        BattleShipStageModel spyBattleShipStageModel = spy(battleShipStageModel);
-
-        // Trigger the callback
-        spyBattleShipStageModel.setupCallbacks();
-        spyBattleShipStageModel.onPutInContainer(missille, boardPlayer1, 0, 0);
-
-        assertEquals(0, spyBattleShipStageModel.getPlayer1ToPlay());
-        verify(spyBattleShipStageModel, times(0)).computePartyResult();
+        assertEquals(5, model.nbdepart(ships));
     }
+
+
+
+    @Test
+    void testComputePartyResult_Player1Wins() {
+        BattleShipStageModel model = new BattleShipStageModel("TestModel", mockModel);
+        TextElement mockTextElement = mock(TextElement.class);
+        model.setTextWiner(mockTextElement);
+        Ship mockShip1 = mock(Ship.class);
+        Ship mockShip2 = mock(Ship.class);
+        when(mockShip1.nbdepartcouler()).thenReturn(3);
+        when(mockShip2.nbdepartcouler()).thenReturn(0);
+        model.setShipsPlayer1(new Ship[]{mockShip1});
+        model.setShipsPlayer2(new Ship[]{mockShip2});
+
+        model.computePartyResult();
+
+        verify(mockTextElement).setText("The Winner is Player 1");
+        verify(mockTextElement).setVisible(true);
+    }
+
+    @Test
+    void testToucheroupas_Hit() {
+
+        BattleShipStageModel model = new BattleShipStageModel("TestModel", mockModel);
+        Ship mockShip = mock(Ship.class);
+        shipPart mockShipPart = mock(shipPart.class);
+        when(mockShipPart.getcordonneX()).thenReturn(1);
+        when(mockShipPart.getcordonneY()).thenReturn(1);
+        when(mockShip.shipParts).thenReturn(new shipPart[]{mockShipPart});
+
+
+        boolean result = model.toucheroupas(model.getShipsPlayer1(), 1, 1);
+
+
+        assertTrue(result);
+        verify(mockShipPart).setToucher(true);
+        verify(mockShip).verifcouler();
+    }
+
+    @Test
+    void testToucheroupas_Miss() {
+        // Setup
+        BattleShipStageModel model = new BattleShipStageModel("TestModel", mockModel);
+        Ship mockShip = mock(Ship.class);
+        shipPart mockShipPart = mock(shipPart.class);
+        when(mockShipPart.getcordonneX()).thenReturn(1);
+        when(mockShipPart.getcordonneY()).thenReturn(1);
+
+        when(mockShip.shipParts).thenReturn(new shipPart[]{mockShipPart});
+
+        // Call method under test with different coordinates
+        boolean result = model.toucheroupas(model.getShipsPlayer1(), 2, 2);
+
+        // Verify
+        assertFalse(result);
+        verify(mockShipPart, never()).setToucher(true); // Ensure setToucher(true) was never called
+        verify(mockShip, never()).verifcouler(); // Ensure verifcouler() was never called
+    }
+
+
+
+    @Test
+    void testVerifpeutetreposer_ValidPlacement() {
+        // Setup
+        BattleShipStageModel model = new BattleShipStageModel("TestModel", mockModel);
+        Ship mockShip = mock(Ship.class);
+        shipPart mockShipPart = mock(shipPart.class);
+        when(mockShip.getTaille()).thenReturn(3); // Taille arbitraire pour le navire
+        when(mockShip.shipParts).thenReturn(new shipPart[]{mockShipPart, mockShipPart, mockShipPart});
+        when(mockShipPart.getcordonneX()).thenReturn(1); // Coordonnées arbitraires
+        when(mockShipPart.getcordonneY()).thenReturn(1);
+
+        Ship[] ships = new Ship[]{mockShip};
+
+        boolean result = model.Verifpeutetreposer(ships, 0, 0, 3, 'H');
+
+        assertTrue(result);
+    }
+
+    @Test
+    void testVerifpeutetreposer_InvalidPlacement() {
+        // Setup
+        BattleShipStageModel model = new BattleShipStageModel("TestModel", mockModel);
+        Ship mockShip = mock(Ship.class);
+        shipPart mockShipPart = mock(shipPart.class);
+        when(mockShip.getTaille()).thenReturn(3); // Taille arbitraire pour le navire
+        when(mockShip.shipParts).thenReturn(new shipPart[]{mockShipPart, mockShipPart, mockShipPart});
+        when(mockShipPart.getcordonneX()).thenReturn(1); // Coordonnées arbitraires
+        when(mockShipPart.getcordonneY()).thenReturn(1);
+
+        Ship[] ships = new Ship[]{mockShip};
+
+
+        boolean result = model.Verifpeutetreposer(ships, 0, 1, 3, 'H');
+
+
+        assertFalse(result);
+    }
+
+
+
+    @Test
+    void testComputePartyResult_Player2Wins() {
+        // Setup
+        BattleShipStageModel model = new BattleShipStageModel("TestModel", mockModel);
+        Ship mockShip1 = mock(Ship.class);
+        Ship mockShip2 = mock(Ship.class);
+        when(mockShip1.nbdepartcouler()).thenReturn(2); // Nombre arbitraire de parties coulées pour mockShip1
+        when(mockShip2.nbdepartcouler()).thenReturn(3); // Nombre arbitraire de parties coulées pour mockShip2
+        model.setShipsPlayer1(new Ship[]{mockShip1});
+        model.setShipsPlayer2(new Ship[]{mockShip2});
+
+        // Call method under test
+        model.computePartyResult();
+
+        // Verify
+        verify(mockModel).setIdWinner(2); // Ensure player 2 is set as the winner
+        verify(mockModel).stopStage(); // Ensure model.stopStage() is called
+    }
+
+
+
+
 
 }
