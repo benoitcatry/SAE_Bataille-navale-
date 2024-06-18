@@ -1,443 +1,505 @@
 package control;
 
 import boardifier.control.ActionFactory;
+import boardifier.control.ActionPlayer;
 import boardifier.control.Controller;
 import boardifier.control.Decider;
 import boardifier.model.ContainerElement;
 import boardifier.model.GameElement;
 import boardifier.model.Model;
 import boardifier.model.action.ActionList;
+import boardifier.model.animation.AnimationTypes;
+import model.BattleBoard;
 import model.BattleShipStageModel;
 import model.Ship;
-import model.BattleBoard;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import model.shipPart;
 
-public  class BattleShipDecider extends Decider {
-    public int n; //avancement dans la liste target
-    public int count;
-    private Point pointCentrale;
-    private int prevY;
-    private boolean modeCaseAdja = true; //false tant que les cases adjacentes n'ont pas trouvé un autre hit
-    private int prevX;
-    private List<Point> listeMissile;
-    private int[][] tabJeux;
-    private int[][] tabMissileTouche;
-    private List<Point> listeTarget = new ArrayList<>();
-    private List<Point> listePointLigne;
-    private int[] targetRow;
-    private int[] targetCol;
+import java.awt.Point;
+import java.util.*;
+
+public class BattleShipDecider extends Decider {
+    public int[][] gridP1;
+    public int[][] gridP2;
     private Random random;
-    private int id_Bot;
     private BattleShipStageModel battleShipStageModel;
+    private BattleShipControler battleShipControler;
+    private int id_Bot;
     private int levelBot;
-    public int[][] posssitionvisité = new int[10][10];
-    public int stade = 0;
-    public int[][] futurcible = new int[1][2];
-    public int[][] futurcibleavance = new int[4][2];
-    public int tirederecherche = 0;
-    public boolean stade3toucher = false;
-    public int tirerat = 0;
-    public int touche = 0;
-    public boolean toucher = false;
-    boolean set = false;
+    private int count;
+    private ControllerBatleShipMouse controllerBatleShipMouse;
 
     public BattleShipDecider(Model model, Controller control, int id, int level) {
         super(model, control);
-        this.count = count;
-        id_Bot = id;
+        this.id_Bot = id;
         this.battleShipStageModel = (BattleShipStageModel) model.getGameStage();
+        this.battleShipControler = (BattleShipControler) control;
         this.levelBot = level;
-
+        gridP1 = battleShipControler.gridJ1;
+        gridP2 = battleShipControler.gridJ2;
+        random = new Random();
+        count = battleShipControler.count;
+        controllerBatleShipMouse = battleShipControler.controllerBatleShipMouse;
     }
 
+    public void markMiss(Point p) {
+        gridP1[p.y][p.x] = 2; // Mark as miss
+    }
+    public void markMiss2(Point p) {
+        gridP2[p.y][p.x] = 2; // Mark as miss
+    }
+
+    public void markHit(Point p) {
+        gridP1[p.y][p.x] = 3; // Mark as hit
+        battleShipControler.hitJ1.add(p);
+        updatePotentialTargets(p);
+        battleShipControler.targetModeJ1 = true; // Switch to target mode
+    }
+
+    public void markHit2(Point p) {
+        gridP2[p.y][p.x] = 3; // Mark as hit
+        battleShipControler.hitJ2.add(p);
+        updatePotentialTargets2(p);
+        battleShipControler.targetModeJ2 = true; // Switch to target mode
+    }
+
+    public void markSunk(Point p) {
+        markHit(p); // Mark the hit point
+        for (Point hit : battleShipControler.hitJ1) {
+            if (gridP1[hit.y][hit.x] == 3) {
+                gridP1[hit.y][hit.x] = 4; // Mark as sunk
+            }
+        }
+        battleShipControler.hitJ1.clear(); // Clear hits
+
+        getSurroundingPoints(battleShipControler.shipPartJ1);
+        battleShipControler.shipPartJ1.clear();
+
+        battleShipControler.targetModeJ1 = false; // Switch back to random mode
+        battleShipControler.lineModeJ1 = false; // Switch off-line mode
+        battleShipControler.potentialTargetsJ1.clear(); // Clear potential targets
+        battleShipControler.lineTargetsJ1.clear(); // Clear line targets
+    }
+    public void markSunk2(Point p) {
+        markHit2(p); // Mark the hit point
+        for (Point hit : battleShipControler.hitJ2) {
+            if (gridP2[hit.y][hit.x] == 3) {
+                gridP2[hit.y][hit.x] = 4; // Mark as sunk
+            }
+        }
+        battleShipControler.hitJ2.clear(); // Clear hits
+
+        getSurroundingPoints(battleShipControler.shipPartJ2);
+        battleShipControler.shipPartJ2.clear();
+
+        battleShipControler.targetModeJ2 = false; // Switch back to random mode
+        battleShipControler.lineModeJ2 = false; // Switch off-line mode
+        battleShipControler.potentialTargetsJ2.clear(); // Clear potential targets
+        battleShipControler.lineTargetsJ2.clear(); // Clear line targets
+    }
+
+    public void updatePotentialTargets(Point p) {
+        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        for (int[] dir : directions) {
+            Point adjacent = new Point(p.x + dir[0], p.y + dir[1]);
+            if (isValidPosition(adjacent) && gridP1[adjacent.y][adjacent.x] == 0) {
+                battleShipControler.potentialTargetsJ1.add(adjacent);
+            }
+        }
+    }
+    private void updatePotentialTargets2(Point p) {
+        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        for (int[] dir : directions) {
+            Point adjacent = new Point(p.x + dir[0], p.y + dir[1]);
+            if (isValidPosition(adjacent) && gridP2[adjacent.y][adjacent.x] == 0) {
+                battleShipControler.potentialTargetsJ2.add(adjacent);
+            }
+        }
+    }
+    private Point getLineModeShot() {
+        if (!battleShipControler.lineTargetsJ1.isEmpty()) {
+            return battleShipControler.lineTargetsJ1.remove(0);
+        } else {
+            battleShipControler.lineModeJ1 = false;
+            battleShipControler.targetModeJ1 = true; // Switch back to target mode
+            return getTargetModeShot();
+        }
+    }
+    private Point getLineModeShot2() {
+        if (!battleShipControler.lineTargetsJ2.isEmpty()) {
+            return battleShipControler.lineTargetsJ2.remove(0);
+        } else {
+            battleShipControler.lineModeJ2 = false;
+            battleShipControler.targetModeJ2 = true; // Switch back to target mode
+            return getTargetModeShot2();
+        }
+    }
+    /*
+    get next target permet de cibler un point sur la grille en fonction des modes de tirs
+     */
+    public Point getNextTarget() {
+        if (battleShipControler.lineModeJ1) {
+            return getLineModeShot(); // mode ligne
+        }else if (battleShipControler.targetModeJ1) {
+            return getTargetModeShot(); // mode target
+        } else {
+            Point randomTarget = getRandomTarget(); // mode random
+            if (randomTarget != null) {
+                return randomTarget;
+            } else {
+                return getRandomTarget();
+            }
+        }
+    }
+
+    public Point getNextTarget2() {
+        if (battleShipControler.lineModeJ2) {
+            return getLineModeShot2();
+        }else if (battleShipControler.targetModeJ2) {
+            return getTargetModeShot2();
+        } else {
+            Point randomTarget = getRandomTarget2();
+            if (randomTarget != null) {
+                return randomTarget;
+            } else {
+                return getRandomTarget2();
+            }
+        }
+    }
+    /*
+    getRandomTarget permet d'obtenir un point random sur la grille
+     */
+    public Point getRandomTarget() {
+        List<Point> availableTargets = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (gridP1[i][j] == 0) {
+                    availableTargets.add(new Point(j, i));
+                }
+            }
+        }
+        if (availableTargets.isEmpty()) {
+            return null;
+        }
+        return availableTargets.get(random.nextInt(availableTargets.size()));
+    }
+    private Point getRandomTarget2() {
+        List<Point> availableTargets = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (gridP2[i][j] == 0) {
+                    availableTargets.add(new Point(j, i));
+                }
+            }
+        }
+        if (availableTargets.isEmpty()) {
+            return null;
+        }
+        return availableTargets.get(random.nextInt(availableTargets.size()));
+    }
+    /*
+    getTargetModeShot permet d'obtenir un point selon le mode target
+     */
+    private Point getTargetModeShot() {
+        if (!battleShipControler.potentialTargetsJ1.isEmpty()) {
+            Point nextTarget = battleShipControler.potentialTargetsJ1.iterator().next();
+            battleShipControler.potentialTargetsJ1.remove(nextTarget);
+            return nextTarget;
+        } else {
+            battleShipControler.targetModeJ1 = false; // No potential targets, switch back to random mode
+            return getRandomTarget();
+        }
+    }
+    private Point getTargetModeShot2() {
+        if (!battleShipControler.potentialTargetsJ2.isEmpty()) {
+            Point nextTarget = battleShipControler.potentialTargetsJ2.iterator().next();
+            battleShipControler.potentialTargetsJ2.remove(nextTarget);
+            return nextTarget;
+        } else {
+            battleShipControler.targetModeJ2 = false; // No potential targets, switch back to random mode
+            return getRandomTarget2();
+        }
+    }
+
+    private boolean isValidPosition(Point p) {
+        return p.x >= 0 && p.x < 10 && p.y >= 0 && p.y < 10;
+    }
+
+    public void printGrid() {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                System.out.print(gridP1[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+    public void pointSurLigneJ2(){
+        Point lastHit = battleShipControler.hitJ2.get(battleShipControler.hitJ2.size() - 1);
+        Point secondLastHit = battleShipControler.hitJ2.get(battleShipControler.hitJ2.size() - 2);
+        if (lastHit.x == secondLastHit.x) {
+            // Vertical line
+            if (isValidPosition(new Point(lastHit.x, lastHit.y - 1)) && gridP2[lastHit.y - 1][lastHit.x] == 0) {
+                battleShipControler.lineTargetsJ2.add(new Point(lastHit.x, lastHit.y - 1));
+            }
+            if (isValidPosition(new Point(lastHit.x, lastHit.y + 1)) && gridP2[lastHit.y + 1][lastHit.x] == 0) {
+                battleShipControler.lineTargetsJ2.add(new Point(lastHit.x, lastHit.y + 1));
+            }
+        } else if (lastHit.y == secondLastHit.y) {
+            // Horizontal line
+            if (isValidPosition(new Point(lastHit.x - 1, lastHit.y)) && gridP2[lastHit.y][lastHit.x - 1] == 0) {
+                battleShipControler.lineTargetsJ2.add(new Point(lastHit.x - 1, lastHit.y));
+            }
+            if (isValidPosition(new Point(lastHit.x + 1, lastHit.y)) && gridP2[lastHit.y][lastHit.x + 1] == 0) {
+                battleShipControler.lineTargetsJ2.add(new Point(lastHit.x + 1, lastHit.y));
+            }
+        }
+        if (!battleShipControler.lineTargetsJ2.isEmpty()) {
+            battleShipControler.lineModeJ2 = true;
+            battleShipControler.targetModeJ2 = false;
+        }
+    }
+    public void pointSurLigneJ1(){
+        Point lastHit = battleShipControler.hitJ1.get(battleShipControler.hitJ1.size() - 1);
+        Point secondLastHit = battleShipControler.hitJ1.get(battleShipControler.hitJ1.size() - 2);
+        if (lastHit.x == secondLastHit.x) {
+            // Vertical line
+            if (isValidPosition(new Point(lastHit.x, lastHit.y - 1)) && gridP1[lastHit.y - 1][lastHit.x] == 0) {
+                battleShipControler.lineTargetsJ1.add(new Point(lastHit.x, lastHit.y - 1));
+            }
+            if (isValidPosition(new Point(lastHit.x, lastHit.y + 1)) && gridP1[lastHit.y + 1][lastHit.x] == 0) {
+                battleShipControler.lineTargetsJ1.add(new Point(lastHit.x, lastHit.y + 1));
+            }
+        } else if (lastHit.y == secondLastHit.y) {
+            // Horizontal line
+            if (isValidPosition(new Point(lastHit.x - 1, lastHit.y)) && gridP1[lastHit.y][lastHit.x - 1] == 0) {
+                battleShipControler.lineTargetsJ1.add(new Point(lastHit.x - 1, lastHit.y));
+            }
+            if (isValidPosition(new Point(lastHit.x + 1, lastHit.y)) && gridP1[lastHit.y][lastHit.x + 1] == 0) {
+                battleShipControler.lineTargetsJ1.add(new Point(lastHit.x + 1, lastHit.y));
+            }
+        }
+
+        if (!battleShipControler.lineTargetsJ1.isEmpty()) {
+            battleShipControler.lineModeJ1 = true;
+            battleShipControler.targetModeJ1 = false;
+        }
+    }
 
     @Override
-    public ActionList decide() {return null;}
-        /*int X = 0;
-        int Y = 0;
-        BattleBoard board = null;
-        if (id_Bot==0){
+    public ActionList decide() {
+        BattleShipStageModel gameStage = (BattleShipStageModel) model.getGameStage();
+        BattleBoard board;
+        ContainerElement tire = null;
+        GameElement missile = null;
+        ActionList actions = null;
+        System.out.println("count "+count+" tabbat "+battleShipControler.shipPartJ2.size());
+
+
+        String boardName;
+        if (id_Bot == 0) {
             board = battleShipStageModel.getBoardPlayer1();
             System.out.println("boardP1");
-        }
-        else{
+            boardName = "boardplayer1";
+        } else {
             board = battleShipStageModel.getBoardPlayer2();
             System.out.println("boardP2");
+            boardName = "boardplayer2";
         }
-        tabMissileTouche = convertPointsToArray(board.computeValidCells(2));
-        tabJeux = convertPointsToArray(board.computeValidCells(1));
-        if (set = false) {
-            for (int i = 0; i < 10; i++) {
-                for (int j = 0; j < 10; j++) {
-                    posssitionvisité[i][j] = 0;
-                }
-            }
-            set = true;
-        }
-        BattleShipStageModel gameStage = (BattleShipStageModel) model.getGameStage();
-        random = new Random();
-        ContainerElement tire = null;
-        do {
 
+        Point target;
             if (levelBot == 1) {
-                if (stade == 0) {
-
-                    X = random.nextInt(10);
-                    Y = random.nextInt(10);
-
-                } else if (stade == 1) {
-                    X = futurcibleavance[tirederecherche][0];
-                    Y = futurcibleavance[tirederecherche][1];
-                } else if (stade == 2) {
-                    X = futurcible[0][0];
-                    Y = futurcible[0][1];
+                if (id_Bot == 0) {
+                    target = getNextTarget();
+                    tire = gameStage.getStockMissileJ1();
+                    missile = tire.getElement(0, 0);
+                } else {
+                    target = getNextTarget2();
+                    tire = gameStage.getStockMissileJ2();
+                    missile = tire.getElement(0, 0);
                 }
+                int x = target.x;
+                int y = target.y;
 
-
-            } else {
-                if (tabMissileTouche[prevX][prevY] == 1) {
-                    if (!listeTarget.isEmpty()) {
-                        listeTarget.clear();
-                        modeCaseAdja = true;
-                        n = 0;
-                        listePointLigne = getLineFromAdjacentPoints(pointCentrale, new Point(prevY, prevX));
-                        pointCentrale = null;
+                // Generate the action
+                actions = ActionFactory.generatePutInContainer(control, model, missile, boardName, y, x, AnimationTypes.MOVE_TELEPORT, 10);
+                actions.setDoEndOfTurn(true);
+                boolean result;
+                if (id_Bot == 1) {
+                    if (gameStage.toucheroupas(gameStage.getShipsPlayer1(), x, y)) {
+                        for (int i = 0; i < gameStage.getMissileJoueur2().length; i++) {
+                            if (gameStage.getMissileJoueur2()[i] == missile) {
+                                gameStage.getMissileJoueur2()[i].setColor(2);
+                            }
+                        }
+                        battleShipControler.tabCordMissileJ2[battleShipControler.numJ2][0] = x;
+                        battleShipControler.tabCordMissileJ2[battleShipControler.numJ2][1] = y;
+                        battleShipControler.numJ2++;
+                    }
+                    // Update grid based on the result
+                    result = gameStage.toucheroupas(gameStage.getShipsPlayer1(), x, y); // Implement this method
+                    if (!result) {
+                        markMiss2(target);
                     } else {
-                        listeTarget =  calculerCaseAdjacente2(prevY, prevX);
-                        modeCaseAdja = false;
-                        n = 0;
+                        markHit2(target);
+                        battleShipControler.shipPartJ2.add(target);
+                        if (isSunk(gameStage.getShipsPlayer1(), x, y)) {
+                            markSunk2(target);
+                        } else if (battleShipControler.targetModeJ2 && battleShipControler.hitJ2.size() > 1) {
+                            // Check if we can switch to line mode
+                            pointSurLigneJ2();
+                        }
                     }
-                }
-                if (listeTarget.isEmpty()) {
-                    calculerGrilleProba(tabJeux);
-                    Point meilleurCase = trouverLaMeilleurProba();
-                    X = meilleurCase.x;
-                    Y = meilleurCase.y;
-                    prevY = Y;
-                    prevX = X;
-                } else if (!modeCaseAdja) {
-                    Point target = listeTarget.get(n);
-                    X = target.x;
-                    Y = target.y;
-                    n += 1;
+
                 } else {
-                    Point target = listePointLigne.get(n);
-                    X = target.x;
-                    Y = target.y;
-                    n += 1;
-                }
 
+                    if (gameStage.toucheroupas(gameStage.getShipsPlayer2(), x, y)) {
+                        for (int i = 0; i < gameStage.getMissileJoueur1().length; i++) {
+                            if (gameStage.getMissileJoueur1()[i] == missile) {
+                                gameStage.getMissileJoueur1()[i].setColor(2);
+                            }
+                        }
+                        battleShipControler.tabCordMissileJ1[battleShipControler.numJ1][0] = x;
+                        battleShipControler.tabCordMissileJ1[battleShipControler.numJ1][1] = y;
+                        battleShipControler.numJ1++;
+                    }
+                    // Update grid based on the result
+                    result = gameStage.toucheroupas(gameStage.getShipsPlayer2(), x, y); // Implement this method
+                    if (!result) {
 
-            }
-
-        } while ((posssitionvisité[X][Y] != 0));
-        posssitionvisité[X][Y] = 1;
-
-        if (id_Bot == 0) {
-            tire = gameStage.getStockMissileJ1();
-            GameElement missile = tire.getElement(0, 0);
-            if (gameStage.toucheroupas(gameStage.getShipsPlayer2(), X, Y) == true) {
-                toucher = true;
-                for (int i = 0; i < gameStage.getMissileJoueur1().length; i++) {
-                    if (gameStage.getMissileJoueur1()[i] == missile) {
-                        gameStage.getMissileJoueur1()[i].setColor(2);
-
+                        markMiss(target);
+                    } else {
+                        markHit(target);
+                        battleShipControler.shipPartJ1.add(target);
+                        if (isSunk(gameStage.getShipsPlayer2(), x, y)) {
+                            markSunk(target);
+                        } else if (battleShipControler.targetModeJ1 && battleShipControler.hitJ1.size() > 1) {
+                            printGrid();
+                            // Check if we can switch to line mode
+                            pointSurLigneJ1();
+                        }
                     }
                 }
             } else {
-                toucher = false;
-            }
-            if (levelBot == 1) {
-                if (toucher == true) {
-                    if (stade == 0) {
-                        stade++;
-                        calculerCaseAdjacente(Y, X);
-                    } else if (stade == 1) {
-                        stade++;
-                        stade3toucher = true;
-                        stade3(prevX, prevY, X, Y, stade3toucher);
-                        tirederecherche = 0;
-                    } else if (stade == 2) {
-                        stade3toucher = true;
-                        stade3(prevX, prevY, X, Y, stade3toucher);
-                    }
-                }
 
-                if (stade == 1) {
-                    tirederecherche++;
-                }
-                if (stade == 2) {
-                    stade3toucher = false;
-                    stade3(prevX, prevY, X, Y, stade3toucher);
-                }
-            }
+                // LEVEL 2 DU BOT
 
-            prevY = Y;
-            prevX = X;
-            ActionList actions = ActionFactory.generatePutInContainer(model, missile, "boardplayer1", Y, X);
-            actions.setDoEndOfTurn(true);
-            return actions;
-        } else {
-            tire = gameStage.getStockMissileJ2();
-            GameElement missile = tire.getElement(0, 0);
-            if (gameStage.toucheroupas(gameStage.getShipsPlayer1(), X, Y) == true) {
-                for (int i = 0; i < gameStage.getMissileJoueur1().length; i++) {
-                    if (gameStage.getMissileJoueur2()[i] == missile) {
-                        gameStage.getMissileJoueur2()[i].setColor(2);
-
-                    }
-                }
-            } else {
-                toucher = false;
-            }
-            if (levelBot == 1) {
-                if (toucher == true) {
-                    if (stade == 0) {
-                        stade++;
-                        calculerCaseAdjacente(Y, X);
-                    } else if (stade == 1) {
-                        stade++;
-                        stade3toucher = true;
-                        stade3(prevX, prevY, X, Y, stade3toucher);
-                        tirederecherche = 0;
-                    } else if (stade == 2) {
-                        stade3toucher = true;
-                        stade3(prevX, prevY, X, Y, stade3toucher);
-                    }
-                }
-
-                if (stade == 1) {
-                    tirederecherche++;
-                }
-                if (stade == 2) {
-                    stade3toucher = false;
-                    stade3(prevX, prevY, X, Y, stade3toucher);
-                }
-            }
-
-            prevY = Y;
-            prevX = X;
-            ActionList actions = ActionFactory.generatePutInContainer(model, missile, "boardplayer2", Y, X);
-            actions.setDoEndOfTurn(true);
-            return actions;
-        }
-    }
-
-
-    public void stade3(int oldX, int oldY, int newX, int newY, boolean stade3toucher) {
-        if (stade3toucher) {
-            if (oldX == newX) {
-                if (oldY < newY) {
-                    futurcible[0][0] = newX;
-                    futurcible[1][0] = newY + 1;
-                    touche++;
-                } else if (oldY > newY) {
-                    futurcible[0][0] = newX;
-                    futurcible[1][0] = newY - 1;
-                    touche++;
-                }
-            } else {
-                if (oldX < newX) {
-                    futurcible[0][0] = newX + 1;
-                    futurcible[0][1] = newY;
-                    touche++;
-                } else if (oldX > newX) {
-                    futurcible[0][0] = newX - 1;
-                    futurcible[0][1] = newY;
-                    touche++;
-                }
-            }
-        } else {
-            if (oldX == newX) {
-                if (oldY < newY) {
-                    futurcible[0][0] = newX;
-                    futurcible[0][1] = newY - touche;
-                    touche = 0;
-                } else if (oldY > newY) {
-                    futurcible[0][0] = newX;
-                    futurcible[0][1] = newY + touche;
-                    touche = 0;
-                }
-            } else {
-                if (oldX < newX) {
-                    futurcible[0][0] = newX - touche;
-                    futurcible[0][1] = newY;
-                    touche = 0;
-                } else if (oldX > newX) {
-                    futurcible[0][0] = newX + touche;
-                    futurcible[0][1] = newY;
-                    touche = 0;
-                }
-            }
-
-        }
-        if (tirerat == 2) {
-            stade = 0;
-        }
-
-
-    }
-
-
-    private static final int[][] DIRECTIONS = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-
-    public int[][] calculerCaseAdjacente(int row, int col) {
-        modeCaseAdja = false;
-        int newRow = 0;
-        int newCol = 0;
-        int a = 0;
-        int n = 0;
-        for (int i = 0; i < 4; i++) {
-
-            do {
-                newRow = row + (DIRECTIONS[i][0]);
-                newCol = col + (DIRECTIONS[i][1]);
-                if (newCol >= 10) {
-                    newCol = 9;
-                    while (!(posssitionvisité[newRow][newCol] == 0)) {
-                        newCol--;
-                    }
-                }
-                if (newRow >= 10) {
-                    newRow = 9;
-                    while (!(posssitionvisité[newRow][newCol] == 0)) {
-                        newRow--;
-                    }
-                }
-                if (newCol < 0) {
-                    newCol = 0;
-                    while (!(posssitionvisité[newRow][newCol] == 0)) {
-                        newCol++;
-                    }
-                }
-                if (newRow < 0) {
-                    newRow = 0;
-                    while (!(posssitionvisité[newRow][newCol] == 0)) {
-                        newRow++;
-                    }
-                }
-
-                System.out.println(newRow + " " + newCol + " " + n);
-                if (isValidPosition(newRow, newCol)) {
-                    futurcibleavance[n][0] = newCol;
-                    futurcibleavance[n][1] = newRow;
-
-                }
-            } while (!(posssitionvisité[newRow][newCol] == 0));
-        }
-        return futurcible;
-    }
-
-    private static boolean isValidPosition(int row, int col) {
-        return row >= 0 && row <= 9 && col >= 0 && col <= 9;
-    }
-
-
-    public int placeAllShips(int m) {
-        if (id_Bot == 0) {
-            int taille = battleShipStageModel.ShipPlayer1[m].getTaille();
-            placeShip(battleShipStageModel.ShipPlayer1[m], taille, battleShipStageModel.ShipPlayer1);
-        } else if (id_Bot == 1) {
-            int taille = battleShipStageModel.ShipPlayer2[m].getTaille();
-            placeShip(battleShipStageModel.ShipPlayer2[m], taille, battleShipStageModel.ShipPlayer2);
-        }
-        if (battleShipStageModel.ShipPlayer2.length - 1 == m) {
-            return 1;
-        } else {
-            return 0;
-        }
-
-    }
-
-    private void placeShip(Ship bateau, int taille, Ship[] ship) {
-        random = new Random();
-        int x;
-        int y;
-        char sens;
-
-        do {
-            x = random.nextInt(10);
-            y = random.nextInt(10);
-            boolean n = random.nextBoolean();
-            if (n)
-                sens = 'V';
-            else
-                sens = 'H';
-        } while (!battleShipStageModel.Verifpeutetreposer(ship, x, y, taille, sens) || !((x > 9 || y + taille - 1 > 9 || 0 > y || 0 > x) || (x + taille - 1 > 9 || y > 9 || 0 > y || 0 > x)));
-        bateau.setCordonnerShip(y, x, sens);
-
-
-    }
-
-
-
-
-
-    //niveau 2 Grille proba
-    private static final int GRID_SIZE = 9;
-    private static final int[] SHIP_SIZES = {5, 4, 3, 3, 2}; // Porte-avion, Croiseur, Contre-torpilleur x2, Torpilleur
-    private int[][] grilleProba;
-
-    public void calculerGrilleProba(int[][] previousHitsGrid) {
-        // Reset the probability grid
-        if (grilleProba == null) {
-            grilleProba = new int[GRID_SIZE][GRID_SIZE];
-        }
-        for (int i = 0; i < GRID_SIZE; i++) {
-            for (int j = 0; j < GRID_SIZE; j++) {
-                if (previousHitsGrid[i][j] == 1) {
-                    grilleProba[i][j] = 0;
+                if (id_Bot == 0) {
+                    target = getNextTargetBot2J1();
+                    tire = gameStage.getStockMissileJ1();
+                    missile = tire.getElement(0, 0);
                 } else {
-                    grilleProba[i][j] = 1;
-                } // Reset to 0 if a missile was already launched, otherwise set to 1
-            }
-        }
+                    target = getNextTargetBot2J2();
+                    tire = gameStage.getStockMissileJ2();
+                    missile = tire.getElement(0, 0);
+                }
+                int X = target.x;
+                int Y = target.y;
+                // Generate the action
+                actions = ActionFactory.generatePutInContainer(control, model, missile, boardName, Y, X, AnimationTypes.MOVE_TELEPORT, 10);
+                actions.setDoEndOfTurn(true);
+                boolean result;
+                if (id_Bot == 1) {
+                    if (gameStage.toucheroupas(gameStage.getShipsPlayer1(), X, Y)) {
+                        for (int i = 0; i < gameStage.getMissileJoueur2().length; i++) {
+                            if (gameStage.getMissileJoueur2()[i] == missile) {
+                                gameStage.getMissileJoueur2()[i].setColor(2);
+                            }
+                        }
+                        battleShipControler.tabCordMissileJ2[battleShipControler.numJ2][0] = X;
+                        battleShipControler.tabCordMissileJ2[battleShipControler.numJ2][1] = Y;
+                        battleShipControler.numJ2++;
+                    }
+                    // Update grid based on the result
+                    result = gameStage.toucheroupas(gameStage.getShipsPlayer1(), X, Y); // Implement this method
+                    if (!result) {
+                        markMiss2(target);
+                    } else {
+                        markHit2(target);
+                        battleShipControler.shipPartJ2.add(target);
+                        if (isSunk(gameStage.getShipsPlayer1(), X, Y)) {
+                            markSunk2(target);
+                        } else if (battleShipControler.targetModeJ2 && battleShipControler.hitJ2.size() > 1) {
+                            // Check if we can switch to line mode
+                            pointSurLigneJ2();
+                        }
+                    }
+                } else {
+                    if (gameStage.toucheroupas(gameStage.getShipsPlayer2(), X, Y)) {
+                        for (int i = 0; i < gameStage.getMissileJoueur1().length; i++) {
+                            if (gameStage.getMissileJoueur1()[i] == missile) {
+                                gameStage.getMissileJoueur1()[i].setColor(2);
+                            }
+                        }
+                        battleShipControler.tabCordMissileJ1[battleShipControler.numJ1][0] = X;
+                        battleShipControler.tabCordMissileJ1[battleShipControler.numJ1][1] = Y;
+                        battleShipControler.numJ1++;
+                    }
+                    // Update grid based on the result
+                    result = gameStage.toucheroupas(gameStage.getShipsPlayer2(), X, Y); // Implement this method
+                    if (!result) {
+                        markMiss(target);
+                    } else {
+                        markHit(target);
+                        battleShipControler.shipPartJ1.add(target);
+                        if (isSunk(gameStage.getShipsPlayer2(), X, Y)) {
+                            markSunk(target);
+                        } else if (battleShipControler.targetModeJ1 && battleShipControler.hitJ1.size() > 1) {
+                            // Check if we can switch to line mode
+                            pointSurLigneJ1();
 
-        // Calculate probabilities for each ship size
-        for (int size : SHIP_SIZES) {
-            calculerProbaParBateau(size, previousHitsGrid);
+                        }
+                    }
+                }
+
+            }
+
+        return actions;
+
+    }
+    public Point getNextTargetBot2J1() {
+        if (battleShipControler.lineModeJ1) {
+            return getLineModeShot();
+        }else if (battleShipControler.targetModeJ1) {
+            return getTargetModeShot();
+        } else {
+            calculerGrilleProba(gridP1);
+            Point probaTarget = trouverLaMeilleurProba();
+            if (probaTarget != null) {
+                return probaTarget;
+            } else {
+                return trouverLaMeilleurProba();
+            }
         }
     }
-
-    private void calculerProbaParBateau(int size, int[][] previousHitsGrid) {
-        // horizontal
-        for (int row = 0; row < GRID_SIZE; row++) {
-            for (int col = 0; col <= GRID_SIZE - size; col++) {
-                boolean canPlace = true;
-                for (int k = 0; k < size; k++) {
-                    if (previousHitsGrid[row][col + k] == 1) {
-                        canPlace = false;
-                        break;
-                    }
-                }
-                if (canPlace) {
-                    for (int k = 0; k < size; k++) {
-                        grilleProba[row][col + k]++;
-                    }
+    public Point getNextTargetBot2J2() {
+        if (battleShipControler.lineModeJ2) {
+            return getLineModeShot2();
+        }else if (battleShipControler.targetModeJ2) {
+            return getTargetModeShot2();
+        } else {
+            calculerGrilleProba(gridP2);
+            Point probaTarget = trouverLaMeilleurProba2();
+            if (probaTarget != null) {
+                return probaTarget;
+            } else {
+                return trouverLaMeilleurProba2();
+            }
+        }
+    }
+    public boolean isSunk(Ship[] ships,int x, int y){
+        int coordX;
+        int coordY;
+        for (Ship s :ships) {
+            s.verifcouler();
+            if (s.getcouler()){
+                for (int i = 0;i<s.getTaille();i++){
+                    coordX=s.getPartCordonneX(i);
+                    coordY=s.getPartCordonneY(i);
+                    if (coordX==x && coordY==y)
+                        return true;
                 }
             }
         }
-
-        // vertical
-        for (int col = 0; col < GRID_SIZE; col++) {
-            for (int row = 0; row <= GRID_SIZE - size; row++) {
-                boolean canPlace = true;
-                for (int k = 0; k < size; k++) {
-                    if (previousHitsGrid[row + k][col] == 1) {
-                        canPlace = false;
-                        break;
-                    }
-                }
-                if (canPlace) {
-                    for (int k = 0; k < size; k++) {
-                        grilleProba[row + k][col]++;
-                    }
-                }
-            }
-        }
+        return false;
     }
 
 
@@ -459,94 +521,235 @@ public  class BattleShipDecider extends Decider {
         return array;
     }
 
-    public boolean isTargetEmpty(int[] target) {
-        for (int i = 0; i < target.length; i++) {
-            if (target[i] != 0)
-                return false;
+
+    //===================================   niveau 2 Grille proba   ==================================
+
+
+    private static final int GRID_SIZE = 10;
+    private int[] SHIP_SIZES; // Liste de la taille des bateaux non-couler
+    public int[][] grilleProba;
+
+    public void getSurroundingPoints(List<Point> shipParts) {
+        List<Point> surroundingPoints = new ArrayList<>();
+
+        // Directions adjacentes et diagonales
+        int[][] directions = { {-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1} };
+
+        // Parcourez chaque partie du bateau
+        for (Point part : shipParts) {
+            for (int[] dir : directions) {
+                Point adjacent = new Point(part.x + dir[0], part.y + dir[1]);
+                if (isValidPosition(adjacent) && !shipParts.contains(adjacent) && !surroundingPoints.contains(adjacent)) {
+                    gridP1[adjacent.y][adjacent.x]=2;
+                    surroundingPoints.add(adjacent);
+                }
+            }
         }
-        return true;
+    }
+
+    public void listeBateauxNonCoulerJ1(){
+        SHIP_SIZES = new int[battleShipStageModel.ShipPlayer1.length];
+        for (int i = 0; i<battleShipStageModel.ShipPlayer1.length;i++){
+            battleShipStageModel.ShipPlayer1[i].verifcouler();
+            if (!battleShipStageModel.ShipPlayer1[i].getcouler())
+                SHIP_SIZES[i] = battleShipStageModel.ShipPlayer1[i].getTaille();
+        }
+    }
+    public void listeBateauxNonCoulerJ2(){
+        SHIP_SIZES = new int[battleShipStageModel.ShipPlayer2.length];
+        for (int i = 0; i<battleShipStageModel.ShipPlayer2.length;i++){
+            battleShipStageModel.ShipPlayer2[i].verifcouler();
+            if (!battleShipStageModel.ShipPlayer2[i].getcouler())
+                SHIP_SIZES[i] = battleShipStageModel.ShipPlayer2[i].getTaille();
+        }
+    }
+
+    public void calculerGrilleProba(int[][] previousHitsGrid) {
+        if (id_Bot==0)
+            listeBateauxNonCoulerJ2(); // calculer la liste des tailles des bateaux non-couler du joueur 2
+        else
+            listeBateauxNonCoulerJ1(); // calculer la liste des tailles des bateaux non-couler du joueur 1
+        System.out.println("SHIP_SIZE : ");
+        for (int i = 0;i<SHIP_SIZES.length;i++)
+            System.out.println(SHIP_SIZES[i]);
+        // Reset the probability grid
+        if (grilleProba == null) {
+            grilleProba = new int[GRID_SIZE][GRID_SIZE];
+        }
+        for (int i = 0; i < GRID_SIZE; i++) {
+            for (int j = 0; j < GRID_SIZE; j++) {
+                if (previousHitsGrid[i][j] != 0) {
+                    grilleProba[i][j] = 0;
+                } else {
+                    grilleProba[i][j] = 1;
+                } // Reset to 0 if a missile was already launched, otherwise set to 1
+            }
+        }
+        // Calculate probabilities for each ship size
+        for (int size : SHIP_SIZES) {
+            calculerProbaParBateau(size, previousHitsGrid);
+        }
+    }
+
+    private void calculerProbaParBateau(int size, int[][] previousHitsGrid) {
+        // horizontal
+        for (int row = 0; row < GRID_SIZE; row++) {
+            for (int col = 0; col <= GRID_SIZE - size; col++) {
+                boolean canPlace = true;
+                for (int k = 0; k < size; k++) {
+                    if (previousHitsGrid[row][col + k] != 0) {
+                        canPlace = false;
+                        break;
+                    }
+                }
+                if (canPlace) {
+                    for (int k = 0; k < size; k++) {
+                        grilleProba[row][col + k]++;
+                    }
+                }
+            }
+        }
+
+        // vertical
+        for (int col = 0; col < GRID_SIZE; col++) {
+            for (int row = 0; row <= GRID_SIZE - size; row++) {
+                boolean canPlace = true;
+                for (int k = 0; k < size; k++) {
+                    if (previousHitsGrid[row + k][col] != 0) {
+                        canPlace = false;
+                        break;
+                    }
+                }
+                if (canPlace) {
+                    for (int k = 0; k < size; k++) {
+                        grilleProba[row + k][col]++;
+                    }
+                }
+            }
+        }
     }
 
 
     public Point trouverLaMeilleurProba() {
         int maxProbability = -1;
         Point bestCell = null;
+        int x = 0;
+        int y = 0;
 
         for (int row = 0; row < GRID_SIZE; row++) {
             for (int col = 0; col < GRID_SIZE; col++) {
-                if (grilleProba[row][col] > maxProbability) {
+                if (grilleProba[row][col] > maxProbability && gridP1[row][col]==0) {
                     maxProbability = grilleProba[row][col];
-                    bestCell = new Point(col, row);
+                    x = col;
+                    y = row;
                 }
             }
         }
+        bestCell = new Point(x,y);
+        return bestCell;
+    }
+    public Point trouverLaMeilleurProba2() {
+        int maxProbability = -1;
+        Point bestCell = null;
+        int x = 0;
+        int y = 0;
 
+        for (int row = 0; row < GRID_SIZE; row++) {
+            for (int col = 0; col < GRID_SIZE; col++) {
+                if (grilleProba[row][col] > maxProbability && gridP2[row][col]==0) {
+                    maxProbability = grilleProba[row][col];
+                    x = col;
+                    y = row;
+                }
+            }
+        }
+        bestCell = new Point(x,y);
         return bestCell;
     }
 
-    public List<Point> getLineFromAdjacentPoints(Point p1, Point p2) {
-        List<Point> linePoints = new ArrayList<>();
+    //=========================== Méthode de placement =============================
 
-        if (p1.y == p2.y) { // Horizontal line
-            int row = p1.y;
-            int startCol = Math.min(p1.x, p2.x);
-            int endCol = Math.max(p1.x, p2.x);
-
-            // Add points in the line including and between p1 and p2
-            for (int col = startCol; col <= endCol; col++) {
-                linePoints.add(new Point(col, row));
-            }
-
-            // Extend line to the left of startCol
-            for (int col = startCol - 1; col >= 0; col--) {
-                linePoints.add(new Point(col, row));
-            }
-
-            // Extend line to the right of endCol
-            for (int col = endCol + 1; col < 10; col++) {
-                linePoints.add(new Point(col, row));
-            }
-
-        } else if (p1.x == p2.x) { // Vertical line
-            int col = p1.x;
-            int startRow = Math.min(p1.y, p2.y);
-            int endRow = Math.max(p1.y, p2.y);
-
-            // Add points in the line including and between p1 and p2
-            for (int row = startRow; row <= endRow; row++) {
-                linePoints.add(new Point(col, row));
-            }
-
-            // Extend line above startRow
-            for (int row = startRow - 1; row >= 0; row--) {
-                linePoints.add(new Point(col, row));
-            }
-
-            // Extend line below endRow
-            for (int row = endRow + 1; row < 10; row++) {
-                linePoints.add(new Point(col, row));
-            }
+    public void placeAllShips(int m) {
+        if(battleShipStageModel.ShipPlayer1.length-1 == m){
+            battleShipControler.count ++;
+            if(battleShipControler.count == 2){battleShipControler.numJ1 = 0; battleShipControler.numJ2 = 0; battleShipControler.tabCordMissileJ1 = new int[battleShipStageModel.getMissileJoueur1().length][2]; battleShipControler.tabCordMissileJ2 = new int[battleShipStageModel.getMissileJoueur2().length][2];}
+        }
+        if (id_Bot == 0) {
+            System.out.println("ent");
+            int taille = battleShipStageModel.ShipPlayer1[m].getTaille();
+            placeShip(battleShipStageModel.ShipPlayer1[m], taille, battleShipStageModel.ShipPlayer1, m);
+        } else if (id_Bot == 1) {
+            System.out.println("ent");
+            int taille = battleShipStageModel.ShipPlayer2[m].getTaille();
+            placeShip(battleShipStageModel.ShipPlayer2[m], taille, battleShipStageModel.ShipPlayer2, m);
         }
 
-        return linePoints;
+    }
+
+    private void placeShip(Ship bateau, int taille, Ship[] ship,int m) {
+        random = new Random();
+        BattleShipStageModel stageModel = (BattleShipStageModel) model.getGameStage();
+        if (stageModel==null)
+            System.out.println("null");
+        int x;
+        int y;
+        char sens;
+        count++;
+
+        do {
+            x = random.nextInt(9);
+            y = random.nextInt(9);
+            boolean n = random.nextBoolean();
+            if (n)
+                sens = 'V';
+            else
+                sens = 'H';
+        } while (!battleShipStageModel.Verifpeutetreposer(ship, x, y, taille, sens) || !surGrille(y,x,bateau.getTaille(),sens));
+        ContainerElement bateau2 = null;
+        if (id_Bot == 0) {
+            battleShipStageModel.ShipPlayer1[m].setCordonnerShip(y, x, sens);
+            controllerBatleShipMouse.placeToutPartShip(0, stageModel,x,y,sens);
+            bateau2 = stageModel.getship(battleShipControler.numJ1, stageModel.ShipPlayer1);
+            System.out.println(bateau2.getNbRows());
+            /*if (bateau2==null)
+                System.out.println("null2");
+
+            System.out.println("sens "+sens+" numJ1 "+battleShipControler.numJ1);
+            for (int i = 0; i < bateau2.getNbRows(); i++) {
+                GameElement shippart = bateau2.getElement(i, 0);
+                if (shippart==null)
+                    System.out.println("null");
+                if (sens == 'V') {
+                    ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer1", x+i, y);
+                    ActionPlayer play = new ActionPlayer(model, control, actions);
+                    play.start();
+                } else if (sens == 'H') {
+                    ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer1", x , y+i);
+                    ActionPlayer play = new ActionPlayer(model, control, actions);
+                    play.start();
+
+                } else {
+                    return;
+                }
+
+            }*/
+        }else {
+            battleShipStageModel.ShipPlayer2[m].setCordonnerShip(y, x, sens);
+            controllerBatleShipMouse.placeToutPartShip(1, stageModel, x, y, sens);
+            System.out.println("ok");
+        }
+    }
+    public boolean surGrille(double y, int x,int taille, char sens){
+        System.out.println("Check"+y+" "+x+" "+sens);
+        if(sens=='V'){
+            return x <= 9 && y + taille - 1 <= 9 && 0 <= y && 0 <= x;
+
+        } else {
+            return x + taille - 1 <= 9 && y <= 9 && 0 <= y && 0 <= x;
+        }
+
+
     }
 
 
-
-    public List<Point> calculerCaseAdjacente2(int row, int col) {
-        List<Point> caseAdjacente = new ArrayList<>();
-        pointCentrale = new Point(row,col);
-        modeCaseAdja = false;
-
-
-        for (int[] dir : DIRECTIONS) {
-            int newRow = row + dir[0];
-            int newCol = col + dir[1];
-            if (isValidPosition(newRow, newCol)) {
-                caseAdjacente.add(new Point(newCol, newRow));
-            }
-        }
-
-        return caseAdjacente;
-    }*/
 }

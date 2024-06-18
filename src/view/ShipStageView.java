@@ -26,7 +26,7 @@ public class ShipStageView extends GameStageView {
         BattleShipStageModel model = (BattleShipStageModel) gameStageModel;
 
 
-        addLook(new ClassicBoardLook(50,model.getBoardPlayer1(),1,Color.LIGHTBLUE,Color.AQUA,5,Color.BLACK,5,Color.BLACK,true));
+        addLook(new ClassicBoardLook(50,model.getBoardPlayer1(),2,Color.LIGHTBLUE,Color.AQUA,5,Color.BLACK,5,Color.BLACK,true));
 
 
         addLook(new ClassicBoardLook(50,model.getBoardPlayer2(),1,Color.LIGHTSALMON,Color.RED,5,Color.BLACK,5,Color.BLACK,true));

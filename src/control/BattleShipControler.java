@@ -12,17 +12,43 @@ import model.Ship;
 import view.HomePage;
 import view.ShipRootPane;
 
+import java.util.*;
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.List;
 
 
 public class BattleShipControler extends Controller {
+    int numJ1 =0 ; // joueur bateau 1
+    int numJ2 =0 ;// bateau du joueur 2
+    int count =0;
+    public boolean quiJouePremier = false;
+    int tabCordMissileJ1[][];
+    int tabCordMissileJ2[][];
+    int levelbot1;
+    int levelbot2;
+    boolean difficulset1 = false ;
+    boolean difficulset2 = false ;
+    public Set<Point> potentialTargetsJ1;
+    Set<Point> potentialTargetsJ2;
+    boolean targetModeJ1;
+    boolean targetModeJ2;
+    boolean lineModeJ1;
+    boolean lineModeJ2;
+    int[][] gridJ1 = new int[10][10];
+    int[][] gridJ2 = new int[10][10];
+    List<Point> lineTargetsJ1 = new ArrayList<>();
+    List<Point> lineTargetsJ2 = new ArrayList<>();
+    public List<Point> hitJ1;
+    List<Point> hitJ2;
+    List<Point> shipPartJ1;
+    List<Point> shipPartJ2;
+    boolean inisialise =false;
 
     int levelbot;
-    private ControllerBatleShipMouse controllerBatleShipMouse;
+    public ControllerBatleShipMouse controllerBatleShipMouse;
 
 
     public BattleShipControler(Model model, View view, ShipRootPane root, HomePage homePage) {
@@ -32,10 +58,18 @@ public class BattleShipControler extends Controller {
         AudioController audio = new AudioController();
         controllerBatleShipMouse = new ControllerBatleShipMouse(model, view, this, audio);
         setControlMouse(controllerBatleShipMouse);
-
+        potentialTargetsJ1 = new HashSet<>();
+        potentialTargetsJ2 = new HashSet<>();
+        targetModeJ1 = false;
+        targetModeJ2 = false;
+        hitJ1 = new ArrayList<>();
+        hitJ2 = new ArrayList<>();
+        shipPartJ1 = new ArrayList<>();
+        shipPartJ2 = new ArrayList<>();
     }
 
-        public void endOfTurn () {
+
+    public void endOfTurn () {
             //set scene
             update();
             // use the default method to compute next player
@@ -44,33 +78,57 @@ public class BattleShipControler extends Controller {
             Player p = model.getCurrentPlayer();
             // change the text of the TextElement
             BattleShipStageModel stageModel = (BattleShipStageModel) model.getGameStage();
-            if (model.getIdPlayer() == 0) {
-                if (controllerBatleShipMouse.mode() == 0) {
-                    player1playmode0(stageModel);
+            if (p.getType() == Player.HUMAN){
+                if (model.getIdPlayer() == 0) {
+                    if (controllerBatleShipMouse.mode() == 0) {
+                        player1playmode0(stageModel);
+                    } else {
+                        player1playmode1(stageModel);
+                    }
                 } else {
-                    player1playmode1(stageModel);
-                }
-            } else {
-                if (controllerBatleShipMouse.mode() == 0) {
-                    player2playmode0(stageModel);
-                } else {
-                    player2playmode1(stageModel);
+                    if (controllerBatleShipMouse.mode() == 0) {
+                        player2playmode0(stageModel);
+                    } else {
+                        player2playmode1(stageModel);
+                    }
                 }
             }
-
             if (p.getType() == Player.COMPUTER) {
-                if (levelbot == 1) {
-                    Logger.debug("COMPUTER PLAYS");
-                    BattleShipDecider decider = new BattleShipDecider(model, this, 1, 1);
-                    ActionPlayer play = new ActionPlayer(model, this, decider, null);
-                    play.start();
-                } else {
-                    Logger.debug("COMPUTER PLAYS");
-                    BattleShipDecider decider = new BattleShipDecider(model, this, 1, 2);
-                    ActionPlayer play = new ActionPlayer(model, this, decider, null);
+                System.out.println("count "+count+" "+stageModel.ShipPlayer2.length+" numJ1 "+numJ1);
+                if (numJ1==stageModel.ShipPlayer1.length) {
+                    ActionList actions = new ActionList();
+                    actions.setDoEndOfTurn(true);
+                    ActionPlayer play = new ActionPlayer(model, this, actions);
                     play.start();
                 }
+                if (count<stageModel.ShipPlayer2.length) {
+                    if (model.getIdPlayer() == 0) {
+                        player1playmode0(stageModel);
+                        System.out.println("test");
+                        BattleShipDecider decider = new BattleShipDecider(model, this, 0, levelbot1);
+                        decider.placeAllShips(numJ1);
+                        System.out.println("test2");
+                        numJ1++;
+                    } else {
+                        player2playmode0(stageModel);
+                        BattleShipDecider decider = new BattleShipDecider(model, this, 1, levelbot1);
+                        decider.placeAllShips(numJ2);
+                        numJ2++;
 
+                    }
+                }else {
+                    if (levelbot == 1) {
+                        Logger.debug("COMPUTER PLAYS");
+                        BattleShipDecider decider = new BattleShipDecider(model, this, 1, 1);
+                        ActionPlayer play = new ActionPlayer(model, this, decider, null);
+                        play.start();
+                    } else {
+                        Logger.debug("COMPUTER PLAYS");
+                        BattleShipDecider decider = new BattleShipDecider(model, this, 1, 2);
+                        ActionPlayer play = new ActionPlayer(model, this, decider, null);
+                        play.start();
+                    }
+                }
             } else {
                 Logger.debug("PLAYER PLAYS");
             }
