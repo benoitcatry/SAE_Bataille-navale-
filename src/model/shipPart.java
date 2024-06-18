@@ -63,20 +63,6 @@ public class shipPart extends GameElement {
     public int getIdplayer(){return idplayer;}
 
 
-    public void update() {
-        // if must be animated, move the pawn
-        if (animation != null) {
-            AnimationStep step = animation.next();
-            if (step == null) {
-                animation = null;
-            }
-            else if (step == Animation.NOPStep) {
-                Logger.debug("nothing to do", this);
-            }
-            else {
-                Logger.debug("move animation", this);
-                setLocation(step.getInt(0), step.getInt(1));
-            }
-        }
-    }
+
+
 }

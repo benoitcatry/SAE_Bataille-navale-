@@ -1,12 +1,10 @@
 package view;
 
 import boardifier.control.Logger;
-import boardifier.model.GameElement;
-import boardifier.model.GameException;
-import boardifier.model.GameStageModel;
-import boardifier.model.TextElement;
+import boardifier.model.*;
 import boardifier.view.*;
 
+import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import model.BattleShipStageModel;
@@ -24,12 +22,17 @@ public class ShipStageView extends GameStageView {
     @Override
     public void createLooks(){
         BattleShipStageModel model = (BattleShipStageModel) gameStageModel;
+        BackgroundLook background = new BackgroundLook(1000,600,0,"white", model.getBack());
+        background.moveTo(0.0,1.0);
+
+
+        addLook(background);
 
 
         addLook(new ClassicBoardLook(50,model.getBoardPlayer1(),1,Color.LIGHTBLUE,Color.AQUA,5,Color.BLACK,5,Color.BLACK,true));
 
 
-        addLook(new ClassicBoardLook(50,model.getBoardPlayer2(),1,Color.LIGHTSALMON,Color.RED,5,Color.BLACK,5,Color.BLACK,true));
+        addLook(new ClassicBoardLook(50,model.getBoardPlayer2(),1,Color.LIGHTSALMON,Color.LIGHTCORAL,5,Color.BLACK,5,Color.BLACK,true));
 
 
         for (int i=0; i<model.getShipsPlayer1().length; i++){
@@ -58,20 +61,22 @@ public class ShipStageView extends GameStageView {
         addLook(new StockMissileLook(40,40,model.getStockMissileJ2()));
 
         for (int i=0; i<model.getMissileJoueur2().length; i++){
-            addLook(new MissileLook(25,model.getMissileJoueur2()[i]));
-            addLook(new MissileLook(25,model.getMissileJoueur1()[i]));
+            addLook(new MissileLook(20,model.getMissileJoueur2()[i]));
+            addLook(new MissileLook(20,model.getMissileJoueur1()[i]));
 
         }
 
         //addLook(new ShipPartLook(5,(model.getInfoPartie())));
-        TextLook start = new TextLook(25,"0x000000",model.getStart());
-        start.setDepth(1);
-        addLook(new TextLook(50,"0x000000",model.getPlayer1Name()));
+        TextLook start = new TextLook(50,"0x000000",model.getStart());
+        start.setDepth(2);
+        addLook(new TextLook(25,"0x000000",model.getPlayer1Name()));
         addLook(start);
+        TextLook NameJ2 = new TextLook(25,"0x000000",model.getPlayer2Name());
+        addLook(NameJ2);
+        TextLook winer = new TextLook(50,"0x000000",model.getTextWiner());
+        winer.setDepth(2);
 
-
-
-
+        addLook(winer);
 
     }
 }

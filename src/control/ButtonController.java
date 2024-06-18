@@ -73,15 +73,20 @@ public class ButtonController {
 
                 else if (event.getSource()==op.getToggleMusic()){
                     pageControl.setMusic();
+
                 } else if (event.getSource()==op.getMainMenu()) {
                     pageControl.hp(hp);
+                } else if (event.getSource()==op.getSounfEffect()) {
+                    pageControl.soundeffect();
                 }
+
+
                 System.out.println(p1+" "+p2+" "+startPlayer+" "+mode+" "+perso);
 
             }
         };
 
-
+        op.setButtonListener(buttonHandler);
         hp.setButtonListener(buttonHandler);
         sp.setButtonListener(buttonHandler);
     }

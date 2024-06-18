@@ -7,8 +7,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class AudioController {
-
-    private boolean playMusic = false;
+    private static boolean soundEffect =true;
+    private static boolean playMusic = false;
     private Clip audioClip;
     private String audioPath = "src/Elements/Audio/";
 
@@ -32,19 +32,28 @@ public class AudioController {
     }
 
     public void playRater() {
-        play("Rater.wav");
+        if(soundEffect){
+            play("Rater.wav");
+        }
     }
 
+
+
+
     public void playTir() {
+        if(soundEffect){}
         play("Tir.wav");
     }
 
     public void playToucher() {
-        play("Toucher.wav");
+
+        if(soundEffect){play("Toucher.wav");}
     }
 
     public void playDestruction() {
-        play("Destruction.wav");
+        if(soundEffect){play("Destruction.wav");}
+
+
     }
 
     public void stop() {
@@ -88,5 +97,9 @@ public class AudioController {
             System.err.println("Error listing audio files.");
             e.printStackTrace();
         }
+    }
+
+    public void toggleSoundEffect() {
+        soundEffect=!soundEffect;
     }
 }

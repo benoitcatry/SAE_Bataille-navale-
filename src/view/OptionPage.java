@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 import java.awt.*;
 
 public class OptionPage {
-    private Button valid,mainMenu;
+    private Button valid,mainMenu,sounfEffect;
 
 
     public OptionPage() {
@@ -34,6 +34,7 @@ public class OptionPage {
     private void initWidget() {
         valid = new Button("Toggle Music");
         mainMenu = new Button("Main Menu");
+        sounfEffect = new Button("SounfEffect ON/OFF");
 
 
     }
@@ -54,9 +55,27 @@ public class OptionPage {
                         "-fx-font-weight: bold;" + "-fx-text-fill: Black;"
         );
 
+        sounfEffect.setStyle(
+                "-fx-font-size: 24;" +
+                        "-fx-background-color: lightgrey;" +
+                        "-fx-font-weight: bold;" + "-fx-text-fill: Black;"
+        );
+
+        mainMenu.setStyle(
+                "-fx-font-size: 24;" +
+                        "-fx-background-color: lightgrey;" +
+                        "-fx-font-weight: bold;" + "-fx-text-fill: Black;"
+        );
+
+
+        HBox hbox = new HBox();
+
         VBox vboxtotal = new VBox();
-        vboxtotal.getChildren().addAll(l,valid,mainMenu);
+        vboxtotal.getChildren().addAll(l,valid,sounfEffect,mainMenu);
         vboxtotal.setMinSize(900,600);
+        vboxtotal.setAlignment(Pos.CENTER);
+        hbox.getChildren().addAll(vboxtotal);
+
         vboxtotal.setSpacing(50);
         vboxtotal.setStyle("-fx-background-image: url('/Images/background/test4.png');" + "-fx-padding: 0px 0px 0px 15px;" );
 
@@ -66,6 +85,7 @@ public class OptionPage {
     public void setButtonListener(EventHandler<ActionEvent> handler) {
         valid.setOnAction(handler);
         mainMenu.setOnAction(handler);
+        sounfEffect.setOnAction(handler);
     }
 
 
@@ -76,4 +96,6 @@ public class OptionPage {
     public Button getMainMenu() {
         return mainMenu;
     }
+
+    public Button getSounfEffect(){return sounfEffect;}
 }

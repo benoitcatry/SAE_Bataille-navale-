@@ -24,6 +24,7 @@ public class PageControl {
     Model model;
     public PageControl(ShipRootPane root,BattleShipControler control, Model model,AudioController audio,OptionPage op){
         this.control=control;
+        this.audio=audio;
 
         this.root=root;
         this.model=model;
@@ -74,7 +75,9 @@ public class PageControl {
 
         control.startGame();
 
-
-
     }
+    public void soundeffect(){
+        audio.toggleSoundEffect();
+    }
+
 }

@@ -11,6 +11,7 @@ import model.BattleShipStageModel;
 import model.Ship;
 import view.HomePage;
 import view.ShipRootPane;
+import model.shipPart;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,22 +23,23 @@ import java.util.Scanner;
 public class BattleShipControler extends Controller {
 
     int levelbot;
-    private ControllerBatleShipMouse controllerBatleShipMouse;
+    private final ControllerBatleShipMouse controllerBatleShipMouse;
 
 
-    public BattleShipControler(Model model, View view, ShipRootPane root, HomePage homePage) {
+    public BattleShipControler(Model model, View view, ShipRootPane root, HomePage homePage, AudioController audio) {
         super(model, view);
         setControlKey(new ControllerBattleShipkey(model, view, this));
         setControlAction(new ControllerBattleShipAction(model, view, this,root, homePage ));
-        AudioController audio = new AudioController();
         controllerBatleShipMouse = new ControllerBatleShipMouse(model, view, this, audio);
         setControlMouse(controllerBatleShipMouse);
+
 
     }
 
         public void endOfTurn () {
             //set scene
             update();
+            udateellement();
             // use the default method to compute next player
             model.setNextPlayer();
             // get the new player
@@ -57,7 +59,7 @@ public class BattleShipControler extends Controller {
                     player2playmode1(stageModel);
                 }
             }
-            update();
+
 
             if (p.getType() == Player.COMPUTER) {
                 if (levelbot == 1) {
@@ -73,7 +75,7 @@ public class BattleShipControler extends Controller {
                 }
 
             } else {
-                update();
+
                 Logger.debug("PLAYER PLAYS");
 
             }
@@ -126,4 +128,30 @@ public class BattleShipControler extends Controller {
             stageModel.setvisiblebateau(stageModel.getShipsPlayer1());
             stageModel.setvisiblej2();
         }
+
+        public void udateellement(){
+            BattleShipStageModel stageModel = (BattleShipStageModel) model.getGameStage();
+
+            for(int i =0 ; i < stageModel.ShipPlayer1.length ; i++){
+                for(int j =0 ; j < stageModel.ShipPlayer1[i].shipParts.length ; j++){
+                    stageModel.ShipPlayer1[i].shipParts[j].addChangeFaceEvent();
+                    stageModel.ShipPlayer2[i].shipParts[j].addChangeFaceEvent();
+                }
+            }
+            for(int i =0 ; i < stageModel.getMissileJoueur1().length ; i++){
+                stageModel.getMissileJoueur1()[i].addChangeFaceEvent();
+                stageModel.getMissileJoueur2()[i].addChangeFaceEvent();
+            }
+
+        }
+
+        public void start(BattleShipStageModel stageModel){
+            stageModel.setinvisiblebateau(stageModel.getShipsPlayer2());
+            stageModel.setjoueur1invisible();
+            stageModel.setjoueur2invisible();
+            stageModel.setinvisiblebateau(stageModel.getShipsPlayer1());
+        }
+
+
+
     }

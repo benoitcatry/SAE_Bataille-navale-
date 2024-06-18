@@ -1,4 +1,5 @@
 package model;
+import boardifier.model.BackgroundElement;
 import boardifier.model.GameStageModel;
 import boardifier.model.StageElementsFactory;
 import boardifier.model.TextElement;
@@ -26,42 +27,55 @@ public class BattleShipStageFactory extends StageElementsFactory {
      */
 
     private void setupMode1(){
-        TextElement textplayer1 = new TextElement(stageModel.getCurrentPlayerName(), stageModel);
-        textplayer1.setLocation(0,0);
+        TextElement textplayer1 = new TextElement("Player 1", stageModel);
+        TextElement textplayer2 = new TextElement("Player 2", stageModel);
+
+        textplayer1.setLocation(5,40);
         stageModel.setPlayer1Name(textplayer1);
+        textplayer2.setLocation(5,40);
+        stageModel.setPlayer2Name(textplayer2);
+
         TextElement textstart = new TextElement("click to start", stageModel);
         textstart.setLocation(250,250);
 
         stageModel.setStart(textstart);
 
+        BackgroundElement back = new BackgroundElement(1280,853,stageModel);
+        stageModel.setBack(back);
 
-        BattleBoard boardplayer1 = new BattleBoard(0, 10, stageModel, "boardplayer1");
+        TextElement winer = new TextElement("",stageModel);
+        winer.setLocation(250,250);
+        stageModel.setTextWiner(winer);
+
+
+        BattleBoard boardplayer1 = new BattleBoard(0, 60, stageModel, "boardplayer1");
         // assign the board to the game stage model
         stageModel.setBoardPlayer1(boardplayer1);
 
-        BattleBoard boardplayer2 = new BattleBoard(0, 10, stageModel, "boardplayer2");
+        BattleBoard boardplayer2 = new BattleBoard(0, 60, stageModel, "boardplayer2");
         // assign the board to the game stage model
         stageModel.setBoardPlayer2(boardplayer2);
 
 
         int place=30;
+        int a = 70;
         //création des ship et de leur partie
         //ship pour player 1
         Ship[] shipplayer1 = new Ship[5];
-        shipplayer1[0] = new Ship(600+place,30,5,stageModel);
-        shipplayer1[1] = new Ship(665+place,30,4,stageModel);
-        shipplayer1[2] = new Ship(730+place,30,3,stageModel);
-        shipplayer1[3] = new Ship(795+place,30,3,stageModel);
-        shipplayer1[4] = new Ship(860+place,30,2,stageModel);
+        shipplayer1[0] = new Ship(600+place,30 +a,5,stageModel);
+        shipplayer1[1] = new Ship(665+place,30+a,4,stageModel);
+        shipplayer1[2] = new Ship(730+place,30+a,3,stageModel);
+        shipplayer1[3] = new Ship(795+place,30+a,3,stageModel);
+        shipplayer1[4] = new Ship(860+place,30+a,2,stageModel);
 
 
         //ship pour player 2
         Ship[] shipplayer2 = new Ship[5];
-        shipplayer2[0] = new Ship(600+place,30,5,stageModel);
-        shipplayer2[1] = new Ship(665+place,30,4,stageModel);
-        shipplayer2[2] = new Ship(730+place,30,3,stageModel);
-        shipplayer2[3] = new Ship(795+place,30,3,stageModel);
-        shipplayer2[4] = new Ship(860+place,30,2,stageModel);
+        shipplayer2[0] = new Ship(600+place,30+a,5,stageModel);
+        shipplayer2[1] = new Ship(665+place,30+a,4,stageModel);
+        shipplayer2[2] = new Ship(730+place,30+a,3,stageModel);
+        shipplayer2[3] = new Ship(795+place,30+a,3,stageModel);
+        shipplayer2[4] = new Ship(860+place,30+a,2,stageModel);
 
 
         for (int i = 0; i < shipplayer1.length; i++) {
@@ -101,50 +115,62 @@ public class BattleShipStageFactory extends StageElementsFactory {
     //                      -4 sous-marins de 1 case
 
     private void setupMode2(){
-        TextElement textplayer1 = new TextElement(stageModel.getCurrentPlayerName(), stageModel);
-        textplayer1.setLocation(0,0);
+        TextElement textplayer1 = new TextElement("Player 1", stageModel);
+        TextElement textplayer2 = new TextElement("Player 2", stageModel);
+
+        textplayer1.setLocation(5,40);
         stageModel.setPlayer1Name(textplayer1);
+        textplayer2.setLocation(5,40);
+        stageModel.setPlayer2Name(textplayer2);
+
         TextElement textstart = new TextElement("click to start", stageModel);
         textstart.setLocation(250,250);
 
         stageModel.setStart(textstart);
+
+        BackgroundElement back = new BackgroundElement(1280,853,stageModel);
+        stageModel.setBack(back);
+
+
         int place=30;
 
-        BattleBoard boardplayer1 = new BattleBoard(0, 10, stageModel, "boardplayer1");
+        BattleBoard boardplayer1 = new BattleBoard(0, 60, stageModel, "boardplayer1");
         // assign the board to the game stage model
         stageModel.setBoardPlayer1(boardplayer1);
 
-        BattleBoard boardplayer2 = new BattleBoard(0, 10, stageModel, "boardplayer2");
+        BattleBoard boardplayer2 = new BattleBoard(0, 60, stageModel, "boardplayer2");
         // assign the board to the game stage model
         stageModel.setBoardPlayer2(boardplayer2);
+
+        int a = 70;
 
         //création des ship et de leur partie
         //ship pour player 1
         Ship[] shipplayer1 = new Ship[10];
-        shipplayer1[0] = new Ship(600+place,30,4,stageModel);
-        shipplayer1[1] = new Ship(665+place,30,3,stageModel);
-        shipplayer1[2] = new Ship(730+place,30,3,stageModel);
-        shipplayer1[3] = new Ship(795+place,30,2,stageModel);
-        shipplayer1[4] = new Ship(860+place,30,2,stageModel);
-        shipplayer1[5] = new Ship(600+place,250,2,stageModel);
-        shipplayer1[6] = new Ship(665+place,250,1,stageModel);
-        shipplayer1[7] = new Ship(730+place,250,1,stageModel);
-        shipplayer1[8] = new Ship(795+place,250,1,stageModel);
-        shipplayer1[9] = new Ship(860+place,250,1,stageModel);
+        shipplayer1[0] = new Ship(600+place,30+a,4,stageModel);
+        shipplayer1[1] = new Ship(665+place,30+a,3,stageModel);
+        shipplayer1[2] = new Ship(730+place,30+a,3,stageModel);
+        shipplayer1[3] = new Ship(795+place,30+a,2,stageModel);
+        shipplayer1[4] = new Ship(860+place,30+a,2,stageModel);
+        shipplayer1[5] = new Ship(600+place,250+a,2,stageModel);
+        shipplayer1[6] = new Ship(665+place,250+a,1,stageModel);
+        shipplayer1[7] = new Ship(730+place,250+a,1,stageModel);
+        shipplayer1[8] = new Ship(795+place,250+a,1,stageModel);
+        shipplayer1[9] = new Ship(860+place,250+a,1,stageModel);
         stageModel.setShipsPlayer1(shipplayer1);
 
         //ship pour player 2
         Ship[] shipplayer2 = new Ship[10];
-        shipplayer2[0] = new Ship(600+place,30,4,stageModel);
-        shipplayer2[1] = new Ship(665+place,30,3,stageModel);
-        shipplayer2[2] = new Ship(730+place,30,3,stageModel);
-        shipplayer2[3] = new Ship(795+place,30,2,stageModel);
-        shipplayer2[4] = new Ship(860+place,30,2,stageModel);
-        shipplayer2[5] = new Ship(600+place,250,2,stageModel);
-        shipplayer2[6] = new Ship(665+place,250,1,stageModel);
-        shipplayer2[7] = new Ship(730+place,250,1,stageModel);
-        shipplayer2[8] = new Ship(795+place,250,1,stageModel);
-        shipplayer2[9] = new Ship(860+place,250,1,stageModel);
+        shipplayer2[0] = new Ship(600+place,30+a,4,stageModel);
+        shipplayer2[1] = new Ship(665+place,30+a,3,stageModel);
+        shipplayer2[2] = new Ship(730+place,30+a,3,stageModel);
+        shipplayer2[3] = new Ship(795+place,30+a,2,stageModel);
+        shipplayer2[4] = new Ship(860+place,30+a,2,stageModel);
+        shipplayer2[5] = new Ship(600+place,250+a,2,stageModel);
+        shipplayer2[6] = new Ship(665+place,250+a,1,stageModel);
+        shipplayer2[7] = new Ship(730+place,250+a,1,stageModel);
+        shipplayer2[8] = new Ship(795+place,250+a,1,stageModel);
+        shipplayer2[9] = new Ship(860+place,250+a,1,stageModel);
         stageModel.setShipsPlayer2(shipplayer2);
 
         for (int i = 0; i < shipplayer1.length; i++) {
@@ -172,16 +198,13 @@ public class BattleShipStageFactory extends StageElementsFactory {
         TextElement infopartie = new TextElement("d", stageModel);
         stageModel.setInfoPartie(infopartie);
 
-
-
-
     }
 
 
 
     private void setupmissile(int nb){
-        StockMissile stkj1 = new StockMissile(575,30,stageModel);
-        StockMissile stkj2 = new StockMissile(575,30,stageModel);
+        StockMissile stkj1 = new StockMissile(575,100,stageModel);
+        StockMissile stkj2 = new StockMissile(575,100,stageModel);
         stageModel.setStockMissileJ1(stkj1);
         stageModel.setStockMissileJ2(stkj2);
         stageModel.setPlayer1ToPlay(nb);
@@ -231,6 +254,7 @@ public class BattleShipStageFactory extends StageElementsFactory {
             }
         }
         setupmissile(nb);
+        stageModel.start();
     }
 
 

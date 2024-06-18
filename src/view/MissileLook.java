@@ -15,9 +15,9 @@ public class MissileLook extends ElementLook {
 
 
 
+
     public MissileLook( int radius, GameElement element) {
         super(element);
-
         this.radius = radius;
         render();
 
@@ -39,19 +39,29 @@ public class MissileLook extends ElementLook {
 
     @Override
     public void onFaceChange() {
-    }
-
-    protected void render() {
-
         Missille missille = (Missille) element;
-        circle = new Circle();
-        circle.setRadius(radius);
+        circle = new Circle(radius);
         if (missille.getColor() == 1) {
-            circle.setFill(Color.ORANGE);
+            circle.setFill(Color.GREY);
         } else if (missille.getColor() == 2) {
-            circle.setFill(Color.BLACK);
+            circle.setFill(Color.RED);
         }
         addShape(circle);
 
     }
+
+    protected void render() {
+        System.out.println("cc renter");
+        Missille missille = (Missille) element;
+        circle = new Circle();
+        circle.setRadius(radius);
+        if (missille.getColor() == 1) {
+            circle.setFill(Color.GREY);
+        } else if (missille.getColor() == 2) {
+            circle.setFill(Color.RED);
+        }
+        addShape(circle);
+
+    }
+
 }

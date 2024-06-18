@@ -5,10 +5,12 @@ import boardifier.model.*;
 import java.sql.SQLOutput;
 
 public class BattleShipStageModel extends GameStageModel {
+    private BackgroundElement back;
 
     private int player1toplay;
     private int Player2toplay;
     private TextElement start;
+    private TextElement textWiner;
 
     private BattleBoard Boardplayer1;
     private BattleBoard Boardplayer2;
@@ -30,26 +32,62 @@ public class BattleShipStageModel extends GameStageModel {
         setupCallbacks();
 
     }
+
+    public void setBack(BackgroundElement back) {
+        this.back = back;
+        addElement(back);
+    }
+    public BackgroundElement getBack(){
+        return back;
+    }
+
+
     public void setStart(TextElement start) {
         this.start = start;
+        addElement(start);
     }
     public TextElement getStart() {
         return start;
     }
     public void startinvisible(){
-        System.out.println("ccc" + start.isVisible());
         start.setVisible(false);
-        System.out.println("ccc" + start.isVisible());
-
+        start.addChangeVisibilityEvent();
     }
+
+    public void setTextWiner(TextElement textWiner) {
+        this.textWiner = textWiner;
+        addElement(textWiner);
+        textWiner.setVisible(false);
+        textWiner.addChangeVisibilityEvent();
+    }
+
+    public TextElement getTextWiner() {
+        return textWiner;
+    }
+
+    public void changerTextwiner(String winer, boolean egal) {
+        if( egal== false){
+            textWiner.setText("The Winner is "+winer);
+
+        }else {
+            textWiner.setText("Equality");
+        }
+        textWiner.setVisible(true);
+        textWiner.addChangeVisibilityEvent();
+    }
+
+
+
 
     public void setStockMissileJ1(StockMissile stockMissileJ1) {this.stockMissileJ1 = stockMissileJ1;
         addContainer(stockMissileJ1);
+
 
     }
 
     public void setStockMissileJ2(StockMissile stockMissileJ2) {this.stockMissileJ2 = stockMissileJ2;
         addContainer(stockMissileJ2);
+
 
     }
 
@@ -109,9 +147,9 @@ public class BattleShipStageModel extends GameStageModel {
 
 
     //set et get du nom de chaque joueur
-    public void setPlayer1Name(TextElement player1Name) {this.player1Name = player1Name; addElement(player1Name);}
+    public void setPlayer1Name(TextElement player1Name) {this.player1Name = player1Name; addElement(player1Name);player1Name.setVisible(false); player1Name.addChangeVisibilityEvent();}
     public TextElement getPlayer1Name() {return player1Name;}
-    public void setPlayer2Name(TextElement player1Name) {this.player2Name = player1Name; addElement(player2Name);}
+    public void setPlayer2Name(TextElement player2Name) {this.player2Name = player2Name; addElement(player2Name);player2Name.setVisible(false); player2Name.addChangeVisibilityEvent();}
     public TextElement getPlayer2Name() {return player2Name;}
 
     //Set et get des cellule pour les board
@@ -128,26 +166,30 @@ public class BattleShipStageModel extends GameStageModel {
 
 
     public boolean Verifpeutetreposer(Ship[] ships, int xNewship, int yNewShip, int tailleNewShip, char sens){
-    int a =0;
+        int a =0;
         int nbtotal =(tailleNewShip+2)*3;
         int tabcord [][]= new int[nbtotal][2];
-        for(int i =0; i< tailleNewShip +2; i++){
-            for(int j = -1; j<1;j++){
+        for(int i =-1; i< tailleNewShip +1; i++){
+            for(int j = -1; j<=1;j++){
                 if(sens=='H'){
                     tabcord[a][0]=xNewship+i;
                     tabcord[a][1]=yNewShip+j;
+                    //System.out.println("x"+tabcord[i][0]+"    "+ "Y"+ tabcord[i][1]);
                     a++;
                 }
                 else if(sens=='V'){
                     tabcord[a][0]=xNewship+j;
                     tabcord[a][1]=yNewShip+i;
+                    //System.out.println("x"+tabcord[a][0]+"    "+ "Y"+ tabcord[a][1]);
                     a++;
                 }
             }
             for(int k =0; k< ships.length;k++){
                 for(int l = 0; l<ships[k].getTaille(); l++){
                     for(int m = 0; m< tabcord.length; m++){
-                        if(tabcord[m][0]==ships[k].shipParts[l].getcordonneX() && tabcord[m][1] == ships[k].shipParts[l].getcordonneY()){ return false;}
+                        if(tabcord[m][0]==ships[k].shipParts[l].getcordonneX() && tabcord[m][1] == ships[k].shipParts[l].getcordonneY()){
+                            //System.out.println("x"+tabcord[i][0]+"    "+ "Y"+ tabcord[i][1] +"  "+ ships[k].shipParts[l].getcordonneX() +"  "+ships[k].shipParts[l].getcordonneY() );
+                            return false;}
                     }
 
                 }
@@ -230,14 +272,18 @@ public class BattleShipStageModel extends GameStageModel {
     }
     if(shippartcoulerplayer1 > shippartcoulerplayer2){
         System.out.println("le joueur :" + player1Name + " a gagner avec : "+ shippartcoulerplayer1 + "touche.");
+        changerTextwiner("Player 1", false);
         model.setIdWinner(1);
         model.stopStage();
     } else if (shippartcoulerplayer2 > shippartcoulerplayer1) {
         System.out.println("le joueur :" + player2Name + " a gagner avec : "+ shippartcoulerplayer2 + "touche.");
+        changerTextwiner("Player 2", false);
         model.setIdWinner(2);
         model.stopStage();
     }else{
+
         model.setIdWinner(-1);
+        changerTextwiner("", true);
         System.out.println("Match null");
         model.stopStage();
     }
@@ -283,6 +329,8 @@ public class BattleShipStageModel extends GameStageModel {
     }
 
     public void setjoueur1invisible(){
+        player1Name.setVisible(false);
+        player1Name.addChangeVisibilityEvent();
         getBoardPlayer1().setVisible(false);
         getStockMissileJ1().setVisible(false);
         for (int i = 0; i < MissileJoueur1.length ; i++){
@@ -291,6 +339,8 @@ public class BattleShipStageModel extends GameStageModel {
 
     }
     public void setjoueur2invisible(){
+        player2Name.setVisible(false);
+        player2Name.addChangeVisibilityEvent();
         getBoardPlayer2().setVisible(false);
         getStockMissileJ2().setVisible(false);
         for (int i = 0; i < MissileJoueur2.length ; i++){
@@ -299,6 +349,8 @@ public class BattleShipStageModel extends GameStageModel {
     }
 
     public void setvisiblej1(){
+        player1Name.setVisible(true);
+        player1Name.addChangeVisibilityEvent();
         getBoardPlayer1().setVisible(true);
         getStockMissileJ1().setVisible(true);
         for (int i = 0; i < MissileJoueur1.length ; i++){
@@ -307,10 +359,18 @@ public class BattleShipStageModel extends GameStageModel {
     }
 
     public void setvisiblej2(){
+        player2Name.setVisible(true);
+        player2Name.addChangeVisibilityEvent();
         getBoardPlayer2().setVisible(true);
         getStockMissileJ2().setVisible(true);
         for (int i = 0; i < MissileJoueur2.length ; i++){
             MissileJoueur2[i].setVisible(true);
         }
+    }
+    public void start(){
+        setinvisiblebateau(getShipsPlayer2());
+        setjoueur1invisible();
+        setjoueur2invisible();
+        setinvisiblebateau(getShipsPlayer1());
     }
 }
