@@ -676,11 +676,10 @@ public class BattleShipDecider extends Decider {
             if(battleShipControler.count == 2){battleShipControler.numJ1 = 0; battleShipControler.numJ2 = 0; battleShipControler.tabCordMissileJ1 = new int[battleShipStageModel.getMissileJoueur1().length][2]; battleShipControler.tabCordMissileJ2 = new int[battleShipStageModel.getMissileJoueur2().length][2];}
         }
         if (id_Bot == 0) {
-            System.out.println("ent");
+            ;
             int taille = battleShipStageModel.ShipPlayer1[m].getTaille();
             placeShip(battleShipStageModel.ShipPlayer1[m], taille, battleShipStageModel.ShipPlayer1, m);
         } else if (id_Bot == 1) {
-            System.out.println("ent");
             int taille = battleShipStageModel.ShipPlayer2[m].getTaille();
             placeShip(battleShipStageModel.ShipPlayer2[m], taille, battleShipStageModel.ShipPlayer2, m);
         }
@@ -690,10 +689,6 @@ public class BattleShipDecider extends Decider {
     private void placeShip(Ship bateau, int taille, Ship[] ship,int m) {
         random = new Random();
         BattleShipStageModel stageModel = (BattleShipStageModel) model.getGameStage();
-        if (stageModel==null){
-            System.out.println("null stage");
-
-        }
         int x;
         int y;
         char sens;
@@ -821,18 +816,11 @@ public class BattleShipDecider extends Decider {
 
     public void shipoutdesk(Ship[] ship){
         ContainerElement bateau = null;
-        Random random = new Random();
         for (int i = 0; i < ship.length; i++) {
             bateau = ship[i];
-            List<Integer> availablePositions = new ArrayList<>();
-            for (int x = 0; x < bateau.getNbRows(); x++) {
-                availablePositions.add(x);
-            }
-
             for(int j=0;j<ship[i].getTaille(); j++){
                 GameElement shippart =ship[i].shipParts[j];
-                int x = availablePositions.remove(0);
-                ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, bateau.getName(),  x, 0 );
+                ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, bateau.getName(),  j, 0 );
                 ActionPlayer play = new ActionPlayer(model, control, actions);
                 play.start();
 

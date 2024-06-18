@@ -79,21 +79,23 @@ public class BattleShipControler extends Controller {
             Player p = model.getCurrentPlayer();
             // change the text of the TextElement
             BattleShipStageModel stageModel = (BattleShipStageModel) model.getGameStage();
-            if (model.getIdPlayer() == 0) {
-                if (controllerBatleShipMouse.mode() == 0) {
-                    player1playmode0(stageModel);
-                } else {
-                    player1playmode1(stageModel);
-                }
-            } else {
-                if (controllerBatleShipMouse.mode() == 0) {
-                    player2playmode0(stageModel);
-                } else {
-                    player2playmode1(stageModel);
-                }
-            }
-            update();
+            if ((p.getType() == Player.HUMAN)) {
+                if (model.getIdPlayer() == 0) {
 
+                    if (controllerBatleShipMouse.mode() == 0) {
+                        player1playmode0(stageModel);
+                    } else {
+                        player1playmode1(stageModel);
+                    }
+                } else {
+                    if (controllerBatleShipMouse.mode() == 0) {
+                        player2playmode0(stageModel);
+                    } else {
+                        player2playmode1(stageModel);
+                    }
+                }
+                update();
+            }
 
             if ((p.getType() == Player.COMPUTER)) {
 
@@ -108,6 +110,7 @@ public class BattleShipControler extends Controller {
                             play.start();
                             modebot1=1;
                         }else{
+                            player1playmode1(stageModel);
                             Logger.debug("COMPUTER PLAYS");
                             BattleShipDecider decider = new BattleShipDecider(model, this, 1, levelbot1);
                             decider.decide();
@@ -128,9 +131,10 @@ public class BattleShipControler extends Controller {
 
 
                         }else {
+                            player2playmode1(stageModel);
                             Logger.debug("COMPUTER PLAYS");
                             BattleShipDecider decider = new BattleShipDecider(model, this, 1, levelbot2);
-                            decider.decide();
+                            //decider.decide();
                             ActionPlayer play = new ActionPlayer(model, this, decider, null);
                             play.start();
 
@@ -205,7 +209,7 @@ public class BattleShipControler extends Controller {
                 stageModel.getMissileJoueur1()[i].addChangeFaceEvent();
                 stageModel.getMissileJoueur2()[i].addChangeFaceEvent();
             }
-return;
+
         }
 
         public void start(BattleShipStageModel stageModel){
