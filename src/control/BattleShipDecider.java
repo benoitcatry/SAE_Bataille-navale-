@@ -671,7 +671,7 @@ public class BattleShipDecider extends Decider {
     //=========================== Méthode de placement =============================
 
     public void placeAllShips(int m) {
-        if(battleShipStageModel.ShipPlayer1.length-1 == m){
+        if(battleShipStageModel.ShipPlayer1.length == m){
             battleShipControler.count ++;
             if(battleShipControler.count == 2){battleShipControler.numJ1 = 0; battleShipControler.numJ2 = 0; battleShipControler.tabCordMissileJ1 = new int[battleShipStageModel.getMissileJoueur1().length][2]; battleShipControler.tabCordMissileJ2 = new int[battleShipStageModel.getMissileJoueur2().length][2];}
         }
@@ -706,7 +706,8 @@ public class BattleShipDecider extends Decider {
                     sens = 'H';
             } while (!battleShipStageModel.Verifpeutetreposer(ship, x, y, taille, sens) || !surGrille(y,x,bateau.getTaille(),sens)|| !battleShipStageModel.ShipPlayer1[m].setCordonnerShip(y, x, sens));
             placeToutPartShip(0, stageModel,x,y,sens);
-
+            System.out.println("x" + x + " y" + y);
+            System.out.println("sens"+ " " + sens);
 
         }else {
             do {
@@ -750,12 +751,11 @@ public class BattleShipDecider extends Decider {
             bateau = stageModel.getship(battleShipControler.numJ1, stageModel.ShipPlayer1);
             for (int i = 0; i < bateau.getNbRows(); i++) {
                 GameElement shippart = bateau.getElement(i, 0);
-                System.out.println(i);
-                if (sens == 'V') {
+                if (sens == 'H') {
                     ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer1", X+i, Y );
                     ActionPlayer play = new ActionPlayer(model, control, actions);
                     play.start();
-                } else if (sens == 'H') {
+                } else if (sens == 'V') {
                     ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer1", X , Y+i);
                     ActionPlayer play = new ActionPlayer(model, control, actions);
                     play.start();
@@ -771,16 +771,17 @@ public class BattleShipDecider extends Decider {
                 GameElement shippart;
                 shippart = bateau.getElement(i, 0);
                 System.out.println(i);
-                if(shippart==null){
-                    System.out.println("jdhfshdfhsqdjqhfhjsdqhghsdhjgbfhjbfhjdhghfdhghfdhjghfdhhghjfdhgfd");
-                    return;
-                }
+               if(shippart==null){
+                   System.out.println(battleShipControler.numJ2 + "nuj2");
+                   System.out.println(bateau);
 
-                if (sens == 'V') {
+               }
+
+                if (sens == 'H') {
                     ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer2",  X+i, Y );
                     ActionPlayer play = new ActionPlayer(model, control, actions);
                     play.start();
-                } else if (sens == 'H') {
+                } else if (sens == 'V') {
                     ActionList actions = ActionFactory.generatePutInContainer(control, model, shippart, "boardplayer2",  X , Y+i);
                     ActionPlayer play = new ActionPlayer(model, control, actions);
                     play.start();

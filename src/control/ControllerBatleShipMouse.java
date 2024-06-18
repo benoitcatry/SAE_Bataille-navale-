@@ -67,7 +67,7 @@ public class ControllerBatleShipMouse extends ControllerMouse implements EventHa
 
         }
 
-        System.out.println(model.getIdPlayer());
+
         if(mode==0) {
             //quelle joueur
             if (model.getIdPlayer() == 0) {
